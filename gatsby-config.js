@@ -1,24 +1,49 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
-})
+  path: `.env.${process.env.NODE_ENV}`
+});
 
 module.exports = {
   siteMetadata: {
-    siteName: 'My Shop',
+    siteName: "Ange Brousse"
   },
   plugins: [
-    'gatsby-plugin-sass',
-    'gatsby-plugin-react-helmet',
+    "gatsby-plugin-sass",
+    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-source-datocms`,
-      options: { apiToken: process.env.DATO_API_TOKEN },
+      options: { apiToken: process.env.DATO_API_TOKEN }
     },
     {
-      resolve: 'gatsby-plugin-snipcart',
+      resolve: "gatsby-plugin-snipcart",
       options: {
-        apiKey: 'OWE3MmZmMjQtNTk3Yi00OThhLWEwMmUtZDY4ZWM4NzIwYzZiNjM2NjM0Mzc1NzE0MTUwNzI1',
+        apiKey: process.env.SNIPCART_API_KEY,
         autopop: true
       }
     },
-  ],
-}
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`
+      }
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `angelebroussejewelry`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Karla`
+          // `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+        ],
+        display: "swap"
+      }
+    }
+  ]
+};

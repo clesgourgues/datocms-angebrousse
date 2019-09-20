@@ -1,0 +1,26 @@
+.Filters {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.Filter {
+  color: #999;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  &hover,
+  &.Filter__selected {
+    color: #191919;
+  }
+}
+
+.Filter__separator {
+  color: #999;
+  font-size: 14px;
+  margin: 0 5px;
+  font-size: 10px;
+}
