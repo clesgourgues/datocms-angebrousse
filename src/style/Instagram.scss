@@ -14,17 +14,25 @@
 .Instagram__profile {
   display: flex;
   padding-bottom: 20px;
+  align-items: center;
   .Instagram__profile__image {
     border-radius: 50%;
   }
-  .Instagram__profile__name {
+  .Instagram__profile__id {
     font-size: 14px;
   }
   .Instagram__profile__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 40px 20px;
+    padding: 10px 20px 10px 20px;
+  }
+  .Instagram__profile__follow {
+    margin-right: 10px;
+  }
+  .Instagram__profile__followme {
+    align-items: baseline;
+    display: flex;
   }
   .Instagram__profile__button {
     background: #3897f0;
@@ -45,6 +53,7 @@
     -ms-user-select: none;
     user-select: none;
     white-space: nowrap;
+    margin-right: 10px;
   }
 }
 
