@@ -4,7 +4,6 @@ import Img from "gatsby-image";
 import InstagramProfile from "./InstagramProfile";
 
 const Instagram = ({ publications, profile }) => {
-  console.log(profile);
   return (
     <div className="Instagram">
       <InstagramProfile profile={profile} />

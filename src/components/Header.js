@@ -5,7 +5,6 @@ import Link from "gatsby-link";
 import SnipCart from "./SnipCart";
 
 const Header = ({ sizes, cart, menu }) => {
-  console.log(menu);
   return (
     <div className="Header">
       <div className="Wrap">

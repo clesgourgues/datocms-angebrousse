@@ -2,7 +2,6 @@ import React from "react";
 import Img from "gatsby-image";
 
 const Product = ({ product, info }) => {
-  console.log(product);
   return (
     <div
       data-item-id={product.id}

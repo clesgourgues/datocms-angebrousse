@@ -33,7 +33,6 @@ exports.createPages = ({ graphql, actions }) => {
         }
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
           const path = node.slug;
-          console.log("page created", path);
           createPage({
             path,
             component: productTemplate,
@@ -47,7 +46,6 @@ exports.createPages = ({ graphql, actions }) => {
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {
           const path = node.slug;
-          console.log("page created", path);
           createPage({
             path,
             component: pageTemplate,
