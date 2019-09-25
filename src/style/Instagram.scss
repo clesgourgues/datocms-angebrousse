@@ -1,9 +1,51 @@
 .Instagram {
-  margin: 16vh 0;
+  font-size: 12px;
+  max-width: 1000px;
+  padding: 0 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin: auto;
 }
 
 .Instagram__item {
   margin-bottom: 60px;
+}
+
+.Instagram__profile {
+  display: flex;
+  padding-bottom: 20px;
+  .Instagram__profile__image {
+    border-radius: 50%;
+  }
+  .Instagram__profile__name {
+    font-size: 14px;
+  }
+  .Instagram__profile__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 40px 20px;
+  }
+  .Instagram__profile__button {
+    background: #3897f0;
+    border-color: #3897f0;
+    color: #fff;
+    -webkit-appearance: none;
+    border-radius: 3px;
+    border-style: solid;
+    border-width: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 26px;
+    outline: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    white-space: nowrap;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -60,5 +102,5 @@
 
 .Instagram__caption {
   padding-right: 20px;
-  font-size: 0.7em;
+  font-size: 1em;
 }

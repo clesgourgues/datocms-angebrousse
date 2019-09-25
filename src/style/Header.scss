@@ -1,6 +1,10 @@
 .Header {
   color: #191919;
-  margin: 50px;
+  flex-shrink: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
 .Header__body {
@@ -36,21 +40,4 @@
       padding-bottom: 10px;
     }
   }
-}
-
-.Header__summary {
-  text-decoration: none;
-  text-align: center;
-  cursor: pointer;
-  position: absolute;
-  top: 50px;
-  right: 50px;
-
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
-.Header__summary__line {
-  font-size: 0.8em;
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import Layout from "../layouts/index";
+import ContactForm from "../components/ContactForm";
 
 export default () => (
   <StaticQuery
@@ -15,7 +16,7 @@ export default () => (
     `}
     render={data => (
       <Layout>
-        <div className="Intro"></div>
+        <ContactForm />
       </Layout>
     )}
   />

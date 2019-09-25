@@ -1,6 +1,10 @@
 .Wrap {
   max-width: 1000px;
-  margin: 0 auto;
   padding: 0 50px;
+  flex-grow: 1;
+  flex-shrink: 0;
 }
 
+.Content {
+  min-height: 800px;
+}

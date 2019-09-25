@@ -1,12 +1,29 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+
 import Layout from "../layouts/index";
-import Img from "gatsby-image";
+import Instagram from "../components/Instagram";
 
 export default () => (
   <StaticQuery
     query={graphql`
       query {
+        instaUserNode {
+          id
+          username
+          full_name
+          biography
+          profile_pic_url_hd
+          edge_followed_by {
+            count
+          }
+          edge_follow {
+            count
+          }
+          edge_followed_by {
+            count
+          }
+        }
         allInstaNode {
           edges {
             node {
@@ -38,36 +55,12 @@ export default () => (
             }
           }
         }
-        site {
-          siteMetadata {
-            siteName
-          }
-        }
       }
     `}
     render={data => {
-      console.log(data);
       return (
-        <Layout site={data.site}>
-          <div className="Instagram">
-            {data.allInstaNode.edges.map(({ node: publi }) => {
-              const date = new Date(publi.timestamp).toLocaleString("fr-FR");
-              return (
-                <div className="Instagram__item" key={publi.id}>
-                  <div className="Instagram__image">
-                    <Img
-                      style={{ height: "300px" }}
-                      sizes={publi.localFile.childImageSharp.fixed}
-                    />
-                  </div>{" "}
-                  <div className="Instagram__details">
-                    <span className="Instagram__date">{date}</span>
-                    <div className="Instagram__caption">{publi.caption}</div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+        <Layout>
+          <Instagram publications={data.allInstaNode.edges} profile={data.instaUserNode} />
         </Layout>
       );
     }}

@@ -1,16 +1,15 @@
 import React from "react";
 import Helmet from "react-helmet";
-import Link from "gatsby-link";
-import Img from "gatsby-image";
 import { StaticQuery, graphql } from "gatsby";
-
+// import { HelmetDatoCms } from "gatsby-source-datocms";
+import Layout from "../components/Layout";
 import "../style/index.scss";
 
-export default ({ children, site }) => (
+export default ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsLogo {
+        allDatoCmsSiteParameter {
           edges {
             node {
               logo {
@@ -21,60 +20,60 @@ export default ({ children, site }) => (
             }
           }
         }
+        allDatoCmsMenu {
+          edges {
+            node {
+              name
+              slug
+              position
+            }
+          }
+        }
+        allDatoCmsBottomMenu {
+          edges {
+            node {
+              slug
+              name
+              position
+            }
+          }
+        }
+        allDatoCmsEncartInfo {
+          edges {
+            node {
+              info
+              publi
+            }
+          }
+        }
+        site {
+          siteMetadata {
+            siteName
+          }
+        }
       }
     `}
     render={data => {
-      console.log(data);
       return (
-        <div>
-          <Helmet title="Ange Brousse" />
-          <div className="Container">
-            <div className="Header">
-              <div className="Wrap">
-                <div className="Header__body">
-                  <div className="Header__logo">
-                    <Link to="/">
-                      <Img sizes={data.allDatoCmsLogo.edges[0].node.logo.sizes} />
-                    </Link>
-                  </div>
-
-                  <div className="Header__menu">
-                    <h5 className="Header__link">
-                      <Link to="/eshop">e-shop</Link>
-                    </h5>
-                    <h5 className="Header__link">
-                      <Link to="/instagram">inspiration</Link>
-                    </h5>
-                    <h5 className="Header__link">
-                      <Link to="/about">histoire</Link>
-                    </h5>
-                    <h5 className="Header__link">
-                      <Link to="/about">baguier</Link>
-                    </h5>
-                    <h5 className="Header__link">
-                      <Link to="/contact">contact</Link>
-                    </h5>
-                  </div>
-                  <div className="Header__summary snipcart-summary snipcart-checkout">
-                    <div className="Header__summary__title">Panier</div>
-                    <div className="Header__summary__line">
-                      Articles: <span className="snipcart-total-items"></span>
-                    </div>
-                    <div className="Header__summary__line">
-                      Prix: <span className="snipcart-total-price"></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="Wrap">{children}</div>
-            <div className="Wrap">
-              <div className="Footer">
-                C'est le footer !!! <a href="https://www.gatsbyjs.org/">Whatever</a>,{" "}
-              </div>
-            </div>
-          </div>
-        </div>
+        <>
+          <Helmet
+            title={data.site.siteMetadata.siteName}
+            meta={[
+              { name: "description", content: "Sample" },
+              { name: "keywords", content: "sample, something" }
+            ]}
+          >
+            <html lang="fr-FR" />
+          </Helmet>
+          <Layout
+            logo={data.allDatoCmsSiteParameter.edges[0].node.logo.sizes}
+            menu={data.allDatoCmsMenu.edges}
+            bottomMenu={data.allDatoCmsBottomMenu.edges}
+            encart={data.allDatoCmsEncartInfo.edges[0].node}
+          >
+            {children}
+          </Layout>
+        </>
       );
     }}
   />
