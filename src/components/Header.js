@@ -3,6 +3,7 @@ import Img from "gatsby-image";
 import Link from "gatsby-link";
 
 import SnipCart from "./SnipCart";
+import Menu from "./Menu";
 
 const Header = ({ sizes, cart, menu }) => {
   return (
@@ -14,16 +15,7 @@ const Header = ({ sizes, cart, menu }) => {
               <Img sizes={sizes} />
             </Link>
           </div>
-
-          <div className="Header__menu">
-            {menu
-              .sort((a, b) => a.node.position - b.node.position)
-              .map(item => (
-                <h5 className="Header__link">
-                  <Link to={item.node.slug}>{item.node.name}</Link>
-                </h5>
-              ))}
-          </div>
+          <Menu menu={menu} />
           <SnipCart cart={cart} />
         </div>
       </div>

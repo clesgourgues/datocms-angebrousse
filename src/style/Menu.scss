@@ -1,0 +1,25 @@
+.Menu {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.Menu__item {
+  a {
+    text-decoration: none;
+    color: #191919;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 12px;
+    &:hover {
+      border-bottom: #bf9b30 1px solid;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.Menu__selected {
+  border-bottom: #bf9b30 1px solid;
+  padding-bottom: 10px;
+}

@@ -14,7 +14,7 @@ const InstagramProfile = ({ profile }) => (
       <div className="Instagram__profile__id">
         <span>{profile.full_name}</span>
         <div className="Instagram__profile__followme">
-          <button className="Instagram__profile__button">Follow</button>
+          <button className="Instagram__profile__button">Follow us</button>
           <span>@{profile.username}</span>
         </div>
       </div>
