@@ -1,8 +1,17 @@
 .Encart {
   display: flex;
-  padding: 7px;
+  padding: 10px;
   background-color: black;
   color: white;
   align-items: center;
   justify-content: center;
+}
+
+.Encart__close {
+  color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
 }
