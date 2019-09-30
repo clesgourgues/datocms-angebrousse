@@ -22,14 +22,9 @@
   width: 100%;
   position: relative;
   margin-bottom: 25px;
-
-  img {
-    display: block;
-    opacity: 0.8;
-    transition: all 2s ease-in-out;
-    :hover {
-      opacity: 1;
-    }
+  filter: grayscale(90%) sepia(8%) saturate(200%);
+  &:hover {
+    filter: none;
   }
 }
 
