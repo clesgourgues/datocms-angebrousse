@@ -6,11 +6,7 @@ import Page from "../components/Page";
 
 export default ({ data }) => {
   const page = data.allDatoCmsPage.edges[0].node;
-  return (
-    <Layout>
-      <Page page={page} />
-    </Layout>
-  );
+  return <Page page={page} />;
 };
 
 export const query = graphql`

@@ -58,11 +58,7 @@ export default () => (
       }
     `}
     render={data => {
-      return (
-        <Layout>
-          <Instagram publications={data.allInstaNode.edges} profile={data.instaUserNode} />
-        </Layout>
-      );
+      return <Instagram publications={data.allInstaNode.edges} profile={data.instaUserNode} />;
     }}
   />
 );

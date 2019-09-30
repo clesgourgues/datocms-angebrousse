@@ -11,6 +11,8 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
+    "gatsby-plugin-page-transitions",
+    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-source-datocms`,
       options: { apiToken: process.env.DATO_API_TOKEN }

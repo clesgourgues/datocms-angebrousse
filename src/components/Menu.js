@@ -15,20 +15,21 @@ class Menu extends Component {
     const { selected } = this.state;
     console.log(this.props);
     return (
-      <div className="Menu">
+      <ul className="Menu">
         {menu
           .sort((a, b) => a.node.position - b.node.position)
           .map(item => {
             return (
-              <span
+              <li
                 className={`Menu__item ${selected === item.node.name ? "Menu__selected" : ""}`}
                 onClick={() => this.onMenuClick(item.node.name)}
+                key={item.node.name}
               >
                 <Link to={item.node.slug}>{item.node.name}</Link>
-              </span>
+              </li>
             );
           })}
-      </div>
+      </ul>
     );
   }
 }

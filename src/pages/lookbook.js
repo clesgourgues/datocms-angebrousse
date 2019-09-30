@@ -29,11 +29,7 @@ export default () => (
       }
     `}
     render={data => {
-      return (
-        <Layout>
-          <LookBook photos={data.allDatoCmsLookBook.edges[0].node.photos} />
-        </Layout>
-      );
+      return <LookBook photos={data.allDatoCmsLookBook.edges[0].node.photos} />;
     }}
   />
 );

@@ -7,11 +7,7 @@ import Product from "../components/Product";
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
   const info = data.allDatoCmsProductInfo.edges;
-  return (
-    <Layout>
-      <Product product={product} info={info} />
-    </Layout>
-  );
+  return <Product product={product} info={info} />;
 };
 
 export const query = graphql`

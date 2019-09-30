@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { StaticQuery, graphql } from "gatsby";
+// import PageTransition from "gatsby-plugin-page-transitions";
 // import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
 import "../style/index.scss";

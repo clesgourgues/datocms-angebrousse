@@ -13,10 +13,6 @@ export default () => (
         }
       }
     `}
-    render={data => (
-      <Layout>
-        <div className="Intro"></div>
-      </Layout>
-    )}
+    render={data => <div className="Intro"></div>}
   />
 );

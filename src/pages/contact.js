@@ -14,10 +14,6 @@ export default () => (
         }
       }
     `}
-    render={data => (
-      <Layout>
-        <ContactForm />
-      </Layout>
-    )}
+    render={data => <ContactForm />}
   />
 );

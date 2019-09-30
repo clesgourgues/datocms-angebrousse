@@ -36,10 +36,6 @@ export default () => (
         }
       }
     `}
-    render={data => (
-      <Layout>
-        <Catalogue products={data.products.edges} filters={data.filters.edges} />
-      </Layout>
-    )}
+    render={data => <Catalogue products={data.products.edges} filters={data.filters.edges} />}
   />
 );

@@ -5,8 +5,8 @@ const LookBook = ({ photos }) => {
   return (
     <div className="Lookbook">
       <div className="Wrap">
-        {photos.map(photo => (
-          <div className="Lookbook__photo">
+        {photos.map((photo, index) => (
+          <div className="Lookbook__photo" key={`lookbook-${index}`}>
             <Img fluid={photo.fluid} loading="lazy" />
           </div>
         ))}
