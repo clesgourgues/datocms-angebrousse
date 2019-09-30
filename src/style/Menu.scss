@@ -1,25 +1,67 @@
+$animate: all 0.2s ease-in-out;
 .Menu {
   display: flex;
   width: 100%;
-  flex-direction: row;
   justify-content: space-around;
+  opacity: 0.95;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin: 0 0 45px;
 }
 
 .Menu__item {
+  text-align: center;
+  margin: 0 auto;
+  padding: 0;
+  transition: $animate;
+  position: relative;
   a {
     text-decoration: none;
     color: #191919;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     font-size: 12px;
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 0px;
+      height: 1px;
+      margin: 5px 0 0;
+      transition: $animate;
+      transition-duration: 0.35s;
+      opacity: 0;
+      background-color: darken(#bf9b30, 5%);
+    }
+    &:before {
+      left: 50%;
+    }
+    &:after {
+      right: 50%;
+    }
     &:hover {
-      border-bottom: #bf9b30 1px solid;
-      padding-bottom: 10px;
+      cursor: pointer;
+      &:before,
+      &:after {
+        width: 50%;
+        opacity: 1;
+      }
     }
   }
 }
 
 .Menu__selected {
-  border-bottom: #bf9b30 1px solid;
-  padding-bottom: 10px;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    margin: 5px 0 0;
+    opacity: 1;
+    background-color: darken(#bf9b30, 5%);
+  }
 }
