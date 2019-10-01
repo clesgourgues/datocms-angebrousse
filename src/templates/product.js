@@ -30,6 +30,7 @@ export const query = graphql`
             name
             price
             id
+            slug
             image {
               url
               sizes(maxWidth: 600, imgixParams: { fm: "jpg" }) {
@@ -48,6 +49,7 @@ export const query = graphql`
               sizes
               srcSet
               base64
+              aspectRatio
             }
           }
         }
@@ -59,6 +61,8 @@ export const query = graphql`
           buyText
           sizeText
           outOfStockText
+          backText
+          linkedProductsText
         }
       }
     }

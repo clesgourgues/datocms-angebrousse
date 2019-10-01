@@ -1,41 +1,36 @@
 import React from "react";
+import Link from "gatsby-link";
 
 import ProductInfo from "../components/ProductInfo";
 import ImageSlider from "../components/ImageSlider";
+import Sizes from "../components/Sizes";
+import CatalogueProduct from "../components/CatalogueProduct";
+import { createMarkup } from "../helpers/content";
 
 const Product = ({ product, info, text }) => {
   console.log(product);
-  const sizes = ["48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60"];
+
   const renderOutOfStockProducts = (
     <span className="Product__outofstock">{text[0].node.outOfStockText}</span>
   );
-  const renderSizes = product.size ? (
-    <div>
-      <span className="Product__size">{text[0].node.sizeText}</span>
-      <div className="Product__size">
-        {sizes.map(size => (
-          <span
-            className={`Product__size_item ${
-              product.size.includes(size) ? "Product__size_available" : ""
-            }`}
-            key={size}
-          >
-            {size}
-          </span>
-        ))}
-      </div>
-    </div>
-  ) : null;
+
+  const productCaracteristics = createMarkup(product.productCaracteristics);
+
   return (
     <div className="Product">
+      <div className="Product__back">
+        <Link to="/">{`< ${text[0].node.backText}`}</Link>
+      </div>
       <div className="Product__details">
         <ImageSlider images={product.image} />
         <div className="Product__buy">
           <div>
-            <div className="Product__name">{product.name}</div>
+            <div className="Product__title">{product.name}</div>
             <div className="Product__price">{product.price}€</div>
           </div>
-          {product.size && !product.outOfStock && renderSizes}
+          {product.size && !product.outOfStock && (
+            <Sizes text={text[0].node.sizeText} availableSizes={product.size} />
+          )}
           {product.outOfStock && renderOutOfStockProducts}
           <button
             data-item-id={product.id}
@@ -51,10 +46,23 @@ const Product = ({ product, info, text }) => {
             {text[0].node.buyText}
           </button>
           <div className="Product__description">{product.description}</div>
-          <div className="Product__characteristics">{product.productCaracteristics}</div>
+          <div
+            className="Product__characteristics"
+            dangerouslySetInnerHTML={productCaracteristics}
+          />
         </div>
       </div>
       <ProductInfo info={info} />
+      {product.linkedProducts.length > 0 && (
+        <>
+          <span className="Product__title">{text[0].node.linkedProductsText}</span>
+          <div className="Product__linkedproducts">
+            {product.linkedProducts.map(linkedProduct => (
+              <CatalogueProduct product={linkedProduct} />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 };

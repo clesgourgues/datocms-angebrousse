@@ -1,6 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import Layout from "../layouts/index";
 import ContactForm from "../components/ContactForm";
 
 export default () => (

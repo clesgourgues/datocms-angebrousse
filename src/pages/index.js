@@ -1,7 +1,6 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import Layout from "../layouts/index";
 import Catalogue from "../components/Catalogue";
 
 export default () => (
