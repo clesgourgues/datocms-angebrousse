@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ContactForm from "../components/ContactForm";
+
+import SuccessForm from "../components/SuccessForm";
 
 export default () => (
   <StaticQuery
@@ -9,13 +10,14 @@ export default () => (
         allDatoCmsSiteParameter {
           edges {
             node {
-              contactText
-              messageText
+              formText
             }
           }
         }
       }
     `}
-    render={data => <ContactForm text={data.allDatoCmsSiteParameter.edges[0].node} />}
+    render={data => {
+      return <SuccessForm text={data.allDatoCmsSiteParameter.edges[0].node.formText} />;
+    }}
   />
 );

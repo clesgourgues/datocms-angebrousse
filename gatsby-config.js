@@ -50,6 +50,14 @@ module.exports = {
         fonts: [`Karla`, `Rouge+Script`],
         display: "swap"
       }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: process.env.GOOGLE_TRACKING_ID,
+        // Defines where to place the tracking script - `true` in the head and `false` in the body
+        head: true
+      }
     }
   ]
 };

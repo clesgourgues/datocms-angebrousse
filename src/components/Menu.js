@@ -13,7 +13,6 @@ class Menu extends Component {
   render() {
     const { menu } = this.props;
     const { selected } = this.state;
-    console.log(this.props);
     return (
       <ul className="Menu">
         {menu
