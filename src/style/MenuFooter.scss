@@ -1,0 +1,23 @@
+.Menu__footer {
+  width: 66%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.Menu__footer__items {
+  display: flex;
+  flex-direction: column;
+}
+
+.Menu__footer__item {
+  a {
+    text-decoration: none;
+    color: #191919;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+}

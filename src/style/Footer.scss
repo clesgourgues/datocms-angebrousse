@@ -1,14 +1,22 @@
 .Footer {
   width: 100%;
-  font-family: "Karla", sans-serif;
-  font-style: italic;
-  background-color: black;
-  padding: 20px 30px;
+  padding: 20px 60px;
   flex-shrink: 0;
-
   a {
     font-weight: bold;
-    text-decoration: underline;
-    color: white;
+    color: #191919;
   }
+}
+
+.Footer__border {
+  content: "";
+  height: 1px;
+  width: 600px;
+  background-color: darken(#bf9b30, 5%);
+  margin: auto;
+}
+
+.Footer__privacy {
+  color: #999 !important;
+  font-size: 8px;
 }

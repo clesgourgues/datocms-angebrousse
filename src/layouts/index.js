@@ -47,6 +47,20 @@ export default ({ children }) => (
             }
           }
         }
+        allInstaNode {
+          edges {
+            node {
+              id
+              localFile {
+                childImageSharp {
+                  fixed(width: 300, height: 300) {
+                    ...GatsbyImageSharpFixed
+                  }
+                }
+              }
+            }
+          }
+        }
         site {
           siteMetadata {
             siteName
@@ -71,6 +85,7 @@ export default ({ children }) => (
             menu={data.allDatoCmsMenu.edges}
             bottomMenu={data.allDatoCmsBottomMenu.edges}
             encart={data.allDatoCmsEncartInfo.edges[0].node}
+            instagram={data.allInstaNode.edges}
           >
             {children}
           </Layout>

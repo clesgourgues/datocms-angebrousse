@@ -1,3 +1,25 @@
+.Instagram__bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 20px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.Instagram__bottom__items {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Instagram__bottom__item {
+  width: 100px;
+  padding: 10px;
+}
+
 .Instagram {
   font-size: 12px;
   max-width: 1000px;
@@ -9,6 +31,39 @@
 
 .Instagram__item {
   margin-bottom: 60px;
+}
+
+.Instagram__profile__button {
+  background: #3897f0;
+  border-color: #3897f0;
+  color: #fff;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 18px;
+  outline: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.Instagram__profile__followme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.Instagram__profile__followme__after {
+  font-size: 10px;
+  text-decoration: none;
 }
 
 .Instagram__profile {
@@ -33,27 +88,6 @@
   .Instagram__profile__followme {
     align-items: baseline;
     display: flex;
-  }
-  .Instagram__profile__button {
-    background: #3897f0;
-    border-color: #3897f0;
-    color: #fff;
-    -webkit-appearance: none;
-    border-radius: 3px;
-    border-style: solid;
-    border-width: 1px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 26px;
-    outline: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    white-space: nowrap;
-    margin-right: 10px;
   }
 }
 
