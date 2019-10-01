@@ -1,13 +1,13 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Layout from "../layouts/index";
 import Product from "../components/Product";
 
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
   const info = data.allDatoCmsProductInfo.edges;
-  return <Product product={product} info={info} />;
+  const text = data.allDatoCmsSiteParameter.edges;
+  return <Product product={product} info={info} text={text} />;
 };
 
 export const query = graphql`
@@ -19,6 +19,8 @@ export const query = graphql`
           id
           name
           price
+          size
+          description
           category {
             name
           }
@@ -35,6 +37,7 @@ export const query = graphql`
                 sizes
                 srcSet
                 base64
+                aspectRatio
               }
             }
           }
@@ -47,6 +50,15 @@ export const query = graphql`
               base64
             }
           }
+        }
+      }
+    }
+    allDatoCmsSiteParameter {
+      edges {
+        node {
+          buyText
+          sizeText
+          outOfStockText
         }
       }
     }

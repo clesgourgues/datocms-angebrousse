@@ -1,41 +1,37 @@
 .Product {
-  max-width: 1000px;
   padding: 0 50px;
-  flex-grow: 1;
-  flex-shrink: 0;
-  margin: auto;
-}
-
-.Product__image {
-  width: 100%;
-  position: relative;
-  margin-bottom: 25px;
-  flex: 2;
-
-  img {
-    display: block;
-    filter: grayscale(90%) sepia(13%) saturate(700%);
-    transition: all 2s ease-in-out;
-    :hover {
-      opacity: 1;
-    }
-  }
+  margin: 0 auto 60px auto;
+  max-width: 1000px;
 }
 
 .Product__details {
   display: flex;
-  align-items: center;
+}
+
+.Product__image {
+  width: 66%;
+  position: relative;
+  cursor: pointer;
+}
+
+.Product__image__selected {
+  transition: filter 0.6s ease-out, opacity 0.6s ease-in;
+  filter: blur(0);
+  opacity: 1;
+}
+
+.Product__buy {
   display: flex;
-  align-items: center;
   flex-direction: column;
   flex: 1;
+  padding: 40px;
+  justify-content: space-between;
 }
 
 .Product__name {
   font-weight: bold;
-  text-align: center;
   text-decoration: none;
-  color: black;
+  color: #191919;
 }
 
 .Product__price {
@@ -44,17 +40,75 @@
   color: #999;
 }
 
-.Product__buy {
-  flex: 1;
-  text-align: right;
+.Product__size {
+  font-size: 0.8em;
+}
+
+.Product__size_item {
+  padding: 0 5px;
+  color: #999;
+}
+
+.Product__size_available {
+  color: #191919;
+}
+
+.Product__button {
+  text-align: center;
   text-transform: uppercase;
-  background: black;
+  color: #191919;
   padding: 10px 20px;
-  color: white;
   position: relative;
   font-weight: bold;
+  border: 1px solid black;
 
   &:hover {
-    text-decoration: underline;
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    cursor: pointer;
   }
+}
+
+.Product__button__disabled {
+  color: #999;
+  border: 1px solid #999;
+  &:hover {
+    text-decoration: none;
+    color: #999;
+    border: 1px solid #999;
+    background-color: white;
+    cursor: inherit;
+  }
+}
+
+.Product__outofstock {
+  font-size: 0.8em;
+}
+
+.Product__description,
+.Product__characteristics {
+  font-size: 0.8em;
+  font-weight: normal;
+  color: #999;
+}
+
+.Product__info {
+  // border-top: 1px solid #999;
+  // border-bottom: 1px solid #999;
+  margin: 40px 0;
+  color: #999;
+}
+
+.Product__info__item {
+  flex: 1;
+  padding: 10px 0;
+  text-align: center;
+}
+.Product__info__title {
+}
+
+.Product__info__content {
+  font-size: 0.8em;
+  font-style: italic;
 }
