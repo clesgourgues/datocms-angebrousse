@@ -14,14 +14,7 @@ export default () => (
                 legende
                 photo {
                   fluid {
-                    width
-                    tracedSVG
-                    srcSet
-                    src
-                    sizes
-                    height
-                    base64
-                    aspectRatio
+                    ...GatsbyDatoCmsFluid
                   }
                 }
               }

@@ -47,7 +47,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
-        fonts: [`Karla`, `Rouge+Script`],
+        fonts: [`Karla`, `Oswald`],
         display: "swap"
       }
     },
