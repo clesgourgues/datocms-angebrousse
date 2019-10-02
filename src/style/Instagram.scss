@@ -3,7 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 20px;
   a {
     text-decoration: none;
   }
@@ -13,6 +12,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .Instagram__bottom__item {
@@ -47,11 +47,10 @@
   outline: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
+  width: 80px;
+  cursor: pointer;
 }
 
 .Instagram__profile__followme {

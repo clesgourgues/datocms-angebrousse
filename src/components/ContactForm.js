@@ -8,7 +8,6 @@ class ContactForm extends Component {
   componentDidMount() {
     document.addEventListener("snipcart.ready", () => {
       const user = window.Snipcart.api.user.current();
-      console.log("user", user);
       this.setState({ user });
     });
   }
@@ -42,8 +41,7 @@ class ContactForm extends Component {
               placeholder={text.messageText}
               required
               maxLength="1000"
-            ></textarea>
-
+            />
             <div data-netlify-recaptcha="true"></div>
             <button type="submit" className="Contact__form__button">
               Send

@@ -1,8 +1,6 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import NewsLetter from "../components/NewsLetter";
-
 const getMenu = menu =>
   menu
     .sort((a, b) => a.node.position - b.node.position)
@@ -21,7 +19,6 @@ const MenuFooter = ({ menu }) => (
     {menu.length > 6 && (
       <ul className="Menu__footer__items">{getMenu(menu.slice(5, menu.length + 1))}</ul>
     )}
-    <NewsLetter />
   </div>
 );
 

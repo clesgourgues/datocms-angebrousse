@@ -1,3 +1,31 @@
+.Newsletter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.Newsletter__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Newsletter__form__input {
+  width: 600px;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-bottom: 1px solid #999;
+  padding: 15px;
+  font-size: 18px;
+  margin: 10px 0 20px 0;
+  &::placeholder {
+    color: #999;
+    font-size: 12px;
+  }
+}
+
 .Newsletter__form__button {
   background: black;
   border-color: black;
@@ -12,9 +40,8 @@
   outline: 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
   white-space: nowrap;
+  width: 80px;
+  cursor: pointer;
 }

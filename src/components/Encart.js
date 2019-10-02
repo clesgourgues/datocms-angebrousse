@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaTimes } from "react-icons/fa";
 
 const Encart = ({ encart }) => {
   const [closed, setClosed] = useState(false);
@@ -9,7 +10,7 @@ const Encart = ({ encart }) => {
     <div className="Encart">
       <p>{encart.info}</p>
       <span className="Encart__close" onClick={() => setClosed(true)}>
-        X
+        <FaTimes />
       </span>
     </div>
   );

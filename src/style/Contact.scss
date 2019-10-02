@@ -24,9 +24,9 @@ form.Contact__form {
   width: 600px;
   margin: auto;
   padding: 40px 0;
-  input:invalid {
-    border: 2px dashed red;
-  }
+  /*   input:invalid {
+    border-bottom: 1px solid red;
+  } */
 }
 
 .Contact__form__input {

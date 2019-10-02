@@ -1,0 +1,23 @@
+.Page {
+  flex: 1;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.Page__title {
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 0.15em;
+  font-size: 28px;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.Page__content {
+  padding: 40px;
+  color: #999;
+  font-size: 12px;
+  p {
+    margin: 10px 0;
+  }
+}

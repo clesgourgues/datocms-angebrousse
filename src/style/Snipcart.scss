@@ -13,8 +13,8 @@
 .Snipcart__quantity {
   font-size: 0.8rem;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: -5px;
+  right: -5px;
   border-radius: 50%;
   background-color: black;
   color: white;
@@ -35,14 +35,36 @@
 .snip-layout.snip-layout {
   * {
     font-family: "Karla", sans-serif;
+    color: #191919;
+  }
+
+  .snip-layout__close {
+    color: #191919;
+  }
+
+  .snip-layout__main-container {
+    border: 1px solid black !important;
+  }
+
+  .snip-header,
+  .snip-footer {
+    background: transparent;
+  }
+
+  .snip-header__user {
+    background: transparent;
+  }
+
+  .snip-header__user-mail {
+    color: #191919;
   }
 
   .snip-product__name {
     text-transform: none;
   }
 
-  .snip-header {
-    background: black;
+  .snip-product__empty {
+    text-transform: none;
   }
 
   .snip-layout__main-container {
@@ -51,6 +73,26 @@
   }
 
   .snip-header__total {
-    border-radius: 0;
+    color: white;
+    span {
+      color: white;
+    }
+  }
+
+  .snip-quantity-trigger {
+    align-items: baseline;
+  }
+
+  .snip-quantity-trigger__btn {
+    background-color: transparent;
+  }
+
+  .snip-product__remove {
+    color: black;
+  }
+
+  .snip-btn--highlight {
+    background: darken(#bf9b30, 5%);
+    color: white;
   }
 }

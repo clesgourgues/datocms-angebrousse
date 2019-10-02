@@ -3,10 +3,7 @@ import { graphql } from "gatsby";
 
 import Page from "../components/Page";
 
-export default ({ data }) => {
-  const page = data.allDatoCmsPage.edges[0].node;
-  return <Page page={page} />;
-};
+export default ({ data }) => <Page page={data.allDatoCmsPage.edges[0].node} />;
 
 export const query = graphql`
   query($pathSlug: String!) {

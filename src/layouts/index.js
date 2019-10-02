@@ -13,6 +13,8 @@ export default ({ children }) => (
         allDatoCmsSiteParameter {
           edges {
             node {
+              newsletterText
+              followText
               logo {
                 sizes(maxWidth: 600, imgixParams: { fm: "jpg" }) {
                   ...GatsbyDatoCmsSizes
@@ -86,6 +88,7 @@ export default ({ children }) => (
             bottomMenu={data.allDatoCmsBottomMenu.edges}
             encart={data.allDatoCmsEncartInfo.edges[0].node}
             instagram={data.allInstaNode.edges}
+            text={data.allDatoCmsSiteParameter.edges[0].node}
           >
             {children}
           </Layout>
