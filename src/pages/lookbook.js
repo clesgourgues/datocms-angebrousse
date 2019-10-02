@@ -11,16 +11,22 @@ export default () => (
           edges {
             node {
               photos {
-                fluid {
-                  sizes
-                  base64
-                  src
-                  aspectRatio
-                  height
-                  srcSet
-                  tracedSVG
-                  width
+                legende
+                photo {
+                  fluid {
+                    width
+                    tracedSVG
+                    srcSet
+                    src
+                    sizes
+                    height
+                    base64
+                    aspectRatio
+                  }
                 }
+              }
+              collection {
+                name
               }
             }
           }
@@ -28,7 +34,7 @@ export default () => (
       }
     `}
     render={data => {
-      return <LookBook photos={data.allDatoCmsLookBook.edges[0].node.photos} />;
+      return <LookBook lookbooks={data.allDatoCmsLookBook.edges} />;
     }}
   />
 );
