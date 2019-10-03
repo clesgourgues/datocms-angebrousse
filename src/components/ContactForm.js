@@ -2,18 +2,24 @@ import React, { Component } from "react";
 
 class ContactForm extends Component {
   state = {
-    user: null
+    email: ""
   };
 
   componentDidMount() {
     document.addEventListener("snipcart.ready", () => {
       const user = window.Snipcart.api.user.current();
-      this.setState({ user });
+      if (user) {
+        this.setState({ email: user.email });
+      }
     });
   }
 
+  handleChange = event => {
+    this.setState({ email: event.target.value });
+  };
+
   render() {
-    const { user } = this.state;
+    const { email } = this.state;
     const { text } = this.props;
     return (
       <form
@@ -24,6 +30,7 @@ class ContactForm extends Component {
         action="/success"
         className="Contact__form"
       >
+        <input type="hidden" name="form-name" value="contact" />
         <input
           className="Contact__form__input"
           name="email"
@@ -31,7 +38,8 @@ class ContactForm extends Component {
           required
           type="email"
           maxLength="100"
-          value={user ? user.email : ""}
+          value={email}
+          onChange={this.handleChange}
         />
         <textarea
           name="message"
