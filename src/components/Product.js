@@ -6,6 +6,7 @@ import ImageSlider from "../components/ImageSlider";
 import Sizes from "../components/Sizes";
 import CatalogueProduct from "../components/CatalogueProduct";
 import { createMarkup } from "../helpers/content";
+import { getProductOptions } from "../helpers/sizes";
 
 const Product = ({ product, info, text }) => {
   console.log(product);
@@ -15,6 +16,8 @@ const Product = ({ product, info, text }) => {
   );
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
+  const productOptions = product.size ? getProductOptions(product.size) : "";
+  const productNameOptions = product.size ? "Taille" : "";
 
   return (
     <div className="Product">
@@ -39,9 +42,11 @@ const Product = ({ product, info, text }) => {
             data-item-name={product.name}
             data-item-url={product.slug}
             className={`Product__button snipcart-add-item ${
-              product.outOfStock ? "Product__button__disabled" : null
+              product.outOfStock ? "Product__button__disabled" : ""
             }`}
             disabled={product.outOfStock}
+            data-item-custom1-name={productNameOptions}
+            data-item-custom1-options={productOptions}
           >
             {text[0].node.buyText}
           </button>

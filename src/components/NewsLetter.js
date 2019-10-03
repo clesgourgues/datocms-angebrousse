@@ -17,12 +17,13 @@ class NewsLetter extends Component {
     return (
       <div className="Newsletter">
         <form
-          name="newsletter"
+          name="Newsletter"
           method="POST"
           data-netlify-recaptcha="true"
           data-netlify="true"
           className="Newsletter__form"
         >
+          <input type="hidden" name="form-name" value="Newsletter" />
           <input
             className="Newsletter__form__input"
             name="email"
