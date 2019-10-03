@@ -9,7 +9,7 @@ const InstagramBottom = ({ publications }) => {
           return (
             <div className="Instagram__bottom__item" key={publi.id}>
               <div className="Instagram__bottom__image">
-                <Img style={{ height: "80px" }} sizes={publi.localFile.childImageSharp.fixed} />
+                <Img style={{ height: "100px" }} sizes={publi.localFile.childImageSharp.fixed} />
               </div>
             </div>
           );
