@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: $spacing-big;
 }
 
 .Newsletter__form {
@@ -18,11 +18,11 @@
   border-left: none;
   border-bottom: 1px solid #999;
   padding: 15px;
-  font-size: 18px;
-  margin: 10px 0 20px 0;
+  font-size: $font-size-big;
+  margin: $spacing-small 0 $spacing-medium 0;
   &::placeholder {
-    color: #999;
-    font-size: 12px;
+    color: $color-light;
+    font-size: $font-size-small;
   }
 }
 
@@ -34,14 +34,14 @@
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  font-size: 10px;
+  font-size: $font-size-small;
   font-weight: 700;
-  line-height: 18px;
+  line-height: $font-size-big;
   outline: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-  width: 80px;
+  width: 180px;
   cursor: pointer;
 }

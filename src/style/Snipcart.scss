@@ -4,27 +4,27 @@
   cursor: pointer;
   position: absolute;
   top: 60px;
-  right: 40px;
+  right: $spacing-big;
   &:hover {
     text-decoration: none;
   }
 }
 
 .Snipcart__quantity {
-  font-size: 0.8rem;
+  font-size: $font-size-medium;
   position: absolute;
   top: -5px;
   right: -5px;
   border-radius: 50%;
   background-color: black;
   color: white;
-  width: 20px;
-  height: 20px;
+  width: $spacing-medium;
+  height: $spacing-medium;
 }
 
 .Snipcart__price {
-  font-size: 0.8rem;
-  color: #999;
+  font-size: $font-size-medium;
+  color: $color-light;
 }
 
 .Snipcart__icon {
@@ -34,12 +34,12 @@
 
 .snip-layout.snip-layout {
   * {
-    font-family: "Karla", sans-serif;
-    color: #191919;
+    font-family: $font-text;
+    color: $color-dark;
   }
 
   .snip-layout__close {
-    color: #191919;
+    color: $color-dark;
   }
 
   .snip-layout__main-container {
@@ -56,7 +56,7 @@
   }
 
   .snip-header__user-mail {
-    color: #191919;
+    color: $color-dark;
   }
 
   .snip-product__name {
@@ -92,7 +92,7 @@
   }
 
   .snip-btn--highlight {
-    background: darken(#bf9b30, 5%);
+    background: darken($color-golden, 5%);
     color: white;
   }
 }

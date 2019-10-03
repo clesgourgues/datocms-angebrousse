@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-around;
   margin: auto;
-  padding: 20px 0;
+  padding: $spacing-medium 0;
   text-align: left;
   width: 700px;
 }
@@ -17,9 +17,9 @@
 .Menu__footer__item {
   a {
     text-decoration: none;
-    color: #191919;
+    color: $color-dark;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: $font-size-small;
   }
 }

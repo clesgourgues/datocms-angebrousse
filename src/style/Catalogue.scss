@@ -1,9 +1,9 @@
 .Catalogue {
-  color: #191919;
+  color: $color-dark;
   flex-shrink: 0;
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: $spacing-medium;
 }
 
 .Catalogue__products {
@@ -46,7 +46,7 @@
 .Catalogue__price {
   font-size: 0.8em;
   font-weight: normal;
-  color: #999;
+  color: $color-light;
 }
 
 @media screen and (min-width: 600px) {

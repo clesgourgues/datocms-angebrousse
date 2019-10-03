@@ -4,24 +4,24 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
-  margin-bottom: 10px;
+  margin-bottom: $spacing-small;
 }
 
 .Filter {
-  color: #999;
-  font-size: 12px;
+  color: $color-light;
+  font-size: $font-size-small;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   cursor: pointer;
   &hover,
   &.Filter__selected {
-    color: #191919;
+    color: $color-dark;
   }
 }
 
 .Filter__separator {
-  color: #999;
-  font-size: 14px;
+  color: $color-light;
+  font-size: $font-size-medium;
   margin: 0 5px;
-  font-size: 10px;
+  font-size: $spacing-small;
 }

@@ -1,6 +1,6 @@
 .Encart {
   display: flex;
-  padding: 10px;
+  padding: $spacing-small;
   background-color: black;
   color: white;
   align-items: center;
@@ -12,6 +12,6 @@
   font-size: 16px;
   position: absolute;
   top: 5px;
-  right: 10px;
+  right: $spacing-small;
   cursor: pointer;
 }

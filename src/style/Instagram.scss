@@ -12,16 +12,16 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  margin-bottom: $spacing-small;
 }
 
 .Instagram__bottom__item {
   width: 120px;
-  padding: 10px;
+  padding: $spacing-small;
 }
 
 .Instagram {
-  font-size: 12px;
+  font-size: $font-size-small;
   max-width: 1000px;
   padding: 0 50px;
   flex-grow: 1;
@@ -41,15 +41,15 @@
   border-radius: 3px;
   border-style: solid;
   border-width: 1px;
-  font-size: 10px;
+  font-size: $font-size-small;
   font-weight: 700;
-  line-height: 18px;
+  line-height: $font-size-big;
   outline: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-  width: 80px;
+  width: 180px;
   cursor: pointer;
 }
 
@@ -61,28 +61,28 @@
 }
 
 .Instagram__profile__followme__after {
-  font-size: 10px;
+  font-size: $font-size-small;
   text-decoration: none;
 }
 
 .Instagram__profile {
   display: flex;
-  padding-bottom: 20px;
+  padding-bottom: $spacing-medium;
   align-items: center;
   .Instagram__profile__image {
     border-radius: 50%;
   }
   .Instagram__profile__id {
-    font-size: 14px;
+    font-size: $font-size-medium;
   }
   .Instagram__profile__content {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: 10px 20px 10px 20px;
+    padding: $spacing-small $spacing-medium $spacing-small $spacing-medium;
   }
   .Instagram__profile__follow {
-    margin-right: 10px;
+    margin-right: $spacing-small;
   }
 }
 
@@ -133,12 +133,12 @@
 .Instagram__date {
   display: flex;
   align-items: center;
-  font-size: 0.7em;
+  font-size: $font-size-small;
   font-weight: normal;
-  color: #555;
+  color: $color-dark;
 }
 
 .Instagram__caption {
-  padding-right: 20px;
+  padding-right: $spacing-medium;
   font-size: 1em;
 }

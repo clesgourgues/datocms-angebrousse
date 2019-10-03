@@ -6,13 +6,13 @@
 }
 
 .Lookbook__photo {
-  margin: 0 0 20px 0;
+  margin: 0 0 $spacing-medium 0;
 }
 
 .Lookbook__photo__legend {
-  font-size: 0.8rem;
-  color: #999;
+  font-size: $font-size-medium;
+  color: $color-light;
   font-style: italic;
   text-align: center;
-  padding: 20px;
+  padding: $spacing-medium;
 }
