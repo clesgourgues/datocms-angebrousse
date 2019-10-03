@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class NewsLetter extends Component {
   state = {
-    user: null
+    email: ""
   };
 
   componentDidMount() {
@@ -12,8 +12,12 @@ class NewsLetter extends Component {
     });
   }
 
+  handleChange = event => {
+    this.setState({ email: event.target.value });
+  };
+
   render() {
-    const { user } = this.state;
+    const { email } = this.state;
     const { buttonText } = this.props;
     return (
       <div className="Newsletter">
@@ -32,7 +36,8 @@ class NewsLetter extends Component {
             required
             type="email"
             maxLength="100"
-            value={user ? user.email : ""}
+            value={email}
+            onChange={this.handleChange}
           />
           <div data-netlify-recaptcha="true"></div>
           <button type="submit" className="Newsletter__form__button">

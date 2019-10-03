@@ -8,8 +8,8 @@ const Contact = ({ text }) => (
       <h2 className="Title">{text.title}</h2>
       <div className="Subtitle">{text.mailText}</div>
       <div className="Contact__paraph">
-        {text.mail.map(item => (
-          <div>
+        {text.mail.map((item, index) => (
+          <div key={`item-${index}`}>
             <div>{item.title}</div>
             <div>{item.content}</div>
           </div>

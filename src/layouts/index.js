@@ -63,8 +63,19 @@ export default ({ children }) => (
               id
               localFile {
                 childImageSharp {
-                  fixed(width: 300, height: 300) {
-                    ...GatsbyImageSharpFixed
+                  sizes {
+                    base64
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                    sizes
+                    originalImg
+                    originalName
+                    presentationWidth
+                    presentationHeight
                   }
                 }
               }

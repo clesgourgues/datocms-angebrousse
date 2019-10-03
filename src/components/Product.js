@@ -9,8 +9,6 @@ import { createMarkup } from "../helpers/content";
 import { getProductOptions } from "../helpers/sizes";
 
 const Product = ({ product, text }) => {
-  console.log(product);
-
   const renderOutOfStockProducts = (
     <span className="Product__outofstock">{text.outOfStockText}</span>
   );
