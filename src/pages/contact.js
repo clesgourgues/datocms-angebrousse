@@ -1,21 +1,37 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ContactForm from "../components/ContactForm";
+import Contact from "../components/Contact";
 
 export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsSiteParameter {
+        allDatoCmsContactText {
           edges {
             node {
-              contactText
-              messageText
+              mailText
+              successText
+              title
+              sendButtonText
+              messagePlaceholderText
+              emailPlaceholderText
+              address {
+                content
+                title
+              }
+              mail {
+                content
+                title
+              }
+              phone {
+                title
+                content
+              }
             }
           }
         }
       }
     `}
-    render={data => <ContactForm text={data.allDatoCmsSiteParameter.edges[0].node} />}
+    render={data => <Contact text={data.allDatoCmsContactText.edges[0].node} />}
   />
 );

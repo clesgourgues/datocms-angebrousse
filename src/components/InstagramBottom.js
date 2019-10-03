@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-const InstagramBottom = ({ publications }) => {
+const InstagramBottom = ({ publications, buttonText }) => {
   return (
     <div className="Instagram__bottom">
       <div className="Instagram__bottom__items">
@@ -19,7 +19,7 @@ const InstagramBottom = ({ publications }) => {
         href="https://www.instagram.com/angelebroussejewelry/"
         className="Instagram__profile__followme"
       >
-        <button className="Instagram__profile__button">Follow</button>
+        <button className="Instagram__profile__button">{buttonText}</button>
       </a>
     </div>
   );

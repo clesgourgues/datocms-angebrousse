@@ -8,11 +8,11 @@ import CatalogueProduct from "../components/CatalogueProduct";
 import { createMarkup } from "../helpers/content";
 import { getProductOptions } from "../helpers/sizes";
 
-const Product = ({ product, info, text }) => {
+const Product = ({ product, text }) => {
   console.log(product);
 
   const renderOutOfStockProducts = (
-    <span className="Product__outofstock">{text[0].node.outOfStockText}</span>
+    <span className="Product__outofstock">{text.outOfStockText}</span>
   );
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
@@ -22,7 +22,7 @@ const Product = ({ product, info, text }) => {
   return (
     <div className="Product">
       <div className="Product__back">
-        <Link to="/">{`< ${text[0].node.backText}`}</Link>
+        <Link to="/">{`< ${text.backText}`}</Link>
       </div>
       <div className="Product__details">
         <ImageSlider images={product.image} />
@@ -32,7 +32,7 @@ const Product = ({ product, info, text }) => {
             <div className="Product__price">{product.price}€</div>
           </div>
           {product.size && !product.outOfStock && (
-            <Sizes text={text[0].node.sizeText} availableSizes={product.size} />
+            <Sizes text={text.sizesText} availableSizes={product.size} />
           )}
           {product.outOfStock && renderOutOfStockProducts}
           <button
@@ -48,7 +48,7 @@ const Product = ({ product, info, text }) => {
             data-item-custom1-name={productNameOptions}
             data-item-custom1-options={productOptions}
           >
-            {text[0].node.buyText}
+            {text.buyButtonText}
           </button>
           <div className="Product__description">{product.description}</div>
           <div
@@ -57,10 +57,10 @@ const Product = ({ product, info, text }) => {
           />
         </div>
       </div>
-      <ProductInfo info={info} />
+      <ProductInfo infos={text.productInfo} />
       {product.linkedProducts.length > 0 && (
         <>
-          <span className="Product__title">{text[0].node.linkedProductsText}</span>
+          <span className="Product__title">{text.linkedProductsText}</span>
           <div className="Product__linkedproducts">
             {product.linkedProducts.map(linkedProduct => (
               <CatalogueProduct product={linkedProduct} />

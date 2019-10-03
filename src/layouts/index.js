@@ -13,13 +13,21 @@ export default ({ children }) => (
         allDatoCmsSiteParameter {
           edges {
             node {
-              newsletterText
-              followText
               logo {
                 sizes(maxWidth: 600, imgixParams: { fm: "jpg" }) {
                   ...GatsbyDatoCmsSizes
                 }
               }
+            }
+          }
+        }
+        allDatoCmsTextesFooter {
+          edges {
+            node {
+              instagramButtonText
+              instagramText
+              newsletterButtonText
+              newsletterText
             }
           }
         }
@@ -88,7 +96,7 @@ export default ({ children }) => (
             bottomMenu={data.allDatoCmsBottomMenu.edges}
             encart={data.allDatoCmsEncartInfo.edges[0].node}
             instagram={data.allInstaNode.edges}
-            text={data.allDatoCmsSiteParameter.edges[0].node}
+            text={data.allDatoCmsTextesFooter.edges[0].node}
           >
             {children}
           </Layout>

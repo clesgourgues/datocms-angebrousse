@@ -14,6 +14,7 @@ class NewsLetter extends Component {
 
   render() {
     const { user } = this.state;
+    const { buttonText } = this.props;
     return (
       <div className="Newsletter">
         <form
@@ -35,7 +36,7 @@ class NewsLetter extends Component {
           />
           <div data-netlify-recaptcha="true"></div>
           <button type="submit" className="Newsletter__form__button">
-            Send
+            {buttonText}
           </button>
         </form>
       </div>

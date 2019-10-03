@@ -6,6 +6,10 @@
   justify-content: center;
 }
 
+.Contact__paraph {
+  padding: 10px 0 10px 20px;
+}
+
 .Success {
   height: 300px;
 }
@@ -21,7 +25,7 @@ form.Contact__form {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 600px;
+  width: 700px;
   margin: auto;
   padding: 40px 0;
   /*   input:invalid {

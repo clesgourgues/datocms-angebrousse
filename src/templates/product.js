@@ -5,9 +5,8 @@ import Product from "../components/Product";
 
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
-  const info = data.allDatoCmsProductInfo.edges;
-  const text = data.allDatoCmsSiteParameter.edges;
-  return <Product product={product} info={info} text={text} />;
+  const text = data.allDatoCmsProductText.edges[0].node;
+  return <Product product={product} text={text} />;
 };
 
 export const query = graphql`
@@ -55,22 +54,18 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsSiteParameter {
+    allDatoCmsProductText {
       edges {
         node {
-          buyText
-          sizeText
-          outOfStockText
           backText
+          buyButtonText
           linkedProductsText
-        }
-      }
-    }
-    allDatoCmsProductInfo {
-      edges {
-        node {
-          title
-          content
+          outOfStockText
+          productInfo {
+            title
+            content
+          }
+          sizesText
         }
       }
     }

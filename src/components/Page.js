@@ -7,8 +7,8 @@ const Page = ({ page }) => {
   return (
     <div className="Page">
       <div className="Wrap">
-        <h2 className="Page__title">{page.title}</h2>
-        <div className="Page__content" dangerouslySetInnerHTML={content} />
+        <h2 className="Title">{page.title}</h2>
+        <div className="Content" dangerouslySetInnerHTML={content} />
       </div>
     </div>
   );

@@ -14,11 +14,11 @@ const Footer = ({ menu, instagram, text }) => {
         <FaEnvelope size={20} />
         {text.newsletterText}
       </div>
-      <NewsLetter />
+      <NewsLetter buttonText={text.newsletterButtonText} />
       <div className="Footer__title">
-        <FaInstagram size={20} /> {text.followText}
+        <FaInstagram size={20} /> {text.instagramText}
       </div>
-      <InstagramBottom publications={instagram} />
+      <InstagramBottom publications={instagram} buttonText={text.instagramButtonText} />
       <MenuFooter menu={menu} />
       <div className="Footer__privacy">© 2019 ANGELE BROUSSE JOAILLERIE — Terms & Privacy</div>
     </div>

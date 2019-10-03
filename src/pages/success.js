@@ -7,17 +7,17 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsSiteParameter {
+        allDatoCmsContactText {
           edges {
             node {
-              formText
+              successText
             }
           }
         }
       }
     `}
     render={data => {
-      return <SuccessForm text={data.allDatoCmsSiteParameter.edges[0].node.formText} />;
+      return <SuccessForm text={data.allDatoCmsContactText.edges[0].node.successText} />;
     }}
   />
 );
