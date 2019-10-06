@@ -3,4 +3,14 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  .Page__content {
+    flex-flow: column nowrap;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    .Page__illustration {
+      order: -1;
+      width: 50%;
+    }
+  }
 }

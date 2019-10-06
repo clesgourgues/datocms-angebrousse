@@ -62,7 +62,7 @@ const Product = ({ product, text }) => {
             <span className="Product__title">{text.linkedProductsText}</span>
             <div className="Product__linkedproducts">
               {product.linkedProducts.map(linkedProduct => (
-                <CatalogueProduct product={linkedProduct} />
+                <CatalogueProduct product={linkedProduct} key={linkedProduct.id} />
               ))}
             </div>
           </>

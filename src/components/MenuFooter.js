@@ -15,9 +15,11 @@ const getMenu = menu =>
 const MenuFooter = ({ menu }) => (
   <nav className="Menu__footer">
     <ul className="Menu__footer__items">{getMenu(menu.slice(0, 3))}</ul>
-    {menu.length > 3 && <ul className="Menu__footer__items">{getMenu(menu.slice(2, 5))}</ul>}
+    {menu.length > 3 && menu.length < 7 && (
+      <ul className="Menu__footer__items">{getMenu(menu.slice(3, 6))}</ul>
+    )}
     {menu.length > 6 && (
-      <ul className="Menu__footer__items">{getMenu(menu.slice(5, menu.length))}</ul>
+      <ul className="Menu__footer__items">{getMenu(menu.slice(6, menu.length))}</ul>
     )}
   </nav>
 );

@@ -13,6 +13,11 @@ export const query = graphql`
           slug
           title
           content
+          illustration {
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
         }
       }
     }
