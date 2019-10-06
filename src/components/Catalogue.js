@@ -22,6 +22,7 @@ class Catalogue extends Component {
     return (
       <div className="Catalogue">
         <div className="Wrap">
+          <h2 className="Title">E-shop</h2>
           <Filters filters={filters} selected={selected} onClick={this.onMenuClick} />
           <div className="Catalogue__products">
             {productsToShow.map(({ node: product }) => (

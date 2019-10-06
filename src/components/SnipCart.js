@@ -9,7 +9,7 @@ const SnipCart = ({ cart }) => {
   return (
     <div className="Snipcart snipcart-checkout">
       {/*       <img src={cartIcon} className="Snipcart__icon" alt="Shopping Cart" /> */}
-      <FiShoppingBag size={36} />
+      <FiShoppingBag size={24} />
       {cart && quantity > 0 && <div className="Snipcart__quantity">{quantity}</div>}
     </div>
   );
