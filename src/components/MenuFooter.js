@@ -13,13 +13,13 @@ const getMenu = menu =>
     });
 
 const MenuFooter = ({ menu }) => (
-  <div className="Menu__footer">
+  <nav className="Menu__footer">
     <ul className="Menu__footer__items">{getMenu(menu.slice(0, 3))}</ul>
     {menu.length > 3 && <ul className="Menu__footer__items">{getMenu(menu.slice(2, 5))}</ul>}
     {menu.length > 6 && (
-      <ul className="Menu__footer__items">{getMenu(menu.slice(5, menu.length + 1))}</ul>
+      <ul className="Menu__footer__items">{getMenu(menu.slice(5, menu.length))}</ul>
     )}
-  </div>
+  </nav>
 );
 
 export default MenuFooter;

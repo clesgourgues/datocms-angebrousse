@@ -8,7 +8,7 @@ class NewsLetter extends Component {
   componentDidMount() {
     document.addEventListener("snipcart.ready", () => {
       const user = window.Snipcart.api.user.current();
-      this.setState({ user });
+      this.setState({ email: user.email });
     });
   }
 

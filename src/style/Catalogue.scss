@@ -10,6 +10,7 @@
   align-items: baseline;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .Catalogue__item {
@@ -68,6 +69,6 @@
     align-items: center;
   }
   .Catalogue__item {
-    width: 80%;
+    width: 100%;
   }
 }

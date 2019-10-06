@@ -9,10 +9,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .Newsletter__form__input {
-  width: 600px;
+  width: 100%;
+  max-width: 600px;
   border-top: none;
   border-right: none;
   border-left: none;
@@ -23,6 +25,9 @@
   &::placeholder {
     color: $color-light;
     font-size: $font-size-small;
+  }
+  @media screen and (max-width: 599px) {
+    width: 100%;
   }
 }
 

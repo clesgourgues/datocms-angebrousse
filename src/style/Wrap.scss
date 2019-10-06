@@ -1,8 +1,18 @@
 .Wrap {
-  max-width: 1000px;
   padding: 0 50px;
   flex-grow: 1;
   flex-shrink: 0;
+  @media screen and (max-width: 599px) {
+    margin-top: $spacing-medium;
+    max-width: 100%;
+    padding: 10px 20px;
+  }
+  @media screen and (min-width: 600px) {
+    max-width: 80%;
+  }
+  @media screen and (min-width: 1024px) {
+    max-width: 1000px;
+  }
 }
 
 .Content {

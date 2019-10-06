@@ -6,7 +6,7 @@ import MenuFooter from "./MenuFooter";
 import NewsLetter from "./NewsLetter";
 
 const Footer = ({ menu, instagram, text }) => (
-  <div className="Footer">
+  <footer className="Footer">
     {/*     <div className="Footer__border"></div> */}
     <div className="Footer__title">
       <FaEnvelope size={20} />
@@ -19,7 +19,7 @@ const Footer = ({ menu, instagram, text }) => (
     <InstagramBottom publications={instagram} buttonText={text.instagramButtonText} />
     <MenuFooter menu={menu} />
     <div className="Footer__privacy">© 2019 ANGELE BROUSSE JOAILLERIE — Terms & Privacy</div>
-  </div>
+  </footer>
 );
 
 export default Footer;

@@ -4,18 +4,18 @@ import Img from "gatsby-image";
 const ImageSlider = ({ images }) => {
   const [selected, setSelected] = useState(0);
   return images.length === 1 ? (
-    <figure className="Product__image">
+    <div className="Product__image">
       <Img
         sizes={images[0].sizes}
         loading="lazy"
         style={{
-          height: "500px"
+          height: "400px"
         }}
         className="Product__image__selected"
       />
-    </figure>
+    </div>
   ) : (
-    <figure
+    <div
       className="Product__image"
       onMouseEnter={() => setSelected(1)}
       onMouseLeave={() => setSelected(0)}
@@ -29,7 +29,7 @@ const ImageSlider = ({ images }) => {
         }}
         className="Product__image__selected"
       />
-    </figure>
+    </div>
   );
 };
 

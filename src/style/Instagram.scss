@@ -10,9 +10,10 @@
 
 .Instagram__bottom__items {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   margin-bottom: $spacing-small;
+  flex-wrap: wrap;
 }
 
 .Instagram__bottom__item {

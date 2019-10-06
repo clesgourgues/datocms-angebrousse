@@ -2,11 +2,13 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
-  position: absolute;
-  top: 60px;
-  right: $spacing-big;
   &:hover {
     text-decoration: none;
+  }
+  @media screen and (min-width: 600px) {
+    position: absolute;
+    right: $spacing-big;
+    top: $spacing-medium;
   }
 }
 
@@ -20,6 +22,10 @@
   color: white;
   width: $spacing-medium;
   height: $spacing-medium;
+  @media screen and (max-width: 599px) {
+    top: 5px;
+    right: 15px;
+  }
 }
 
 .Snipcart__price {

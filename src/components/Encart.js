@@ -3,11 +3,8 @@ import { FaTimes } from "react-icons/fa";
 
 const Encart = ({ encart }) => {
   const [closed, setClosed] = useState(false);
-  if (closed) {
-    return null;
-  }
   return (
-    <div className="Encart">
+    <div className={`Encart ${closed ? "Encart__closed" : ""}`}>
       <p>{encart.info}</p>
       <span className="Encart__close" onClick={() => setClosed(true)}>
         <FaTimes />

@@ -14,7 +14,12 @@ export default ({ children }) => (
           edges {
             node {
               logo {
-                sizes(maxWidth: 600, imgixParams: { fm: "jpg" }) {
+                sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+                  ...GatsbyDatoCmsSizes
+                }
+              }
+              logoMenuBurger {
+                sizes(maxWidth: 180, imgixParams: { fm: "jpg" }) {
                   ...GatsbyDatoCmsSizes
                 }
               }
@@ -102,7 +107,7 @@ export default ({ children }) => (
             <html lang="fr-FR" />
           </Helmet>
           <Layout
-            logo={data.allDatoCmsSiteParameter.edges[0].node.logo.sizes}
+            logos={data.allDatoCmsSiteParameter.edges[0].node}
             menu={data.allDatoCmsMenu.edges}
             bottomMenu={data.allDatoCmsBottomMenu.edges}
             encart={data.allDatoCmsEncartInfo.edges[0].node}

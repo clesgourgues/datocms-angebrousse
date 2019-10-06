@@ -1,9 +1,15 @@
 $animate: all 0.2s ease-in-out;
 .Menu {
+  width: 100%;
+  @media screen and (max-width: 599px) {
+    display: none;
+  }
+}
+
+.Menu__items {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  opacity: 0.95;
   flex-flow: row nowrap;
   align-items: center;
   margin: 0 0 45px;
@@ -22,6 +28,7 @@ $animate: all 0.2s ease-in-out;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     font-size: $font-size-small;
+    padding: $spacing-small;
     &:before,
     &:after {
       content: "";

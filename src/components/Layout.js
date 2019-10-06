@@ -30,12 +30,12 @@ class Layout extends Component {
 
   render() {
     const { cart } = this.state;
-    const { children, logo, menu, bottomMenu, encart, instagram, text } = this.props;
+    const { children, logos, menu, bottomMenu, encart, instagram, text } = this.props;
     return (
       <div className="Container">
         {encart.publi && <Encart encart={encart} />}
-        <Header sizes={logo} cart={cart} menu={menu} />
-        <div className="Content">{children}</div>
+        <Header logos={logos} cart={cart} menu={menu} />
+        <main className="Content">{children}</main>
         <Footer menu={bottomMenu} instagram={instagram} text={text} />
       </div>
     );

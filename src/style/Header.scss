@@ -4,6 +4,7 @@
   align-items: center;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .Header__body {
@@ -17,5 +18,28 @@
   img {
     width: 100%;
     display: block;
+  }
+  @media screen and (max-width: 599px) {
+    display: none;
+  }
+}
+
+.Header__topbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  padding: $spacing-small $spacing-medium;
+  justify-content: space-between;
+  background-color: white;
+  align-items: center;
+}
+
+.Header__topbar__logo {
+  width: 150px;
+  z-index: 6;
+  @media screen and (min-width: 600px) {
+    display: none;
   }
 }

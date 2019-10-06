@@ -34,7 +34,7 @@ class ContactForm extends Component {
         <input
           className="Contact__form__input"
           name="email"
-          placeholder={text.messagePlaceholderText}
+          placeholder={text.emailPlaceholderText}
           required
           type="email"
           maxLength="100"

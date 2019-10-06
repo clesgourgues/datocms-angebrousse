@@ -25,7 +25,7 @@ class Catalogue extends Component {
           <Filters filters={filters} selected={selected} onClick={this.onMenuClick} />
           <div className="Catalogue__products">
             {productsToShow.map(({ node: product }) => (
-              <CatalogueProduct product={product} />
+              <CatalogueProduct product={product} key={product.id} />
             ))}
           </div>
         </div>

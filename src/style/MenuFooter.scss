@@ -6,6 +6,9 @@
   padding: $spacing-medium 0;
   text-align: left;
   width: 700px;
+  @media screen and (max-width: 599px) {
+    width: 100%;
+  }
 }
 
 .Menu__footer__items {
