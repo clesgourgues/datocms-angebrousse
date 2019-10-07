@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 
-const ContactForm = ({ text }) => {
+const ContactForm = ({ text, user }) => {
   let [email, setEmail] = useState("");
+  let [message, setMessage] = useState("");
 
   useEffect(() => {
-    document.addEventListener("snipcart.ready", () => {
-      const user = window.Snipcart.api.user.current();
-      if (user) {
-        setEmail(user.email);
-      }
-    });
-  }, []);
+    const userEmail = user ? user.email : "";
+    setEmail(userEmail);
+  }, [user]);
 
-  const handleChange = event => {
+  const handleEmailChange = event => {
     setEmail(event.target.value);
+  };
+
+  const handleMessageChange = event => {
+    setMessage(event.target.value);
   };
 
   return (
@@ -34,7 +35,7 @@ const ContactForm = ({ text }) => {
         type="email"
         maxLength="100"
         value={email}
-        onChange={handleChange}
+        onChange={handleEmailChange}
       />
       <textarea
         name="message"
@@ -42,6 +43,8 @@ const ContactForm = ({ text }) => {
         placeholder={text.messagePlaceholderText}
         required
         maxLength="1000"
+        value={message}
+        onChange={handleMessageChange}
       />
       <div data-netlify-recaptcha="true"></div>
       <button type="submit" className="Contact__form__button">

@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from "gatsby";
 // import PageTransition from "gatsby-plugin-page-transitions";
 // import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "../components/Layout";
+import SnipContext from "../context/SnipContext";
 import "../style/index.scss";
 
 export default ({ children }) => (
@@ -94,30 +95,34 @@ export default ({ children }) => (
         }
       }
     `}
-    render={data => {
-      return (
-        <>
-          <Helmet
-            title={data.site.siteMetadata.siteName}
-            meta={[
-              { name: "description", content: "Sample" },
-              { name: "keywords", content: "sample, something" }
-            ]}
-          >
-            <html lang="fr-FR" />
-          </Helmet>
-          <Layout
-            logos={data.allDatoCmsSiteParameter.edges[0].node}
-            menu={data.allDatoCmsMenu.edges}
-            bottomMenu={data.allDatoCmsBottomMenu.edges}
-            encart={data.allDatoCmsEncartInfo.edges[0].node}
-            instagram={data.allInstaNode.edges}
-            text={data.allDatoCmsTextesFooter.edges[0].node}
-          >
-            {children}
-          </Layout>
-        </>
-      );
-    }}
+    render={data => (
+      <SnipContext.Consumer>
+        {({ user, cart }) => (
+          <>
+            <Helmet
+              title={data.site.siteMetadata.siteName}
+              meta={[
+                { name: "description", content: "Sample" },
+                { name: "keywords", content: "sample, something" }
+              ]}
+            >
+              <html lang="fr-FR" />
+            </Helmet>
+            <Layout
+              user={user}
+              cart={cart}
+              logos={data.allDatoCmsSiteParameter.edges[0].node}
+              menu={data.allDatoCmsMenu.edges}
+              bottomMenu={data.allDatoCmsBottomMenu.edges}
+              encart={data.allDatoCmsEncartInfo.edges[0].node}
+              instagram={data.allInstaNode.edges}
+              text={data.allDatoCmsTextesFooter.edges[0].node}
+            >
+              {children}
+            </Layout>
+          </>
+        )}
+      </SnipContext.Consumer>
+    )}
   />
 );

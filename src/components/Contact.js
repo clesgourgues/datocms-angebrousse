@@ -2,7 +2,7 @@ import React from "react";
 
 import ContactForm from "../components/ContactForm";
 
-const Contact = ({ text }) => (
+const Contact = ({ text, user }) => (
   <div className="Contact">
     <div className="Wrap">
       <h2 className="Title">{text.title}</h2>
@@ -15,7 +15,7 @@ const Contact = ({ text }) => (
           </div>
         ))}
       </div>
-      <ContactForm text={text} />
+      <ContactForm text={text} user={user} />
       <div className="Subtitle">{text.phone[0].title}</div>
       <div className="Contact__paraph">{text.phone[0].content}</div>
       <div className="Subtitle">{text.address[0].title}</div>

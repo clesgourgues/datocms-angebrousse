@@ -5,14 +5,14 @@ import InstagramBottom from "./InstagramBottom";
 import MenuFooter from "./MenuFooter";
 import NewsLetter from "./NewsLetter";
 
-const Footer = ({ menu, instagram, text }) => (
+const Footer = ({ menu, instagram, text, user }) => (
   <footer className="Footer">
     {/*     <div className="Footer__border"></div> */}
     <div className="Footer__title">
       <FaEnvelope size={20} />
       {text.newsletterText}
     </div>
-    <NewsLetter buttonText={text.newsletterButtonText} />
+    <NewsLetter buttonText={text.newsletterButtonText} user={user} />
     <div className="Footer__title">
       <FaInstagram size={20} /> {text.instagramText}
     </div>
