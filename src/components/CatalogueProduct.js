@@ -3,7 +3,6 @@ import Img from "gatsby-image";
 import Link from "gatsby-link";
 
 const CatalogueProduct = ({ product }) => {
-  console.log(product);
   return (
     <Link to={`/${product.slug}`} className="Catalogue__item" key={product.id}>
       <div>
