@@ -156,4 +156,5 @@
 .Product__linkedproducts {
   display: flex;
   margin-top: $spacing-medium;
+  justify-content: space-around;
 }
