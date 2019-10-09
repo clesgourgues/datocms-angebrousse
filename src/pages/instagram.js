@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import Instagram from "../components/Instagram";
+import Instagram from "@components/Instagram";
 
 export default () => (
   <StaticQuery

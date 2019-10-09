@@ -13,6 +13,9 @@ exports.createPages = ({ graphql, actions }) => {
               edges {
                 node {
                   slug
+                  image {
+                    url
+                  }
                 }
               }
             }
@@ -33,15 +36,17 @@ exports.createPages = ({ graphql, actions }) => {
         }
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
           const path = node.slug;
-          createPage({
-            path,
-            component: productTemplate,
-            context: {
-              /*
+          if (node.image.length > 0) {
+            createPage({
+              path,
+              component: productTemplate,
+              context: {
+                /*
               the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
-              pathSlug: path
-            }
-          });
+                pathSlug: path
+              }
+            });
+          }
           resolve();
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {
