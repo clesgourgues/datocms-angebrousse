@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-import InstagramProfile from "./InstagramProfile";
+import InstagramProfile from "@components/InstagramProfile";
 
 const Instagram = ({ publications, profile }) => {
   return (

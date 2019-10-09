@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import LookBook from "../components/LookBook";
+import LookBook from "@components/LookBook";
 
 export default () => (
   <StaticQuery

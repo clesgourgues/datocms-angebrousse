@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import Catalogue from "../components/Catalogue";
+import Catalogue from "@components/Catalogue";
 
 export default () => (
   <StaticQuery

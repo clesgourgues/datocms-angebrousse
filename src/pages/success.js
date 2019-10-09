@@ -1,7 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 
-import SuccessForm from "../components/SuccessForm";
+import SuccessForm from "@components/SuccessForm";
 
 export default () => (
   <StaticQuery

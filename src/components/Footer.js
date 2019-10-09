@@ -1,9 +1,9 @@
 import React from "react";
 import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
-import InstagramBottom from "./InstagramBottom";
-import MenuFooter from "./MenuFooter";
-import NewsLetter from "./NewsLetter";
+import InstagramBottom from "@components/InstagramBottom";
+import MenuFooter from "@components/MenuFooter";
+import NewsLetter from "@components/NewsLetter";
 
 const Footer = ({ menu, instagram, text, user }) => (
   <footer className="Footer">

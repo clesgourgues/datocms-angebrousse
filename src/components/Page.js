@@ -1,7 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 
-import { createMarkup } from "../helpers/content";
+import { createMarkup } from "@helpers/content";
 
 const Page = ({ page }) => {
   const content = createMarkup(page.content);

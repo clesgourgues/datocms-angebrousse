@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Img from "gatsby-image";
 import Link from "gatsby-link";
 
-import SnipCart from "./SnipCart";
-import Menu from "./Menu";
-import BurgerButton from "./BurgerButton";
-import MenuBurger from "./MenuBurger";
+import SnipCart from "@components/SnipCart";
+import Menu from "@components/Menu";
+import BurgerButton from "@components/BurgerButton";
+import MenuBurger from "@components/MenuBurger";
 
 const Header = ({ logos, cart, menu }) => {
   const [selected, setSelected] = useState("e-shop");

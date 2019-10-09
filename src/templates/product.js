@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Product from "../components/Product";
+import Product from "@components/Product";
 
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;

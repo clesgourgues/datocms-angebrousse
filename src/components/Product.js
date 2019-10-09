@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "gatsby-link";
 
-import ProductInfo from "../components/ProductInfo";
-import ImageSlider from "../components/ImageSlider";
-import Sizes from "../components/Sizes";
-import CatalogueProduct from "../components/CatalogueProduct";
-import { createMarkup } from "../helpers/content";
-import { getProductOptions } from "../helpers/sizes";
+import ProductInfo from "@components/ProductInfo";
+import ImageSlider from "@components/ImageSlider";
+import Sizes from "@components/Sizes";
+import CatalogueProduct from "@components/CatalogueProduct";
+import { createMarkup } from "@helpers/content";
+import { getProductOptions } from "@helpers/sizes";
 
 const Product = ({ product, text }) => {
   const renderOutOfStockProducts = (

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { sizes } from "../helpers/sizes";
+import { sizes } from "@helpers/sizes";
 
 const Sizes = ({ text, availableSizes }) => (
   <div>

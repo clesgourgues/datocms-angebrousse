@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import Filters from "../components/Filters";
-import CatalogueProduct from "../components/CatalogueProduct";
+import Filters from "@components/Filters";
+import CatalogueProduct from "@components/CatalogueProduct";
 
 const Catalogue = ({ products, filters }) => {
+  console.log(products);
   let [selected, setSelected] = useState("tout voir");
 
   const onMenuClick = selected => {
@@ -12,8 +13,12 @@ const Catalogue = ({ products, filters }) => {
 
   const productsToShow =
     selected === "tout voir"
-      ? products
-      : products.filter(({ node: product }) => product.category[0].name === selected);
+      ? products.filter(({ node: product }) => product.image.length > 0)
+      : products
+          .filter(({ node: product }) => product.category[0].name === selected)
+          .filter(({ node: product }) => product.image.length > 0);
+
+  console.log("productsToShow", productsToShow);
 
   return (
     <div className="Catalogue">

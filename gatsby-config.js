@@ -58,6 +58,22 @@ module.exports = {
         // Defines where to place the tracking script - `true` in the head and `false` in the body
         head: true
       }
+    },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@src": "src",
+          "@components": "src/components",
+          "@layouts": "src/layouts",
+          "@pages": "src/pages",
+          "@style": "src/style",
+          "@templates": "src/templates",
+          "@helpers": "src/helpers",
+          "@context": "src/context"
+        },
+        extensions: ["js"]
+      }
     }
   ]
 };

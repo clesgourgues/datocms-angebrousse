@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import Page from "../components/Page";
+import Page from "@components/Page";
 
 export default ({ data }) => <Page page={data.allDatoCmsPage.edges[0].node} />;
 
