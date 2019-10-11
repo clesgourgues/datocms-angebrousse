@@ -56,7 +56,7 @@ const Product = ({ product, text }) => {
             />
           </div>
         </div>
-        <ProductInfo infos={text.productInfo} />
+        <ProductInfo infos={text.productInfo} category={product.category[0].name} />
         {product.linkedProducts.length > 0 && (
           <>
             <span className="Product__title">{text.linkedProductsText}</span>

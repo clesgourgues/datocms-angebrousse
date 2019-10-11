@@ -64,6 +64,9 @@ export const query = graphql`
           productInfo {
             title
             content
+            categories {
+              name
+            }
           }
           sizesText
         }
