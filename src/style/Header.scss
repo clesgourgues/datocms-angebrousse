@@ -14,10 +14,13 @@
 }
 
 .Header__logo {
-  width: 50%;
+  width: 30%;
   img {
     width: 100%;
     display: block;
+  }
+  @media screen and (max-width: 950px) {
+    width: 40%;
   }
   @media screen and (max-width: 599px) {
     display: none;

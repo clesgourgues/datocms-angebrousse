@@ -8,9 +8,16 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    strong {
+      color: $color-dark;
+    }
     .Page__illustration {
       order: -1;
-      width: 50%;
+      width: 100%;
+    }
+    .Page__link {
+      color: black;
+      font-size: $font-size-big;
     }
   }
 }

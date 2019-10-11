@@ -18,6 +18,10 @@ export const query = graphql`
               ...GatsbyDatoCmsFluid
             }
           }
+          enclosedFile {
+            url
+          }
+          enclosedFileText
         }
       }
     }

@@ -74,6 +74,13 @@ module.exports = {
         },
         extensions: ["js"]
       }
+    },
+    {
+      resolve: "gatsby-plugin-mailchimp",
+      options: {
+        endpoint:
+          "https://angelebrousse.us20.list-manage.com/subscribe/post?u=750d9f039808a582df851dd73&amp;id=145b875748" // add your MC list endpoint here; see instructions below
+      }
     }
   ]
 };
