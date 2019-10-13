@@ -5,7 +5,6 @@ import { createMarkup } from "@helpers/content";
 
 const Page = ({ page }) => {
   const content = createMarkup(page.content);
-  console.log(page);
   return (
     <div className="Page">
       <div className="Wrap">

@@ -14,6 +14,16 @@ const Menu = ({ menu, open, setOpen }) => (
               </li>
             );
           })}
+        <li className={`Menu__burger__item`}>
+          <a href="#" class="snipcart-user-profile">
+            mon compte
+          </a>
+        </li>
+        <li className={`Menu__burger__item`}>
+          <a href="#" class="snipcart-user-logout">
+            Se déconnecter
+          </a>
+        </li>
       </ul>
     </nav>
   </div>

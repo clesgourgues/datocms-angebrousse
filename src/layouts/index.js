@@ -67,21 +67,11 @@ export default ({ children }) => (
           edges {
             node {
               id
+              preview
               localFile {
                 childImageSharp {
-                  sizes {
-                    base64
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    sizes
-                    originalImg
-                    originalName
-                    presentationWidth
-                    presentationHeight
+                  fluid(maxHeight: 250) {
+                    ...GatsbyImageSharpFluid
                   }
                 }
               }

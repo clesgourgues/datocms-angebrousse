@@ -1,26 +1,23 @@
 .Footer {
   width: 100%;
-  padding: 30px 30px 0 30px;
+  padding-top: 30px;
   flex-shrink: 0;
   text-align: center;
-  border-top: 1px solid $color-light;
   a {
     font-weight: bold;
     color: $color-dark;
   }
-  @media screen and (max-width: 599px) {
-    padding: $spacing-medium;
-  }
 }
 
 .Footer__title {
-  color: $color-light;
+  color: $color-dark;
   font-size: $font-size-small;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: $spacing-x-small;
   svg {
     margin-right: 5px;
   }
@@ -37,4 +34,9 @@
 .Footer__privacy {
   color: $color-light !important;
   font-size: $font-size-x-small;
+}
+
+.Footer__bottom {
+  display: flex;
+  margin: $spacing-big;
 }

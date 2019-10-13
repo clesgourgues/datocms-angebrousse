@@ -17,6 +17,11 @@ const Menu = ({ menu, selected, setSelected }) => (
             </li>
           );
         })}
+      <li className={`Menu__item ${selected === "account" ? "Menu__selected" : ""}`}>
+        <a href="#" class="snipcart-user-profile">
+          mon compte
+        </a>
+      </li>
     </ul>
   </nav>
 );

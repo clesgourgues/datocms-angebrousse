@@ -10,15 +10,24 @@
 
 .Instagram__bottom__items {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin-bottom: $spacing-small;
-  flex-wrap: wrap;
+  margin: $spacing-medium 0;
+  width: 100%;
+  overflow: hidden;
+  @media screen and (max-width: 599px) {
+    flex-wrap: wrap;
+  }
 }
 
 .Instagram__bottom__item {
-  width: 120px;
-  padding: $spacing-small;
+  width: 250px;
+  @media screen and (max-width: 599px) {
+    width: 100px;
+  }
+}
+
+.Instagram__bottom__image {
 }
 
 .Instagram {

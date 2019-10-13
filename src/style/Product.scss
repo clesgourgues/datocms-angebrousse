@@ -136,7 +136,6 @@
 }
 
 .Product__info {
-  margin: $spacing-big 0;
   color: $color-light;
   @media screen and (max-width: 599px) {
     margin: 0;
@@ -157,6 +156,7 @@
   display: flex;
   margin-top: $spacing-medium;
   justify-content: space-around;
+  flex-wrap: wrap;
   @media screen and (max-width: 599px) {
     flex-direction: column;
   }

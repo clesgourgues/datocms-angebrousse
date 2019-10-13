@@ -1,23 +1,21 @@
 import React from "react";
-import { FaInstagram, FaEnvelope } from "react-icons/fa";
 
 import InstagramBottom from "@components/InstagramBottom";
 import MenuFooter from "@components/MenuFooter";
-import NewsLetter from "@components/NewsLetter";
 
 const Footer = ({ menu, instagram, text, user }) => (
   <footer className="Footer">
-    {/*     <div className="Footer__border"></div> */}
-    <div className="Footer__title">
-      <FaEnvelope size={20} />
-      {text.newsletterText}
-    </div>
-    <NewsLetter buttonText={text.newsletterButtonText} user={user} />
-    <div className="Footer__title">
-      <FaInstagram size={20} /> {text.instagramText}
-    </div>
-    <InstagramBottom publications={instagram} buttonText={text.instagramButtonText} />
-    <MenuFooter menu={menu} />
+    <InstagramBottom
+      title={text.instagramText}
+      publications={instagram}
+      buttonText={text.instagramButtonText}
+    />
+    <MenuFooter
+      menu={menu}
+      title={text.newsletterText}
+      buttonText={text.newsletterButtonText}
+      user={user}
+    />
     <div className="Footer__privacy">© 2019 ANGELE BROUSSE JOAILLERIE — Terms & Privacy</div>
   </footer>
 );

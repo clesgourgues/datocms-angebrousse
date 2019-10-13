@@ -10,7 +10,7 @@ const Contact = ({ text, user }) => (
       <div className="Contact__paraph">
         {text.mail.map((item, index) => (
           <div key={`item-${index}`}>
-            <div>{item.title}</div>
+            <div className="Contact__paraph__title">{item.title}</div>
             <div>{item.content}</div>
           </div>
         ))}

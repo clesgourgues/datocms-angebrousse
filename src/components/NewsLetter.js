@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import addToMailchimp from "gatsby-plugin-mailchimp";
+import { FaEnvelope } from "react-icons/fa";
 
-const NewsLetter = ({ buttonText, user }) => {
+const NewsLetter = ({ buttonText, user, title }) => {
   let [email, setEmail] = useState("");
   let [result, setResult] = useState(null);
 
@@ -18,11 +19,14 @@ const NewsLetter = ({ buttonText, user }) => {
     e.preventDefault();
     const result = await addToMailchimp(email);
     setResult(result);
-    console.log(result);
   };
 
   return (
     <div className="Newsletter">
+      <div className="Footer__title">
+        <FaEnvelope size={20} />
+        {title}
+      </div>
       {result ? (
         <div>{result.msg}</div>
       ) : (
@@ -38,9 +42,7 @@ const NewsLetter = ({ buttonText, user }) => {
             value={email}
             onChange={handleChange}
           />
-          <button type="submit" className="Newsletter__form__button">
-            {buttonText}
-          </button>
+          <input value="OK" type="submit" className="Newsletter__form__button" />
         </form>
       )}
     </div>

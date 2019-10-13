@@ -1,7 +1,7 @@
 $animate: all 0.2s ease-in-out;
 .Menu {
   width: 100%;
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -27,7 +27,7 @@ $animate: all 0.2s ease-in-out;
     color: $color-dark;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    font-size: $font-size-small;
+    font-size: $font-size-medium;
     padding: $spacing-small;
     &:before,
     &:after {

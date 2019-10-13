@@ -38,13 +38,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `angelebroussejewelry`,
-        type: `user-profile`
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Karla`, `Oswald`],
@@ -70,7 +63,8 @@ module.exports = {
           "@style": "src/style",
           "@templates": "src/templates",
           "@helpers": "src/helpers",
-          "@context": "src/context"
+          "@context": "src/context",
+          "@assets": "src/assets"
         },
         extensions: ["js"]
       }

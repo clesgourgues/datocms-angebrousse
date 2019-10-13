@@ -1,13 +1,28 @@
 .Menu__footer {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: $spacing-medium 100px;
+  text-align: left;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    padding: $spacing-medium;
+  }
+}
+
+.Menu__footer__nav {
+  display: flex;
   align-items: flex-start;
   justify-content: space-around;
-  margin: auto;
-  padding: $spacing-medium 0;
+  margin: $spacing-medium auto;
   text-align: left;
-  width: 700px;
-  @media screen and (max-width: 599px) {
-    width: 100%;
+  width: 100%;
+  @media screen and (max-width: 768px) {
+    width: 500px;
+  }
+  @media screen and (max-width: 320px) {
+    width: 300px;
   }
 }
 

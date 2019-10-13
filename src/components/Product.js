@@ -21,7 +21,7 @@ const Product = ({ product, text }) => {
     <div className="Product">
       <div className="Wrap">
         <div className="Product__back">
-          <Link to="/">{`< ${text.backText}`}</Link>
+          <Link to="/eshop">{`< ${text.backText}`}</Link>
         </div>
         <div className="Product__details">
           <ImageSlider images={product.image} />
@@ -33,6 +33,11 @@ const Product = ({ product, text }) => {
             {product.size && !product.outOfStock && (
               <Sizes text={text.sizesText} availableSizes={product.size} />
             )}
+            <div className="Product__description">{product.description}</div>
+            <div
+              className="Product__characteristics"
+              dangerouslySetInnerHTML={productCaracteristics}
+            />
             {product.outOfStock && renderOutOfStockProducts}
             <button
               data-item-id={product.id}
@@ -46,17 +51,17 @@ const Product = ({ product, text }) => {
               disabled={product.outOfStock}
               data-item-custom1-name={productNameOptions}
               data-item-custom1-options={productOptions}
+              data-item-stackable={!product.category[0].name === "Bagues"}
             >
               {text.buyButtonText}
             </button>
-            <div className="Product__description">{product.description}</div>
-            <div
-              className="Product__characteristics"
-              dangerouslySetInnerHTML={productCaracteristics}
-            />
           </div>
         </div>
-        <ProductInfo infos={text.productInfo} category={product.category[0].name} />
+        <ProductInfo
+          infos={text.productInfo}
+          title={text.productInfoText}
+          category={product.category[0].name}
+        />
         {product.linkedProducts.length > 0 && (
           <>
             <span className="Product__title">{text.linkedProductsText}</span>

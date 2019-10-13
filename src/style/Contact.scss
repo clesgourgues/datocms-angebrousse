@@ -11,6 +11,9 @@
   @media screen and (max-width: 599px) {
     padding: $spacing-small 0;
   }
+  .Contact__paraph__title {
+    margin-top: $spacing-small;
+  }
 }
 
 .Success {
@@ -30,7 +33,7 @@ form.Contact__form {
   align-items: center;
   width: 100%;
   margin: auto;
-  padding: $spacing-big 0;
+  padding: $spacing-medium 0;
   @media screen and (max-width: 599px) {
     width: 100%;
   }

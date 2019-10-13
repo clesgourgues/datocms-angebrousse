@@ -22,7 +22,7 @@
   @media screen and (max-width: 950px) {
     width: 40%;
   }
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 767px) {
     display: none;
   }
 }
@@ -42,7 +42,7 @@
 .Header__topbar__logo {
   width: 150px;
   z-index: 6;
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     display: none;
   }
 }

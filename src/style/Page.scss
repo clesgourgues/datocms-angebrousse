@@ -11,9 +11,16 @@
     strong {
       color: $color-dark;
     }
+    @media screen and (min-width: 768px) {
+      flex-flow: row nowrap;
+      align-items: flex-start;
+    }
     .Page__illustration {
       order: -1;
       width: 100%;
+      @media screen and (min-width: 768px) {
+        padding: $spacing-medium;
+      }
     }
     .Page__link {
       color: black;

@@ -5,11 +5,35 @@
   &:hover {
     text-decoration: none;
   }
-  @media screen and (min-width: 600px) {
+  @media screen and (min-width: 768px) {
     position: absolute;
     right: $spacing-big;
     top: $spacing-medium;
   }
+}
+
+.snip-layout__main-container {
+  font-family: $font-text;
+}
+
+#snipcart-current-user {
+  &:before {
+    content: "";
+    background: url("../assets/logo.png");
+    width: 300px;
+    height: 225px;
+    display: block;
+    margin: auto;
+  }
+}
+
+.snip-product__empty {
+  padding: 6em 2em;
+}
+
+.snip-footer {
+  position: absolute;
+  bottom: 0;
 }
 
 .Snipcart__quantity {
@@ -22,10 +46,14 @@
   color: white;
   width: $spacing-medium;
   height: $spacing-medium;
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 767px) {
     top: 5px;
     right: 15px;
   }
+}
+
+.snipcart_custom_Taille {
+  min-width: 50px;
 }
 
 .Snipcart__price {
@@ -62,6 +90,16 @@
   }
 
   .snip-header__user-mail {
+    color: $color-dark;
+  }
+
+  .snip-header__title {
+    font-family: $font-title;
+    letter-spacing: 0.15em;
+    font-size: 28px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: $spacing-medium;
     color: $color-dark;
   }
 

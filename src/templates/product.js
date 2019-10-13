@@ -61,9 +61,11 @@ export const query = graphql`
           buyButtonText
           linkedProductsText
           outOfStockText
+          productInfoText
           productInfo {
             title
             content
+            position
             categories {
               name
             }

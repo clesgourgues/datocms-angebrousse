@@ -2,7 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: $spacing-big;
+  flex-direction: column;
+  margin-left: -50px;
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 }
 
 .Newsletter__form {
@@ -10,15 +14,16 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin-top: $spacing-small;
 }
 
 .Newsletter__form__input {
-  width: 100%;
-  max-width: 600px;
+  width: 300px;
   border: 1px solid $color-light;
   padding: 15px;
-  font-size: $font-size-big;
-  margin: $spacing-small 0 $spacing-medium 0;
+  font-size: $font-size-medium;
+  position: relative;
+  height: 50px;
   &::placeholder {
     color: $color-light;
     font-size: $font-size-small;
@@ -29,11 +34,10 @@
 }
 
 .Newsletter__form__button {
+  padding: 15px;
   background: black;
   border-color: black;
   color: #fff;
-  -webkit-appearance: none;
-  border-radius: 3px;
   border-style: solid;
   border-width: 1px;
   font-size: $font-size-small;
@@ -44,6 +48,9 @@
   text-overflow: ellipsis;
   user-select: none;
   white-space: nowrap;
-  width: 180px;
+  position: absolute;
+  width: 50px;
+  height: 50px;
   cursor: pointer;
+  margin-left: 135px;
 }

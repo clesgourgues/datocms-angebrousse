@@ -2,13 +2,14 @@
   padding: 0 50px;
   flex-grow: 1;
   flex-shrink: 0;
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 767px) {
     margin-top: $spacing-medium;
     max-width: 100%;
     padding: 10px 20px;
+    max-width: 100%;
   }
-  @media screen and (min-width: 600px) {
-    max-width: 80%;
+  @media screen and (min-width: 768px) {
+    max-width: 85%;
   }
   @media screen and (min-width: 1024px) {
     max-width: 1000px;
@@ -21,6 +22,28 @@
   width: 100%;
   p {
     margin: $spacing-small 0;
+  }
+  blockquote {
+    font-size: 1.4em;
+    width: 60%;
+    margin: $spacing-medium auto;
+    font-style: italic;
+    color: #555555;
+    padding: 1.2em 30px 1.2em 75px;
+    line-height: 1.6;
+    position: relative;
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      font-size: $font-size-big;
+    }
+  }
+  blockquote::before {
+    content: "\201C";
+    color: $color-golden;
+    font-size: 4em;
+    position: absolute;
+    left: 10px;
+    top: -10px;
   }
 }
 
