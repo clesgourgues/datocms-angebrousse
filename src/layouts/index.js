@@ -1,10 +1,12 @@
 import React from "react";
-import Helmet from "react-helmet";
-import { StaticQuery, graphql } from "gatsby";
-// import PageTransition from "gatsby-plugin-page-transitions";
-import { HelmetDatoCms } from "gatsby-source-datocms";
+import { Helmet } from "react-helmet";
+import { StaticQuery, graphql, withPrefix } from "gatsby";
+// import { HelmetDatoCms } from "gatsby-source-datocms";
+import PageTransition from "gatsby-plugin-page-transitions";
 import Layout from "@components/Layout";
 import SnipContext from "@context/SnipContext";
+// import { gtagScript } from "@helpers/gtag";
+// import { cookiesScript } from "@helpers/cookies";
 import "@style/index.scss";
 
 export default ({ children }) => (
@@ -91,34 +93,50 @@ export default ({ children }) => (
       }
     `}
     render={data => (
-      <SnipContext.Consumer>
-        {({ user, cart }) => (
-          <>
-            <Helmet
-              title={data.site.siteMetadata.siteName}
-              meta={[
-                { name: "description", content: "Sample" },
-                { name: "keywords", content: "sample, something" }
-              ]}
-            >
-              <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} />
+      <PageTransition>
+        <SnipContext.Consumer>
+          {({ user, cart }) => (
+            <>
               <html lang="fr-FR" />
-            </Helmet>
-            <Layout
-              user={user}
-              cart={cart}
-              logos={data.allDatoCmsSiteParameter.edges[0].node}
-              menu={data.allDatoCmsMenu.edges}
-              bottomMenu={data.allDatoCmsBottomMenu.edges}
-              encart={data.allDatoCmsEncartInfo.edges[0].node}
-              instagram={data.allInstaNode.edges}
-              text={data.allDatoCmsTextesFooter.edges[0].node}
-            >
-              {children}
-            </Layout>
-          </>
-        )}
-      </SnipContext.Consumer>
+              <Helmet
+                title={data.site.siteMetadata.siteName}
+                meta={[
+                  { name: "description", content: "Sample" },
+                  { name: "keywords", content: "sample, something" }
+                ]}
+              >
+                {/*    <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} /> */}
+
+                <script
+                  async
+                  src="https://www.googletagmanager.com/gtag/js?id=UA-149040088-1"
+                ></script>
+                <script
+                  src={withPrefix("gtag.js")}
+                  // dangerouslySetInnerHTML={{ __html: gtagScript }}
+                />
+                <script src="https://cookiehub.net/cc/ed0dfc1f.js"></script>
+                <script
+                  src={withPrefix("cookies.js")}
+                  // dangerouslySetInnerHTML={{ __html: cookiesScript }}
+                />
+              </Helmet>
+              <Layout
+                user={user}
+                cart={cart}
+                logos={data.allDatoCmsSiteParameter.edges[0].node}
+                menu={data.allDatoCmsMenu.edges}
+                bottomMenu={data.allDatoCmsBottomMenu.edges}
+                encart={data.allDatoCmsEncartInfo.edges[0].node}
+                instagram={data.allInstaNode.edges}
+                text={data.allDatoCmsTextesFooter.edges[0].node}
+              >
+                {children}
+              </Layout>
+            </>
+          )}
+        </SnipContext.Consumer>
+      </PageTransition>
     )}
   />
 );

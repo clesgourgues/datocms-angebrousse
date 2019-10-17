@@ -11,8 +11,19 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    "gatsby-plugin-page-transitions",
+    {
+      resolve: "gatsby-plugin-page-transitions",
+      options: {
+        transitionTime: 500
+      }
+    },
     `gatsby-plugin-layout`,
+    {
+      resolve: `gatsby-plugin-postcss`,
+      options: {
+        postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })]
+      }
+    },
     {
       resolve: `gatsby-source-datocms`,
       options: { apiToken: process.env.DATO_API_TOKEN }
@@ -42,14 +53,6 @@ module.exports = {
       options: {
         fonts: [`Karla`, `Oswald`],
         display: "swap"
-      }
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GOOGLE_TRACKING_ID,
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: true
       }
     },
     {

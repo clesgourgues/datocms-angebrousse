@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "gatsby-link";
 
 import ProductInfo from "@components/ProductInfo";
 import ImageSlider from "@components/ImageSlider";
 import Sizes from "@components/Sizes";
 import CatalogueProduct from "@components/CatalogueProduct";
+import Counter from "@components/Counter";
 import { createMarkup } from "@helpers/content";
 import { getProductOptions } from "@helpers/sizes";
 
@@ -16,6 +17,7 @@ const Product = ({ product, text }) => {
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const productOptions = product.size ? getProductOptions(product.size) : "";
   const productNameOptions = product.size ? "Taille" : "";
+  const [quantity, setQuantity] = useState(1);
 
   return (
     <div className="Product">
@@ -39,6 +41,7 @@ const Product = ({ product, text }) => {
               dangerouslySetInnerHTML={productCaracteristics}
             />
             {product.outOfStock && renderOutOfStockProducts}
+            <Counter quantity={quantity} setQuantity={setQuantity} />
             <button
               data-item-id={product.id}
               data-item-price={product.price}
@@ -51,7 +54,8 @@ const Product = ({ product, text }) => {
               disabled={product.outOfStock}
               data-item-custom1-name={productNameOptions}
               data-item-custom1-options={productOptions}
-              data-item-stackable={!product.category[0].name === "Bagues"}
+              data-item-quantity={quantity}
+              // data-item-stackable={!product.category[0].name === "Bagues"}
             >
               {text.buyButtonText}
             </button>
