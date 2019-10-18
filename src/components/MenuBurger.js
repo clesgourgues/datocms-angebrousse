@@ -15,12 +15,12 @@ const Menu = ({ menu, open, setOpen }) => (
             );
           })}
         <li className={`Menu__burger__item`}>
-          <a href="#" class="snipcart-user-profile">
+          <a href="#" className="snipcart-user-profile">
             mon compte
           </a>
         </li>
         <li className={`Menu__burger__item`}>
-          <a href="#" class="snipcart-user-logout">
+          <a href="#" className="snipcart-user-logout">
             Se déconnecter
           </a>
         </li>
