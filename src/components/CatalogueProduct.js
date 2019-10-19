@@ -15,7 +15,14 @@ const CatalogueProduct = ({ product }) => {
         </div>
         <div className="Catalogue__details">
           <div className="Catalogue__name">{product.name} </div>
-          <div className="Catalogue__price">{product.price}€</div>
+          {product.promoPrice ? (
+            <div className="Catalogue__prices">
+              <del className="Catalogue__price">{product.price} €</del>
+              <div className="Catalogue__price">{product.promoPrice} €</div>
+            </div>
+          ) : (
+            <div className="Catalogue__price">{product.price} €</div>
+          )}
         </div>
       </div>
     </AniLink>

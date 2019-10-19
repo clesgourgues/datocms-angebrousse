@@ -44,10 +44,19 @@
   color: black;
 }
 
+.Catalogue__prices {
+  display: flex;
+}
+
 .Catalogue__price {
   font-size: 0.8em;
   font-weight: normal;
   color: $color-light;
+  margin: 0 $spacing-small;
+}
+
+.Catalogue__price_dicount {
+  text-decoration: line-through;
 }
 
 @media screen and (min-width: 600px) {
