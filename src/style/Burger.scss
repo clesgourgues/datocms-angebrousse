@@ -93,6 +93,15 @@
       margin: $spacing-medium 0;
     }
   }
+  .Menu__burger__item__menu {
+    font-size: $font-size-title;
+    color: $color-dark;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    margin: $spacing-medium 0;
+  }
 }
 
 .Menu__burger__nav {
