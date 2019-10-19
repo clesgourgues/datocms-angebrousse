@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Img from "gatsby-image";
-import Link from "gatsby-link";
+import Link from "gatsby-plugin-transition-link";
 
 import SnipCart from "@components/SnipCart";
 import Menu from "@components/Menu";

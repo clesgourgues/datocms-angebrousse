@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Link from "gatsby-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import ProductInfo from "@components/ProductInfo";
 import ImageSlider from "@components/ImageSlider";
@@ -23,7 +23,7 @@ const Product = ({ product, text }) => {
     <div className="Product">
       <div className="Wrap">
         <div className="Product__back">
-          <Link to="/eshop">{`< ${text.backText}`}</Link>
+          <AniLink fade to="/eshop">{`< ${text.backText}`}</AniLink>
         </div>
         <div className="Product__details">
           <ImageSlider images={product.image} />

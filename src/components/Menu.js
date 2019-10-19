@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "gatsby-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Menu = ({ menu, selected, setSelected }) => (
   <nav className="Menu">
@@ -13,7 +13,9 @@ const Menu = ({ menu, selected, setSelected }) => (
               onClick={() => setSelected(item.node.name)}
               key={item.node.name}
             >
-              <Link to={item.node.slug}>{item.node.name}</Link>
+              <AniLink fade to={item.node.slug}>
+                {item.node.name}
+              </AniLink>
             </li>
           );
         })}

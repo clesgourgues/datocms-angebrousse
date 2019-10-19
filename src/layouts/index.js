@@ -2,7 +2,6 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { StaticQuery, graphql, withPrefix } from "gatsby";
 // import { HelmetDatoCms } from "gatsby-source-datocms";
-import PageTransition from "gatsby-plugin-page-transitions";
 import Layout from "@components/Layout";
 import SnipContext from "@context/SnipContext";
 import "@style/index.scss";
@@ -117,7 +116,6 @@ export default ({ children }) => (
                 // dangerouslySetInnerHTML={{ __html: cookiesScript }}
               />
             </Helmet>
-
             <Layout
               user={user}
               cart={cart}
@@ -128,7 +126,7 @@ export default ({ children }) => (
               instagram={data.allInstaNode.edges}
               text={data.allDatoCmsTextesFooter.edges[0].node}
             >
-              <PageTransition>{children}</PageTransition>
+              {children}
             </Layout>
           </>
         )}

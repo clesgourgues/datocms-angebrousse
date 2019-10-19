@@ -1,10 +1,10 @@
 import React from "react";
 import Img from "gatsby-image";
-import Link from "gatsby-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const CatalogueProduct = ({ product }) => {
   return (
-    <Link to={`/${product.slug}`} className="Catalogue__item" key={product.id}>
+    <AniLink fade to={`/${product.slug}`} className="Catalogue__item" key={product.id}>
       <div>
         <div className="Catalogue__image">
           <Img
@@ -18,7 +18,7 @@ const CatalogueProduct = ({ product }) => {
           <div className="Catalogue__price">{product.price}€</div>
         </div>
       </div>
-    </Link>
+    </AniLink>
   );
 };
 

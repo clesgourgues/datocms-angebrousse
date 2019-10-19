@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "gatsby-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const Menu = ({ menu, open, setOpen }) => (
   <div className={`Menu__burger ${open ? "Menu__burger__open" : ""}`}>
@@ -10,7 +10,9 @@ const Menu = ({ menu, open, setOpen }) => (
           .map(item => {
             return (
               <li className={`Menu__burger__item`} onClick={() => setOpen()} key={item.node.name}>
-                <Link to={item.node.slug}>{item.node.name}</Link>
+                <AniLink fade to={item.node.slug}>
+                  {item.node.name}
+                </AniLink>
               </li>
             );
           })}

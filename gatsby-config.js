@@ -12,12 +12,11 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: "gatsby-plugin-page-transitions",
+      resolve: "gatsby-plugin-transition-link",
       options: {
-        transitionTime: 500
+        layout: require.resolve(`./src/layouts`)
       }
     },
-    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
