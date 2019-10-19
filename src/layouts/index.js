@@ -93,28 +93,18 @@ export default ({ children }) => (
       <SnipContext.Consumer>
         {({ user, cart }) => (
           <>
-            <Helmet
-              title={data.site.siteMetadata.siteName}
-              meta={[
-                { name: "description", content: "Sample" },
-                { name: "keywords", content: "sample, something" }
-              ]}
-            >
+            <Helmet>
               {/*    <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} /> */}
-              <html lang="fr-FR" />
+              <title>{data.site.siteMetadata.siteName}</title>
+              <meta name="description" content="Helmet application" />
               <script
                 async
                 src="https://www.googletagmanager.com/gtag/js?id=UA-149040088-1"
               ></script>
-              <script
-                src={withPrefix("gtag.js")}
-                // dangerouslySetInnerHTML={{ __html: gtagScript }}
-              />
+              <script src={withPrefix("gtag.js")} />
               <script src="https://cookiehub.net/cc/ed0dfc1f.js"></script>
-              <script
-                src={withPrefix("cookies.js")}
-                // dangerouslySetInnerHTML={{ __html: cookiesScript }}
-              />
+              <script src={withPrefix("cookies.js")} />
+              <html lang="fr-FR" />
             </Helmet>
             <Layout
               user={user}
