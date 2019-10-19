@@ -8,7 +8,6 @@ const Layout = ({ children, logos, menu, bottomMenu, encart, instagram, text, ca
     {encart.publi && <Encart encart={encart} />}
     <Header logos={logos} cart={cart} menu={menu} />
     <main className="Content">{children}</main>
-
     <Footer menu={bottomMenu} instagram={instagram} text={text} user={user} />
   </div>
 );

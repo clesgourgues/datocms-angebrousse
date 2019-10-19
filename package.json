@@ -28,7 +28,7 @@
     "postcss-preset-env": "^6.7.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^6.0.0",
+    "react-helmet": "^5.2.1",
     "react-hook-form": "^3.23.18",
     "react-icons": "^3.7.0"
   },

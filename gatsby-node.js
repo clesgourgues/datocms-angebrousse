@@ -5,6 +5,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const productTemplate = path.resolve("src/templates/product.js");
     const pageTemplate = path.resolve("src/templates/page.js");
+    const collectionTemplate = path.resolve("src/templates/lookbooks.js");
     resolve(
       graphql(
         `
@@ -28,6 +29,14 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
+            allDatoCmsCollection {
+              edges {
+                node {
+                  slug
+                  name
+                }
+              }
+            }
           }
         `
       ).then(result => {
@@ -41,8 +50,6 @@ exports.createPages = ({ graphql, actions }) => {
               path,
               component: productTemplate,
               context: {
-                /*
-              the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
                 pathSlug: path
               }
             });
@@ -55,9 +62,18 @@ exports.createPages = ({ graphql, actions }) => {
             path,
             component: pageTemplate,
             context: {
-              /*
-              the value passed in the context will be available for you to use in your page queries as a GraphQL variable, as per the template snippet */
               pathSlug: path
+            }
+          });
+          resolve();
+        });
+        result.data.allDatoCmsCollection.edges.forEach(({ node }) => {
+          const path = node.slug;
+          createPage({
+            path,
+            component: collectionTemplate,
+            context: {
+              collection: node.name
             }
           });
           resolve();
