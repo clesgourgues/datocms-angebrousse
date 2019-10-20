@@ -3,10 +3,10 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import LookBookMenu from "@components/LookBookMenu";
 
-const Menu = ({ menu, selected, setSelected }) => {
+const Menu = ({ menu, selected, setSelected, isHome }) => {
   const [visible, setVisible] = useState(false);
   return (
-    <nav className="Menu">
+    <nav className={`Menu ${isHome && "Menu__home"}`}>
       <ul className="Menu__items">
         {menu
           .sort((a, b) => a.node.position - b.node.position)
