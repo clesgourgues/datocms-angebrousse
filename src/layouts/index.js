@@ -1,10 +1,9 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-import { StaticQuery, graphql, withPrefix } from "gatsby";
+import { StaticQuery, graphql } from "gatsby";
 
-// import { HelmetDatoCms } from "gatsby-source-datocms";
 import Layout from "@components/Layout";
 import Homepage from "@components/Homepage";
+import Seo from "@components/Seo";
 import SnipContext from "@context/SnipContext";
 import "@style/index.scss";
 
@@ -84,46 +83,27 @@ export default ({ children, pageContext }) => (
             }
           }
         }
-        site {
-          siteMetadata {
-            siteName
-          }
-        }
-        datoCmsSite {
-          faviconMetaTags {
-            ...GatsbyDatoCmsFaviconMetaTags
-          }
-        }
       }
     `}
     render={data => {
       if (pageContext.layout === "homepage") {
         return (
-          <Homepage
-            images={data.allDatoCmsSiteParameter.edges[0].node}
-            menu={data.allDatoCmsMenu.edges}
-          >
-            {children}
-          </Homepage>
+          <>
+            <Seo />
+            <Homepage
+              images={data.allDatoCmsSiteParameter.edges[0].node}
+              menu={data.allDatoCmsMenu.edges}
+            >
+              {children}
+            </Homepage>
+          </>
         );
       }
       return (
         <SnipContext.Consumer>
           {({ user, cart }) => (
             <>
-              <Helmet>
-                {/*    <HelmetDatoCms favicon={data.datoCmsSite.faviconMetaTags} /> */}
-                <title>{data.site.siteMetadata.siteName}</title>
-                <meta name="description" content="Helmet application" />
-                <script
-                  async
-                  src="https://www.googletagmanager.com/gtag/js?id=UA-149040088-1"
-                ></script>
-                <script src={withPrefix("gtag.js")} />
-                <script src="https://cookiehub.net/cc/ed0dfc1f.js"></script>
-                <script src={withPrefix("cookies.js")} />
-                <html lang="fr-FR" />
-              </Helmet>
+              <Seo />
               <Layout
                 user={user}
                 cart={cart}

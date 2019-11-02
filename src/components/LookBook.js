@@ -1,8 +1,12 @@
 import React from "react";
 import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
 
 const LookBook = ({ lookbooks }) => (
   <div className="Lookbook">
+    <Helmet>
+      <title>Look Books</title>
+    </Helmet>
     <div className="Wrap">
       {lookbooks.map(collection => (
         <div className="Lookbook__collection" key={collection.node.collection.name}>

@@ -15,6 +15,7 @@ export default () => (
               price
               promoPrice
               slug
+              published
               category {
                 name
               }

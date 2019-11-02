@@ -16,7 +16,7 @@ const Footer = ({ menu, instagram, text, user }) => (
       buttonText={text.newsletterButtonText}
       user={user}
     />
-    <div className="Footer__privacy">© 2019 ANGELE BROUSSE JOAILLERIE — Terms & Privacy</div>
+    <div className="Footer__privacy">© Tous droits réservés @Angèle Brousse Joaillerie – 2019</div>
   </footer>
 );
 

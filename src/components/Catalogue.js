@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 
 import Filters from "@components/Filters";
 import CatalogueProduct from "@components/CatalogueProduct";
@@ -12,13 +13,16 @@ const Catalogue = ({ products, filters }) => {
 
   const productsToShow =
     selected === "tout voir"
-      ? products.filter(({ node: product }) => product.image.length > 0)
+      ? products.filter(({ node: product }) => product.image.length > 0 && product.published)
       : products
           .filter(({ node: product }) => product.category[0].name === selected)
           .filter(({ node: product }) => product.image.length > 0);
 
   return (
     <div className="Catalogue">
+      <Helmet>
+        <title>E-shop</title>
+      </Helmet>
       <div className="Wrap">
         <h2 className="Title">E-shop</h2>
         <Filters filters={filters} selected={selected} onClick={onMenuClick} />

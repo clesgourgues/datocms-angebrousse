@@ -22,7 +22,11 @@ const Header = ({ logos, cart, menu, isHome }) => {
                 <Img sizes={logos.logoMenuBurger.sizes} />
               </Link>
             </div>
-            {!isHome && <SnipCart cart={cart} />}
+            {!isHome && (
+              <div className="Snipcart__container">
+                <SnipCart cart={cart} />
+              </div>
+            )}
           </div>
           <div className={`Header__logo ${isHome && "Header__logo__home"}`}>
             <Link to="/">

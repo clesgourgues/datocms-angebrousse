@@ -1,5 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
+import { Helmet } from "react-helmet";
 
 import { createMarkup } from "@helpers/content";
 
@@ -7,6 +8,9 @@ const Page = ({ page }) => {
   const content = createMarkup(page.content);
   return (
     <div className="Page">
+      <Helmet>
+        <title>{page.title}</title>
+      </Helmet>
       <div className="Wrap">
         <h2 className="Title">{page.title}</h2>
         <div className="Page__content">

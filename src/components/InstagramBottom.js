@@ -11,12 +11,13 @@ const InstagramBottom = ({ publications, buttonText, title }) => {
       <div className="Instagram__bottom__items">
         {publications.slice(0, 6).map(({ node: publi }) => {
           return (
-            <a className="Instagram__bottom__item" key={publi.id} href={publi.preview}>
+            <a
+              className="Instagram__bottom__item"
+              key={publi.id}
+              href="https://www.instagram.com/angelebroussejewelry/"
+            >
               <div className="Instagram__bottom__image">
-                <Img
-                  sizes={{ ...publi.localFile.childImageSharp.fluid, aspectRatio: 1 }}
-                  // fluid={publi.localFile.childImageSharp.fluid}
-                />
+                <Img sizes={{ ...publi.localFile.childImageSharp.fluid, aspectRatio: 1 }} />
               </div>
             </a>
           );

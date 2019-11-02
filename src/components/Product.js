@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Helmet } from "react-helmet";
 
 import ProductInfo from "@components/ProductInfo";
 import ImageSlider from "@components/ImageSlider";
 import Sizes from "@components/Sizes";
 import CatalogueProduct from "@components/CatalogueProduct";
 import Counter from "@components/Counter";
+import SizesSelect from "@components/SizesSelect";
 import { createMarkup } from "@helpers/content";
 import { getProductOptions } from "@helpers/sizes";
 
@@ -15,12 +17,18 @@ const Product = ({ product, text }) => {
   );
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
-  const productOptions = product.size ? getProductOptions(product.size) : "";
   const productNameOptions = product.size ? "Taille" : "";
   const [quantity, setQuantity] = useState(1);
+  const [size, setSize] = product.size ? useState(product.size[0]) : [null, null];
+  const productOptions = product.size ? getProductOptions(product.size, size) : "";
+  console.log(productOptions);
 
   return (
     <div className="Product">
+      <Helmet>
+        <title>{product.name}</title>
+        <meta name="description" content={product.description} />
+      </Helmet>
       <div className="Wrap">
         <div className="Product__back">
           <AniLink fade to="/eshop">{`< ${text.backText}`}</AniLink>
@@ -41,13 +49,17 @@ const Product = ({ product, text }) => {
               dangerouslySetInnerHTML={productCaracteristics}
             />
             {product.outOfStock && renderOutOfStockProducts}
-            <Counter quantity={quantity} setQuantity={setQuantity} />
+            {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
+            {product.size && !product.outOfStock && (
+              <SizesSelect size={size} availableSizes={product.size} setSize={setSize} />
+            )}
             <button
               data-item-id={product.id}
               data-item-price={product.price}
               data-item-image={product.image[0].url}
               data-item-name={product.name}
               data-item-url={product.slug}
+              data-item-description={product.description}
               className={`Product__button snipcart-add-item ${
                 product.outOfStock ? "Product__button__disabled" : ""
               }`}
@@ -55,7 +67,7 @@ const Product = ({ product, text }) => {
               data-item-custom1-name={productNameOptions}
               data-item-custom1-options={productOptions}
               data-item-quantity={quantity}
-              // data-item-stackable={!product.category[0].name === "Bagues"}
+              data-item-stackable={!product.category[0].name === "Bagues"}
             >
               {text.buyButtonText}
             </button>

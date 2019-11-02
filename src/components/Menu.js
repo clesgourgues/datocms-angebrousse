@@ -38,6 +38,15 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
             mon compte
           </a>
         </li>
+        <li
+          className={`Menu__item Menu__snipcart snipcart-checkout ${
+            selected === "account" ? "Menu__selected" : ""
+          }`}
+        >
+          <a href="#" className="snipcart-user-profile">
+            panier
+          </a>
+        </li>
       </ul>
     </nav>
   );
