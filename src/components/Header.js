@@ -7,9 +7,8 @@ import Menu from "@components/Menu";
 import BurgerButton from "@components/BurgerButton";
 import MenuBurger from "@components/MenuBurger";
 
-const Header = ({ logos, cart, menu, isHome }) => {
+const Header = ({ logos, cart, menu, isHome, open, setOpen }) => {
   const [selected, setSelected] = useState("e-shop");
-  const [open, setOpen] = useState(false);
   return (
     <header className="Header">
       <div className="Wrap">

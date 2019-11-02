@@ -50,13 +50,8 @@
   }
 }
 
-.Menu__burger__nav {
-  margin-top: 40px;
-}
-
 .Menu__burger {
   display: flex;
-  height: 100vh;
   flex-direction: column;
   position: absolute;
   top: 0;
@@ -67,6 +62,9 @@
   z-index: 5;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  flex-grow: 1;
 }
 
 .Menu__burger__open {
@@ -102,8 +100,4 @@
     font-family: "Oswald", sans-serif;
     margin: $spacing-medium 0;
   }
-}
-
-.Menu__burger__nav {
-  margin-top: 40px;
 }

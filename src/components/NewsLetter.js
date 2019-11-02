@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import addToMailchimp from "gatsby-plugin-mailchimp";
-import { FaEnvelope } from "react-icons/fa";
+import { FaRegEnvelope } from "react-icons/fa";
 
 const NewsLetter = ({ user, title, isHome }) => {
   let [email, setEmail] = useState("");
@@ -24,8 +24,8 @@ const NewsLetter = ({ user, title, isHome }) => {
   return (
     <div className="Newsletter">
       <div className="Footer__title">
-        {!isHome && <FaEnvelope size={20} />}
-        {title}
+        {!isHome && <FaRegEnvelope size={20} className="far" />}
+        <span>{title}</span>
       </div>
       {result ? (
         <div>{result.msg}</div>

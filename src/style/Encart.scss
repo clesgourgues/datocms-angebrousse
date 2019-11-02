@@ -1,14 +1,9 @@
 .Encart {
-  display: flex;
   background-color: black;
   color: white;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   padding: $spacing-small 30px;
   p {
-    flex: 1;
-    height: auto;
     font-size: $font-size-medium;
   }
 }

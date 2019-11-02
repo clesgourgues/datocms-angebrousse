@@ -4,7 +4,6 @@
   flex-shrink: 0;
   text-align: center;
   a {
-    font-weight: bold;
     color: $color-dark;
   }
 }
@@ -19,8 +18,12 @@
   justify-content: center;
   margin-bottom: $spacing-x-small;
   text-align: center;
+  font-size: $font-size-medium;
   svg {
     margin-right: 5px;
+  }
+  span {
+    margin: 0 $spacing-x-small;
   }
 }
 
