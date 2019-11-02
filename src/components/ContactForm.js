@@ -3,7 +3,7 @@ import useForm from "react-hook-form";
 
 const ContactForm = ({ text, user }) => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = data => {
+  const onSubmit = (data, errors) => {
     console.log(data);
     console.log(errors);
   };
@@ -12,12 +12,13 @@ const ContactForm = ({ text, user }) => {
     <form
       name="contact"
       method="POST"
-      data-netlify-recaptcha="true"
+      data-netlify-honeypot="bot-field"
       data-netlify="true"
       action="/success"
       className="Contact__form"
       onSubmit={handleSubmit(onSubmit)}
     >
+      <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
       <input
         className="Contact__form__input"
@@ -37,7 +38,6 @@ const ContactForm = ({ text, user }) => {
       <div className="Contact__form__error">
         {errors && errors.message && "Please enter a value"}
       </div>
-      <div data-netlify-recaptcha="true"></div>
       <button type="submit" className="Contact__form__button">
         {text.sendButtonText}
       </button>

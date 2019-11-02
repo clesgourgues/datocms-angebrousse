@@ -21,7 +21,6 @@ const Product = ({ product, text }) => {
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = product.size ? useState(product.size[0]) : [null, null];
   const productOptions = product.size ? getProductOptions(product.size, size) : "";
-  console.log(productOptions);
 
   return (
     <div className="Product">
