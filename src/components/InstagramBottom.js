@@ -5,7 +5,10 @@ import { FaInstagram } from "react-icons/fa";
 const InstagramBottom = ({ publications, buttonText, title }) => {
   return (
     <div className="Instagram__bottom">
-      <a className="Footer__title" href="https://www.instagram.com/angelebroussejewelry/">
+      <a
+        className="Footer__title Instagram__title"
+        href="https://www.instagram.com/angelebroussejewelry/"
+      >
         <FaInstagram size={20} /> {title}
       </a>
       <div className="Instagram__bottom__items">

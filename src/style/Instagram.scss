@@ -8,6 +8,10 @@
   }
 }
 
+.Instagram__title {
+  padding: 20px;
+}
+
 .Instagram__bottom__items {
   display: flex;
   justify-content: center;
@@ -22,12 +26,10 @@
 
 .Instagram__bottom__item {
   width: 250px;
+  cursor: pointer;
   @media screen and (max-width: 599px) {
     width: 100px;
   }
-}
-
-.Instagram__bottom__image {
 }
 
 .Instagram {

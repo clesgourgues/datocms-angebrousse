@@ -30,6 +30,8 @@
     text-align: center;
   }
   .Newsletter__form__button {
+    -webkit-appearance: none;
+    border-radius: 0;
     @media screen and (max-width: 576px) {
       margin-left: 150px;
     }
