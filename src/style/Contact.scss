@@ -8,6 +8,7 @@
 
 .Contact__intro {
   display: flex;
+  padding-top: 20px;
   @media screen and (max-width: 500px) {
     flex-direction: column;
   }

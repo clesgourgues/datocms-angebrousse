@@ -5,11 +5,11 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 14px;
+  padding: $spacing-small 30px;
   p {
     flex: 1;
     height: auto;
-    padding: $spacing-small 30px;
+    font-size: $font-size-medium;
   }
 }
 

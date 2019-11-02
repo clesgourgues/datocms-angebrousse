@@ -24,9 +24,16 @@
   p {
     margin: $spacing-small 0;
   }
+  h3 {
+    text-decoration: none;
+    color: #191919;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: $font-size-medium;
+  }
   blockquote {
-    font-size: 1.4em;
-    width: 60%;
+    font-size: $font-size-big;
+    width: 80%;
     margin: $spacing-medium auto;
     font-style: italic;
     color: #555555;
@@ -35,7 +42,7 @@
     position: relative;
     @media screen and (max-width: 767px) {
       width: 100%;
-      font-size: $font-size-big;
+      font-size: $font-size-medium;
     }
   }
   blockquote::before {

@@ -13,6 +13,7 @@ export const query = graphql`
           slug
           title
           content
+          contentIntro
           illustration {
             fluid {
               ...GatsbyDatoCmsFluid
