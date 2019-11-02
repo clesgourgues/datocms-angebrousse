@@ -2,11 +2,7 @@ import React from "react";
 import useForm from "react-hook-form";
 
 const ContactForm = ({ text, user }) => {
-  const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data, errors) => {
-    console.log(data);
-    console.log(errors);
-  };
+  const { register, errors } = useForm();
 
   return (
     <form
@@ -16,7 +12,6 @@ const ContactForm = ({ text, user }) => {
       data-netlify="true"
       action="/success"
       className="Contact__form"
-      onSubmit={handleSubmit(onSubmit)}
     >
       <input type="hidden" name="bot-field" />
       <input type="hidden" name="form-name" value="contact" />
@@ -28,7 +23,9 @@ const ContactForm = ({ text, user }) => {
         defaultValue={user ? user.email : ""}
         ref={register({ required: true, maxlength: 20 })}
       />
-      <div className="Contact__form__error">{errors && errors.email && "Please enter a value"}</div>
+      <div className="Contact__form__error">
+        {errors && errors.email && "Merci de saisir votre email"}
+      </div>
       <textarea
         name="message"
         className="Contact__form__text"
@@ -36,11 +33,9 @@ const ContactForm = ({ text, user }) => {
         ref={register({ required: true, maxlength: 1500 })}
       />
       <div className="Contact__form__error">
-        {errors && errors.message && "Please enter a value"}
+        {errors && errors.message && "Merci de saisir votre message"}
       </div>
-      <button type="submit" className="Contact__form__button">
-        {text.sendButtonText}
-      </button>
+      <input tclassName="Contact__form__button" value={text.sendButtonText} />
     </form>
   );
 };
