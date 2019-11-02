@@ -5,6 +5,7 @@ import Header from "@components/Header";
 const Layout = ({ children, images, menu }) => {
   const [selected, setSelected] = useState(0);
   const [stop, setStop] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     document.body.addEventListener("click", handleClick);
   }, []);
@@ -28,7 +29,7 @@ const Layout = ({ children, images, menu }) => {
       className="Container"
       fadeIn={`soft`}
     >
-      <Header logos={images} menu={menu} isHome={true} />
+      <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} />
       <main className="Content">{children}</main>
     </BackgroundImage>
   );
