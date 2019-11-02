@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Img from "gatsby-image";
-import Link from "gatsby-plugin-transition-link";
+import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import SnipCart from "@components/SnipCart";
 import Menu from "@components/Menu";
@@ -18,9 +18,9 @@ const Header = ({ logos, cart, menu, isHome }) => {
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
             <MenuBurger menu={menu} open={open} setOpen={setOpen} />
             <div className="Header__topbar__logo">
-              <Link to="/">
+              <AniLink to="/" fade duration={0.5}>
                 <Img sizes={logos.logoMenuBurger.sizes} />
-              </Link>
+              </AniLink>
             </div>
             {!isHome && (
               <div className="Snipcart__container">
@@ -29,9 +29,9 @@ const Header = ({ logos, cart, menu, isHome }) => {
             )}
           </div>
           <div className={`Header__logo ${isHome && "Header__logo__home"}`}>
-            <Link to="/">
+            <AniLink to="/" fade duration={0.5}>
               <Img sizes={logos.logo.sizes} />
-            </Link>
+            </AniLink>
           </div>
           <Menu menu={menu} selected={selected} setSelected={setSelected} isHome={isHome} />
         </div>

@@ -4,7 +4,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 const CatalogueProduct = ({ product }) => {
   return (
-    <AniLink fade to={`/${product.slug}`} className="Catalogue__item" key={product.id}>
+    <AniLink fade to={`/${product.slug}`} className="Catalogue__item" duration={0.5}>
       <div>
         <div className="Catalogue__image">
           <Img

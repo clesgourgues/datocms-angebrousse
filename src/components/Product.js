@@ -30,7 +30,7 @@ const Product = ({ product, text }) => {
       </Helmet>
       <div className="Wrap">
         <div className="Product__back">
-          <AniLink fade to="/eshop">{`< ${text.backText}`}</AniLink>
+          <AniLink fade to="/eshop" duration={0.5}>{`< ${text.backText}`}</AniLink>
         </div>
         <div className="Product__details">
           <ImageSlider images={product.image} />

@@ -20,12 +20,14 @@
 
 .snip-layout__main-container {
   font-family: $font-text;
+  height: 100%;
 }
 
 #snipcart-current-user {
   &:before {
     content: "";
     background: url("../assets/logo.png");
+    background-size: 300px;
     width: 300px;
     height: 225px;
     display: block;

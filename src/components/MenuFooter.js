@@ -9,7 +9,7 @@ const getMenu = menu =>
     .map(item => {
       return (
         <li className="Menu__footer__item" key={item.node.name}>
-          <AniLink fade to={item.node.slug}>
+          <AniLink fade to={item.node.slug} duration={0.5}>
             {item.node.name}
           </AniLink>
         </li>

@@ -36,12 +36,13 @@ export default () => (
         <meta property="og:type" content="website" />
         {data.datoCmsSite.faviconMetaTags.tags
           .filter(tag => tag.tagName === "link")
-          .map(tag => (
+          .map((tag, index) => (
             <link
               rel={tag.attributes.rel}
               type={tag.attributes.type}
               href={tag.attributes.href}
               sizes={tag.attributes.sizes}
+              key={`tag-${index}`}
             />
           ))}
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149040088-1"></script>

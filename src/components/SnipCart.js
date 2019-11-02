@@ -1,7 +1,6 @@
 import React from "react";
 import { FiShoppingBag } from "react-icons/fi";
 
-// import cartIcon from "../assets/cart.png";
 import { getItemsQuantity } from "@helpers/cart";
 
 const SnipCart = ({ cart }) => {

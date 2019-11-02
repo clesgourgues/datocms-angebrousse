@@ -21,7 +21,7 @@ const Menu = ({ menu, open, setOpen }) => (
               </li>
             ) : (
               <li className={`Menu__burger__item`} onClick={() => setOpen()} key={item.node.name}>
-                <AniLink fade to={item.node.slug}>
+                <AniLink fade to={item.node.slug} duration={0.5}>
                   {item.node.name}
                 </AniLink>
               </li>

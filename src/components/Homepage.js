@@ -22,7 +22,12 @@ const Layout = ({ children, images, menu }) => {
     }
   });
   return (
-    <BackgroundImage Tag="section" fluid={images.slider[selected].fluid} className="Container">
+    <BackgroundImage
+      Tag="section"
+      fluid={images.slider[selected].fluid}
+      className="Container"
+      fadeIn={`soft`}
+    >
       <Header logos={images} menu={menu} isHome={true} />
       <main className="Content">{children}</main>
     </BackgroundImage>

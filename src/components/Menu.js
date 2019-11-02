@@ -27,7 +27,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
                 onClick={() => setSelected(item.node.name)}
                 key={item.node.name}
               >
-                <AniLink fade to={item.node.slug}>
+                <AniLink fade to={item.node.slug} duration={0.5}>
                   {item.node.name}
                 </AniLink>
               </li>
