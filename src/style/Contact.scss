@@ -6,17 +6,36 @@
   justify-content: center;
 }
 
-.Contact__mail {
+.Contact__intro {
   display: flex;
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+}
+
+.Contact__mail {
+  flex: 2;
+  padding: 0 $spacing-medium;
+  @media screen and (max-width: 500px) {
+    padding: $spacing-medium 0 0 0;
+  }
+}
+
+.Contact__image {
+  flex: 1.5;
 }
 
 .Contact__paraph {
   padding: $spacing-small 0 $spacing-small $spacing-medium;
-  @media screen and (max-width: 599px) {
+  @media screen and (max-width: 500px) {
     padding: $spacing-small 0;
   }
   .Contact__paraph__title {
+    color: $color-dark;
     margin-top: $spacing-small;
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
   }
 }
 
@@ -28,6 +47,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
+  font-size: $font-size-big;
+  color: $color-dark;
 }
 
 form.Contact__form {
@@ -38,9 +60,6 @@ form.Contact__form {
   width: 100%;
   margin: auto;
   padding: $spacing-medium 0;
-  @media screen and (max-width: 599px) {
-    width: 100%;
-  }
 }
 
 .Contact__form__input {
@@ -50,13 +69,14 @@ form.Contact__form {
   border-left: none;
   border-bottom: 1px solid $color-light;
   padding: $spacing-medium;
-  font-size: $font-size-big;
+  font-size: $font-size-medium;
+  color: $color-dark;
+  margin-bottom: $spacing-big;
   &::placeholder {
-    color: $color-dark;
-    font-size: $font-size-small;
-  }
-  @media screen and (max-width: 599px) {
+    color: $color-light;
     font-size: $font-size-medium;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 }
 
@@ -66,28 +86,31 @@ form.Contact__form {
   padding: $spacing-medium;
   font-size: $font-size-medium;
   border: 1px solid $color-light;
+  color: $color-dark;
   &::placeholder {
-    color: $color-dark;
-    font-size: $font-size-small;
-    font-family: Karla,sans-serif;
+    color: $color-light;
+    font-size: $font-size-medium;
+    font-family: Karla, sans-serif;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
   }
 }
 
 .Contact__form__button {
   text-align: center;
   text-transform: uppercase;
-  color: $color-dark;
   padding: $spacing-small $spacing-medium;
   margin: $spacing-medium 0;
   position: relative;
   font-weight: bold;
-  border: 1px solid black;
   width: 200px;
-  background-color: white;
+  background-color: black;
+  color: white;
   &:hover {
+    border: 1px solid $color-dark;
     text-decoration: none;
-    background-color: black;
-    color: white;
+    background-color: white;
+    color: $color-dark;
     cursor: pointer;
   }
 }

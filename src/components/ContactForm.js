@@ -1,9 +1,6 @@
 import React from "react";
-import useForm from "react-hook-form";
 
 const ContactForm = ({ text, user }) => {
-  const { register, errors } = useForm();
-
   return (
     <form
       name="contact"
@@ -21,21 +18,17 @@ const ContactForm = ({ text, user }) => {
         placeholder={text.emailPlaceholderText}
         type="email"
         defaultValue={user ? user.email : ""}
-        ref={register({ required: true, maxlength: 20 })}
+        required
+        maxlength="50"
       />
-      <div className="Contact__form__error">
-        {errors && errors.email && "Merci de saisir votre email"}
-      </div>
       <textarea
         name="message"
         className="Contact__form__text"
         placeholder={text.messagePlaceholderText}
-        ref={register({ required: true, maxlength: 1500 })}
+        required
+        maxlength="500"
       />
-      <div className="Contact__form__error">
-        {errors && errors.message && "Merci de saisir votre message"}
-      </div>
-      <input tclassName="Contact__form__button" value={text.sendButtonText} />
+      <input type="submit" className="Contact__form__button" value={text.sendButtonText} />
     </form>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
+import Img from "gatsby-image";
 
 import ContactForm from "@components/ContactForm";
 
@@ -11,16 +12,21 @@ const Contact = ({ text, user }) => {
         <title>Contact</title>
       </Helmet>
       <div className="Wrap">
-        <div lassName="Contact__mail">
-          <h2 className="Title">{text.title}</h2>
-          <div className="Subtitle">{text.mailText}</div>
-          <div className="Contact__paraph">
-            {text.mail.map((item, index) => (
-              <div key={`item-${index}`}>
-                <div className="Contact__paraph__title">{item.title}</div>
-                <div>{item.content}</div>
-              </div>
-            ))}
+        <h2 className="Title">{text.title}</h2>
+        <div className="Contact__intro">
+          <div className="Contact__image">
+            <Img fluid={text.image.fluid} loading="lazy" />
+          </div>
+          <div className="Contact__mail">
+            <div className="Subtitle">{text.mailText}</div>
+            <div className="Contact__paraph">
+              {text.mail.map((item, index) => (
+                <div key={`item-${index}`}>
+                  <div className="Contact__paraph__title">{item.title}</div>
+                  <div>{item.content}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
         <ContactForm text={text} user={user} />

@@ -28,6 +28,11 @@ export default () => (
                 title
                 content
               }
+              image {
+                fluid(maxWidth: 500) {
+                  ...GatsbyDatoCmsFluid
+                }
+              }
             }
           }
         }
