@@ -19,7 +19,7 @@ const getMenu = menu =>
 const MenuFooter = ({ menu, title, buttonText, user }) => {
   const newMenu = [
     ...getMenu(menu),
-    <li className="Menu__footer__item">
+    <li className="Menu__footer__item" key="baguier">
       <a href="https://www.datocms-assets.com/16072/1568378285-baguier-ab-a59832.pdf">baguier</a>
     </li>
   ];

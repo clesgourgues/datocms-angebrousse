@@ -35,6 +35,9 @@
   }
   em {
     font-style: italic;
+    strong {
+      font-weight: bold;
+    }
   }
   h3 {
     text-decoration: none;
@@ -42,6 +45,9 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     font-size: $font-size-medium;
+    strong {
+      font-weight: bold;
+    }
   }
   blockquote {
     font-size: $font-size-big;
