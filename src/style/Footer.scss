@@ -10,7 +10,6 @@
 
 .Footer__title {
   color: $color-dark;
-  font-size: $font-size-small;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   display: flex;
@@ -24,6 +23,7 @@
   }
   span {
     margin: 0 $spacing-x-small;
+    font-size: $font-size-medium-small;
   }
 }
 

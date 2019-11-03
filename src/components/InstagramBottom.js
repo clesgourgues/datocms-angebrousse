@@ -9,7 +9,7 @@ const InstagramBottom = ({ publications, buttonText, title }) => {
         className="Footer__title Instagram__title"
         href="https://www.instagram.com/angelebroussejewelry/"
       >
-        <FaInstagram size={20} /> {title}
+        <FaInstagram size={20} /> <span>{title}</span>
       </a>
       <div className="Instagram__bottom__items">
         {publications.slice(0, 6).map(({ node: publi }) => {

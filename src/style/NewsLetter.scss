@@ -14,18 +14,18 @@
   justify-content: flex-end;
   align-items: flex-end;
   position: fixed;
-  bottom: 80px;
+  bottom: 40px;
   right: 80px;
   width: 100%;
   @media screen and (max-width: 767px) {
     justify-content: center;
     right: auto;
     padding: 20px;
-    bottom: 40px;
+    bottom: 10px;
   }
   div {
     color: white;
-    font-size: $font-size-big;
+    font-size: $font-size-medium;
     text-transform: none;
     text-align: center;
   }

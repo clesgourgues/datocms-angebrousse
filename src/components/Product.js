@@ -68,6 +68,7 @@ const Product = ({ product, text }) => {
               data-item-custom1-name={productNameOptions}
               data-item-custom1-options={productOptions}
               data-item-quantity={quantity}
+              data-item-has-taxes-included="true"
               // data-item-stackable={!product.category[0].name === "Bagues"}
             >
               {text.buyButtonText}
