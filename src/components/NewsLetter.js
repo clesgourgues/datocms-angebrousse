@@ -30,7 +30,7 @@ const NewsLetter = ({ user, title, isHome }) => {
       {result ? (
         <div>{result.msg}</div>
       ) : (
-        <form name="Newsletter" onSubmit={() => handleSubmit(email)} className="Newsletter__form">
+        <form name="Newsletter" onSubmit={handleSubmit} className="Newsletter__form">
           <input type="hidden" name="form-name" value="Newsletter" />
           <input
             className={`Newsletter__form__input ${isHome && "Newsletter__form__input__home"}`}
