@@ -129,4 +129,11 @@
     background: darken($color-golden, 5%);
     color: white;
   }
+
+  .snip-flash__item {
+    background-color: white;
+  }
+  .snip-flash__item .snip-static__title {
+    color: black;
+  }
 }

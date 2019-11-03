@@ -15,7 +15,7 @@ const ProductInfo = ({ infos, category, title }) => (
             return (
               categories.includes(category) && (
                 <Tab key={`info-${index}`}>
-                  <span className="Product__info__subtitle">{i.title}</span>
+                  <div className="Product__info__subtitle">{i.title}</div>
                 </Tab>
               )
             );

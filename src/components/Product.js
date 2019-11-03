@@ -82,7 +82,7 @@ const Product = ({ product, text }) => {
         />
         {product.linkedProducts.length > 0 && (
           <>
-            <span className="Product__title">{text.linkedProductsText}</span>
+            <div className="Product__linkedproducts__title">{text.linkedProductsText}</div>
             <div className="Product__linkedproducts">
               {product.linkedProducts.map(
                 linkedProduct =>

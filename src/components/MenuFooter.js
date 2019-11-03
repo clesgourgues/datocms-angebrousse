@@ -16,19 +16,27 @@ const getMenu = menu =>
       );
     });
 
-const MenuFooter = ({ menu, title, buttonText, user }) => (
-  <div className="Menu__footer">
-    <nav className="Menu__footer__nav">
-      <ul className="Menu__footer__items">{getMenu(menu.slice(0, 3))}</ul>
-      {menu.length > 3 && menu.length < 7 && (
-        <ul className="Menu__footer__items">{getMenu(menu.slice(3, 6))}</ul>
-      )}
-      {menu.length > 6 && (
-        <ul className="Menu__footer__items">{getMenu(menu.slice(6, menu.length))}</ul>
-      )}
-    </nav>
-    <NewsLetter title={title} buttonText={buttonText} user={user} />
-  </div>
-);
+const MenuFooter = ({ menu, title, buttonText, user }) => {
+  const newMenu = [
+    ...getMenu(menu),
+    <li className="Menu__footer__item">
+      <a href="https://www.datocms-assets.com/16072/1568378285-baguier-ab-a59832.pdf">baguier</a>
+    </li>
+  ];
+  return (
+    <div className="Menu__footer">
+      <nav className="Menu__footer__nav">
+        <ul className="Menu__footer__items">{newMenu.slice(0, 3)}</ul>
+        {menu.length > 3 && menu.length < 7 && (
+          <ul className="Menu__footer__items">{newMenu.slice(3, 6)}</ul>
+        )}
+        {menu.length > 6 && (
+          <ul className="Menu__footer__items">{newMenu.slice(6, menu.length)}</ul>
+        )}
+      </nav>
+      <NewsLetter title={title} buttonText={buttonText} user={user} />
+    </div>
+  );
+};
 
 export default MenuFooter;

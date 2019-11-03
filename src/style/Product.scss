@@ -76,6 +76,15 @@
   text-transform: uppercase;
 }
 
+.Product__linkedproducts__title {
+  font-weight: bold;
+  text-decoration: none;
+  color: #191919;
+  font-size: $font-size-big;
+  text-transform: uppercase;
+  text-align: center;
+}
+
 .Product__price {
   font-size: 0.8em;
   font-weight: normal;
@@ -104,6 +113,7 @@
   margin: $spacing-medium 0 0 0;
   background-color: black;
   color: white;
+  border: none;
   cursor: pointer;
   &:hover {
     background-color: white;
@@ -188,6 +198,7 @@
 
 .Product__info__subtitle {
   text-transform: uppercase;
+  text-align: center;
 }
 
 .Product__info__item {
@@ -237,6 +248,7 @@ ul.react-tabs__tab-list {
     flex: 1;
     list-style: none !important;
     list-style-type: none !important;
+    padding: 10px !important;
   }
 }
 
