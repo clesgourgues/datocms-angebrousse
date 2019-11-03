@@ -1,24 +1,43 @@
 import React from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { createMarkup } from "@helpers/content";
 
 const ProductInfo = ({ infos, category, title }) => (
-  <>
+  <div className="Product__info">
     <div className="Product__info__title">{title}</div>
-    <div className="Product__info">
+    <Tabs>
+      <TabList>
+        {infos
+          .sort((a, b) => a.position - b.position)
+          .map((i, index) => {
+            const categories = i.categories.map(category => category.name);
+            return (
+              categories.includes(category) && (
+                <Tab key={`info-${index}`}>
+                  <span className="Product__info__subtitle">{i.title}</span>
+                </Tab>
+              )
+            );
+          })}
+      </TabList>
       {infos
         .sort((a, b) => a.position - b.position)
         .map((i, index) => {
           const categories = i.categories.map(category => category.name);
           return (
             categories.includes(category) && (
-              <div className="Product__info__item" key={`info-${index}`}>
-                <div className="Product__info__title">{i.title}</div>
-                <div className="Product__info__content">{i.content}</div>
-              </div>
+              <TabPanel key={`info-${index}`}>
+                <div
+                  className="Product__info__content"
+                  dangerouslySetInnerHTML={createMarkup(i.content)}
+                />
+              </TabPanel>
             )
           );
         })}
-    </div>
-  </>
+    </Tabs>
+  </div>
 );
 
 export default ProductInfo;

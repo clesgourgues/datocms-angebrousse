@@ -39,19 +39,21 @@ const Product = ({ product, text }) => {
               <div className="Product__title">{product.name}</div>
               <div className="Product__price">{product.price}€</div>
             </div>
-            {product.size && !product.outOfStock && (
-              <Sizes text={text.sizesText} availableSizes={product.size} />
-            )}
             <div className="Product__description">{product.description}</div>
             <div
               className="Product__characteristics"
               dangerouslySetInnerHTML={productCaracteristics}
             />
             {product.outOfStock && renderOutOfStockProducts}
-            {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
             {product.size && !product.outOfStock && (
-              <SizesSelect size={size} availableSizes={product.size} setSize={setSize} />
+              <Sizes text={text.sizesText} availableSizes={product.size} />
             )}
+            <div className="Product__select">
+              {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
+              {product.size && !product.outOfStock && (
+                <SizesSelect size={size} availableSizes={product.size} setSize={setSize} />
+              )}
+            </div>
             <button
               data-item-id={product.id}
               data-item-price={product.price}

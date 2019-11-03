@@ -33,7 +33,8 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-hook-form": "^3.23.18",
-    "react-icons": "^3.7.0"
+    "react-icons": "^3.7.0",
+    "react-tabs": "^3.0.0"
   },
   "keywords": [
     "gatsby"

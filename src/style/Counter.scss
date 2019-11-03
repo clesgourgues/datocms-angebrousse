@@ -1,7 +1,10 @@
 .Counter {
   display: flex;
+  color: $color-dark;
 }
 
 .Counter__button {
   border: none;
+  font-size: $font-size-medium;
+  background-color: white;
 }

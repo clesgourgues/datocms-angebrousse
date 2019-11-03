@@ -1,0 +1,37 @@
+.Select {
+  display: flex;
+  color: $color-dark;
+  align-items: baseline;
+  span {
+    flex: 1;
+  }
+}
+
+.Select__size {
+  display: block;
+  padding: 0.6em 1.4em 0.5em 0.8em;
+  flex: 1;
+  box-sizing: border-box;
+  margin: 0;
+  border: none;
+  background-color: #fff;
+  font-size: $font-size-medium;
+}
+.select-css::-ms-expand {
+  display: none;
+}
+.select-css:hover {
+  border-color: $color-dark;
+  background-color: #fff;
+}
+.select-css:focus {
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  outline: none;
+  border-color: $color-dark;
+  background-color: #fff;
+  border-radius: 0;
+}
+.select-css option {
+  font-weight: normal;
+}

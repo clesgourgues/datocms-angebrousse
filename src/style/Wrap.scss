@@ -20,8 +20,21 @@
   color: $color-light;
   font-size: $font-size-medium;
   width: 100%;
+  ul li {
+    padding: 0 5px;
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+  }
   p {
+    color: $color-dark;
     margin: $spacing-medium 0;
+    strong {
+      font-weight: bold;
+    }
+  }
+  em {
+    font-style: italic;
   }
   h3 {
     text-decoration: none;
