@@ -19,14 +19,14 @@ const ContactForm = ({ text, user }) => {
         type="email"
         defaultValue={user ? user.email : ""}
         required
-        maxlength="50"
+        maxLength="50"
       />
       <textarea
         name="message"
         className="Contact__form__text"
         placeholder={text.messagePlaceholderText}
         required
-        maxlength="500"
+        maxLength="500"
       />
       <input type="submit" className="Contact__form__button" value={text.sendButtonText} />
     </form>

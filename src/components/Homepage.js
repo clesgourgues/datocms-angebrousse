@@ -27,7 +27,6 @@ const Layout = ({ children, images, menu }) => {
       Tag="section"
       fluid={images.slider[selected].fluid}
       className="Container"
-      fadeIn={`soft`}
     >
       <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} />
       <main className="Content">{children}</main>

@@ -43,7 +43,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
             selected === "account" ? "Menu__selected" : ""
           }`}
         >
-          <a href="#" className="snipcart-user-profile">
+          <a href="#" className="snipcart-checkout">
             panier
           </a>
         </li>

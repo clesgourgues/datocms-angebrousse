@@ -6,21 +6,12 @@
     text-decoration: none;
   }
   @media screen and (min-width: 768px) {
-    position: absolute;
-    right: $spacing-big;
-    top: $spacing-medium;
-  }
-}
-
-.Snipcart__container {
-  @media screen and (min-width: 768px) {
     display: none;
   }
 }
 
 .snip-layout__main-container {
   font-family: $font-text;
-  height: 100%;
 }
 
 #snipcart-current-user {
@@ -37,11 +28,6 @@
 
 .snip-product__empty {
   padding: 6em 2em;
-}
-
-.snip-footer {
-  position: absolute;
-  bottom: 0;
 }
 
 .Snipcart__quantity {
@@ -86,6 +72,7 @@
 
   .snip-layout__main-container {
     border: none !important;
+    padding: 3px;
   }
 
   .snip-header,
@@ -117,11 +104,6 @@
 
   .snip-product__empty {
     text-transform: none;
-  }
-
-  .snip-layout__main-container {
-    border: 2px solid black;
-    padding: 3px;
   }
 
   .snip-header__total {
