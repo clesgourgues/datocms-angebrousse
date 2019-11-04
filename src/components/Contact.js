@@ -30,13 +30,13 @@ const Contact = ({ text, user }) => (
         </div>
       </div>
       <ContactForm text={text} user={user} />
-      {text.phone && (
+      {text.phone &&  text.phone[0] && (
         <>
           <div className="Subtitle">{text.phone[0].title}</div>
           <div className="Contact__paraph">{text.phone[0].content}</div>
         </>
       )}
-      {text.address && (
+      {text.address &&  text.address[0] && (
         <>
           <div className="Subtitle">{text.address[0].title}</div>
           <div className="Contact__paraph">{text.address[0].content}</div>
