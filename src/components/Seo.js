@@ -33,7 +33,14 @@ export default () => (
       >
         <html lang={data.datoCmsSite.locales[0]} amp />
         <meta name="description" content={data.datoCmsSite.globalSeo.fallbackSeo.description} />
+        <meta property="type" content="website" />
         <meta property="og:type" content="website" />
+        <meta property="og:title" content={data.datoCmsSite.globalSeo.siteName} />
+        <meta
+          property="og:description"
+          content={data.datoCmsSite.globalSeo.fallbackSeo.description}
+        />
+
         {data.datoCmsSite.faviconMetaTags.tags
           .filter(tag => tag.tagName === "link")
           .map((tag, index) => (

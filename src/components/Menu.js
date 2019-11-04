@@ -13,13 +13,15 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
           .map(item =>
             item.node.slug === "menu" ? (
               <li
-                className="Menu__item__menu"
+                className={`Menu__item__menu ${
+                  selected === item.node.name ? "Menu__selected" : ""
+                }`}
                 onMouseEnter={() => setVisible(true)}
                 onMouseLeave={() => setVisible(false)}
                 key={item.node.name}
               >
                 {item.node.name}
-                {visible && <LookBookMenu />}
+                {visible && <LookBookMenu setSelected={setSelected} node={item.node.name} />}
               </li>
             ) : (
               <li

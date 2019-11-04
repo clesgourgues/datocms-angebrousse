@@ -2,7 +2,7 @@ import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-export default () => (
+export default ({ setSelected, node }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -19,7 +19,11 @@ export default () => (
     render={data => (
       <ul className="Menu__lookbook">
         {data.allDatoCmsCollection.edges.map(item => (
-          <li className="Menu__lookbook__item" key={item.node.name}>
+          <li
+            className="Menu__lookbook__item"
+            key={item.node.name}
+            onClick={() => setSelected(node)}
+          >
             <AniLink fade to={item.node.slug} duration={0.5}>
               {item.node.name}
             </AniLink>

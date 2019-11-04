@@ -22,6 +22,7 @@ const Catalogue = ({ products, filters }) => {
     <div className="Catalogue">
       <Helmet>
         <title>E-shop</title>
+        <meta property="og:title" content="Angèle Brousse Joaillerie | E-shop" />
       </Helmet>
       <div className="Wrap">
         <h2 className="Title">E-shop</h2>

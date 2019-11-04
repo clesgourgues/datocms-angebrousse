@@ -27,6 +27,8 @@ const Product = ({ product, text }) => {
       <Helmet>
         <title>{product.name}</title>
         <meta name="description" content={product.description} />
+        <meta property="og:title" content={product.name} />
+        <meta property="og:description" content={product.description} />
       </Helmet>
       <div className="Wrap">
         <div className="Product__back">
@@ -59,7 +61,7 @@ const Product = ({ product, text }) => {
               data-item-price={product.price}
               data-item-image={product.image[0].url}
               data-item-name={product.name}
-              data-item-url={product.slug}
+              data-item-url={`/${product.slug}`}
               data-item-description={product.description}
               className={`Product__button snipcart-add-item ${
                 product.outOfStock ? "Product__button__disabled" : ""
