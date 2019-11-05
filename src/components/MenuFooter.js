@@ -4,17 +4,15 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 import NewsLetter from "@components/NewsLetter";
 
 const getMenu = menu =>
-  menu
-    .sort((a, b) => a.node.position - b.node.position)
-    .map(item => {
-      return (
-        <li className="Menu__footer__item" key={item.node.name}>
-          <AniLink fade to={item.node.slug} duration={0.5}>
-            {item.node.name}
-          </AniLink>
-        </li>
-      );
-    });
+  menu.map(item => {
+    return (
+      <li className="Menu__footer__item" key={item.node.name}>
+        <AniLink fade to={item.node.slug} duration={0.5}>
+          {item.node.name}
+        </AniLink>
+      </li>
+    );
+  });
 
 const MenuFooter = ({ menu, title, buttonText, user }) => {
   const newMenu = [

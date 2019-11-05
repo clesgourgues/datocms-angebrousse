@@ -12,7 +12,7 @@ const InstagramBottom = ({ publications, buttonText, title }) => {
         <FaInstagram size={20} /> <span>{title}</span>
       </a>
       <div className="Instagram__bottom__items">
-        {publications.slice(0, 6).map(({ node: publi }) => {
+        {publications.map(({ node: publi }) => {
           return (
             <a
               className="Instagram__bottom__item"

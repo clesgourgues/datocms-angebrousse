@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BackgroundImage from "gatsby-background-image";
 import Header from "@components/Header";
 
-const Layout = ({ children, images, menu }) => {
+const Homepage = ({ children, images, menu }) => {
   const [selected, setSelected] = useState(0);
   const [stop, setStop] = useState(false);
   const [open, setOpen] = useState(false);
@@ -27,6 +27,7 @@ const Layout = ({ children, images, menu }) => {
       Tag="section"
       fluid={images.slider[selected].fluid}
       className="Container"
+      loading="eager"
     >
       <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} />
       <main className="Content">{children}</main>
@@ -34,4 +35,4 @@ const Layout = ({ children, images, menu }) => {
   );
 };
 
-export default Layout;
+export default Homepage;

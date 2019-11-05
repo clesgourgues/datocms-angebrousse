@@ -10,7 +10,7 @@ const CatalogueProduct = ({ product }) => {
           <Img
             style={{ opacity: 0.8, height: "300px" }}
             sizes={product.image[0].sizes}
-            loading="lazy"
+            loading="eager"
           />
         </div>
         <div className="Catalogue__details">

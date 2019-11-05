@@ -26,60 +26,17 @@ export default ({ children, pageContext }) => (
               }
               slider {
                 fluid(maxWidth: 2500) {
-                  ...GatsbyDatoCmsFluid
+                  ...GatsbyDatoCmsFluid_noBase64
                 }
               }
             }
           }
         }
-        allDatoCmsTextesFooter {
-          edges {
-            node {
-              instagramButtonText
-              instagramText
-              newsletterButtonText
-              newsletterText
-            }
-          }
-        }
-        allDatoCmsMenu {
+        allDatoCmsMenu(sort: { fields: position, order: ASC }) {
           edges {
             node {
               name
               slug
-              position
-            }
-          }
-        }
-        allDatoCmsBottomMenu {
-          edges {
-            node {
-              slug
-              name
-              position
-            }
-          }
-        }
-        allDatoCmsEncartInfo {
-          edges {
-            node {
-              info
-              publi
-            }
-          }
-        }
-        allInstaNode {
-          edges {
-            node {
-              id
-              preview
-              localFile {
-                childImageSharp {
-                  fluid(maxHeight: 250) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
             }
           }
         }
@@ -109,10 +66,6 @@ export default ({ children, pageContext }) => (
                 cart={cart}
                 logos={data.allDatoCmsSiteParameter.edges[0].node}
                 menu={data.allDatoCmsMenu.edges}
-                bottomMenu={data.allDatoCmsBottomMenu.edges}
-                encart={data.allDatoCmsEncartInfo.edges[0].node}
-                instagram={data.allInstaNode.edges}
-                text={data.allDatoCmsTextesFooter.edges[0].node}
               >
                 {children}
               </Layout>

@@ -27,10 +27,7 @@
 }
 
 .Contact__paraph {
-  padding: $spacing-small 0 $spacing-small $spacing-medium;
-  @media screen and (max-width: 500px) {
-    padding: $spacing-small 0;
-  }
+  padding: $spacing-small 0;
   .Contact__paraph__title {
     color: $color-dark;
     margin-top: $spacing-small;
