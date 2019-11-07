@@ -23,7 +23,6 @@ class SnipProvider extends Component {
     window.addEventListener("online", this.updateScripts);
     document.body.addEventListener("click", this.handleProductClick);
     document.addEventListener("snipcart.ready", this.snipcartReady);
-    this.updateScripts();
   }
 
   componentWillUnmount() {
@@ -75,14 +74,14 @@ class SnipProvider extends Component {
     if (!this.state.cssLoaded && !this.state.cssLoading) {
       this.loadSnipCss();
     }
-    var jQueryLoaded = !!(typeof window.$ == "function" && window.$.fn && window.$.fn.jquery);
+    const jQueryLoaded = !!(typeof window.$ == "function" && window.$.fn && window.$.fn.jquery);
     if (!jQueryLoaded) {
       return this.loadjQuery().then(this.updateScripts);
     }
     if (!this.isSnipcartLoaded()) {
       return this.loadSnipJs().then(this.updateScripts);
     }
-    if (this.isSnipcartReady) {
+    if (this.state.isSnipcartReady) {
       this.dequeueProducts();
     }
   };

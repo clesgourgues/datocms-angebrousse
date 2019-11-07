@@ -45,7 +45,7 @@ export default ({ children, pageContext }) => (
     render={data => {
       return (
         <SnipContext.Consumer>
-          {({ user, cart }) => {
+          {({ user, cart }) =>
             pageContext.layout === "homepage" ? (
               <>
                 <Seo />
@@ -70,8 +70,8 @@ export default ({ children, pageContext }) => (
                   {children}
                 </Layout>
               </>
-            );
-          }}
+            )
+          }
         </SnipContext.Consumer>
       );
     }}

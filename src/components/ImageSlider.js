@@ -9,7 +9,7 @@ const ImageSlider = ({ images }) => {
         sizes={images[0].sizes}
         loading="lazy"
         style={{
-          height: "400px"
+          height: "500px"
         }}
         className="Product__image__selected"
       />
@@ -25,7 +25,7 @@ const ImageSlider = ({ images }) => {
         sizes={images[selected].sizes}
         loading="lazy"
         style={{
-          height: "400px",
+          height: "500px",
           cursor: "pointer"
         }}
         className="Product__image__selected"
