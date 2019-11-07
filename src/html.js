@@ -14,7 +14,7 @@ export default function HTML(props) {
         <script src={withPrefix("gtag.js")} />
         <script src="https://cookiehub.net/cc/ed0dfc1f.js"></script>
         <script src={withPrefix("cookies.js")} />
-        <script
+        {/*         <script
           src="https://code.jquery.com/jquery-3.4.1.min.js"
           integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
           crossorigin="anonymous"
@@ -29,7 +29,7 @@ export default function HTML(props) {
           href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css"
           rel="stylesheet"
           type="text/css"
-        />
+        /> */}
       </head>
       <body {...props.bodyAttributes}>
         {props.preBodyComponents}
@@ -39,7 +39,6 @@ export default function HTML(props) {
         <div key={`body`} id="___gatsby" dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
       </body>
-      <script type="text/javascript" src={withPrefix("fr-FR.js")}></script>
     </html>
   );
 }

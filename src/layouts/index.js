@@ -58,7 +58,7 @@ export default ({ children, pageContext }) => (
       }
       return (
         <SnipContext.Consumer>
-          {({ user, cart }) => (
+          {({ user, cart, updateCart }) => (
             <>
               <Seo />
               <Layout
@@ -66,6 +66,7 @@ export default ({ children, pageContext }) => (
                 cart={cart}
                 logos={data.allDatoCmsSiteParameter.edges[0].node}
                 menu={data.allDatoCmsMenu.edges}
+                updateCart={updateCart}
               >
                 {children}
               </Layout>

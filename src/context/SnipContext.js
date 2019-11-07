@@ -14,15 +14,6 @@ const SnipProvider = ({ children }) => {
     document.addEventListener("snipcart.ready", () => {
       setUser(window.Snipcart.api.user.current());
       setCart(window.Snipcart.api.cart.get());
-      window.Snipcart.subscribe("item.added", item => {
-        updateCart();
-      });
-      window.Snipcart.subscribe("item.removed", item => {
-        updateCart();
-      });
-      window.Snipcart.subscribe("item.updated", item => {
-        updateCart();
-      });
     });
   }, []);
 
@@ -34,7 +25,8 @@ const SnipProvider = ({ children }) => {
     <SnipContext.Provider
       value={{
         cart,
-        user
+        user,
+        updateCart
       }}
     >
       {children}
