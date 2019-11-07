@@ -3,7 +3,7 @@ import AniLink from "gatsby-plugin-transition-link/AniLink";
 
 import LookBookMenu from "@components/LookBookMenu";
 
-const Menu = ({ menu, open, setOpen }) => (
+const MenuBurger = ({ menu, open, setOpen, user }) => (
   <div className={`Menu__burger ${open ? "Menu__burger__open" : ""}`}>
     <nav className="Menu__burger__nav">
       <ul className="Menu__burger_items">
@@ -26,14 +26,16 @@ const Menu = ({ menu, open, setOpen }) => (
             mon compte
           </a>
         </li>
-        <li className={`Menu__burger__item`}>
-          <a href="#" className="snipcart-user-logout">
-            Se déconnecter
-          </a>
-        </li>
+        {user && (
+          <li className={`Menu__burger__item`}>
+            <a href="#" className="snipcart-user-logout">
+              Se déconnecter
+            </a>
+          </li>
+        )}
       </ul>
     </nav>
   </div>
 );
 
-export default Menu;
+export default MenuBurger;

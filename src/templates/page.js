@@ -12,6 +12,10 @@ export const query = graphql`
         node {
           slug
           title
+          contentAccordion {
+            title
+            content
+          }
           content
           contentIntro
           illustration {

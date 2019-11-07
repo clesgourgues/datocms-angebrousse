@@ -60,7 +60,7 @@ export default ({ children, logos, menu, cart, user }) => (
       return (
         <div className={`Container ${open && "Container__open"}`}>
           {encart.publi && <Encart encart={encart} />}
-          <Header logos={logos} cart={cart} menu={menu} open={open} setOpen={setOpen} />
+          <Header logos={logos} cart={cart} menu={menu} open={open} setOpen={setOpen} user={user} />
           <main className="Content">{children}</main>
           <Footer menu={bottomMenu} instagram={instagram} text={text} user={user} />
         </div>

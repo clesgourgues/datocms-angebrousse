@@ -7,7 +7,7 @@ import Menu from "@components/Menu";
 import BurgerButton from "@components/BurgerButton";
 import MenuBurger from "@components/MenuBurger";
 
-const Header = ({ logos, cart, menu, isHome, open, setOpen }) => {
+const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
   const [selected, setSelected] = useState(null);
   return (
     <header className="Header">
@@ -15,7 +15,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen }) => {
         <div className="Header__body">
           <div className={`Header__topbar ${isHome && "Header__topbar__home"}`}>
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
-            <MenuBurger menu={menu} open={open} setOpen={setOpen} />
+            <MenuBurger menu={menu} open={open} setOpen={setOpen} user={user} />
             <div className="Header__topbar__logo">
               <AniLink to="/" fade duration={0.5}>
                 <Img sizes={logos.logoMenuBurger.sizes} />

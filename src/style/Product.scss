@@ -174,9 +174,9 @@
 
 .Product__select {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   margin: $spacing-small 0;
+  flex-direction: column;
 }
 
 .Product__info {

@@ -16,6 +16,11 @@
       flex-direction: column;
       padding-top: 0;
     }
+    .Page__content {
+      @media screen and (max-width: 992px) {
+        padding-top: 0;
+      }
+    }
     .Content__intro {
       padding-left: $spacing-medium;
       flex: 1;

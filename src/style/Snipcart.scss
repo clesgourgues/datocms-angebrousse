@@ -107,6 +107,7 @@
   }
 
   .snip-header__total {
+    border-radius: 0;
     color: white;
     span {
       color: white;
@@ -125,8 +126,14 @@
     color: black;
   }
 
+  .snip-btn {
+    border-radius: 0;
+    background-color: black;
+    color: white;
+  }
+
   .snip-btn--highlight {
-    background: darken($color-golden, 5%);
+    background: black;
     color: white;
   }
 

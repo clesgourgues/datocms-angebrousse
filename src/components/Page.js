@@ -2,11 +2,13 @@ import React from "react";
 import Img from "gatsby-image";
 import { Helmet } from "react-helmet";
 
+import Accordion from "@components/Accordion";
 import { createMarkup } from "@helpers/content";
 
 const Page = ({ page }) => {
-  const content = createMarkup(page.content);
   const contentIntro = createMarkup(page.contentIntro);
+  const content = createMarkup(page.content);
+
   return (
     <div className="Page">
       <Helmet>
@@ -24,16 +26,22 @@ const Page = ({ page }) => {
             <div className="Content Content__intro" dangerouslySetInnerHTML={contentIntro} />
           )}
         </div>
-        {page.content && (
-          <div className="Page__content">
-            <div className="Content" dangerouslySetInnerHTML={content} />
-          </div>
-        )}
-        {page.enclosedFile && (
-          <a href={page.enclosedFile.url} className="Page__link">
-            {page.enclosedFileText}
-          </a>
-        )}
+
+        <div className="Page__content">
+          {page.content && <div className="Content" dangerouslySetInnerHTML={content} />}
+          {page.contentAccordion.length > 0 && (
+            <div>
+              {page.contentAccordion.map(item => (
+                <Accordion {...item} />
+              ))}
+            </div>
+          )}
+          {page.enclosedFile && (
+            <a href={page.enclosedFile.url} className="Page__link">
+              {page.enclosedFileText}
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );

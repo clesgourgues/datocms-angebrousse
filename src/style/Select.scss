@@ -1,10 +1,14 @@
 .Select {
+  width: 100%;
+  color: #2d2d2d;
+  border: solid 1px #999;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.4px;
+  text-shadow: none;
+  text-align: start;
   display: flex;
-  color: $color-dark;
   align-items: baseline;
-  span {
-    flex: 1;
-  }
 }
 
 .Select__size {
@@ -16,6 +20,11 @@
   border: none;
   background-color: #fff;
   font-size: $font-size-medium;
+  -webkit-appearance: none;
+  background: #fff url("../assets/chevron.svg") no-repeat right 12px center;
+  padding: 7px 10% 7px 8px;
+  border-radius: 0;
+  width: 100%;
 }
 .select-css::-ms-expand {
   display: none;
