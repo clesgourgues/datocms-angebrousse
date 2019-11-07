@@ -20,13 +20,14 @@ class SnipProvider extends Component {
   };
 
   componentDidMount() {
-    window.addEventListener("online", this.updateScripts);
+    console.log("did mount");
+    window.addEventListener("load", this.updateScripts);
     document.body.addEventListener("click", this.handleProductClick);
     document.addEventListener("snipcart.ready", this.snipcartReady);
   }
 
   componentWillUnmount() {
-    window.removeEventListener("online", this.updateScripts);
+    document.removeEventListener("DOMContentLoaded", this.updateScripts);
     document.body.removeEventListener("click", this.handleProductClick);
     document.removeEventListener("snipcart.ready", this.snipcartReady);
   }
@@ -68,6 +69,7 @@ class SnipProvider extends Component {
   };
 
   updateScripts = () => {
+    console.log("update script");
     if (!window.navigator.onLine) {
       return;
     }

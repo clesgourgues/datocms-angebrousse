@@ -19,7 +19,6 @@ const ImageSlider = ({ images }) => {
       className="Product__image"
       onMouseEnter={() => setSelected(1)}
       onMouseLeave={() => setSelected(0)}
-      onSwipe={() => setSelected(selected === 0 ? 1 : 0)}
     >
       <Img
         sizes={images[selected].sizes}
