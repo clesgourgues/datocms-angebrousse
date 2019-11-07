@@ -74,8 +74,7 @@ Snipcart.execute("registerLocale", "fr-FR", {
   cart_items_table_quantity: "Quantité",
   cart_items_table_unit_price: "Prix unitaire",
   cart_items_table_total_price: "Prix total",
-  cart_empty_text:
-    "Votre panier est actuellement vide. Sélectionnez des produits afin de procéder au paiement.",
+  cart_empty_text: "Votre panier est vide.",
   new_account_form_create_new_account: "Créer un nouveau compte",
   new_account_form_create_new_account_action: "Créer",
   login_form_having_an_account: "Vous avez un compte ?",

@@ -43,35 +43,35 @@ export default ({ children, pageContext }) => (
       }
     `}
     render={data => {
-      if (pageContext.layout === "homepage") {
-        return (
-          <>
-            <Seo />
-            <Homepage
-              images={data.allDatoCmsSiteParameter.edges[0].node}
-              menu={data.allDatoCmsMenu.edges}
-            >
-              {children}
-            </Homepage>
-          </>
-        );
-      }
       return (
         <SnipContext.Consumer>
-          {({ user, cart, updateCart }) => (
-            <>
-              <Seo />
-              <Layout
-                user={user}
-                cart={cart}
-                logos={data.allDatoCmsSiteParameter.edges[0].node}
-                menu={data.allDatoCmsMenu.edges}
-                updateCart={updateCart}
-              >
-                {children}
-              </Layout>
-            </>
-          )}
+          {({ user, cart }) => {
+            pageContext.layout === "homepage" ? (
+              <>
+                <Seo />
+                <Homepage
+                  images={data.allDatoCmsSiteParameter.edges[0].node}
+                  menu={data.allDatoCmsMenu.edges}
+                  user={user}
+                  cart={cart}
+                >
+                  {children}
+                </Homepage>
+              </>
+            ) : (
+              <>
+                <Seo />
+                <Layout
+                  user={user}
+                  cart={cart}
+                  logos={data.allDatoCmsSiteParameter.edges[0].node}
+                  menu={data.allDatoCmsMenu.edges}
+                >
+                  {children}
+                </Layout>
+              </>
+            );
+          }}
         </SnipContext.Consumer>
       );
     }}

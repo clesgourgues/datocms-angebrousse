@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import BackgroundImage from "gatsby-background-image";
 import Header from "@components/Header";
 
-const Homepage = ({ children, images, menu }) => {
+const Homepage = ({ children, images, menu, cart, user }) => {
   const [selected, setSelected] = useState(0);
   const [stop, setStop] = useState(false);
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ const Homepage = ({ children, images, menu }) => {
       className="Container"
       loading="eager"
     >
-      <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} />
+      <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} cart={cart} user={user}/>
       <main className="Content">{children}</main>
     </BackgroundImage>
   );

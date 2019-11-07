@@ -3,7 +3,6 @@ import { StaticQuery, graphql } from "gatsby";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Encart from "@components/Encart";
-import Snipcart from "@components/Snipcart";
 
 export default ({ children, logos, menu, cart, user, updateCart }) => (
   <StaticQuery
@@ -60,17 +59,8 @@ export default ({ children, logos, menu, cart, user, updateCart }) => (
       const text = data.allDatoCmsTextesFooter.edges[0].node;
       return (
         <div className={`Container ${open && "Container__open"}`}>
-          <Snipcart updateCart={updateCart} />
           {encart.publi && <Encart encart={encart} />}
-          <Header
-            logos={logos}
-            cart={cart}
-            menu={menu}
-            open={open}
-            setOpen={setOpen}
-            user={user}
-            updateCart={updateCart}
-          />
+          <Header logos={logos} cart={cart} menu={menu} open={open} setOpen={setOpen} user={user} />
           <main className="Content">{children}</main>
           <Footer menu={bottomMenu} instagram={instagram} text={text} user={user} />
         </div>

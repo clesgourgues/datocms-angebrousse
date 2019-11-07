@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Img from "gatsby-image";
 import AniLink from "gatsby-plugin-transition-link/AniLink";
 
-import SnipCartCart from "@components/SnipCartCart";
 import Menu from "@components/Menu";
 import BurgerButton from "@components/BurgerButton";
 import MenuBurger from "@components/MenuBurger";
+import SnipCart from "@components/SnipCart";
 
 const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
   const [selected, setSelected] = useState(null);
@@ -23,7 +23,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
             </div>
             {!isHome && (
               <div className="Snipcart__container">
-                <SnipCartCart cart={cart} />
+                <SnipCart cart={cart} />
               </div>
             )}
           </div>
