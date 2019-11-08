@@ -1,10 +1,21 @@
 .Counter {
   display: flex;
+  flex-direction: column;
   color: $color-dark;
+  align-items: center;
+  justify-content: center;
+  margin-top: $spacing-medium;
 }
 
 .Counter__button {
   border: none;
   font-size: $font-size-medium;
   background-color: white;
+}
+
+.Counter__title {
+  font-size: $font-size-medium;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
 }

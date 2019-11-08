@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
 import LookBookMenu from "@components/LookBookMenu";
 
@@ -25,9 +25,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
               onClick={() => setSelected(item.node.name)}
               key={item.node.name}
             >
-              <AniLink fade to={item.node.slug} duration={0.5}>
-                {item.node.name}
-              </AniLink>
+              <Link to={item.node.slug}>{item.node.name}</Link>
             </li>
           )
         )}

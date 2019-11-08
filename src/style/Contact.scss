@@ -9,8 +9,10 @@
 .Contact__intro {
   display: flex;
   padding-top: 20px;
+  align-items: center;
   @media screen and (max-width: 500px) {
     flex-direction: column;
+    align-items: initial;
   }
 }
 
@@ -104,6 +106,7 @@ form.Contact__form {
   width: 200px;
   background-color: black;
   color: white;
+  border: 1px solid black;
   &:hover {
     border: 1px solid $color-dark;
     text-decoration: none;

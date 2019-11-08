@@ -1,0 +1,55 @@
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.Slider {
+  position: relative;
+  display: flex;
+  flex-basis: row wrap;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+}
+
+.Slider__slide {
+  width: 100%;
+}
+
+.Slider__slide__hidden {
+  display: none;
+}
+
+.Slider__dots {
+  display: flex;
+  flex-basis: row wrap;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  bottom: -$spacing-medium;
+}
+
+.Slider__dot {
+  width: 12px;
+  height: 12px;
+  background-color: black;
+  border-radius: 50%;
+  margin: 0 4px;
+  opacity: 0.3;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.Slider__dot__selected,
+.Slider__dot:hover {
+  opacity: 1;
+}

@@ -15,20 +15,33 @@ const ImageSlider = ({ images }) => {
       />
     </div>
   ) : (
-    <div
-      className="Product__image"
-      onMouseEnter={() => setSelected(1)}
-      onMouseLeave={() => setSelected(0)}
-    >
-      <Img
-        sizes={images[selected].sizes}
-        loading="lazy"
-        style={{
-          height: "500px",
-          cursor: "pointer"
-        }}
-        className="Product__image__selected"
-      />
+    <div className="Slider">
+      {images.map((image, index) => (
+        <div
+          className={`Slider__slide fade ${selected !== index ? "Slider__slide__hidden" : ""}`}
+          key={`slide-${index}`}
+        >
+          <Img
+            sizes={image.sizes}
+            style={{
+              height: "500px",
+              cursor: "pointer"
+            }}
+            className="Product__image  Slider__image"
+          />
+        </div>
+      ))}
+      <div className="Slider__dots">
+        {images.map((image, index) => (
+          <span
+            className={`Slider__dot ${selected !== index ? "Slider__dot__selected" : ""}`}
+            onClick={() =>
+              selected === images.length - 1 ? setSelected(0) : setSelected(index + 1)
+            }
+            key={`dot-${index}`}
+          ></span>
+        ))}
+      </div>
     </div>
   );
 };

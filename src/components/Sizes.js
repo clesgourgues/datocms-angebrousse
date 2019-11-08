@@ -2,16 +2,21 @@ import React from "react";
 
 import { sizes } from "@helpers/sizes";
 
-const Sizes = ({ text, availableSizes }) => (
+const Sizes = ({ text, availableSizes, selected, setSize }) => (
   <div>
-    <span className="Product__size">{text}</span>
+    <div className="Product__size">{text}</div>
     <div className="Product__size">
       {sizes.map(size => (
         <span
           className={`Product__size__item ${
             availableSizes.includes(size) ? "Product__size__available" : ""
-          }`}
+          } ${selected === size ? "Product__size__selected" : ""}`}
           key={size}
+          onClick={
+            availableSizes.includes(size)
+              ? () => setSize(size)
+              : () => console.log("size is unavailable")
+          }
         >
           {size}
         </span>

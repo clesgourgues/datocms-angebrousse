@@ -1,5 +1,5 @@
 import React from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 
 import NewsLetter from "@components/NewsLetter";
 
@@ -7,9 +7,7 @@ const getMenu = menu =>
   menu.map(item => {
     return (
       <li className="Menu__footer__item" key={item.node.name}>
-        <AniLink fade to={item.node.slug} duration={0.5}>
-          {item.node.name}
-        </AniLink>
+        <Link to={item.node.slug}>{item.node.name}</Link>
       </li>
     );
   });

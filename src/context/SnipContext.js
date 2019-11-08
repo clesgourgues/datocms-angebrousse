@@ -12,123 +12,75 @@ class SnipProvider extends Component {
   state = {
     cart: null,
     user: null,
-    productsQueue: [],
-    isSnipcartReady: false,
     cssLoading: false,
-    cssLoaded: false,
-    eventSubscribed: false
+    cssLoaded: false
   };
 
   componentDidMount() {
-    console.log("did mount");
     window.addEventListener("load", this.updateScripts);
-    document.body.addEventListener("click", this.handleProductClick);
     document.addEventListener("snipcart.ready", this.snipcartReady);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("DOMContentLoaded", this.updateScripts);
-    document.body.removeEventListener("click", this.handleProductClick);
+    window.removeEventListener("load", this.updateScripts);
     document.removeEventListener("snipcart.ready", this.snipcartReady);
   }
 
   snipcartReady = () => {
     console.log("Snipcart finished loading");
-    this.loadLangJs().then(() => {
-      window.Snipcart.subscribe("item.adding", this.handleItemAdding);
-      window.Snipcart.subscribe("item.added", this.updateCart);
-      window.Snipcart.subscribe("item.removed", this.updateCart);
-      window.Snipcart.subscribe("item.updated", this.updateCart);
-      this.dequeueProducts();
-      this.setState({
-        isSnipcartReady: true,
-        user: window.Snipcart.api.user.current(),
-        cart: window.Snipcart.api.cart.get()
-      });
+    window.Snipcart.subscribe("item.added", this.updateCart);
+    window.Snipcart.subscribe("item.removed", this.updateCart);
+    window.Snipcart.subscribe("item.updated", this.updateCart);
+    this.setState({
+      user: window.Snipcart.api.user.current(),
+      cart: window.Snipcart.api.cart.get()
     });
   };
 
-  handleProductClick = e => {
-    const { productsQueue } = this.state;
-    if (!e.target.classList.contains("snipcart-add-item") || this.isSnipcartLoaded()) {
-      return;
-    }
-    const item = JSON.parse(e.target.getAttribute("data-snip-def"));
-    console.log("Queuing clicked item", item);
-    this.setState({ productsQueue: [...productsQueue, item] });
-  };
-
-  handleItemAdding = (e, item) => {
-    const { productsQueue } = this.state;
-    if (window.navigator.onLine) {
-      return;
-    }
-    e.preventDefault();
-    console.log("Queuing item from snip event", item);
-    this.setState({ productsQueue: [...productsQueue, item] });
-  };
-
-  updateScripts = () => {
-    console.log("update script");
-    if (!window.navigator.onLine) {
-      return;
-    }
+  updateScripts = async () => {
     if (!this.state.cssLoaded && !this.state.cssLoading) {
-      this.loadSnipCss();
+      await this.loadSnipCss();
     }
     const jQueryLoaded = !!(typeof window.$ == "function" && window.$.fn && window.$.fn.jquery);
     if (!jQueryLoaded) {
-      return this.loadjQuery().then(this.updateScripts);
+      await this.loadjQuery();
     }
     if (!this.isSnipcartLoaded()) {
-      return this.loadSnipJs().then(this.updateScripts);
+      await this.loadSnipJs();
+      await this.loadLangJs();
     }
-    if (this.state.isSnipcartReady) {
-      this.dequeueProducts();
-    }
-  };
-
-  dequeueProducts = () => {
-    window.Snipcart.api.cart.start().then(() => {
-      console.log("Dequeueing products", this.state.productsQueue);
-      if (this.state.productsQueue.length > 0) {
-        window.Snipcart.api.items.add(this.state.productsQueue);
-        this.setState({ productsQueue: [] });
-      }
-    });
   };
 
   isSnipcartLoaded = () => !!window.Snipcart;
 
-  loadjQuery = () =>
-    this.addElem("script", {
+  loadjQuery = async () =>
+    await this.addElem("script", {
       async: true,
       src: "https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"
     });
 
-  loadSnipJs = () =>
-    this.addElem("script", {
+  loadSnipJs = async () =>
+    await this.addElem("script", {
       async: true,
       id: "snipcart",
       src: "https://cdn.snipcart.com/scripts/2.0/snipcart.js",
       "data-api-key": process.env.GATSBY_SNIPCART_API_KEY
     });
 
-  loadLangJs = () =>
-    this.addElem("script", {
+  loadLangJs = async () =>
+    await this.addElem("script", {
       src: withPrefix("fr-FR.js")
     });
 
-  loadSnipCss = () => {
+  loadSnipCss = async () => {
     this.setState({ cssLoading: true });
-    return this.addElem("link", {
+    await this.addElem("link", {
       async: true,
       type: "text/css",
       rel: "stylesheet",
       href: "https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css"
-    })
-      .then(() => this.setState({ cssLoaded: true }))
-      .finally(() => this.setState({ cssLoading: false }));
+    });
+    this.setState({ cssLoaded: true, cssLoading: false });
   };
 
   addElem = (tag, attrs) => {

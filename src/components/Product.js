@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import AniLink from "gatsby-plugin-transition-link/AniLink";
+import { Link } from "gatsby";
 import { Helmet } from "react-helmet";
 
 import ProductInfo from "@components/ProductInfo";
@@ -7,7 +7,6 @@ import ImageSlider from "@components/ImageSlider";
 import Sizes from "@components/Sizes";
 import CatalogueProduct from "@components/CatalogueProduct";
 import Counter from "@components/Counter";
-import SizesSelect from "@components/SizesSelect";
 import { createMarkup } from "@helpers/content";
 import { getProductOptions } from "@helpers/sizes";
 
@@ -19,7 +18,7 @@ const Product = ({ product, text }) => {
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const productNameOptions = product.size ? "Taille" : "";
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = product.size ? useState(product.size[0]) : [null, null];
+  const [size, setSize] = product.size ? useState(null) : [null, null];
   const productOptions = product.size ? getProductOptions(product.size, size) : "";
 
   return (
@@ -32,7 +31,7 @@ const Product = ({ product, text }) => {
       </Helmet>
       <div className="Wrap">
         <div className="Product__back">
-          <AniLink fade to="/eshop" duration={0.5}>{`< ${text.backText}`}</AniLink>
+          <Link to="/eshop">{`< ${text.backText}`}</Link>
         </div>
         <div className="Product__details">
           <ImageSlider images={product.image} />
@@ -48,14 +47,14 @@ const Product = ({ product, text }) => {
             />
             {product.outOfStock && renderOutOfStockProducts}
             {product.size && !product.outOfStock && (
-              <Sizes text={text.sizesText} availableSizes={product.size} />
+              <Sizes
+                text={text.sizesText}
+                availableSizes={product.size}
+                selected={size}
+                setSize={setSize}
+              />
             )}
-            <div className="Product__select">
-              {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
-              {product.size && !product.outOfStock && (
-                <SizesSelect size={size} availableSizes={product.size} setSize={setSize} />
-              )}
-            </div>
+            {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
             <button
               data-item-id={product.id}
               data-item-price={product.price}

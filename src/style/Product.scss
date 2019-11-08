@@ -35,17 +35,10 @@
 }
 
 .Product__image {
-  width: 50%;
   position: relative;
   border: 1px solid $color-dark;
   height: 100%;
   cursor: pointer;
-  transition: filter 0.6s ease-out, opacity 0.6s ease-in;
-  filter: blur(0);
-  opacity: 1;
-  @media screen and (max-width: 980px) {
-    width: 100%;
-  }
 }
 
 .Product__image__selected {
@@ -58,13 +51,13 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 0 $spacing-big;
+  padding: 60px 0 $spacing-big 0;
   justify-content: space-between;
   @media screen and (max-width: 599px) {
-    padding: $spacing-medium;
+    padding: 60px 0 $spacing-big 0;
   }
-  @media screen and (max-width: 980px) {
-    padding: $spacing-medium 0;
+  @media screen and (min-width: 980px) {
+    padding: 0 $spacing-medium;
   }
 }
 
@@ -94,6 +87,9 @@
 
 .Product__size {
   font-size: $font-size-medium;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: center;
 }
 
 .Product__size__item {
@@ -103,6 +99,12 @@
 
 .Product__size__available {
   color: #191919;
+  cursor: pointer;
+}
+
+.Product__size__selected,
+.Product__size__available:hover {
+  border-bottom: 1px solid black;
 }
 
 .Product__button {
@@ -110,15 +112,15 @@
   text-transform: uppercase;
   padding: $spacing-small $spacing-medium;
   position: relative;
-  margin: $spacing-medium 0 0 0;
+  margin-top: $spacing-medium;
   background-color: black;
   color: white;
   border: none;
   cursor: pointer;
+  border: 1px solid $color-dark;
   &:hover {
     background-color: white;
     color: $color-dark;
-    border: 1px solid $color-dark;
   }
 }
 
@@ -172,28 +174,22 @@
   }
 }
 
-.Product__select {
-  display: flex;
-  justify-content: space-between;
-  margin: $spacing-small 0;
-  flex-direction: column;
-}
-
 .Product__info {
-  margin: $spacing-big 0;
-  @media screen and (max-width: 599px) {
-    margin: $spacing-medium 0;
+  margin: $spacing-big + $spacing-small 0;
+  @media screen and (max-width: 980px) {
+    margin: 0;
   }
 }
 
 .Product__info__title {
   flex: 1;
-  padding: $spacing-small 0;
+  padding: $spacing-small 0 $spacing-medium 0;
   font-weight: bold;
   text-decoration: none;
   color: #191919;
   font-size: $font-size-big;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .Product__info__subtitle {

@@ -31,8 +31,8 @@ const Page = ({ page }) => {
           {page.content && <div className="Content" dangerouslySetInnerHTML={content} />}
           {page.contentAccordion.length > 0 && (
             <div>
-              {page.contentAccordion.map(item => (
-                <Accordion {...item} />
+              {page.contentAccordion.map((item, index) => (
+                <Accordion {...item} key={`item-${index}`} />
               ))}
             </div>
           )}

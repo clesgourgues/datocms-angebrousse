@@ -27,9 +27,17 @@ const Homepage = ({ children, images, menu, cart, user }) => {
       Tag="section"
       fluid={images.slider[selected].fluid}
       className="Container"
-      loading="eager"
+      fadeIn="soft"
     >
-      <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} cart={cart} user={user}/>
+      <Header
+        logos={images}
+        menu={menu}
+        isHome={true}
+        open={open}
+        setOpen={setOpen}
+        cart={cart}
+        user={user}
+      />
       <main className="Content">{children}</main>
     </BackgroundImage>
   );
