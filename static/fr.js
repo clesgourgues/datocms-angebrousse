@@ -24,7 +24,7 @@ window.Snipcart.execute("registerLocale", "fr", {
   next: "Étape suivante",
   finalize: "Terminer la commande",
   country: "Pays",
-  subtotal: "Sous-total",
+  subtotal: "Montant",
   tax_adjustments: "Ajustement des taxes",
   rebate: "Réduction",
   apply_promo_code: "Appliquer un code promo",

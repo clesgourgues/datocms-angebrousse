@@ -91,8 +91,8 @@ div.snip-layout.snip-active {
 
 .snip-layout {
   * {
-    font-family: $font-text;
-    color: $color-dark;
+    font-family: $font-text !important;
+    color: $color-dark !important;
   }
 
   .snip-layout__close {
@@ -116,9 +116,8 @@ div.snip-layout.snip-active {
     margin-top: 30px;
   }
 
-  .snip-header,
-  .snip-footer,
-  #snipcart-header {
+  #snipcart-header,
+  #snipcart-footer {
     background: transparent;
   }
 
