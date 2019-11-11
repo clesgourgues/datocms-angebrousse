@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import React from "react";
 
 const Encart = ({ encart }) => {
   // const [closed, setClosed] = useState(false);

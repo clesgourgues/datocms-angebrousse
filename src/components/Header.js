@@ -13,7 +13,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
     <header className="Header">
       <div className="Wrap">
         <div className="Header__body">
-          <div className={`Header__topbar ${isHome && "Header__topbar__home"}`}>
+          <div className={`Header__topbar ${isHome ? "Header__topbar__home" : ""}`}>
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
             <MenuBurger menu={menu} open={open} setOpen={setOpen} user={user} />
             <div className="Header__topbar__logo">
@@ -27,7 +27,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
               </div>
             )}
           </div>
-          <div className={`Header__logo ${isHome && "Header__logo__home"}`}>
+          <div className={`Header__logo ${isHome ? "Header__logo__home" : ""}`}>
             <Link to="/">
               <Img sizes={logos.logo.sizes} />
             </Link>

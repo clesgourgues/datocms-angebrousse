@@ -32,7 +32,7 @@ export default () => (
         titleTemplate={`${data.datoCmsSite.globalSeo.siteName} | %s `}
       >
         {/*         <html lang={data.datoCmsSite.locales[0]} amp /> */}
-        <html lang="fr-FR" amp />
+        <html lang="fr" amp />
         <meta name="description" content={data.datoCmsSite.globalSeo.fallbackSeo.description} />
         <meta property="type" content="website" />
         <meta property="og:type" content="website" />
