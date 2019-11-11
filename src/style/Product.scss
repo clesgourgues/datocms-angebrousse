@@ -27,10 +27,10 @@
 
 .Product__details {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   @media screen and (max-width: 980px) {
     flex-direction: column;
-    align-items: initial;
+    align-items: center;
   }
 }
 
@@ -51,11 +51,8 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 60px 0 $spacing-big 0;
+  padding: 25px 0 $spacing-big 0;
   justify-content: space-between;
-  @media screen and (max-width: 599px) {
-    padding: 60px 0 $spacing-big 0;
-  }
   @media screen and (min-width: 980px) {
     padding: 0 $spacing-medium;
   }

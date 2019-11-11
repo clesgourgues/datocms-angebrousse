@@ -56,7 +56,7 @@ div.snip-layout.snip-active {
 }
 
 .snip-product__empty {
-  padding: 6em 2em;
+  padding: 6em 2em !important;
 }
 
 .Snipcart__quantity {
@@ -76,7 +76,7 @@ div.snip-layout.snip-active {
 }
 
 .snipcart_custom_Taille {
-  min-width: 50px;
+  min-width: 50px !important;
 }
 
 .Snipcart__price {
@@ -96,17 +96,18 @@ div.snip-layout.snip-active {
   }
 
   .snip-layout__close {
-    color: $color-dark;
+    color: $color-dark !important;
   }
 
-  .snip-layout__main-container {
+  .snip-layout__main-container,
+  #snip-layout-empty-cart {
     border: none !important;
-    display: flex;
+    display: flex !important;
     justify-content: center;
     flex: 1;
     width: 100%;
     align-items: center;
-    max-width: none;
+    max-width: none !important;
   }
 
   #snipcart-main-content {
@@ -116,11 +117,13 @@ div.snip-layout.snip-active {
   }
 
   .snip-header,
-  .snip-footer {
+  .snip-footer,
+  #snipcart-header {
     background: transparent;
   }
 
-  .snip-header {
+  .snip-header,
+  #snipcart-header {
     display: flex;
     justify-content: center;
   }
@@ -167,25 +170,26 @@ div.snip-layout.snip-active {
 
   .snip-product__remove {
     @media screen and (min-width: 768px) {
-      margin-top: -12px;
+      margin-top: -12px !important;
       &:before {
-        content: "Supprimer";
-        font-size: 12px;
-        margin-top: -3px;
-        font-family: "Karla", sans-serif;
+        content: "Supprimer" !important;
+        font-size: 12px !important;
+        margin-top: -3px !important;
+        font-family: "Karla", sans-serif !important;
       }
     }
   }
 
   .snip-header__user {
-    background: transparent;
+    background: transparent !important;
   }
 
   .snip-header__user-mail {
-    color: $color-dark;
+    color: $color-dark !important;
   }
 
-  .snip-header__title {
+  .snip-header__title,
+  #snipcart-title {
     font-family: $font-title;
     letter-spacing: 0.15em;
     font-size: 28px;
@@ -213,10 +217,11 @@ div.snip-layout.snip-active {
   }
 
   .snip-product__empty {
-    text-transform: none;
+    text-transform: none !important;
   }
 
-  .snip-header__total {
+  .snip-header__total,
+  #snipcart-header-total {
     border-radius: 0;
     font-size: 12px;
     padding: 0 1em;
@@ -229,46 +234,46 @@ div.snip-layout.snip-active {
   }
 
   .snip-quantity-trigger {
-    align-items: baseline;
+    align-items: baseline !important;
   }
 
   .snip-quantity-trigger__btn {
-    background-color: transparent;
+    background-color: transparent !important;
   }
 
   .snip-product__remove {
-    color: black;
+    color: black !important;
   }
 
   .snip-btn {
-    border-radius: 0;
-    background-color: black;
-    color: white;
+    border-radius: 0 !important;
+    background-color: black !important;
+    color: white !important;
   }
 
   .snip-btn--highlight {
-    background: black;
-    color: white;
+    background: black !important;
+    color: white !important;
   }
 
   .snip-flash__item {
-    background-color: white;
+    background-color: white !important;
   }
   .snip-flash__item .snip-static__title {
-    color: black;
+    color: black !important;
   }
 
   .snip-table {
     @media screen and (max-width: 768px) {
-      table-layout: fixed;
+      table-layout: fixed !important;
     }
 
     tr {
-      border-bottom: none;
+      border-bottom: none !important;
     }
   }
 
   .snip-footer__copyright {
-    background: none;
+    background: none !important;
   }
 }
