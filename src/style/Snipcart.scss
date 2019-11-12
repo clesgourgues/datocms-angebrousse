@@ -55,7 +55,7 @@ div.snip-layout.snip-active {
 
 .snip-layout {
   * {
-    font-family: $font-text !important;
+    font-family: $font-text;
     color: $color-dark;
   }
 
@@ -130,6 +130,7 @@ div.snip-layout.snip-active {
 
   #snipcart-current-user {
     margin-top: 2em;
+    font-family: $font-text !important;
   }
 
   #snipcart-title {
@@ -157,6 +158,7 @@ div.snip-layout.snip-active {
 
   #snipcart_custom_Taille {
     min-width: 50px;
+    font-family: $font-text !important;
   }
 
   .snip-product__empty {
