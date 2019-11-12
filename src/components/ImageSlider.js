@@ -18,18 +18,14 @@ const ImageSlider = ({ images }) => {
     <div className="Slider">
       <div className="Slider__slides">
         {images.map((image, index) => (
-          <div
-            className={`Slider__slide fade ${selected !== index ? "Slider__slide__hidden" : ""}`}
-            key={`slide-${index}`}
-            id={`slide-${index}`}
-          >
+          <div className="Slider__slide fade" key={`slide-${index}`} id={`slide-${index}`}>
             <Img
               sizes={image.sizes}
               style={{
                 height: "500px",
                 cursor: "pointer"
               }}
-              className="Product__image  Slider__image"
+              className="Slider__image"
             />
           </div>
         ))}
