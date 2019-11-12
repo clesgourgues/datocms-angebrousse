@@ -39,7 +39,10 @@
   border: 1px solid $color-dark;
   height: 100%;
   cursor: pointer;
-  width: 100%;
+  width: 50%;
+  @media screen and (max-width: 980px) {
+    width: 100%;
+  }
 }
 
 .Product__image__selected {
@@ -54,6 +57,7 @@
   flex: 1;
   padding: 25px 0 $spacing-big 0;
   justify-content: space-between;
+  width: 100%;
   @media screen and (min-width: 980px) {
     padding: 0 $spacing-medium;
   }
