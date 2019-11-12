@@ -15,48 +15,17 @@
   transition: transform 0.3s ease-in-out;
 }
 
-#snip-layout-empty-cart {
-  height: 100%;
-}
-
 .snip-active {
   transform: translateX(0);
   transition: transform 0.3s ease-in-out;
 }
 
 div.snip-layout.snip-active {
-  // display: flex !important;
-  height: 100% !important;
-  padding: 0 !important;
   background-color: white !important;
-  //align-items: center;
-  //justify-content: center;
 }
 
 #snip-layout-cart-content {
   font-family: $font-text;
-  max-width: none;
-  height: 100%;
-  @media screen and (min-width: 767px) {
-    padding: 100px;
-  }
-}
-
-#snipcart-current-user {
-  &:before {
-    content: "";
-    background: url("../assets/logo.jpg");
-    background-size: 150px;
-    width: 150px;
-    height: 30px;
-    display: block;
-    position: fixed;
-    top: 5px;
-  }
-}
-
-.snip-product__empty {
-  padding: 6em 2em !important;
 }
 
 .Snipcart__quantity {
@@ -84,47 +53,19 @@ div.snip-layout.snip-active {
   color: $color-light;
 }
 
-.Snipcart__icon {
-  width: 30px;
-  height: 30px;
-}
-
 .snip-layout {
   * {
     font-family: $font-text !important;
-    color: $color-dark !important;
+    color: $color-dark;
   }
 
   .snip-layout__close {
     color: $color-dark !important;
   }
 
-  .snip-layout__main-container,
-  #snip-layout-empty-cart {
-    border: none !important;
-    display: flex !important;
-    justify-content: center;
-    flex: 1;
-    width: 100%;
-    align-items: center;
-    max-width: none !important;
-  }
-
-  #snipcart-main-content {
-    padding: $spacing-small;
-    width: 100%;
-    margin-top: 30px;
-  }
-
   #snipcart-header,
   #snipcart-footer {
     background: transparent;
-  }
-
-  .snip-header,
-  #snipcart-header {
-    display: flex;
-    justify-content: center;
   }
 
   #snipcart-close .snip-ico--close {
@@ -187,32 +128,36 @@ div.snip-layout.snip-active {
     color: $color-dark !important;
   }
 
-  .snip-header__title,
   #snipcart-title {
-    font-family: $font-title;
+    font-family: $font-title !important;
     letter-spacing: 0.15em;
     font-size: 28px;
     text-transform: uppercase;
     text-align: center;
-    margin-bottom: $spacing-medium;
     color: $color-dark;
     line-height: 30px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    position: initial;
+    margin: 2em 0;
+
+    #snipcart-current-user {
+      margin-top: 2em;
+    }
+
+    &:before {
+      content: "";
+      background: url("../assets/logo.jpg");
+      background-size: 150px;
+      width: 150px;
+      height: 30px;
+      display: block;
+      position: fixed;
+      top: 5px;
+      transform: translate(50%, -0%);
+      right: 50%;
+    }
   }
 
   #snipcart_custom_Taille {
     min-width: 50px;
-  }
-
-  #snipcart-forgotpassword-email {
-    margin-top: 10px;
-  }
-
-  #snip-layout-login {
-    width: 100%;
   }
 
   .snip-product__empty {
@@ -230,10 +175,6 @@ div.snip-layout.snip-active {
     span {
       color: white;
     }
-  }
-
-  .snip-quantity-trigger {
-    align-items: baseline !important;
   }
 
   .snip-quantity-trigger__btn {
@@ -260,16 +201,6 @@ div.snip-layout.snip-active {
   }
   .snip-flash__item .snip-static__title {
     color: black !important;
-  }
-
-  .snip-table {
-    @media screen and (max-width: 768px) {
-      table-layout: fixed !important;
-    }
-
-    tr {
-      border-bottom: none !important;
-    }
   }
 
   .snip-footer__copyright {
