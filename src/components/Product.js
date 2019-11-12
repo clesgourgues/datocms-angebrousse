@@ -56,7 +56,7 @@ const Product = ({ product, text }) => {
             )}
             {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
             <button
-              data-item-id={product.id}
+              data-item-id={product.ref}
               data-item-price={product.price}
               data-item-image={product.image[0].url}
               data-item-name={product.name}

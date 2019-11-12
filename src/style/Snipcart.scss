@@ -178,6 +178,12 @@ div.snip-layout.snip-active {
     }
   }
 
+  .snip-layout .snip-table--small tr {
+    @media only screen and (max-width: 48em) {
+      padding: 1em;
+    }
+  }
+
   .snip-quantity-trigger__btn {
     background-color: transparent !important;
   }

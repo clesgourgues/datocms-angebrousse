@@ -18,6 +18,7 @@ export const query = graphql`
           id
           name
           price
+          ref
           size
           description
           category {

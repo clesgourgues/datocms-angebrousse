@@ -6,6 +6,7 @@ const Homepage = ({ children, images, menu, cart, user }) => {
   const [selected, setSelected] = useState(0);
   const [stop, setStop] = useState(false);
   const [open, setOpen] = useState(false);
+  const [password, setPassword] = useState("");
   useEffect(() => {
     document.body.addEventListener("click", handleClick);
   }, []);
@@ -27,18 +28,35 @@ const Homepage = ({ children, images, menu, cart, user }) => {
       Tag="section"
       fluid={images.slider[selected].fluid}
       className="Container"
-      fadeIn="soft"
+      // fadeIn="soft"
     >
-      <Header
-        logos={images}
-        menu={menu}
-        isHome={true}
-        open={open}
-        setOpen={setOpen}
-        cart={cart}
-        user={user}
-      />
-      <main className="Content">{children}</main>
+      {password === "sesame" ? (
+        <>
+          <Header
+            logos={images}
+            menu={menu}
+            isHome={true}
+            open={open}
+            setOpen={setOpen}
+            cart={cart}
+            user={user}
+          />
+          <main className="Content">{children}</main>
+        </>
+      ) : (
+        <div
+          style={{
+            position: "absolute",
+            top: "100px",
+            left: "100px",
+            width: "200px",
+            height: "50px"
+          }}
+        >
+          <label style={{ color: "white" }}>Site en construction</label>
+          <input value={password} onChange={e => setPassword(e.target.value)} />
+        </div>
+      )}
     </BackgroundImage>
   );
 };
