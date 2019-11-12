@@ -15,14 +15,11 @@
     overflow-x: hidden;
     overflow-y: hidden;
     @media screen and (max-width: 576px) {
-      width: 400px;
-    }
-    @media screen and (max-width: 320px) {
-      width: 310px;
+      width: 360px;
     }
     @media screen and (max-width: 375px) {
       overflow-x: auto;
-      width: 330px;
+      width: 300px;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
