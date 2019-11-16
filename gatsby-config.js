@@ -1,23 +1,19 @@
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
 
 module.exports = {
   siteMetadata: {
-    siteName: "Ange Brousse"
+    siteName: 'Ange Brousse',
+    siteUrl: 'https://www.angebrousse.com'
   },
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-react-helmet",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-background-image`,
-    {
-      resolve: "gatsby-plugin-transition-link",
-      options: {
-        layout: require.resolve(`./src/layouts`)
-      }
-    },
+    `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-postcss`,
       options: {
@@ -45,31 +41,61 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [`Karla`, `Oswald`],
-        display: "swap"
+        display: 'swap'
       }
     },
     {
       resolve: `gatsby-plugin-alias-imports`,
       options: {
         alias: {
-          "@src": "src",
-          "@components": "src/components",
-          "@layouts": "src/layouts",
-          "@pages": "src/pages",
-          "@style": "src/style",
-          "@templates": "src/templates",
-          "@helpers": "src/helpers",
-          "@context": "src/context",
-          "@assets": "src/assets"
+          '@src': 'src',
+          '@components': 'src/components',
+          '@layouts': 'src/layouts',
+          '@pages': 'src/pages',
+          '@style': 'src/style',
+          '@templates': 'src/templates',
+          '@helpers': 'src/helpers',
+          '@context': 'src/context',
+          '@assets': 'src/assets'
         },
-        extensions: ["js"]
+        extensions: ['js']
       }
     },
     {
-      resolve: "gatsby-plugin-mailchimp",
+      resolve: 'gatsby-plugin-mailchimp',
       options: {
         endpoint:
-          "https://angelebrousse.us20.list-manage.com/subscribe/post?u=750d9f039808a582df851dd73&amp;id=145b875748" // add your MC list endpoint here; see instructions below
+          'https://angelebrousse.us20.list-manage.com/subscribe/post?u=750d9f039808a582df851dd73&amp;id=145b875748' // add your MC list endpoint here; see instructions below
+      }
+    },
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/sitemap.xml`,
+        query: `
+        {
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
+          allSitePage {
+            edges {
+              node {
+                path
+              }
+            }
+          }
+      }`,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.edges.map(edge => {
+            return {
+              url: site.siteMetadata.siteUrl + edge.node.path,
+              changefreq: `weekly`,
+              priority: 0.7
+            };
+          })
       }
     }
   ]

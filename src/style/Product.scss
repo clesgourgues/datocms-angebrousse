@@ -41,7 +41,13 @@
   cursor: pointer;
   width: 50%;
   @media screen and (max-width: 980px) {
-    width: 100%;
+    width: 500px;
+  }
+  @media screen and (max-width: 576px) {
+    width: 360px;
+  }
+  @media screen and (max-width: 375px) {
+    width: 300px;
   }
 }
 
@@ -121,7 +127,7 @@
   cursor: pointer;
   border: 1px solid $color-dark;
   &:hover {
-    background-color:  #FCF9F0;
+    background-color: white;
     color: $color-dark;
   }
 }

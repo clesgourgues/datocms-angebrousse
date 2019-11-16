@@ -36,7 +36,7 @@ $animate: all 0.2s ease-in-out;
     font-size: $font-size-medium;
     &:before,
     &:after {
-      content: "";
+      content: '';
       position: absolute;
       top: -$spacing-small;
       width: 0px;
@@ -67,7 +67,7 @@ $animate: all 0.2s ease-in-out;
 .Menu__selected {
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     top: -$spacing-small;
     left: 10px;
@@ -103,7 +103,7 @@ $animate: all 0.2s ease-in-out;
   justify-content: space-around;
   flex: 1;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: 20%;
     top: -10%;
@@ -147,13 +147,15 @@ $animate: all 0.2s ease-in-out;
       text-decoration: none;
       color: white;
       text-transform: none;
-      font-size: $font-size-title;
-      color: $color-dark;
+      font-size: $font-size-small;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      font-family: "Oswald", sans-serif;
+      font-family: 'Oswald', sans-serif;
       margin: $spacing-medium 0;
       font-size: $font-size-big;
+      color: white;
+      background-color: black;
+      padding: $spacing-x-small;
     }
   }
 }

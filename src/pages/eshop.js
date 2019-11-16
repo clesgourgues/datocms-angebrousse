@@ -1,7 +1,7 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Catalogue from "@components/Catalogue";
+import Catalogue from '@components/Catalogue';
 
 export default () => (
   <StaticQuery
@@ -21,7 +21,7 @@ export default () => (
               }
               image {
                 url
-                sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+                sizes(maxWidth: 500, imgixParams: { fm: "jpg" }) {
                   ...GatsbyDatoCmsSizes
                 }
               }
