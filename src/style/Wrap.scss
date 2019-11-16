@@ -85,11 +85,13 @@
 .Title {
   font-family: $font-title;
   letter-spacing: 0.15em;
-  font-size: 28px;
+  font-size: $font-size-title;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: $spacing-medium;
   color: $color-dark;
+  background-color: #FCF9F0;
+  padding: 20px;
 }
 
 .Subtitle {

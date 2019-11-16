@@ -122,7 +122,7 @@ window.Snipcart.execute("registerLocale", "fr", {
   errors_email_must_be_unique: "Un utilisateur avec le même email existe déjà",
   errors_both_password_must_match: "Les deux mots de passe doivent être identiques",
   errors_email_must_be_valid: "L' email doit être valide",
-  errors_email_does_not_match_any_existing_user: "Aucun utilisateur n'existe avec ce email.",
+  errors_email_does_not_match_any_existing_user: "Aucun utilisateur n'existe avec cet email.",
   errors_email_does_not_match_reset_password_request:
     "La demande de réinitialisation de mot de passe ne concorde pas avec le email.",
   errors_reset_password_token_expired:

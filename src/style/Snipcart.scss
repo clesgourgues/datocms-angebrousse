@@ -1,7 +1,10 @@
 .Snipcart {
   text-decoration: none;
   text-align: center;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  background: transparent url("../assets/cart.svg") no-repeat right;
   &:hover {
     text-decoration: none;
   }
@@ -34,13 +37,11 @@ div.snip-layout.snip-active {
   top: -5px;
   right: -5px;
   border-radius: 50%;
-  background-color: black;
-  color: white;
   width: $spacing-medium;
   height: $spacing-medium;
   @media screen and (max-width: 767px) {
-    top: 5px;
-    right: 15px;
+    top: 22px;
+    right: 22px;
   }
 }
 
@@ -57,6 +58,10 @@ div.snip-layout.snip-active {
   * {
     font-family: $font-text;
     color: $color-dark;
+  }
+
+  .snip-form__error {
+    margin-top: 10px;
   }
 
   .snip-layout__close {
@@ -87,7 +92,7 @@ div.snip-layout.snip-active {
       top: 0;
       bottom: 0;
       height: 0;
-      border-top: 0.125rem solid black;
+      border-top: 1px solid black;
       transform: rotate(45deg);
       transform-origin: center;
     }
@@ -102,7 +107,7 @@ div.snip-layout.snip-active {
       top: 0;
       bottom: 0;
       height: 0;
-      border-top: 0.125rem solid black;
+      border-top: 1px solid black;
       transform: rotate(-45deg);
       transform-origin: center;
     }
@@ -129,7 +134,7 @@ div.snip-layout.snip-active {
   }
 
   #snipcart-current-user {
-    margin-top: 2em;
+    margin-top: 7em;
     font-family: $font-text !important;
   }
 
@@ -141,13 +146,16 @@ div.snip-layout.snip-active {
     text-align: center;
     color: $color-dark;
     line-height: 30px;
-    margin: 2em 0;
+    margin: auto;
+    background-color: #fcf9f0;
+    padding: 20px;
+    left: 1em;
     &:before {
       content: "";
-      background: url("../assets/logo.jpg");
+      background: url("../assets/logo.png") no-repeat center;
       background-size: 150px;
-      width: 150px;
-      height: 30px;
+      width: 140px;
+      height: 100px;
       display: block;
       position: fixed;
       top: 5px;

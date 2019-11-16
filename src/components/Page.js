@@ -19,7 +19,7 @@ const Page = ({ page }) => {
         <div className="Page__intro">
           {page.illustration && page.illustration.fluid && (
             <div className="Page__illustration">
-              <Img fluid={page.illustration.fluid} loading="lazy" />
+              <Img fluid={page.illustration.fluid} loading="lazy" alt={page.title} />
             </div>
           )}
           {page.contentIntro && (

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Img from "gatsby-image";
 
-const ImageSlider = ({ images }) => {
+const ImageSlider = ({ images, alt }) => {
   const [selected, setSelected] = useState(0);
   return images.length === 1 ? (
     <div className="Product__image">
@@ -12,6 +12,7 @@ const ImageSlider = ({ images }) => {
           height: "500px"
         }}
         className="Product__image__selected"
+        alt={alt}
       />
     </div>
   ) : (
@@ -26,6 +27,7 @@ const ImageSlider = ({ images }) => {
                 cursor: "pointer"
               }}
               className="Slider__image"
+              alt={alt}
             />
           </div>
         ))}
@@ -33,12 +35,13 @@ const ImageSlider = ({ images }) => {
       <div className="Slider__dots">
         {images.map((image, index) => (
           <a
-            className={`Slider__dot ${selected !== index ? "Slider__dot__selected" : ""}`}
+            className={`Slider__dot ${selected === index ? "Slider__dot__selected" : ""}`}
             href={`#slide-${index}`}
             key={`dot-${index}`}
             onClick={() =>
-              selected === images.length - 1 ? setSelected(0) : setSelected(index + 1)
+              selected === images.length - 1 ? setSelected(0) : setSelected(index)
             }
+            alt={alt}
           ></a>
         ))}
       </div>

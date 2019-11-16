@@ -74,7 +74,7 @@ form.Contact__form {
   margin-bottom: $spacing-big;
   &::placeholder {
     color: $color-light;
-    font-size: $font-size-medium;
+    font-size: 14px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
   }
@@ -89,7 +89,7 @@ form.Contact__form {
   color: $color-dark;
   &::placeholder {
     color: $color-light;
-    font-size: $font-size-medium;
+    font-size: 16px;
     font-family: Karla, sans-serif;
     letter-spacing: 0.15em;
     text-transform: uppercase;

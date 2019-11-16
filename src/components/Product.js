@@ -34,7 +34,7 @@ const Product = ({ product, text }) => {
           <Link to="/eshop">{`< ${text.backText}`}</Link>
         </div>
         <div className="Product__details">
-          <ImageSlider images={product.image} />
+          <ImageSlider images={product.image} alt={product.name}/>
           <div className="Product__buy">
             <div>
               <div className="Product__title">{product.name}</div>

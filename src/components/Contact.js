@@ -14,7 +14,7 @@ const Contact = ({ text, user }) => (
       <div className="Contact__intro">
         {text.image && (
           <div className="Contact__image">
-            <Img fluid={text.image.fluid} loading="lazy" />
+            <Img fluid={text.image.fluid} loading="lazy" alt={text.title}/>
           </div>
         )}
         <div className="Contact__mail">

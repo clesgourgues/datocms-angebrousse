@@ -18,7 +18,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
             <MenuBurger menu={menu} open={open} setOpen={setOpen} user={user} />
             <div className="Header__topbar__logo">
               <Link to="/">
-                <Img sizes={logos.logoMenuBurger.sizes} />
+                <Img sizes={logos.logoMenuBurger.sizes} alt="Logo"/>
               </Link>
             </div>
             {!isHome && (
@@ -29,7 +29,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
           </div>
           <div className={`Header__logo ${isHome ? "Header__logo__home" : ""}`}>
             <Link to="/">
-              <Img sizes={logos.logo.sizes} />
+              <Img sizes={logos.logo.sizes} alt="Logo"/>
             </Link>
           </div>
           <Menu menu={menu} selected={selected} setSelected={setSelected} isHome={isHome} />

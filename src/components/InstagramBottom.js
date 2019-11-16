@@ -8,6 +8,8 @@ const InstagramBottom = ({ publications, buttonText, title }) => {
       <a
         className="Footer__title Instagram__title"
         href="https://www.instagram.com/angelebroussejewelry/"
+        target="_blank"
+        rel="noopener noreferrer"
       >
         <FaInstagram size={20} /> <span>{title}</span>
       </a>
@@ -18,9 +20,11 @@ const InstagramBottom = ({ publications, buttonText, title }) => {
               className="Instagram__bottom__item"
               key={publi.id}
               href="https://www.instagram.com/angelebroussejewelry/"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <div className="Instagram__bottom__image">
-                <Img sizes={{ ...publi.localFile.childImageSharp.fluid, aspectRatio: 1 }} />
+                <Img sizes={{ ...publi.localFile.childImageSharp.fluid, aspectRatio: 1 }} alt="Instagram picture"/>
               </div>
             </a>
           );

@@ -14,7 +14,7 @@ const LookBook = ({ lookbooks }) => (
           {collection.node.photos.map((photo, index) => (
             <div className="Lookbook__photo" key={`lookbook-${index}`}>
               <h5 className="Lookbook__photo__legend">{photo.legende}</h5>
-              <Img fluid={photo.photo.fluid} loading="lazy" />
+              <Img fluid={photo.photo.fluid} loading="lazy" alt={collection.node.collection.name}/>
             </div>
           ))}
         </div>
