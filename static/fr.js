@@ -6,7 +6,7 @@ window.Snipcart.execute('registerLocale', 'fr', {
   checkout: 'Procéder au paiement',
   close: 'Fermer',
   first_name: 'Prénom',
-  name: 'Nom',
+  name: 'Prénom et nom',
   last_name: 'Nom',
   company_name: 'Nom de la société',
   share_by_email: 'Partager par email',
@@ -81,7 +81,7 @@ window.Snipcart.execute('registerLocale', 'fr', {
   login_form_login_action: 'Connexion',
   login_title: 'Connexion',
   login_form_forgot_password_action: "J'ai oublié mon mot de passe",
-  forgot_password_forgot_your_password: 'Oublié votre mot de passe ?',
+  forgot_password_forgot_your_password: 'Mot de passe oublié ?',
   forgot_password_please_enter_email:
     'Veuillez saisir votre email, nous vous enverrons un email contenant un lien unique qui vous permettra de réinitialiser votre mot de passe',
   forgot_password_success_email_sent: 'Le email a été envoyé',
