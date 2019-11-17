@@ -61,7 +61,7 @@ const Product = ({ product, text }) => {
               data-item-price={product.price}
               data-item-image={product.image[0].url}
               data-item-name={product.name}
-              data-item-url={`https://ange-brousse.netlify.com/${product.slug}`}
+              data-item-url={`https://www.angelebrousse.com/${product.slug}`}
               data-item-description={product.description}
               className={`Product__button snipcart-add-item ${
                 product.outOfStock ? 'Product__button__disabled' : ''
