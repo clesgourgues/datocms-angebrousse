@@ -32,7 +32,7 @@ export default () => (
         titleTemplate={`${data.datoCmsSite.globalSeo.siteName} | %s `}
       >
         {/*         <html lang={data.datoCmsSite.locales[0]} amp /> */}
-        <html lang='fr' amp />
+        <html lang='fr-FR' amp />
         <meta
           name='google-site-verification'
           content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'
