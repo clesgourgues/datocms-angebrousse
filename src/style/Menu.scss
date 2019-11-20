@@ -99,11 +99,14 @@ $animate: all 0.2s ease-in-out;
   padding: $spacing-small;
   background-color: black;
   z-index: 20;
-  transition: $animate;
-  transition-duration: 0.35s;
+  // transition: $animate;
+  // transition-duration: 0.35s;
+  // transform: scale(2);
   justify-content: space-around;
   flex: 1;
   margin-top: $spacing-small;
+  font-family: $font-title !important;
+  text-transform: uppercase;
   &:before {
     content: "";
     position: absolute;
@@ -124,11 +127,7 @@ $animate: all 0.2s ease-in-out;
       text-decoration: none;
       flex: 1;
       color: white;
-      text-transform: none;
       font-weight: bold;
-      &:hover {
-        color: $color-title;
-      }
     }
   }
   @media screen and (max-width: 767px) {

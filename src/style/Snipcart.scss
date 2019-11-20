@@ -64,6 +64,7 @@ div.snip-layout.snip-active {
     margin-bottom: $spacing-small;
     color: #191919;
     letter-spacing: 0.15em;
+    font-family: $font-title !important;
   }
 
   .snip-form__error {
@@ -137,6 +138,8 @@ div.snip-layout.snip-active {
 
   .snip-header__user-mail {
     color: $color-dark !important;
+    font-weight: bold;
+    font-size: $font-size-big;
   }
 
   #snipcart-current-user {
@@ -182,6 +185,7 @@ div.snip-layout.snip-active {
   #snipcart-header-total {
     border-radius: 0;
     background-color: transparent;
+    font-family: $font-title !important;
     span {
       color: $color-dark;
       font-size: $font-size-big;
@@ -206,6 +210,7 @@ div.snip-layout.snip-active {
     border-radius: 0 !important;
     background-color: black !important;
     color: white !important;
+    font-family: $font-title !important;
   }
 
   .snip-btn--highlight {

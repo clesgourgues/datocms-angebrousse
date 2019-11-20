@@ -23,7 +23,7 @@ const MenuBurger = ({ menu, open, setOpen, user }) => (
           <>
             <li className={`Menu__burger__item`}>
               <a href='#' className='snipcart-edit-profile'>
-                Mon profil
+                Mes infos
               </a>
             </li>
             <li className={`Menu__burger__item`}>
@@ -33,7 +33,7 @@ const MenuBurger = ({ menu, open, setOpen, user }) => (
             </li>
             <li className={`Menu__burger__item`}>
               <a href='#' className='snipcart-user-logout'>
-                Se déconnecter
+                Me déconnecter
               </a>
             </li>
           </>

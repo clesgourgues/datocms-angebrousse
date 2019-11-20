@@ -3,9 +3,9 @@ import React from 'react';
 const UserMenu = ({ setSelected, user }) => {
   const items = user
     ? [
-        { name: 'Mon profil', className: 'snipcart-edit-profile' },
+        { name: 'Mes infos', className: 'snipcart-edit-profile' },
         { name: 'Mes commandes', className: 'snipcart-user-profile' },
-        { name: 'Se déconnecter', className: 'snipcart-user-logout' }
+        { name: 'Me déconnecter', className: 'snipcart-user-logout' }
       ]
     : [{ name: 'Connexion', className: 'snipcart-user-profile' }];
   return (

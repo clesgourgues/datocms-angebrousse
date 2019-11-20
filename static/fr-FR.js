@@ -142,7 +142,7 @@ window.Snipcart.execute('registerLocale', 'fr-FR', {
   shipping_method_business_days: '{0} jours ouvrables',
   shipping_method_business_day: '{0} jour ouvrable',
   shipping_method_delivery_time: "D'ici {0}",
-  welcome: 'Bienvenue',
+  welcome: '',
   back: 'Retour',
   order_infos: 'Infos sur la commande',
   generic_error_title: 'Oups, une erreur est survenue.',
