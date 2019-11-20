@@ -37,7 +37,7 @@ const Product = ({ product, text }) => {
             </div>
             <div className='Product__details'>
               <ImageSlider images={product.image} alt={product.name} />
-              <div className='Product__buy'>
+              <div className='Product__buy' id={product.ref}>
                 <div>
                   <div className='Product__title'>{product.name}</div>
                   <div className='Product__price'>{product.price}€</div>
