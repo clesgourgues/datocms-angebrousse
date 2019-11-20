@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { withPrefix } from "gatsby";
+import React, { Component } from 'react';
+import { withPrefix } from 'gatsby';
 
 const defaultState = {
   user: null,
@@ -11,32 +11,36 @@ const SnipContext = React.createContext(defaultState);
 class SnipProvider extends Component {
   state = {
     cart: null,
-    user: null
+    user: null,
+    error: null
   };
 
   componentDidMount() {
-    document.addEventListener("snipcart.ready", this.snipcartReady);
+    document.addEventListener('snipcart.ready', this.snipcartReady);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("snipcart.ready", this.snipcartReady);
+    document.removeEventListener('snipcart.ready', this.snipcartReady);
   }
 
   snipcartReady = () => {
-    console.log("Snipcart finished loading");
     this.setState({
       user: window.Snipcart.api.user.current(),
       cart: window.Snipcart.api.cart.get()
     });
     this.loadLangJs();
-    window.Snipcart.subscribe("item.added", this.updateCart);
-    window.Snipcart.subscribe("item.removed", this.updateCart);
-    window.Snipcart.subscribe("item.updated", this.updateCart);
+    window.Snipcart.execute('config', 'show_continue_shopping', true);
+    window.Snipcart.api.configure('split_firstname_and_lastname', true);
+    window.Snipcart.subscribe('item.added', this.updateCart);
+    window.Snipcart.subscribe('item.removed', this.updateCart);
+    window.Snipcart.subscribe('user.loggedout', this.updateUser);
+    window.Snipcart.subscribe('cart.closed', this.updateUser);
+    window.Snipcart.subscribe('item.adding', this.updateError);
   };
 
   loadLangJs = async () =>
-    await this.addElem("script", {
-      src: withPrefix("fr.js")
+    await this.addElem('script', {
+      src: withPrefix('fr.js')
     });
 
   addElem = (tag, attrs) => {
@@ -60,13 +64,29 @@ class SnipProvider extends Component {
     this.setState({ cart: window.Snipcart.api.cart.get() });
   };
 
+  updateUser = () => {
+    this.setState({ user: window.Snipcart.api.user.current() });
+  };
+
+  updateError = (ev, item) => {
+    if (item.customFields.length > 0) {
+      if (item.customFields[0].value === '') {
+        ev.preventDefault();
+        this.setState({ error: true });
+      } else {
+        this.setState({ error: false });
+      }
+    }
+  };
+
+  cancelError = () => this.setState({ error: false });
+
   render() {
-    const { cart, user } = this.state;
     return (
       <SnipContext.Provider
         value={{
-          cart,
-          user
+          ...this.state,
+          cancelError: this.cancelError
         }}
       >
         {this.props.children}

@@ -16,7 +16,7 @@ export default ({ setSelected }) => (
       }
     `}
     render={data => (
-      <ul className="Menu__lookbook">
+      <ul className="Menu__lookbook Menu__secondary">
         {data.allDatoCmsCollection.edges.map(item => (
           <li className="Menu__lookbook__item" key={item.node.name} onClick={setSelected}>
             <Link to={`/${item.node.slug}`}>{item.node.name}</Link>

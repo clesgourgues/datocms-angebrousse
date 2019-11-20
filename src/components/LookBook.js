@@ -10,7 +10,7 @@ const LookBook = ({ lookbooks }) => (
     <div className="Wrap">
       {lookbooks.map(collection => (
         <div className="Lookbook__collection" key={collection.node.collection.name}>
-          <h2 className="Title">{collection.node.collection.name}</h2>
+          <h1 className="Title">{collection.node.collection.name}</h1>
           {collection.node.photos.map((photo, index) => (
             <div className="Lookbook__photo" key={`lookbook-${index}`}>
               <h5 className="Lookbook__photo__legend">{photo.legende}</h5>

@@ -10,7 +10,7 @@ const NewsLetter = ({ user, title, isHome }) => {
   useEffect(() => {
     const userEmail = user ? user.email : '';
     setEmail(userEmail);
-  }, [user]);
+  }, []);
 
   const handleChange = event => {
     setEmail(event.target.value);

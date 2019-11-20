@@ -60,6 +60,12 @@ div.snip-layout.snip-active {
     color: $color-dark;
   }
 
+  .snip-layout__subtitle {
+    margin-bottom: $spacing-small;
+    color: #191919;
+    letter-spacing: 0.15em;
+  }
+
   .snip-form__error {
     margin-top: 10px;
   }
@@ -173,16 +179,12 @@ div.snip-layout.snip-active {
     text-transform: none !important;
   }
 
-  .snip-header__total,
   #snipcart-header-total {
     border-radius: 0;
-    font-size: 12px;
-    padding: 0 1em;
-    height: 36px;
-    line-height: 36px;
-    color: white;
+    background-color: transparent;
     span {
-      color: white;
+      color: $color-dark;
+      font-size: $font-size-big;
     }
   }
 

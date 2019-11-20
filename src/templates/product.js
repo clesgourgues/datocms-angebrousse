@@ -1,7 +1,7 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Product from "@components/Product";
+import Product from '@components/Product';
 
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
@@ -33,7 +33,7 @@ export const query = graphql`
             slug
             image {
               url
-              sizes(maxWidth: 600, imgixParams: { fm: "jpg" }) {
+              sizes(maxWidth: 500, imgixParams: { fm: "jpg" }) {
                 src
                 sizes
                 srcSet
@@ -44,7 +44,7 @@ export const query = graphql`
           }
           image {
             url
-            sizes(maxWidth: 300, imgixParams: { fm: "jpg" }) {
+            sizes(maxWidth: 800, imgixParams: { fm: "jpg" }) {
               src
               sizes
               srcSet

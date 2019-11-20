@@ -148,7 +148,7 @@ window.Snipcart.execute('registerLocale', 'fr', {
   generic_error_title: 'Oups, une erreur est survenue.',
   promocode_deleted_at_checkout:
     "Le code promo que vous avez utilisé a atteint son nombre d'utilisations maximum durant votre paiement. Nous sommes désolés de cet inconvénient.",
-  continue_shopping: 'Continuer les achats',
+  continue_shopping: 'Continuer mes achats',
   payment_required_message:
     "Le panier d'achat de ce site a été désactivé. Si vous êtes le propriétaire du site, veuillez vous connecter à votre compte Snipcart afin de résoudre le problème.",
   payment_require_title: "Le panier d'achat est désactivé.",
@@ -163,7 +163,7 @@ window.Snipcart.execute('registerLocale', 'fr', {
     'Vous avez annulé la transaction, cliquez sur le bouton ci-dessous afin de la compléter, ou vous pouvez continuer vos achats.',
   retry: 'Réessayer',
   error_crawlingfailed_title:
-    "Une erreur est survenue lors de la validation de votre commande, ne vous inquiétez pas, vous n'avez pas été débité.",
+    "Une erreur est survenue lors de la validation de votre commande, vous n'avez pas été débité.",
   error_crawling_unreachable:
     "Le produit <strong>{0}</strong> n'est pas accessible à l'adresse <strong>{1}</strong>. Veuillez vous assurer que cette URL est accessible.",
   error_crawling_product_not_found:

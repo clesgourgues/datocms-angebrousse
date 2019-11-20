@@ -1,11 +1,11 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import Layout from "@components/Layout";
-import Homepage from "@components/Homepage";
-import Seo from "@components/Seo";
-import SnipContext from "@context/SnipContext";
-import "@style/index.scss";
+import Layout from '@components/Layout';
+import Homepage from '@components/Homepage';
+import Seo from '@components/Seo';
+import SnipContext from '@context/SnipContext';
+import '@style/index.scss';
 
 export default ({ children, pageContext }) => (
   <StaticQuery
@@ -46,7 +46,7 @@ export default ({ children, pageContext }) => (
       return (
         <SnipContext.Consumer>
           {({ user, cart }) =>
-            pageContext.layout === "homepage" ? (
+            pageContext.layout === 'homepage' ? (
               <>
                 <Seo />
                 <Homepage

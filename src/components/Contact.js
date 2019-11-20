@@ -10,7 +10,7 @@ const Contact = ({ text, user }) => (
       <title>{text.title}</title>
     </Helmet>
     <div className="Wrap">
-      <h2 className="Title">{text.title}</h2>
+      <h1 className="Title">{text.title}</h1>
       <div className="Contact__intro">
         {text.image && (
           <div className="Contact__image">

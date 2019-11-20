@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
-import Encart from "@components/Encart";
+import React, { useState } from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Header from '@components/Header';
+import Footer from '@components/Footer';
+import Encart from '@components/Encart';
 
-export default ({ children, logos, menu, cart, user, updateCart }) => (
+export default ({ children, logos, menu, cart, user }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -41,7 +41,7 @@ export default ({ children, logos, menu, cart, user, updateCart }) => (
               preview
               localFile {
                 childImageSharp {
-                  fluid(maxHeight: 250) {
+                  fluid(maxHeight: 300) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -58,10 +58,10 @@ export default ({ children, logos, menu, cart, user, updateCart }) => (
       const instagram = data.allInstaNode.edges;
       const text = data.allDatoCmsTextesFooter.edges[0].node;
       return (
-        <div className={`Container ${open && "Container__open"}`}>
+        <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
           <Header logos={logos} cart={cart} menu={menu} open={open} setOpen={setOpen} user={user} />
-          <main className="Content">{children}</main>
+          <main className='Content'>{children}</main>
           <Footer menu={bottomMenu} instagram={instagram} text={text} user={user} />
         </div>
       );

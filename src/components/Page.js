@@ -15,7 +15,7 @@ const Page = ({ page }) => {
         <title>{page.title}</title>
       </Helmet>
       <div className="Wrap">
-        <h2 className="Title">{page.title}</h2>
+        <h1 className="Title">{page.title}</h1>
         <div className="Page__intro">
           {page.illustration && page.illustration.fluid && (
             <div className="Page__illustration">

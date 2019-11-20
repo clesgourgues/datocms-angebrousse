@@ -21,7 +21,7 @@ const Homepage = ({ children, images, menu, cart, user }) => {
     if (!stop) {
       const interval = setInterval(() => {
         setSelected(next);
-      }, 3000);
+      }, 2500);
       return () => clearInterval(interval);
     }
   });

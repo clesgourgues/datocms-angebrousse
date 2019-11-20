@@ -35,6 +35,10 @@
     list-style-type: disc;
     list-style-position: inside;
   }
+  ol {
+    list-style-type: decimal;
+    padding-left: $spacing-small;
+  }
   p {
     color: $color-dark;
     margin: 15px 0;
@@ -90,7 +94,7 @@
   text-align: center;
   margin-bottom: $spacing-medium;
   color: $color-dark;
-  background-color: #fcf9f0;
+  background-color: $color-title;
   padding: 20px;
   // clip-path: polygon(25% 0%, 100% 0, 75% 100%, 0% 100%);
 }

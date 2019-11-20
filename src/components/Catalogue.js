@@ -25,7 +25,7 @@ const Catalogue = ({ products, filters }) => {
         <meta property="og:title" content="Angèle Brousse Joaillerie | E-shop" />
       </Helmet>
       <div className="Wrap">
-        <h2 className="Title">E-shop</h2>
+        <h1 className="Title">E-shop</h1>
         <Filters filters={filters} selected={selected} onClick={onMenuClick} />
         <div className="Catalogue__products">
           {productsToShow.map(({ node: product }) => (

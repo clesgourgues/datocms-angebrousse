@@ -21,7 +21,7 @@ export default () => (
               }
               image {
                 url
-                sizes(maxWidth: 500, imgixParams: { fm: "jpg" }) {
+                sizes(maxWidth: 800, imgixParams: { fm: "jpg" }) {
                   ...GatsbyDatoCmsSizes
                 }
               }

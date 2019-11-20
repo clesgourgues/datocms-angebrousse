@@ -113,7 +113,8 @@
 
 .Product__size__selected,
 .Product__size__available:hover {
-  border-bottom: 1px solid black;
+  color: white;
+  background-color: black;
 }
 
 .Product__button {
@@ -173,7 +174,7 @@
   }
   p {
     color: $color-dark;
-    font-size: $font-size-small;
+    font-size: $font-size-medium;
     strong {
       font-weight: bold;
     }
@@ -261,4 +262,15 @@ ul.react-tabs__tab-list {
 
 .react-tabs {
   min-height: 200px;
+}
+
+.Product__sizeerror {
+  color: red;
+}
+
+.Product__sizeerror__container {
+  display: flex;
+  height: 15px;
+  text-align: center;
+  justify-content: center;
 }
