@@ -40,7 +40,7 @@ class SnipProvider extends Component {
 
   loadLangJs = async () =>
     await this.addElem('script', {
-      src: withPrefix('fr.js')
+      src: withPrefix('fr-FR.js')
     });
 
   addElem = (tag, attrs) => {
