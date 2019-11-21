@@ -347,9 +347,9 @@ window.Snipcart.execute('registerLocale', 'fr-FR', {
   processing: 'Chargement...',
   preparing_payment: 'Nous préparons votre paiement...',
   payment_error_payment_processing:
-    'An unexpected error occured when processing the payment, please try again later',
+    'Une erreur est survenue lors du traitement du paiement, veuillez réesssayer plus tard',
   payment_error_message:
-    "We're sorry but we haven't been able to complete your payment. Please use one of the buttons below to retry or to continue shopping. If you keep experiencing issues during payment, please contact the merchant directly.",
+    "Nous sommes désolés votre paiement n'a pas pu aboutir. Veuillez utiliser un des boutons ci-dessous pour réessayer ou continuer vos achats. Si vous continuez à avoir des problèmes durant le paiement, veuillez contacter le marchand directement.",
   payment_error_form_init:
-    "Apologies - unexpected error occurred. No payment processed, we're looking into it. Try again later."
+    "Désolé, une erreur inattendue s'est produite. Aucun paiement n'a été traité, nous allons chercher à corriger cela. Veuillez réessayer plus tard."
 });

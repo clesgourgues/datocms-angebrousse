@@ -29,6 +29,7 @@ const Product = ({ product, text }) => {
             <meta name='description' content={product.description} />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
+            <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title'>E-shop</h1>

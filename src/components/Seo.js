@@ -45,6 +45,7 @@ export default () => (
           property='og:description'
           content={data.datoCmsSite.globalSeo.fallbackSeo.description}
         />
+        <link rel="canonical" href="https://angelebrousse.com" /
 
         {data.datoCmsSite.faviconMetaTags.tags
           .filter(tag => tag.tagName === 'link')
