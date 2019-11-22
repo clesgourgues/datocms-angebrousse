@@ -12,7 +12,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    `gatsby-background-image`,
     `gatsby-plugin-layout`,
     {
       resolve: `gatsby-plugin-postcss`,
