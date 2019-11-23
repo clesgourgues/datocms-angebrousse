@@ -30,7 +30,7 @@ export default () => (
         defaultTitle={data.datoCmsSite.globalSeo.siteName}
         titleTemplate={`${data.datoCmsSite.globalSeo.siteName} | %s `}
       >
-        <html lang='fr-FR' amp />
+        <html lang='fr-FR' />
         <meta
           name='google-site-verification'
           content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'
