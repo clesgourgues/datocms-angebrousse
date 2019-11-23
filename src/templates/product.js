@@ -6,7 +6,13 @@ import Product from '@components/Product';
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
   const text = data.allDatoCmsProductText.edges[0].node;
-  return <Product product={product} text={text} />;
+  return (
+    <Product
+      product={product}
+      text={text}
+      titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+    />
+  );
 };
 
 export const query = graphql`
@@ -72,6 +78,15 @@ export const query = graphql`
             }
           }
           sizesText
+        }
+      }
+    }
+    allDatoCmsSiteParameter {
+      edges {
+        node {
+          titleColor {
+            hex
+          }
         }
       }
     }

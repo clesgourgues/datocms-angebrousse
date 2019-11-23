@@ -11,7 +11,7 @@ import { createMarkup } from '@helpers/content';
 import { getProductOptions } from '@helpers/sizes';
 import SnipContext from '@context/SnipContext';
 
-const Product = ({ product, text }) => {
+const Product = ({ product, text, titleColor }) => {
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
@@ -37,7 +37,9 @@ const Product = ({ product, text }) => {
             <meta name='og:url' content={`https://angelebrousse.com/${product.slug}`} />
           </Helmet>
           <div className='Wrap'>
-            <h1 className='Title'>E-shop</h1>
+            <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
+              E-shop
+            </h1>
             <div className='Product__back'>
               <Link to='/eshop'>{`< ${text.backText}`}</Link>
             </div>
