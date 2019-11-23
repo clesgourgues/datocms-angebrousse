@@ -1,7 +1,7 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import LookBook from "@components/LookBook";
+import LookBook from '@components/LookBook';
 
 export default ({ data }) => <LookBook lookbooks={data.allDatoCmsLookBook.edges} />;
 
@@ -12,6 +12,7 @@ export const query = graphql`
         node {
           collection {
             name
+            slug
           }
           photos {
             legende

@@ -27,9 +27,14 @@ const Product = ({ product, text }) => {
           <Helmet>
             <title>{product.name}</title>
             <meta name='description' content={product.description} />
+            <meta name='url' content={`https://angelebrousse.com/${product.slug}`} />
+            <meta property='image' content={product.image[0].url}></meta>
+            <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
             <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
+            <meta property='og:image' content={product.image[0].url}></meta>
+            <meta name='og:url' content={`https://angelebrousse.com/${product.slug}`} />
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title'>E-shop</h1>

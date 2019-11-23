@@ -13,6 +13,12 @@ const Page = ({ page }) => {
     <div className='Page'>
       <Helmet>
         <title>{page.title}</title>
+        <link rel='canonical' href={`https://angelebrousse.com/${page.slug}`} />
+        <meta name='url' content={`https://angelebrousse.com/${page.slug}`} />
+        {page.illustration && <meta property='image' content={page.illustration.fluid.src} />}
+        <meta property='og:title' content={`Angèle Brousse Joaillerie | ${page.title}`} />
+        {page.illustration && <meta property='og:image' content={page.illustration.fluid.src} />}
+        <meta name='og:url' content={`https://angelebrousse.com/${page.slug}`} />
       </Helmet>
       <div className='Wrap'>
         <h1 className='Title'>{page.title}</h1>

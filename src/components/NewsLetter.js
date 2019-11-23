@@ -19,7 +19,6 @@ const NewsLetter = ({ user, title, isHome }) => {
   const handleSubmit = async e => {
     e.preventDefault();
     const result = await addToMailchimp(email);
-    console.log(result);
     setResult(result);
   };
 

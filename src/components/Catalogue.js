@@ -24,6 +24,8 @@ const Catalogue = ({ products, filters }) => {
         <title>E-shop</title>
         <meta property='og:title' content='Angèle Brousse Joaillerie | E-shop' />
         <link rel='canonical' href='https://angelebrousse.com/eshop' />
+        <meta name='url' content='https://angelebrousse.com/eshop' />
+        <meta name='og:url' content='https://angelebrousse.com/eshop' />
       </Helmet>
       <div className='Wrap'>
         <h1 className='Title'>E-shop</h1>
