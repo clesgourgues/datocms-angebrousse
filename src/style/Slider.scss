@@ -10,7 +10,6 @@
 .Slider {
   .Slider__slides {
     width: 500px;
-    height: 500px;
     display: flex;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -34,7 +33,6 @@
   .Slider__slide {
     width: 500px;
     flex-shrink: 0;
-    height: 600px;
     @media screen and (max-width: 576px) {
       width: 100%;
     }

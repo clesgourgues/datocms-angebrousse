@@ -50,7 +50,7 @@ export const query = graphql`
           }
           image {
             url
-            sizes(maxWidth: 800, imgixParams: { fm: "jpg" }) {
+            sizes(maxWidth: 1200, imgixParams: { fm: "jpg" }) {
               src
               sizes
               srcSet
