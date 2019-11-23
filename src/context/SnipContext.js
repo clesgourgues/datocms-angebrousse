@@ -3,7 +3,8 @@ import { withPrefix } from 'gatsby';
 
 const defaultState = {
   user: null,
-  cart: null
+  cart: null,
+  error: null
 };
 
 const SnipContext = React.createContext(defaultState);
@@ -24,18 +25,17 @@ class SnipProvider extends Component {
   }
 
   snipcartReady = async () => {
+    await this.loadLangJs();
+    window.Snipcart.execute('config', 'show_continue_shopping', true);
+    window.Snipcart.api.configure('split_firstname_and_lastname', true);
     this.setState({
       user: window.Snipcart.api.user.current(),
       cart: window.Snipcart.api.cart.get()
     });
-    await this.loadLangJs();
-    window.Snipcart.execute('config', 'show_continue_shopping', true);
-    window.Snipcart.api.configure('split_firstname_and_lastname', true);
     window.Snipcart.subscribe('item.added', this.updateCart);
     window.Snipcart.subscribe('item.removed', this.updateCart);
-    window.Snipcart.subscribe('user.loggedout', this.updateUser);
-    window.Snipcart.subscribe('cart.closed', this.updateUser);
-    window.Snipcart.subscribe('cart.closed', this.updateCart);
+    window.Snipcart.subscribe('user.loggedout', this.updateAll);
+    window.Snipcart.subscribe('authentication.success', this.updateAll);
     window.Snipcart.subscribe('item.adding', this.updateError);
   };
 
@@ -61,11 +61,18 @@ class SnipProvider extends Component {
     });
   };
 
+  updateAll = () => {
+    this.updateCart();
+    this.updateUser();
+  };
+
   updateCart = () => {
+    console.log('updating cart with', window.Snipcart.api.cart.get());
     this.setState({ cart: window.Snipcart.api.cart.get() });
   };
 
   updateUser = () => {
+    console.log('updating user with', window.Snipcart.api.user.current());
     this.setState({ user: window.Snipcart.api.user.current() });
   };
 

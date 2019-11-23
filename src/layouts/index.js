@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
 import Seo from '@components/Seo';
-import SnipContext from '@context/SnipContext';
+import SnipContext, { SnipProvider } from '@context/SnipContext';
 import '@style/index.scss';
 
 export default ({ children, pageContext }) => (
@@ -44,35 +44,37 @@ export default ({ children, pageContext }) => (
     `}
     render={data => {
       return (
-        <SnipContext.Consumer>
-          {({ user, cart }) =>
-            pageContext.layout === 'homepage' ? (
-              <>
-                <Seo />
-                <Homepage
-                  images={data.allDatoCmsSiteParameter.edges[0].node}
-                  menu={data.allDatoCmsMenu.edges}
-                  user={user}
-                  cart={cart}
-                >
-                  {children}
-                </Homepage>
-              </>
-            ) : (
-              <>
-                <Seo />
-                <Layout
-                  user={user}
-                  cart={cart}
-                  logos={data.allDatoCmsSiteParameter.edges[0].node}
-                  menu={data.allDatoCmsMenu.edges}
-                >
-                  {children}
-                </Layout>
-              </>
-            )
-          }
-        </SnipContext.Consumer>
+        <SnipProvider>
+          <SnipContext.Consumer>
+            {({ user, cart }) =>
+              pageContext.layout === 'homepage' ? (
+                <>
+                  <Seo />
+                  <Homepage
+                    images={data.allDatoCmsSiteParameter.edges[0].node}
+                    menu={data.allDatoCmsMenu.edges}
+                    user={user}
+                    cart={cart}
+                  >
+                    {children}
+                  </Homepage>
+                </>
+              ) : (
+                <>
+                  <Seo />
+                  <Layout
+                    user={user}
+                    cart={cart}
+                    logos={data.allDatoCmsSiteParameter.edges[0].node}
+                    menu={data.allDatoCmsMenu.edges}
+                  >
+                    {children}
+                  </Layout>
+                </>
+              )
+            }
+          </SnipContext.Consumer>
+        </SnipProvider>
       );
     }}
   />
