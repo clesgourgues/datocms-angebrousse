@@ -4,7 +4,7 @@ import Img from 'gatsby-image';
 
 import ContactForm from '@components/ContactForm';
 
-const Contact = ({ text, user }) => {
+const Contact = ({ text, user, titleColor }) => {
   console.log(text);
   return (
     <div className='Contact'>
@@ -20,7 +20,9 @@ const Contact = ({ text, user }) => {
         <meta name='og:url' content='https://angelebrousse.com/contact' />
       </Helmet>
       <div className='Wrap'>
-        <h1 className='Title'>{text.title}</h1>
+        <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
+          {text.title}
+        </h1>
         <div className='Contact__intro'>
           {text.image && (
             <div className='Contact__image'>

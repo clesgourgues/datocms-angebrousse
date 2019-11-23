@@ -2,7 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { Helmet } from 'react-helmet';
 
-const LookBook = ({ lookbooks }) => {
+const LookBook = ({ lookbooks, titleColor }) => {
   console.log(lookbooks);
   return (
     <div className='Lookbook'>
@@ -40,7 +40,9 @@ const LookBook = ({ lookbooks }) => {
               />
             </Helmet>
             <div className='Lookbook__collection' key={collection.node.collection.name}>
-              <h1 className='Title'>{collection.node.collection.name}</h1>
+              <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
+                {collection.node.collection.name}
+              </h1>
               {collection.node.photos.map((photo, index) => (
                 <div className='Lookbook__photo' key={`lookbook-${index}`}>
                   <h5 className='Lookbook__photo__legend'>{photo.legende}</h5>

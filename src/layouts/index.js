@@ -14,6 +14,9 @@ export default ({ children, pageContext }) => (
         allDatoCmsSiteParameter(sort: { order: ASC, fields: slider___title }) {
           edges {
             node {
+              titleColor {
+                hex
+              }
               logo {
                 sizes(maxWidth: 300) {
                   ...GatsbyDatoCmsSizes
@@ -44,7 +47,7 @@ export default ({ children, pageContext }) => (
     `}
     render={data => {
       return (
-        <SnipProvider>
+        <SnipProvider titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}>
           <SnipContext.Consumer>
             {({ user, cart }) =>
               pageContext.layout === 'homepage' ? (

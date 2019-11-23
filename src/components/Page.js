@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet';
 import Accordion from '@components/Accordion';
 import { createMarkup } from '@helpers/content';
 
-const Page = ({ page }) => {
+const Page = ({ page, titleColor }) => {
   const contentIntro = createMarkup(page.contentIntro);
   const content = createMarkup(page.content);
 
@@ -21,7 +21,9 @@ const Page = ({ page }) => {
         <meta name='og:url' content={`https://angelebrousse.com/${page.slug}`} />
       </Helmet>
       <div className='Wrap'>
-        <h1 className='Title'>{page.title}</h1>
+        <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
+          {page.title}
+        </h1>
         <div className='Page__intro'>
           {page.illustration && page.illustration.fluid && (
             <div className='Page__illustration'>

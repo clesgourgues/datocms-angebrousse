@@ -28,6 +28,8 @@ class SnipProvider extends Component {
     await this.loadLangJs();
     window.Snipcart.execute('config', 'show_continue_shopping', true);
     window.Snipcart.api.configure('split_firstname_and_lastname', true);
+    const title = document.querySelector('#snipcart-title');
+    title.setAttribute('style', `background-color: ${this.props.titleColor}`);
     this.setState({
       user: window.Snipcart.api.user.current(),
       cart: window.Snipcart.api.cart.get()

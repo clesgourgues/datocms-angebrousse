@@ -1,9 +1,14 @@
-import React from "react";
-import { graphql } from "gatsby";
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Page from "@components/Page";
+import Page from '@components/Page';
 
-export default ({ data }) => <Page page={data.allDatoCmsPage.edges[0].node} />;
+export default ({ data }) => (
+  <Page
+    page={data.allDatoCmsPage.edges[0].node}
+    titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+  />
+);
 
 export const query = graphql`
   query($pathSlug: String!) {
@@ -27,6 +32,15 @@ export const query = graphql`
             url
           }
           enclosedFileText
+        }
+      }
+    }
+    allDatoCmsSiteParameter {
+      edges {
+        node {
+          titleColor {
+            hex
+          }
         }
       }
     }

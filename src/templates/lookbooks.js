@@ -3,7 +3,12 @@ import { graphql } from 'gatsby';
 
 import LookBook from '@components/LookBook';
 
-export default ({ data }) => <LookBook lookbooks={data.allDatoCmsLookBook.edges} />;
+export default ({ data }) => (
+  <LookBook
+    lookbooks={data.allDatoCmsLookBook.edges}
+    titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+  />
+);
 
 export const query = graphql`
   query($collection: String!) {
@@ -21,6 +26,15 @@ export const query = graphql`
                 ...GatsbyDatoCmsFluid
               }
             }
+          }
+        }
+      }
+    }
+    allDatoCmsSiteParameter {
+      edges {
+        node {
+          titleColor {
+            hex
           }
         }
       }

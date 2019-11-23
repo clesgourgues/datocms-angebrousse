@@ -35,8 +35,23 @@ export default () => (
             }
           }
         }
+        titleColor: allDatoCmsSiteParameter {
+          edges {
+            node {
+              titleColor {
+                hex
+              }
+            }
+          }
+        }
       }
     `}
-    render={data => <Catalogue products={data.products.edges} filters={data.filters.edges} />}
+    render={data => (
+      <Catalogue
+        products={data.products.edges}
+        filters={data.filters.edges}
+        titleColor={data.titleColor.edges[0].node.titleColor.hex}
+      />
+    )}
   />
 );

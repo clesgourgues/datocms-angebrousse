@@ -1,7 +1,7 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import Contact from "../components/Contact";
-import SnipContext from "../context/SnipContext";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
+import Contact from '../components/Contact';
+import SnipContext from '../context/SnipContext';
 
 export default () => (
   <StaticQuery
@@ -36,11 +36,26 @@ export default () => (
             }
           }
         }
+        allDatoCmsSiteParameter {
+          edges {
+            node {
+              titleColor {
+                hex
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
       <SnipContext.Consumer>
-        {({ user }) => <Contact text={data.allDatoCmsContactText.edges[0].node} user={user} />}
+        {({ user }) => (
+          <Contact
+            text={data.allDatoCmsContactText.edges[0].node}
+            user={user}
+            titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+          />
+        )}
       </SnipContext.Consumer>
     )}
   />
