@@ -9,8 +9,6 @@ import SnipCart from '@components/SnipCart';
 
 const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
   const [selected, setSelected] = useState(null);
-  console.log(user);
-  console.log(cart);
   return (
     <header className='Header'>
       <div className='Wrap'>

@@ -67,12 +67,10 @@ class SnipProvider extends Component {
   };
 
   updateCart = () => {
-    console.log('updating cart with', window.Snipcart.api.cart.get());
     this.setState({ cart: window.Snipcart.api.cart.get() });
   };
 
   updateUser = () => {
-    console.log('updating user with', window.Snipcart.api.user.current());
     this.setState({ user: window.Snipcart.api.user.current() });
   };
 
