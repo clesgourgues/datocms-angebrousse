@@ -9,19 +9,15 @@
 
 .Slider {
   .Slider__slides {
-    width: 500px;
+    max-width: 500px;
+    max-height: 500px;
     display: flex;
+    flex-direction: column;
     overflow-x: hidden;
     overflow-y: hidden;
-    @media screen and (max-width: 980px) {
-      width: 500px;
-    }
     @media screen and (max-width: 576px) {
-      width: 360px;
-    }
-    @media screen and (max-width: 375px) {
+      flex-direction: row;
       overflow-x: auto;
-      width: 300px;
       -webkit-overflow-scrolling: touch;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
@@ -31,14 +27,8 @@
     }
   }
   .Slider__slide {
-    width: 500px;
     flex-shrink: 0;
-    @media screen and (max-width: 576px) {
-      width: 100%;
-    }
-    .Slider__image {
-      border: 1px solid #191919;
-    }
+    width: 100%;
   }
 
   .Slider__dots {
@@ -47,6 +37,9 @@
     justify-content: center;
     width: 100%;
     margin-top: $spacing-small;
+    @media screen and (max-width: 576px) {
+      display: none;
+    }
   }
 
   .Slider__dot {
@@ -61,6 +54,13 @@
   .Slider__dot__selected,
   .Slider__dot:hover {
     opacity: 1;
+  }
+  .Slider__mobile {
+    font-size: $font-size-small;
+    text-align: center;
+    @media screen and (min-width: 577px) {
+      display: none;
+    }
   }
 }
 
