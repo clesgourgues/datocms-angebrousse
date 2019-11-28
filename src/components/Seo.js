@@ -47,10 +47,7 @@ export default () => (
           property='og:description'
           content={data.datoCmsSite.globalSeo.fallbackSeo.description}
         />
-        <meta
-          property='og:image'
-          content='https://www.datocms-assets.com/16072/1568378278-logo-angele-brousse-300x225px-transparent.png'
-        />
+        <meta property='og:image' content={data.datoCmsSite.globalSeo.fallbackSeo.image.url} />
         <link rel='canonical' href='https://angelebrousse.com' />
         {data.datoCmsSite.faviconMetaTags.tags
           .filter(tag => tag.tagName === 'link')
