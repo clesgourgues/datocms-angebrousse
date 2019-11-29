@@ -12,6 +12,7 @@ import { getProductOptions } from '@helpers/sizes';
 import SnipContext from '@context/SnipContext';
 
 const Product = ({ product, text, titleColor }) => {
+  console.log(product);
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
@@ -33,7 +34,7 @@ const Product = ({ product, text, titleColor }) => {
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
             <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
-            <meta property='og:image' content={product.image[0].url}></meta>
+            <meta property='og:image' content={`${product.image[0].sizes.src}&h=300&w=300`}></meta>
             <meta name='og:url' content={`https://angelebrousse.com/${product.slug}`} />
           </Helmet>
           <div className='Wrap'>
