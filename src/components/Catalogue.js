@@ -11,10 +11,14 @@ const Catalogue = ({ products, filters, titleColor }) => {
     setSelected(selected);
   };
 
+  const onlineProducts = products.filter(
+    ({ node: product }) => product.image.length > 0 && product.published
+  );
+
   const productsToShow =
     selected === 'tout voir'
-      ? products.filter(({ node: product }) => product.image.length > 0 && product.published)
-      : products
+      ? onlineProducts
+      : onlineProducts
           .filter(({ node: product }) => product.category[0].name === selected)
           .filter(({ node: product }) => product.image.length > 0);
 
