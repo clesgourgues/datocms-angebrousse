@@ -12,14 +12,13 @@ import { getProductOptions } from '@helpers/sizes';
 import SnipContext from '@context/SnipContext';
 
 const Product = ({ product, text, titleColor }) => {
-  console.log(product);
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = product.size ? useState(null) : [null, null];
+  const [size, setSize] = useState(null);
 
   return (
     <SnipContext.Consumer>

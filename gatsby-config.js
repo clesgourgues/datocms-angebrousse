@@ -14,6 +14,12 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-layout`,
     {
+      resolve: 'gatsby-plugin-snipcartv3',
+      options: {
+        apiKey: process.env.GATSBY_SNIPCART_API_KEY
+      }
+    },
+    {
       resolve: `gatsby-plugin-postcss`,
       options: {
         postCssPlugins: [require(`postcss-preset-env`)({ stage: 0 })]

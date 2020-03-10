@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'gatsby';
 
 import LookBookMenu from '@components/LookBookMenu';
-import UserMenu from '@components/UserMenu';
 
-const Menu = ({ menu, selected, setSelected, isHome, user, updateUser }) => {
+const Menu = ({ menu, selected, setSelected, isHome, user }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
-  const [visibleUser, setVisibleUser] = useState(false);
   return (
     <nav className={`Menu ${isHome ? 'Menu__home' : ''}`}>
       <ul className='Menu__items'>
@@ -31,13 +29,11 @@ const Menu = ({ menu, selected, setSelected, isHome, user, updateUser }) => {
             </li>
           )
         )}
-        <li
-          className={`Menu__item__menu ${selected === 'mon compte' ? 'Menu__selected' : ''}`}
-          onMouseEnter={() => setVisibleUser(true)}
-          onMouseLeave={() => setVisibleUser(false)}
-        >
-          mon compte
-          {visibleUser && <UserMenu setSelected={setSelected} user={user} />}
+        <li className={`Menu__item__menu  ${selected === 'mon compte' ? 'Menu__selected' : ''}`}>
+          <a href='#' className='snipcart-customer-signin'>
+            {' '}
+            {user ? 'mon compte' : 'connexion'}
+          </a>
         </li>
         <li
           className={`Menu__item Menu__snipcart snipcart-checkout ${

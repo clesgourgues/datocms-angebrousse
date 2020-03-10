@@ -8,9 +8,9 @@ const NewsLetter = ({ user, title, isHome }) => {
   let [result, setResult] = useState(null);
 
   useEffect(() => {
-    const userEmail = user ? user.email : '';
+    const userEmail = user ? user : '';
     setEmail(userEmail);
-  }, []);
+  }, [user]);
 
   const handleChange = event => {
     setEmail(event.target.value);

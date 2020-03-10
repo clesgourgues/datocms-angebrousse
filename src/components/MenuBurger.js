@@ -19,31 +19,11 @@ const MenuBurger = ({ menu, open, setOpen, user }) => (
             </li>
           )
         )}
-        {user ? (
-          <>
-            <li className={`Menu__burger__item`}>
-              <a href='#' className='snipcart-edit-profile'>
-                Mes infos
-              </a>
-            </li>
-            <li className={`Menu__burger__item`}>
-              <a href='#' className='snipcart-user-profile'>
-                Mes commandes
-              </a>
-            </li>
-            <li className={`Menu__burger__item`}>
-              <a href='#' className='snipcart-user-logout'>
-                Me déconnecter
-              </a>
-            </li>
-          </>
-        ) : (
-          <li className={`Menu__burger__item`}>
-            <a href='#' className='snipcart-user-profile'>
-              Connexion
-            </a>
-          </li>
-        )}
+        <li className={`Menu__burger__item`}>
+          <a href='#' className='snipcart-customer-signin'>
+            {user ? 'Mon compte' : 'Connexion'}
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
