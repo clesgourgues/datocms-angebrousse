@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BackgroundSlider from '@components/BackgroundSlider';
 import Header from '@components/Header';
 
-const Homepage = ({ children, images, menu, cart, user }) => {
+const Homepage = ({ children, images, menu, user }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className='Container'>
@@ -12,7 +12,6 @@ const Homepage = ({ children, images, menu, cart, user }) => {
         isHome={true}
         open={open}
         setOpen={setOpen}
-        cart={cart}
         user={user}
       />
       <BackgroundSlider

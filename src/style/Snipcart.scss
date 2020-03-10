@@ -13,24 +13,6 @@
   }
 }
 
-.snip-layout {
-  transform: translateX(100%);
-  transition: transform 0.3s ease-in-out;
-}
-
-.snip-active {
-  transform: translateX(0);
-  transition: transform 0.3s ease-in-out;
-}
-
-div.snip-layout.snip-active {
-  background-color: white !important;
-}
-
-#snip-layout-cart-content {
-  font-family: $font-text;
-}
-
 .Snipcart__quantity {
   font-size: $font-size-medium;
   position: absolute;
@@ -45,19 +27,27 @@ div.snip-layout.snip-active {
   }
 }
 
-.snipcart_custom_Taille {
-  min-width: 50px !important;
-}
-
 .Snipcart__price {
   font-size: $font-size-medium;
   color: $color-light;
 }
 
-.snip-layout {
+.snipcart_custom_Taille {
+  min-width: 50px !important;
+}
+
+.snipcart__font--secondary, .snipcart__font--subtitle {
+  font-family: $font-text;
+}
+
+.snipcart {
   * {
     font-family: $font-text;
     color: $color-dark;
+  }
+
+  svg {
+    color: black;
   }
 
   .snip-layout__subtitle {

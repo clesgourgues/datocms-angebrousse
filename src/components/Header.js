@@ -7,7 +7,7 @@ import BurgerButton from '@components/BurgerButton';
 import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
 
-const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
+const Header = ({ logos, menu, isHome, open, setOpen, user }) => {
   const [selected, setSelected] = useState(null);
   return (
     <header className='Header'>
@@ -23,7 +23,7 @@ const Header = ({ logos, cart, menu, isHome, open, setOpen, user }) => {
             </div>
             {!isHome && (
               <div className='Snipcart__container'>
-                <SnipCart cart={cart} />
+                <SnipCart />
               </div>
             )}
           </div>
