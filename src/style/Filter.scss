@@ -1,10 +1,19 @@
-.Filters {
+.Wrapper {
   display: flex;
   width: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: baseline;
   margin-bottom: $spacing-medium;
+  flex-wrap: wrap;
+}
+
+.Filters {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: baseline;
   flex-wrap: wrap;
 }
 
@@ -16,6 +25,19 @@
   cursor: pointer;
   &hover,
   &.Filter__selected {
+    color: $color-dark;
+  }
+}
+
+.Collection {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-size: $font-size-medium;
+  color: $color-light;
+  cursor: pointer;
+  &hover,
+  &.Collection__selected {
     color: $color-dark;
   }
 }

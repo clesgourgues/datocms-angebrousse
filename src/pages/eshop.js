@@ -7,7 +7,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query CatalogueQuery {
-        products: allDatoCmsProduct {
+        products: allDatoCmsProduct(filter: { published: { eq: true } }) {
           edges {
             node {
               id
@@ -15,8 +15,11 @@ export default () => (
               price
               promoPrice
               slug
-              published
+              color
               category {
+                name
+              }
+              collection {
                 name
               }
               image {
@@ -25,13 +28,6 @@ export default () => (
                   ...GatsbyDatoCmsSizes
                 }
               }
-            }
-          }
-        }
-        filters: allDatoCmsCategory {
-          edges {
-            node {
-              name
             }
           }
         }
@@ -44,13 +40,26 @@ export default () => (
             }
           }
         }
+        photos: allDatoCmsLookBook {
+          edges {
+            node {
+              photos {
+                photo {
+                  fluid {
+                    ...GatsbyDatoCmsFluid
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     `}
     render={data => (
       <Catalogue
         products={data.products.edges}
-        filters={data.filters.edges}
         titleColor={data.titleColor.edges[0].node.titleColor.hex}
+        photo={data.photos.edges[0].node.photos[0]}
       />
     )}
   />

@@ -1,26 +1,33 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import Img from 'gatsby-image';
 
 import Filters from '@components/Filters';
 import CatalogueProduct from '@components/CatalogueProduct';
+import EmptyCatalogue from '@components/EmptyCatalogue';
+import { getFilters, isSelectedProduct } from '@helpers/filters';
 
-const Catalogue = ({ products, filters, titleColor }) => {
-  let [selected, setSelected] = useState('tout voir');
+const Catalogue = ({ products, titleColor, photo }) => {
+  //const collection = getFilters(products, 'collection');
+  const collection = ['Collection Saintes', 'Collection Truc'];
+  const category = getFilters(products, 'category');
+  //const color = getFilters(products, 'color');
+  const color = ['or jaune', 'or blanc'];
+  let [selected, setSelected] = useState({
+    collection,
+    category,
+    color
+  });
 
-  const onMenuClick = selected => {
-    setSelected(selected);
+  const onClick = (item, itemKey) => {
+    const newSelected = { ...selected };
+    newSelected[itemKey] = item;
+    setSelected(newSelected);
   };
 
-  const onlineProducts = products.filter(
-    ({ node: product }) => product.image.length > 0 && product.published
+  let productsToShow = products.filter(
+    ({ node: product }) => product.image.length && isSelectedProduct(product, selected)
   );
-
-  const productsToShow =
-    selected === 'tout voir'
-      ? onlineProducts
-      : onlineProducts
-          .filter(({ node: product }) => product.category[0].name === selected)
-          .filter(({ node: product }) => product.image.length > 0);
 
   return (
     <div className='Catalogue'>
@@ -35,11 +42,24 @@ const Catalogue = ({ products, filters, titleColor }) => {
         <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
           E-shop
         </h1>
-        <Filters filters={filters} selected={selected} onClick={onMenuClick} />
+        <div className='Lookbook__photo'>
+          <Img fluid={photo.photo.fluid} loading='lazy' />
+        </div>
+        <Filters
+          collectionsFilters={collection}
+          categoryFilters={category}
+          colorFilters={color}
+          selected={selected}
+          onClick={onClick}
+        />
         <div className='Catalogue__products'>
-          {productsToShow.map(({ node: product }) => (
-            <CatalogueProduct product={product} key={product.id} />
-          ))}
+          {productsToShow.length === 0 ? (
+            <EmptyCatalogue />
+          ) : (
+            productsToShow.map(({ node: product }) => (
+              <CatalogueProduct product={product} key={product.id} />
+            ))
+          )}
         </div>
       </div>
     </div>
