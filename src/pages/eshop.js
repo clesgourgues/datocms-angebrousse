@@ -34,11 +34,16 @@ export default () => (
                 }
               }
             }
-            titleColor: allDatoCmsSiteParameter {
+            parameters: allDatoCmsSiteParameter {
               edges {
                 node {
                   titleColor {
                     hex
+                  }
+                  eshopImage {
+                    fluid {
+                      ...GatsbyDatoCmsFluid
+                    }
                   }
                 }
               }
@@ -69,12 +74,12 @@ export default () => (
           );
           const image =
             selectedCollection === null || !selectedImageNode['node']['image']
-              ? data.image.edges[0].node.image
+              ? data.parameters.edges[0].node.eshopImage
               : selectedImageNode['node']['image'];
           return (
             <Catalogue
               products={products}
-              titleColor={data.titleColor.edges[0].node.titleColor.hex}
+              titleColor={data.parameters.edges[0].node.titleColor.hex}
               image={image}
               selectedCollection={selectedCollection}
             />
