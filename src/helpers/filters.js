@@ -8,9 +8,15 @@ export const getFilters = (products, key) => {
 };
 
 export const isSelectedProduct = (product, selected) =>
-  selected.collection.includes(product.collection[0].name) &&
-  selected.category.includes(product.category[0].name) &&
-  selected.color.includes(product.color);
+  selected.category.includes(product.category[0].name) && selected.color.includes(product.color);
 
 export const isSelectedFilter = (filter, selected) =>
   selected.length === 1 && selected[0] === filter;
+
+export const getImage = (collection, selected) => {
+  if (selected.length === 1) {
+    const selectedCollection = collection.find(c => c['node']['name'] === selected[0]);
+    if (selectedCollection) return selectedCollection['node']['image'];
+    else return null;
+  } else return null;
+};

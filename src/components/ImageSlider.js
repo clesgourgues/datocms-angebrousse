@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Img from 'gatsby-image';
 import ReactImageMagnify from 'react-image-magnify';
 
 const ImageSlider = ({ images, alt }) => {

@@ -29,19 +29,6 @@
   }
 }
 
-.Collection {
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-family: "Oswald", sans-serif;
-  font-size: $font-size-medium;
-  color: $color-light;
-  cursor: pointer;
-  &hover,
-  &.Collection__selected {
-    color: $color-dark;
-  }
-}
-
 .Filter__separator {
   color: $color-light;
   font-size: $font-size-medium;

@@ -43,6 +43,7 @@ const Product = ({ product, text, titleColor }) => {
             <div className='Product__back'>
               <Link to='/eshop'>{`< ${text.backText}`}</Link>
             </div>
+
             <div className='Product__details'>
               <ImageSlider images={product.image} alt={product.name} />
               <div className='Product__buy' id={product.ref}>
@@ -111,6 +112,7 @@ const Product = ({ product, text, titleColor }) => {
                 )}
               </div>
             </div>
+
             <ProductInfo
               infos={text.productInfo}
               title={text.productInfoText}

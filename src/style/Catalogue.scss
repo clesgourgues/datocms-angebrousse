@@ -6,6 +6,11 @@
   margin-bottom: $spacing-medium;
 }
 
+.Catalogue__photo {
+  height: 180px;
+  margin: $spacing-medium 0;
+}
+
 .Catalogue__products {
   align-items: baseline;
   display: flex;

@@ -1,37 +1,10 @@
 import React from 'react';
 import { isSelectedFilter } from '@helpers/filters';
+import 'react-dropdown/style.css';
 
-const Filters = ({ collectionsFilters, categoryFilters, colorFilters, selected, onClick }) => {
+const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
   return (
     <div className='Wrapper'>
-      <div className='Filters'>
-        {collectionsFilters.length === 1 ? (
-          <div key={collectionsFilters[0]}>
-            <span className='Collection Collection__selected'>{collectionsFilters[0]}</span>
-          </div>
-        ) : (
-          <>
-            <span
-              onClick={() => onClick(collectionsFilters, 'collection')}
-              className={`Collection ${selected.collection.length > 1 && 'Collection__selected'}`}
-            >
-              toutes les collections
-            </span>
-            {collectionsFilters.map(collection => (
-              <div key={collection}>
-                <span className='Filter__separator'>/</span>
-                <span
-                  onClick={() => onClick([collection], 'collection')}
-                  className={`Collection ${isSelectedFilter(collection, selected.collection) &&
-                    'Collection__selected'}`}
-                >
-                  {collection}
-                </span>
-              </div>
-            ))}
-          </>
-        )}
-      </div>
       <div className='Filters'>
         <span
           onClick={() => onClick(categoryFilters, 'category')}

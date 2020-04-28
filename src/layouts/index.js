@@ -49,15 +49,13 @@ export default ({ children, pageContext }) => (
       return (
         <SnipProvider titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}>
           <SnipContext.Consumer>
-            {({ user, cart }) =>
+            {() =>
               pageContext.layout === 'homepage' ? (
                 <>
                   <Seo />
                   <Homepage
                     images={data.allDatoCmsSiteParameter.edges[0].node}
                     menu={data.allDatoCmsMenu.edges}
-                    user={user}
-                    cart={cart}
                   >
                     {children}
                   </Homepage>
@@ -66,8 +64,6 @@ export default ({ children, pageContext }) => (
                 <>
                   <Seo />
                   <Layout
-                    user={user}
-                    cart={cart}
                     logos={data.allDatoCmsSiteParameter.edges[0].node}
                     menu={data.allDatoCmsMenu.edges}
                   >

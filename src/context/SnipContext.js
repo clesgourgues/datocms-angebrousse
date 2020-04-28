@@ -4,7 +4,8 @@ import { withPrefix } from 'gatsby';
 const defaultState = {
   user: null,
   cart: null,
-  error: null
+  error: null,
+  selectedCollection: null
 };
 
 const SnipContext = React.createContext(defaultState);
@@ -13,7 +14,8 @@ class SnipProvider extends Component {
   state = {
     cart: null,
     user: null,
-    error: null
+    error: null,
+    selectedCollection: null
   };
 
   componentDidMount() {
@@ -89,12 +91,17 @@ class SnipProvider extends Component {
 
   cancelError = () => this.setState({ error: false });
 
+  updateSelectedCollection = selectedCollection => {
+    this.setState({ selectedCollection });
+  };
+
   render() {
     return (
       <SnipContext.Provider
         value={{
           ...this.state,
-          cancelError: this.cancelError
+          cancelError: this.cancelError,
+          updateSelectedCollection: this.updateSelectedCollection
         }}
       >
         {this.props.children}
