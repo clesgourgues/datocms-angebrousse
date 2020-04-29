@@ -34,7 +34,7 @@ export default ({ children, logos, menu }) => (
             }
           }
         }
-        allDatoCmsCollection {
+        allDatoCmsCollection(sort: { fields: position, order: ASC }) {
           edges {
             node {
               slug

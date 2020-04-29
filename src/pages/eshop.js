@@ -10,7 +10,10 @@ export default () => (
       <StaticQuery
         query={graphql`
           query CatalogueQuery {
-            products: allDatoCmsProduct(filter: { published: { eq: true } }) {
+            products: allDatoCmsProduct(
+              filter: { published: { eq: true } }
+              sort: { fields: position, order: ASC }
+            ) {
               edges {
                 node {
                   id
