@@ -3,24 +3,43 @@ import { Link } from 'gatsby';
 
 import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
+import EshopMenu from '@components/EshopMenu';
 
-const Menu = ({ menu, selected, setSelected, isHome, user, updateUser }) => {
+const Menu = ({ menu, selected, setSelected, isHome }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
   const [visibleUser, setVisibleUser] = useState(false);
+  const [visibleEshop, setVisibleEshop] = useState(false);
+  const renderLookBook = item => (
+    <li
+      className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
+      onMouseEnter={() => setVisibleLookBook(true)}
+      onMouseLeave={() => setVisibleLookBook(false)}
+      key={item.node.name}
+    >
+      {item.node.name}
+      {visibleLookBook && <LookBookMenu setSelected={setSelected} />}
+    </li>
+  );
+
+  const renderEshop = item => (
+    <li
+      className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
+      onMouseEnter={() => setVisibleEshop(true)}
+      onMouseLeave={() => setVisibleEshop(false)}
+      key={item.node.name}
+    >
+      {item.node.name}
+      {visibleEshop && <EshopMenu setSelected={setSelected} />}
+    </li>
+  );
   return (
     <nav className={`Menu ${isHome ? 'Menu__home' : ''}`}>
       <ul className='Menu__items'>
         {menu.map(item =>
           item.node.slug === 'menu' ? (
-            <li
-              className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
-              onMouseEnter={() => setVisibleLookBook(true)}
-              onMouseLeave={() => setVisibleLookBook(false)}
-              key={item.node.name}
-            >
-              {item.node.name}
-              {visibleLookBook && <LookBookMenu setSelected={setSelected} />}
-            </li>
+            renderLookBook(item)
+          ) : item.node.slug === '/eshop' ? (
+            renderEshop(item)
           ) : (
             <li
               className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
@@ -37,7 +56,7 @@ const Menu = ({ menu, selected, setSelected, isHome, user, updateUser }) => {
           onMouseLeave={() => setVisibleUser(false)}
         >
           mon compte
-          {visibleUser && <UserMenu setSelected={setSelected} user={user} />}
+          {visibleUser && <UserMenu />}
         </li>
         <li
           className={`Menu__item Menu__snipcart snipcart-checkout ${

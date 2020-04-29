@@ -6,11 +6,20 @@
   margin-bottom: $spacing-medium;
 }
 
+.Catalogue__photo {
+  height: 180px;
+  margin: $spacing-medium 0;
+}
+
 .Catalogue__products {
   align-items: baseline;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  &:after {
+    content: '';
+    width: 28%;
+  }
 }
 
 .Catalogue__item {
@@ -48,6 +57,10 @@
   text-transform: uppercase;
 }
 
+.Catalogue__collection {
+  font-family: $font-title;
+}
+
 .Catalogue__prices {
   display: flex;
 }
@@ -61,6 +74,16 @@
 
 .Catalogue__price_dicount {
   text-decoration: line-through;
+}
+
+.Empty {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  border: 1px solid #dcdcdc;
 }
 
 @media screen and (min-width: 600px) {

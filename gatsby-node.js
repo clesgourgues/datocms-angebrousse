@@ -1,10 +1,10 @@
-const path = require("path");
+const path = require('path');
 
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage } = actions;
 
-  if (page.path === "/") {
-    page.context.layout = "homepage";
+  if (page.path === '/') {
+    page.context.layout = 'homepage';
     createPage(page);
   }
 };
@@ -13,14 +13,14 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const productTemplate = path.resolve("src/templates/product.js");
-    const pageTemplate = path.resolve("src/templates/page.js");
-    const collectionTemplate = path.resolve("src/templates/lookbooks.js");
+    const productTemplate = path.resolve('src/templates/product.js');
+    const pageTemplate = path.resolve('src/templates/page.js');
+    const collectionTemplate = path.resolve('src/templates/lookbooks.js');
     resolve(
       graphql(
         `
           {
-            allDatoCmsProduct {
+            allDatoCmsProduct(filter: { published: { eq: true } }) {
               edges {
                 node {
                   slug

@@ -12,14 +12,13 @@ import { getProductOptions } from '@helpers/sizes';
 import SnipContext from '@context/SnipContext';
 
 const Product = ({ product, text, titleColor }) => {
-  console.log(product);
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const [quantity, setQuantity] = useState(1);
-  const [size, setSize] = product.size ? useState(null) : [null, null];
+  const [size, setSize] = useState(null);
 
   return (
     <SnipContext.Consumer>
@@ -39,17 +38,25 @@ const Product = ({ product, text, titleColor }) => {
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-              E-shop
+              Collection {product.collection[0].name}
             </h1>
             <div className='Product__back'>
               <Link to='/eshop'>{`< ${text.backText}`}</Link>
             </div>
+
             <div className='Product__details'>
               <ImageSlider images={product.image} alt={product.name} />
               <div className='Product__buy' id={product.ref}>
                 <div>
                   <div className='Product__title'>{product.name}</div>
-                  <div className='Product__price'>{product.price}€</div>
+                  {product.promoPrice ? (
+                    <>
+                      <del className='Product__price'>{product.price}€</del>
+                      <div className='Product__price'>{product.promoPrice}€</div>
+                    </>
+                  ) : (
+                    <div className='Product__price'>{product.price}€</div>
+                  )}
                 </div>
                 <div className='Product__description'>{product.description}</div>
                 <div
@@ -112,6 +119,7 @@ const Product = ({ product, text, titleColor }) => {
                 )}
               </div>
             </div>
+
             <ProductInfo
               infos={text.productInfo}
               title={text.productInfoText}

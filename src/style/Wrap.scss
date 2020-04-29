@@ -11,6 +11,9 @@
   padding: 0 50px;
   flex-grow: 1;
   flex-shrink: 0;
+  transition: transform 1s ease 0s, opacity 0.8s ease 0s;
+  transform: none;
+  opacity: 1;
   @media screen and (max-width: 767px) {
     margin-top: $spacing-medium;
     max-width: 100%;

@@ -1,11 +1,12 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
+import Animate from '@components/Animate';
 
 const CatalogueProduct = ({ product }) => {
   return (
     <Link to={`/${product.slug}`} className='Catalogue__item'>
-      <div>
+      <Animate quick={true}>
         <div className='Catalogue__image'>
           <Img
             style={{ height: '300px' }}
@@ -16,6 +17,7 @@ const CatalogueProduct = ({ product }) => {
         </div>
         <div className='Catalogue__details'>
           <div className='Catalogue__name'>{product.name} </div>
+          <div className='Catalogue__name Catalogue__collection'>{product.collection[0].name}</div>
           {product.promoPrice ? (
             <div className='Catalogue__prices'>
               <del className='Catalogue__price'>{product.price} €</del>
@@ -25,7 +27,7 @@ const CatalogueProduct = ({ product }) => {
             <div className='Catalogue__price'>{product.price} €</div>
           )}
         </div>
-      </div>
+      </Animate>
     </Link>
   );
 };

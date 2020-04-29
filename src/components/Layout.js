@@ -4,7 +4,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Encart from '@components/Encart';
 
-export default ({ children, logos, menu, cart, user }) => (
+export default ({ children, logos, menu }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -34,6 +34,19 @@ export default ({ children, logos, menu, cart, user }) => (
             }
           }
         }
+        allDatoCmsCollection {
+          edges {
+            node {
+              slug
+              name
+              image {
+                fluid {
+                  ...GatsbyDatoCmsFluid
+                }
+              }
+            }
+          }
+        }
         allInstaNode(limit: 6, sort: { fields: timestamp, order: DESC }) {
           edges {
             node {
@@ -60,9 +73,9 @@ export default ({ children, logos, menu, cart, user }) => (
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
-          <Header logos={logos} cart={cart} menu={menu} open={open} setOpen={setOpen} user={user} />
+          <Header logos={logos} menu={menu} open={open} setOpen={setOpen} />
           <main className='Content'>{children}</main>
-          <Footer menu={bottomMenu} instagram={instagram} text={text} user={user} />
+          <Footer menu={bottomMenu} instagram={instagram} text={text} />
         </div>
       );
     }}
