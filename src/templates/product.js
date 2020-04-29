@@ -24,10 +24,14 @@ export const query = graphql`
           id
           name
           price
+          promoPrice
           ref
           size
           description
           category {
+            name
+          }
+          collection {
             name
           }
           outOfStock
@@ -35,8 +39,12 @@ export const query = graphql`
           linkedProducts {
             name
             price
+            promoPrice
             id
             slug
+            collection {
+              name
+            }
             image {
               url
               sizes(maxWidth: 500, imgixParams: { fm: "jpg" }) {

@@ -38,7 +38,7 @@ const Product = ({ product, text, titleColor }) => {
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-              E-shop
+              Collection {product.collection[0].name}
             </h1>
             <div className='Product__back'>
               <Link to='/eshop'>{`< ${text.backText}`}</Link>

@@ -7,6 +7,14 @@ export const getFilters = (products, key) => {
   return filters;
 };
 
+export const getColorFilters = products => {
+  const filters = [];
+  products.map(
+    ({ node: product }) => !filters.includes(product['color']) && filters.push(product['color'])
+  );
+  return filters;
+};
+
 export const isSelectedProduct = (product, selected) =>
   selected.category.includes(product.category[0].name) && selected.color.includes(product.color);
 

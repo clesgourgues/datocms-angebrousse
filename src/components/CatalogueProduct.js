@@ -17,6 +17,7 @@ const CatalogueProduct = ({ product }) => {
         </div>
         <div className='Catalogue__details'>
           <div className='Catalogue__name'>{product.name} </div>
+          <div className='Catalogue__name Catalogue__collection'>{product.collection[0].name}</div>
           {product.promoPrice ? (
             <div className='Catalogue__prices'>
               <del className='Catalogue__price'>{product.price} €</del>

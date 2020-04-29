@@ -7,7 +7,7 @@ export default ({ setSelected }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsCollection {
+        allDatoCmsCollection(filter: { eshopPublished: { eq: true } }) {
           edges {
             node {
               name
@@ -24,7 +24,9 @@ export default ({ setSelected }) => (
               <li
                 className='Menu__lookbook__item'
                 onClick={() => {
-                  setSelected('e-shop');
+                  if (setSelected) {
+                    setSelected('e-shop');
+                  }
                   updateSelectedCollection(null);
                 }}
               >

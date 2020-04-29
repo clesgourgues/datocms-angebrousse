@@ -5,13 +5,13 @@ import Img from 'gatsby-image';
 import Filters from '@components/Filters';
 import CatalogueProduct from '@components/CatalogueProduct';
 import EmptyCatalogue from '@components/EmptyCatalogue';
-import { getFilters, isSelectedProduct } from '@helpers/filters';
+import { getFilters, isSelectedProduct, getColorFilters } from '@helpers/filters';
 import Animate from '@components/Animate';
 
 const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
   const category = getFilters(products, 'category');
-  //const color = getFilters(products, 'color');
-  const color = ['or jaune', 'or blanc'];
+  const color = getColorFilters(products);
+
   let [selected, setSelected] = useState({
     category,
     color
@@ -39,7 +39,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
         </Helmet>
         <div className='Wrap'>
           <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-            E-shop {selectedCollection && `: ${selectedCollection}`}
+            {!selectedCollection ? 'E-shop' : `Collection ${selectedCollection}`}
           </h1>
           <div>
             <Img fluid={image.fluid} loading='lazy' className='Catalogue__photo' />

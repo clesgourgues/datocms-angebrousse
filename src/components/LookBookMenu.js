@@ -11,6 +11,7 @@ export default ({ setSelected }) => (
             node {
               slug
               name
+              year
             }
           }
         }
@@ -25,7 +26,9 @@ export default ({ setSelected }) => (
               key={item.node.name}
               onClick={() => (setSelected ? setSelected('look book') : {})}
             >
-              <Link to={`/${item.node.slug}`}>{item.node.name}</Link>
+              <Link to={`/${item.node.slug}`}>
+                {item.node.name} {item.node.year}
+              </Link>
             </li>
           ))}
         </ul>

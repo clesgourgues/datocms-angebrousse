@@ -8,7 +8,7 @@ const LookBook = ({ lookbooks, titleColor }) => (
     <div className='Lookbook'>
       <div className='Wrap'>
         {lookbooks.map(collection => (
-          <>
+          <div key={collection}>
             <Helmet>
               <title>{collection.node.collection.name}</title>
               <link
@@ -39,7 +39,7 @@ const LookBook = ({ lookbooks, titleColor }) => (
                 content={`https://angelebrousse.com/${collection.node.collection.slug}`}
               />
             </Helmet>
-            <div className='Lookbook__collection' key={collection.node.collection.name}>
+            <div className='Lookbook__collection'>
               <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
                 {collection.node.collection.name}
               </h1>
@@ -54,7 +54,7 @@ const LookBook = ({ lookbooks, titleColor }) => (
                 </div>
               ))}
             </div>
-          </>
+          </div>
         ))}
       </div>
     </div>
