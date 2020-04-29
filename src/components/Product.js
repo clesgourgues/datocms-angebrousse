@@ -49,7 +49,14 @@ const Product = ({ product, text, titleColor }) => {
               <div className='Product__buy' id={product.ref}>
                 <div>
                   <div className='Product__title'>{product.name}</div>
-                  <div className='Product__price'>{product.price}€</div>
+                  {product.promoPrice ? (
+                    <>
+                      <del className='Product__price'>{product.price}€</del>
+                      <div className='Product__price'>{product.promoPrice}€</div>
+                    </>
+                  ) : (
+                    <div className='Product__price'>{product.price}€</div>
+                  )}
                 </div>
                 <div className='Product__description'>{product.description}</div>
                 <div

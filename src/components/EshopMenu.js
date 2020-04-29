@@ -21,17 +21,19 @@ export default ({ setSelected }) => (
         {({ updateSelectedCollection }) => (
           <Animate up={true}>
             <ul className='Menu__lookbook Menu__secondary'>
-              <li
-                className='Menu__lookbook__item'
-                onClick={() => {
-                  if (setSelected) {
-                    setSelected('e-shop');
-                  }
-                  updateSelectedCollection(null);
-                }}
-              >
-                <Link to='/eshop'>tout voir</Link>
-              </li>
+              {data.allDatoCmsCollection.edges.length > 1 && (
+                <li
+                  className='Menu__lookbook__item'
+                  onClick={() => {
+                    if (setSelected) {
+                      setSelected('e-shop');
+                    }
+                    updateSelectedCollection(null);
+                  }}
+                >
+                  <Link to='/eshop'>tout voir</Link>
+                </li>
+              )}
               {data.allDatoCmsCollection.edges.map(item => (
                 <li
                   className='Menu__lookbook__item'

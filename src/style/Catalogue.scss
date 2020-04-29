@@ -16,6 +16,10 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  &:after {
+    content: '';
+    width: 28%;
+  }
 }
 
 .Catalogue__item {
