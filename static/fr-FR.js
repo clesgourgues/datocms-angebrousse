@@ -282,9 +282,9 @@ window.Snipcart.execute('registerLocale', 'fr-FR', {
   error_item_stock_exceeded:
     'Désolé ! Votre demande dépasse la quantité disponible pour cet article.',
   error_item_out_of_stock_text:
-    'Désolé ! il semble que ce produit n’est plus en stock. Nous vous suggérons de retenter de commander cet article ultérieurement.',
+    'Désolé, la taille choisie n’est pas disponible actuellement. Vous pouvez la commander en nous envoyant votre demande via le formulaire de contact.',
   item_out_of_stock_with_variant:
-    "Désolé ! Il semble que cette déclinaison de produit n'est plus disponible. Merci de sélectionner une autre déclinaison ou cet article sera retiré de votre panier.",
+    'Désolé, la taille choisie n’est pas disponible actuellement. Vous pouvez la commander en nous envoyant votre demande via le formulaire de contact.',
   order_status_processed: 'Traitée',
   order_status_disputed: 'Contestée',
   order_status_shipped: 'Expédiée',
