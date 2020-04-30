@@ -74,7 +74,7 @@ const Product = ({ product, text, titleColor }) => {
                   />
                 )}
                 <div className='Product__sizeerror__container'>
-                  {error && product.size && (
+                  {!product.outOfStock && error && product.size && (
                     <span className='Product__sizeerror'>Merci de sélectionner une taille !</span>
                   )}
                 </div>
