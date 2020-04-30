@@ -5,7 +5,7 @@ import Header from '@components/Header';
 const Homepage = ({ children, images, menu, user }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div className='Container'>
+    <div className='Container Container__home'>
       <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} user={user} />
       <BackgroundSlider
         images={images.slider}

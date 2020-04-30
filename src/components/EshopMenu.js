@@ -7,7 +7,10 @@ export default ({ setSelected }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsCollection(filter: { eshopPublished: { eq: true } }) {
+        allDatoCmsCollection(
+          filter: { eshopPublished: { eq: true } }
+          sort: { fields: position, order: ASC }
+        ) {
           edges {
             node {
               name
