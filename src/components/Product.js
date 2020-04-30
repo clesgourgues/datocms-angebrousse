@@ -74,7 +74,7 @@ const Product = ({ product, text, titleColor }) => {
                   />
                 )}
                 <div className='Product__sizeerror__container'>
-                  {error && (
+                  {error && product.size && (
                     <span className='Product__sizeerror'>Merci de sélectionner une taille !</span>
                   )}
                 </div>
@@ -82,13 +82,13 @@ const Product = ({ product, text, titleColor }) => {
                 {product.size ? (
                   <button
                     data-item-id={product.ref}
-                    data-item-price={product.price}
+                    data-item-price={product.promoPrice ? product.promoPrice : product.price}
                     data-item-image={product.image[0].url}
                     data-item-name={product.name}
                     data-item-url={`/${product.slug}`}
                     data-item-description={product.description}
                     className={`Product__button snipcart-add-item ${
-                      product.outOfStock ? 'Product__button__disabled' : ''
+                      product.outOfStock || error ? 'Product__button__disabled' : ''
                     }`}
                     data-item-custom1-name='Taille'
                     data-item-custom1-options={getProductOptions(product.size, size)}
@@ -102,13 +102,13 @@ const Product = ({ product, text, titleColor }) => {
                 ) : (
                   <button
                     data-item-id={product.ref}
-                    data-item-price={product.price}
+                    data-item-price={product.promoPrice ? product.promoPrice : product.price}
                     data-item-image={product.image[0].url}
                     data-item-name={product.name}
-                    data-item-url={`https://www.angelebrousse.com/${product.slug}`}
+                    data-item-url={`${product.slug}`}
                     data-item-description={product.description}
                     className={`Product__button snipcart-add-item ${
-                      product.outOfStock ? 'Product__button__disabled' : ''
+                      product.outOfStock || error ? 'Product__button__disabled' : ''
                     }`}
                     data-item-quantity={quantity}
                     data-item-has-taxes-included='true'
