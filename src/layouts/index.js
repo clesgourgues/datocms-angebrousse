@@ -35,7 +35,7 @@ export default ({ children, pageContext }) => (
             }
           }
         }
-        allDatoCmsMenu(sort: { fields: position, order: ASC }) {
+        allDatoCmsMenu(sort: { fields: position, order: ASC }, filter: { locale: { eq: "fr" } }) {
           edges {
             node {
               name

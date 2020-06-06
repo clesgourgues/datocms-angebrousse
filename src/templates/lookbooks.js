@@ -6,7 +6,7 @@ import LookBook from '@components/LookBook';
 export default ({ data }) => (
   <LookBook
     lookbooks={data.allDatoCmsLookBook.edges}
-    titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+    titleColor={data.allDatoCmsSiteParameter.titleColor.hex}
   />
 );
 
@@ -30,13 +30,9 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsSiteParameter {
-      edges {
-        node {
-          titleColor {
-            hex
-          }
-        }
+    datoCmsSiteParameter {
+      titleColor {
+        hex
       }
     }
   }

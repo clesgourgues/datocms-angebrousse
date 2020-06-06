@@ -18,7 +18,10 @@ export default ({ children, logos, menu }) => (
             }
           }
         }
-        allDatoCmsBottomMenu(sort: { fields: position, order: ASC }) {
+        allDatoCmsBottomMenu(
+          sort: { fields: position, order: ASC }
+          filter: { locale: { eq: "fr" } }
+        ) {
           edges {
             node {
               slug
@@ -26,13 +29,9 @@ export default ({ children, logos, menu }) => (
             }
           }
         }
-        allDatoCmsEncartInfo {
-          edges {
-            node {
-              info
-              publi
-            }
-          }
+        datoCmsEncartInfo(locale: { eq: "fr" }) {
+          info
+          publi
         }
         allDatoCmsCollection(sort: { fields: position, order: ASC }) {
           edges {
@@ -67,7 +66,7 @@ export default ({ children, logos, menu }) => (
     render={data => {
       const [open, setOpen] = useState(false);
       const bottomMenu = data.allDatoCmsBottomMenu.edges;
-      const encart = data.allDatoCmsEncartInfo.edges[0].node;
+      const encart = data.datoCmsEncartInfo;
       const instagram = data.allInstaNode.edges;
       const text = data.allDatoCmsTextesFooter.edges[0].node;
       return (

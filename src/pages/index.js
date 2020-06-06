@@ -1,27 +1,20 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import NewsLetter from "@components/NewsLetter";
+import NewsLetter from '@components/NewsLetter';
 
 export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsTextesFooter {
-          edges {
-            node {
-              newsletterText
-            }
-          }
+        datoCmsTextesFooter(locale: { eq: "fr" }) {
+          newsletterText
         }
       }
     `}
     render={data => (
-      <div className="Newsletter__home">
-        <NewsLetter
-          title={data.allDatoCmsTextesFooter.edges[0].node.newsletterText}
-          isHome={true}
-        />
+      <div className='Newsletter__home'>
+        <NewsLetter title={data.allDatoCmsTextesFooter.newsletterText} isHome={true} />
       </div>
     )}
   />

@@ -7,42 +7,34 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsContactText {
-          edges {
-            node {
-              mailText
-              successText
-              title
-              sendButtonText
-              messagePlaceholderText
-              emailPlaceholderText
-              address {
-                content
-                title
-              }
-              mail {
-                content
-                title
-              }
-              phone {
-                title
-                content
-              }
-              image {
-                fluid(maxWidth: 500) {
-                  ...GatsbyDatoCmsFluid
-                }
-              }
+        datoCmsContactText(locale: { eq: "fr" }) {
+          mailText
+          successText
+          title
+          sendButtonText
+          messagePlaceholderText
+          emailPlaceholderText
+          address {
+            content
+            title
+          }
+          mail {
+            content
+            title
+          }
+          phone {
+            title
+            content
+          }
+          image {
+            fluid(maxWidth: 500) {
+              ...GatsbyDatoCmsFluid
             }
           }
         }
-        allDatoCmsSiteParameter {
-          edges {
-            node {
-              titleColor {
-                hex
-              }
-            }
+        datoCmsSiteParameter {
+          titleColor {
+            hex
           }
         }
       }
@@ -51,9 +43,9 @@ export default () => (
       <SnipContext.Consumer>
         {({ user }) => (
           <Contact
-            text={data.allDatoCmsContactText.edges[0].node}
+            text={data.datoCmsContactText}
             user={user}
-            titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+            titleColor={data.datoCmsSiteParameter.titleColor.hex}
           />
         )}
       </SnipContext.Consumer>

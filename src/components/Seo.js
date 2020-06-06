@@ -7,7 +7,7 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        datoCmsSite {
+        datoCmsSite(locale: { eq: "fr" }) {
           faviconMetaTags {
             tags
           }

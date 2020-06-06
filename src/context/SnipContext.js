@@ -5,7 +5,8 @@ const defaultState = {
   user: null,
   cart: null,
   error: null,
-  selectedCollection: null
+  selectedCollection: null,
+  locale: 'fr'
 };
 
 const SnipContext = React.createContext(defaultState);
@@ -15,7 +16,8 @@ class SnipProvider extends Component {
     cart: null,
     user: null,
     error: null,
-    selectedCollection: null
+    selectedCollection: null,
+    locale: 'fr'
   };
 
   componentDidMount() {

@@ -8,7 +8,7 @@ export default ({ setSelected }) => (
     query={graphql`
       query {
         allDatoCmsCollection(
-          filter: { eshopPublished: { eq: true } }
+          filter: { eshopPublished: { eq: true }, locale: { eq: "fr" } }
           sort: { fields: position, order: ASC }
         ) {
           edges {

@@ -1,23 +1,19 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
+import React from 'react';
+import { StaticQuery, graphql } from 'gatsby';
 
-import SuccessForm from "@components/SuccessForm";
+import SuccessForm from '@components/SuccessForm';
 
 export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsContactText {
-          edges {
-            node {
-              successText
-            }
-          }
+        datoCmsContactText(locale: { eq: "fr" }) {
+          successText
         }
       }
     `}
     render={data => {
-      return <SuccessForm text={data.allDatoCmsContactText.edges[0].node.successText} />;
+      return <SuccessForm text={data.allDatoCmsContactText.successText} />;
     }}
   />
 );

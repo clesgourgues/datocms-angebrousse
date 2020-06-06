@@ -6,13 +6,13 @@ import Page from '@components/Page';
 export default ({ data }) => (
   <Page
     page={data.allDatoCmsPage.edges[0].node}
-    titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
+    titleColor={data.datoCmsSiteParameter.titleColor.hex}
   />
 );
 
 export const query = graphql`
   query($pathSlug: String!) {
-    allDatoCmsPage(filter: { slug: { eq: $pathSlug } }) {
+    allDatoCmsPage(filter: { slug: { eq: $pathSlug }, locale: { eq: "fr" } }) {
       edges {
         node {
           slug
@@ -35,13 +35,9 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsSiteParameter {
-      edges {
-        node {
-          titleColor {
-            hex
-          }
-        }
+    datoCmsSiteParameter {
+      titleColor {
+        hex
       }
     }
   }

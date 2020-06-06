@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
           {
-            allDatoCmsProduct(filter: { published: { eq: true } }) {
+            allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "fr" } }) {
               edges {
                 node {
                   slug
@@ -30,7 +30,7 @@ exports.createPages = ({ graphql, actions }) => {
                 }
               }
             }
-            allDatoCmsPage {
+            allDatoCmsPage(filter: { locale: { eq: "fr" } }) {
               edges {
                 node {
                   slug

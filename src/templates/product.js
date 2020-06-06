@@ -5,19 +5,15 @@ import Product from '@components/Product';
 
 export default ({ data }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
-  const text = data.allDatoCmsProductText.edges[0].node;
+  const text = data.datoCmsProductText;
   return (
-    <Product
-      product={product}
-      text={text}
-      titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}
-    />
+    <Product product={product} text={text} titleColor={data.datoCmsSiteParameter.titleColor.hex} />
   );
 };
 
 export const query = graphql`
   query($pathSlug: String!) {
-    allDatoCmsProduct(filter: { slug: { eq: $pathSlug } }) {
+    allDatoCmsProduct(filter: { slug: { eq: $pathSlug }, locale: { eq: "fr" } }) {
       edges {
         node {
           slug
@@ -69,33 +65,25 @@ export const query = graphql`
         }
       }
     }
-    allDatoCmsProductText {
-      edges {
-        node {
-          backText
-          buyButtonText
-          linkedProductsText
-          outOfStockText
-          productInfoText
-          productInfo {
-            title
-            content
-            position
-            categories {
-              name
-            }
-          }
-          sizesText
+    datoCmsProductText(locale: { eq: "fr" }) {
+      backText
+      buyButtonText
+      linkedProductsText
+      outOfStockText
+      productInfoText
+      productInfo {
+        title
+        content
+        position
+        categories {
+          name
         }
       }
+      sizesText
     }
-    allDatoCmsSiteParameter {
-      edges {
-        node {
-          titleColor {
-            hex
-          }
-        }
+    datoCmsSiteParameter {
+      titleColor {
+        hex
       }
     }
   }

@@ -11,7 +11,7 @@ export default () => (
         query={graphql`
           query CatalogueQuery {
             products: allDatoCmsProduct(
-              filter: { published: { eq: true } }
+              filter: { published: { eq: true }, locale: { eq: "fr" } }
               sort: { fields: position, order: ASC }
             ) {
               edges {
@@ -37,17 +37,13 @@ export default () => (
                 }
               }
             }
-            parameters: allDatoCmsSiteParameter {
-              edges {
-                node {
-                  titleColor {
-                    hex
-                  }
-                  eshopImage {
-                    fluid {
-                      ...GatsbyDatoCmsFluid
-                    }
-                  }
+            parameters: datoCmsSiteParameter {
+              titleColor {
+                hex
+              }
+              eshopImage {
+                fluid {
+                  ...GatsbyDatoCmsFluid
                 }
               }
             }
@@ -77,12 +73,12 @@ export default () => (
           );
           const image =
             selectedCollection === null || !selectedImageNode['node']['image']
-              ? data.parameters.edges[0].node.eshopImage
+              ? data.parameters.eshopImage
               : selectedImageNode['node']['image'];
           return (
             <Catalogue
               products={products}
-              titleColor={data.parameters.edges[0].node.titleColor.hex}
+              titleColor={data.parameters.titleColor.hex}
               image={image}
               selectedCollection={selectedCollection}
             />
