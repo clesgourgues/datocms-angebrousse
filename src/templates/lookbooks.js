@@ -6,7 +6,7 @@ import LookBook from '@components/LookBook';
 export default ({ data }) => (
   <LookBook
     lookbooks={data.allDatoCmsLookBook.edges}
-    titleColor={data.allDatoCmsSiteParameter.titleColor.hex}
+    titleColor={data.datoCmsSiteParameter.titleColor.hex}
   />
 );
 
