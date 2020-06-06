@@ -13,7 +13,7 @@ export default () => (
       }
     `}
     render={data => {
-      return <SuccessForm text={data.allDatoCmsContactText.successText} />;
+      return <SuccessForm text={data.datoCmsContactText.successText} />;
     }}
   />
 );
