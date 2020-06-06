@@ -8,15 +8,10 @@ export default ({ children, logos, menu }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsTextesFooter {
-          edges {
-            node {
-              instagramButtonText
-              instagramText
-              newsletterButtonText
-              newsletterText
-            }
-          }
+        datoCmsTextesFooter(locale: { eq: "fr" }) {
+          instagramText
+          newsletterButtonText
+          newsletterText
         }
         allDatoCmsBottomMenu(
           sort: { fields: position, order: ASC }
@@ -46,35 +41,19 @@ export default ({ children, logos, menu }) => (
             }
           }
         }
-        allInstaNode(limit: 6, sort: { fields: timestamp, order: DESC }) {
-          edges {
-            node {
-              id
-              preview
-              localFile {
-                childImageSharp {
-                  fluid(maxHeight: 300) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
       }
     `}
     render={data => {
       const [open, setOpen] = useState(false);
       const bottomMenu = data.allDatoCmsBottomMenu.edges;
       const encart = data.datoCmsEncartInfo;
-      const instagram = data.allInstaNode.edges;
-      const text = data.allDatoCmsTextesFooter.edges[0].node;
+      const text = data.datoCmsTextesFooter;
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
           <Header logos={logos} menu={menu} open={open} setOpen={setOpen} />
           <main className='Content'>{children}</main>
-          <Footer menu={bottomMenu} instagram={instagram} text={text} />
+          <Footer menu={bottomMenu} text={text} />
         </div>
       );
     }}

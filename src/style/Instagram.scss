@@ -3,9 +3,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  a {
-    text-decoration: none;
-  }
 }
 
 .Instagram__title {
@@ -13,144 +10,35 @@
 }
 
 .Instagram__bottom__items {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin: $spacing-medium 0;
-  width: 100%;
-  overflow: hidden;
-  @media screen and (max-width: 599px) {
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  @media screen and (max-width: 720px) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr;
+  }
+  @media screen and (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 320px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    grid-auto-flow: row;
   }
 }
 
 .Instagram__bottom__item {
-  width: 250px;
   cursor: pointer;
-  @media screen and (max-width: 599px) {
-    width: 100px;
-  }
-}
-
-.Instagram {
-  font-size: $font-size-small;
-  max-width: 1000px;
-  padding: 0 50px;
-  flex-grow: 1;
-  flex-shrink: 0;
-  margin: auto;
-}
-
-.Instagram__item {
-  margin-bottom: 60px;
-}
-
-.Instagram__profile__button {
-  background: black;
-  border-color: black;
-  color: #fff;
-  -webkit-appearance: none;
-  border-radius: 3px;
-  border-style: solid;
-  border-width: 1px;
-  font-size: $font-size-small;
-  font-weight: 700;
-  line-height: $font-size-big;
-  outline: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  user-select: none;
-  white-space: nowrap;
-  width: 180px;
-  cursor: pointer;
-}
-
-.Instagram__profile__followme {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.Instagram__profile__followme__after {
-  font-size: $font-size-small;
   text-decoration: none;
-}
-
-.Instagram__profile {
-  display: flex;
-  padding-bottom: $spacing-medium;
-  align-items: center;
-  .Instagram__profile__image {
-    border-radius: 50%;
-  }
-  .Instagram__profile__id {
-    font-size: $font-size-medium;
-  }
-  .Instagram__profile__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    padding: $spacing-small $spacing-medium $spacing-small $spacing-medium;
-  }
-  .Instagram__profile__follow {
-    margin-right: $spacing-small;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .Instagram {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .Instagram__item {
-    width: 45%;
-  }
-}
-
-@media screen and (min-width: 900px) {
-  .Instagram {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .Instagram__item {
-    width: 28%;
-  }
-}
-
-.Instagram__publi {
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-}
-
-.Instagram__image {
   width: 100%;
-  height: 304px;
-  position: relative;
-  margin-bottom: 25px;
-
-  img {
-    width: 100%;
-    height: 300px;
-    display: block;
-    transition: scale 2s;
+  height: 100%;
+  @media screen and (max-width: 599px) {
   }
 }
 
-.Instagram__date {
-  display: flex;
-  align-items: center;
-  font-size: $font-size-small;
-  font-weight: normal;
-  color: $color-dark;
-}
-
-.Instagram__caption {
-  padding-right: $spacing-medium;
-  font-size: 1em;
+.Instagram__bottom__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
