@@ -14,7 +14,7 @@ export default () => (
     `}
     render={data => (
       <div className='Newsletter__home'>
-        <NewsLetter title={data.allDatoCmsTextesFooter.newsletterText} isHome={true} />
+        <NewsLetter title={data.datoCmsTextesFooter.newsletterText} isHome={true} />
       </div>
     )}
   />
