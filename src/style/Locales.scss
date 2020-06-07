@@ -1,0 +1,15 @@
+.Locales {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Locales__Locale {
+  font-size: 14px;
+  cursor: pointer;
+  margin: 0 7px;
+}
+
+.Locales__Locale-selected {
+  text-decoration: underline;
+}

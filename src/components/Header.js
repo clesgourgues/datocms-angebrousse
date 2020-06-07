@@ -6,6 +6,7 @@ import Menu from '@components/Menu';
 import BurgerButton from '@components/BurgerButton';
 import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
+import ToggleLocale from '@components/ToggleLocale';
 
 const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setCollection }) => {
   const [selected, setSelected] = useState(null);
@@ -21,6 +22,7 @@ const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setColle
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
               </Link>
             </div>
+            <ToggleLocale />
             {!isHome && (
               <div className='Snipcart__container'>
                 <SnipCart />

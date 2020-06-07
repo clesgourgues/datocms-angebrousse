@@ -9,7 +9,7 @@ import CatalogueProduct from '@components/CatalogueProduct';
 import Counter from '@components/Counter';
 import { createMarkup } from '@helpers/content';
 import { getProductOptions } from '@helpers/sizes';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 const Product = ({ product, text, titleColor }) => {
   const renderOutOfStockProducts = (
@@ -21,7 +21,7 @@ const Product = ({ product, text, titleColor }) => {
   const [size, setSize] = useState(null);
 
   return (
-    <SnipContext.Consumer>
+    <AppContext.Consumer>
       {({ error, cancelError }) => (
         <div className='Product'>
           <Helmet>
@@ -141,7 +141,7 @@ const Product = ({ product, text, titleColor }) => {
           </div>
         </div>
       )}
-    </SnipContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

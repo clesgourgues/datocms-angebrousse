@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Contact from '../components/Contact';
-import SnipContext from '../context/SnipContext';
+import AppContext from '../context/AppContext';
 
 export default () => (
   <StaticQuery
@@ -40,7 +40,7 @@ export default () => (
       }
     `}
     render={data => (
-      <SnipContext.Consumer>
+      <AppContext.Consumer>
         {({ user }) => (
           <Contact
             text={data.datoCmsContactText}
@@ -48,7 +48,7 @@ export default () => (
             titleColor={data.datoCmsSiteParameter.titleColor.hex}
           />
         )}
-      </SnipContext.Consumer>
+      </AppContext.Consumer>
     )}
   />
 );

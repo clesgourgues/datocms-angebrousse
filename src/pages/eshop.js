@@ -2,10 +2,10 @@ import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
 import Catalogue from '@components/Catalogue';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 export default () => (
-  <SnipContext.Consumer>
+  <AppContext.Consumer>
     {({ selectedCollection }) => (
       <StaticQuery
         query={graphql`
@@ -86,5 +86,5 @@ export default () => (
         }}
       />
     )}
-  </SnipContext.Consumer>
+  </AppContext.Consumer>
 );

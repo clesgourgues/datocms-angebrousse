@@ -4,7 +4,7 @@ import { StaticQuery, graphql } from 'gatsby';
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
 import Seo from '@components/Seo';
-import SnipContext, { SnipProvider } from '@context/SnipContext';
+import AppContext, { AppProvider } from '@context/AppContext';
 import '@style/index.scss';
 
 export default ({ children, pageContext }) => (
@@ -47,8 +47,8 @@ export default ({ children, pageContext }) => (
     `}
     render={data => {
       return (
-        <SnipProvider titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}>
-          <SnipContext.Consumer>
+        <AppProvider titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}>
+          <AppContext.Consumer>
             {() =>
               pageContext.layout === 'homepage' ? (
                 <>
@@ -72,8 +72,8 @@ export default ({ children, pageContext }) => (
                 </>
               )
             }
-          </SnipContext.Consumer>
-        </SnipProvider>
+          </AppContext.Consumer>
+        </AppProvider>
       );
     }}
   />

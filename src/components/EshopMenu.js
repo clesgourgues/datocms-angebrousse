@@ -1,7 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import Animate from '@components/Animate';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 export default ({ setSelected }) => (
   <StaticQuery
@@ -20,7 +20,7 @@ export default ({ setSelected }) => (
       }
     `}
     render={data => (
-      <SnipContext.Consumer>
+      <AppContext.Consumer>
         {({ updateSelectedCollection }) => (
           <Animate up={true}>
             <ul className='Menu__lookbook Menu__secondary'>
@@ -51,7 +51,7 @@ export default ({ setSelected }) => (
             </ul>
           </Animate>
         )}
-      </SnipContext.Consumer>
+      </AppContext.Consumer>
     )}
   />
 );

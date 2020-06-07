@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import NewsLetter from '@components/NewsLetter';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 const getMenu = menu =>
   menu.map(item => {
@@ -27,7 +27,7 @@ const MenuFooter = ({ menu, title, buttonText }) => {
     </li>
   ];
   return (
-    <SnipContext.Consumer>
+    <AppContext.Consumer>
       {({ user }) => (
         <div className='Menu__footer'>
           <nav className='Menu__footer__nav'>
@@ -42,7 +42,7 @@ const MenuFooter = ({ menu, title, buttonText }) => {
           <NewsLetter title={title} buttonText={buttonText} user={user} />
         </div>
       )}
-    </SnipContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

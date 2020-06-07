@@ -3,10 +3,10 @@ import { Link } from 'gatsby';
 
 import LookBookMenu from '@components/LookBookMenu';
 import EshopMenu from '@components/EshopMenu';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 const MenuBurger = ({ menu, open, setOpen }) => (
-  <SnipContext.Consumer>
+  <AppContext.Consumer>
     {({ user }) => (
       <div className={`Menu__burger ${open ? 'Menu__burger__open' : ''}`}>
         <nav className='Menu__burger__nav'>
@@ -65,7 +65,7 @@ const MenuBurger = ({ menu, open, setOpen }) => (
         </nav>
       </div>
     )}
-  </SnipContext.Consumer>
+  </AppContext.Consumer>
 );
 
 export default MenuBurger;

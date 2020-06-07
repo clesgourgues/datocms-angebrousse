@@ -1,9 +1,9 @@
 import React from 'react';
 import Animate from '@components/Animate';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 const UserMenu = () => (
-  <SnipContext.Consumer>
+  <AppContext.Consumer>
     {({ user }) => {
       const items = user
         ? [
@@ -26,7 +26,7 @@ const UserMenu = () => (
         </Animate>
       );
     }}
-  </SnipContext.Consumer>
+  </AppContext.Consumer>
 );
 
 export default UserMenu;

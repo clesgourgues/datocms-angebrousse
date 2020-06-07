@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { getItemsQuantity } from '@helpers/cart';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
 const SnipCart = () => (
-  <SnipContext.Consumer>
+  <AppContext.Consumer>
     {({ cart }) => {
       const quantity = cart ? getItemsQuantity(cart) : null;
       return (
@@ -13,7 +13,7 @@ const SnipCart = () => (
         </div>
       );
     }}
-  </SnipContext.Consumer>
+  </AppContext.Consumer>
 );
 
 export default SnipCart;

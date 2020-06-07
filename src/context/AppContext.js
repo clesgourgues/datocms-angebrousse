@@ -1,26 +1,30 @@
 import React, { Component } from 'react';
 import { withPrefix } from 'gatsby';
+import { locales } from '@constants/locales';
 
 const defaultState = {
   user: null,
   cart: null,
   error: null,
   selectedCollection: null,
-  locale: 'fr'
+  locale: locales.fr
 };
 
-const SnipContext = React.createContext(defaultState);
+const AppContext = React.createContext(defaultState);
 
-class SnipProvider extends Component {
+class AppProvider extends Component {
   state = {
     cart: null,
     user: null,
     error: null,
     selectedCollection: null,
-    locale: 'fr'
+    locale: locales.fr
   };
 
   componentDidMount() {
+    const userLocale = this.getNavigatorLanguage();
+    const locale = userLocale === 'fr' || userLocale === 'fr-FR' ? locales.fr : locales.en;
+    this.setState({ locale });
     document.addEventListener('snipcart.ready', this.snipcartReady);
   }
 
@@ -28,8 +32,16 @@ class SnipProvider extends Component {
     document.removeEventListener('snipcart.ready', this.snipcartReady);
   }
 
+  getNavigatorLanguage = () =>
+    navigator.languages && navigator.languages.length
+      ? navigator.languages[0]
+      : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'fr';
+
   snipcartReady = async () => {
-    await this.loadLangJs();
+    window.Snipcart.setLang(this.state.locale.short);
+    if (this.state.locale === locales.fr) {
+      await this.loadLangJs();
+    }
     window.Snipcart.execute('config', 'show_continue_shopping', true);
     window.Snipcart.api.configure('split_firstname_and_lastname', true);
     const title = document.querySelector('#snipcart-title');
@@ -97,20 +109,30 @@ class SnipProvider extends Component {
     this.setState({ selectedCollection });
   };
 
+  toggleLocale = async () => {
+    const newLocale = this.state.locale === locales.fr ? locales.en : locales.fr;
+    window.Snipcart.setLang(newLocale.short);
+    if (this.state.locale === locales.fr) {
+      await this.loadLangJs();
+    }
+    this.setState({ locale: newLocale });
+  };
+
   render() {
     return (
-      <SnipContext.Provider
+      <AppContext.Provider
         value={{
           ...this.state,
           cancelError: this.cancelError,
-          updateSelectedCollection: this.updateSelectedCollection
+          updateSelectedCollection: this.updateSelectedCollection,
+          toggleLocale: this.toggleLocale
         }}
       >
         {this.props.children}
-      </SnipContext.Provider>
+      </AppContext.Provider>
     );
   }
 }
 
-export default SnipContext;
-export { SnipProvider };
+export default AppContext;
+export { AppProvider };
