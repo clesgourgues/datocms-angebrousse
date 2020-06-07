@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withPrefix } from 'gatsby';
-import { locales } from '@constants/locales';
+import locales from '@constants/locales';
 
 const defaultState = {
   user: null,
@@ -112,7 +112,7 @@ class AppProvider extends Component {
   toggleLocale = async () => {
     const newLocale = this.state.locale === locales.fr ? locales.en : locales.fr;
     window.Snipcart.setLang(newLocale.short);
-    if (this.state.locale === locales.fr) {
+    if (newLocale === locales.fr) {
       await this.loadLangJs();
     }
     this.setState({ locale: newLocale });

@@ -1,6 +1,6 @@
 import React from 'react';
 import AppContext from '@context/AppContext';
-import { locales } from '@constants/locales';
+import locales from '@constants/locales';
 
 const ToggleLocale = () => (
   <AppContext.Consumer>

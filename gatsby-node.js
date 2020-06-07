@@ -1,94 +1,144 @@
 const path = require('path');
-
-exports.onCreatePage = ({ page, actions }) => {
-  const { createPage } = actions;
-
-  if (page.path === '/') {
-    page.context.layout = 'homepage';
-    createPage(page);
-  }
-};
+const locales = require('./src/constants/locales');
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  return new Promise((resolve, reject) => {
-    const productTemplate = path.resolve('src/templates/product.js');
-    const pageTemplate = path.resolve('src/templates/page.js');
-    const collectionTemplate = path.resolve('src/templates/lookbooks.js');
-    resolve(
-      graphql(
-        `
-          {
-            allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "fr" } }) {
-              edges {
-                node {
-                  slug
-                  image {
-                    url
+  Object.keys(locales).forEach(locale => {
+    createPage({
+      path: `/${locales[locale].path}`,
+      component: path.resolve('src/templates/index.js'),
+      context: { locale, layout: 'homepage' }
+    });
+  });
+
+  const productTemplate = path.resolve('src/templates/product.js');
+  const pageTemplate = path.resolve('src/templates/page.js');
+  const collectionTemplate = path.resolve('src/templates/lookbooks.js');
+  const contactTemplate = path.resolve('src/templates/contact.js');
+  const eshopTemplate = path.resolve('src/templates/eshop.js');
+
+  Promise.all(
+    Object.keys(locales).map(locale => {
+      const datoLocale = locales[locale].dato;
+      graphql(`
+            {
+              allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${datoLocale}" } }) {
+                edges {
+                  node {
+                    slug
+                    locale
+                    image {
+                      url
+                    }
+                  }
+                }
+              }
+              allDatoCmsPage(filter: { locale: { eq: "${datoLocale}" } }) {
+                edges {
+                  node {
+                    slug
+                    locale
+                  }
+                }
+              }
+              allDatoCmsCollection {
+                edges {
+                  node {
+                    slug
+                    name
+                    locale
+                  }
+                }
+              }
+              datoCmsContactText(locale: { eq: "${datoLocale}" }) {
+                slug
+                title
+                locale
+              }
+              allDatoCmsMenu(filter: { locale: { eq: "${datoLocale}" }, name: { eq: "e-shop" } }) {
+                edges {
+                  node {
+                    slug
+                    locale
                   }
                 }
               }
             }
-            allDatoCmsPage(filter: { locale: { eq: "fr" } }) {
-              edges {
-                node {
-                  slug
-                  title
-                  content
-                }
-              }
-            }
-            allDatoCmsCollection {
-              edges {
-                node {
-                  slug
-                  name
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
+          `).then(result => {
         if (result.errors) {
           reject(result.errors);
         }
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
-          const path = node.slug;
+          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
+          const path = `${prefix}/${node.slug}`;
+          console.log(path);
           if (node.image.length > 0) {
             createPage({
               path,
               component: productTemplate,
               context: {
-                pathSlug: path
+                pathSlug: node.slug,
+                locale
               }
             });
           }
-          resolve();
+          console.log('done products', datoLocale);
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {
-          const path = node.slug;
+          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
+          const path = `${prefix}/${node.slug}`;
+          console.log(path);
           createPage({
             path,
             component: pageTemplate,
             context: {
-              pathSlug: path
+              pathSlug: node.slug,
+              locale
             }
           });
-          resolve();
         });
         result.data.allDatoCmsCollection.edges.forEach(({ node }) => {
-          const path = node.slug;
+          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
+          const path = `${prefix}/${node.slug}`;
+          console.log(path);
           createPage({
             path,
             component: collectionTemplate,
             context: {
-              collection: node.name
+              collection: node.name,
+              locale
             }
           });
-          resolve();
         });
-      })
-    );
-  });
+        result.data.allDatoCmsMenu.edges.forEach(({ node }) => {
+          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
+          const path = `${prefix}${node.slug}`;
+          console.log(path);
+          createPage({
+            path,
+            component: eshopTemplate,
+            context: {
+              pathSlug: node.slug,
+              locale
+            }
+          });
+        });
+
+        [result.data.datoCmsContactText].forEach(template => {
+          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
+          const path = `${prefix}/${template.slug}`;
+          console.log(path);
+          createPage({
+            path,
+            component: contactTemplate,
+            context: {
+              pathSlug: template.slug,
+              locale
+            }
+          });
+        });
+      });
+    })
+  );
 };
