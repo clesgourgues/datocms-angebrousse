@@ -12,8 +12,8 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
-  query($pathSlug: String!) {
-    allDatoCmsProduct(filter: { slug: { eq: $pathSlug }, locale: { eq: "fr" } }) {
+  query($pathSlug: String!, $locale: String!) {
+    allDatoCmsProduct(filter: { slug: { eq: $pathSlug }, locale: { eq: $locale } }) {
       edges {
         node {
           slug
