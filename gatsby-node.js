@@ -1,7 +1,7 @@
 const path = require('path');
 const locales = require('./src/constants/locales');
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   Object.keys(locales).forEach(locale => {
@@ -17,20 +17,18 @@ exports.createPages = ({ graphql, actions }) => {
   const collectionTemplate = path.resolve('src/templates/lookbooks.js');
   const contactTemplate = path.resolve('src/templates/contact.js');
   const eshopTemplate = path.resolve('src/templates/eshop.js');
+  const successTemplate = path.resolve('src/templates/success.js');
 
-  Promise.all(
-    Object.keys(locales).map(locale => {
+  await Promise.all(
+    Object.keys(locales).map(async locale => {
       const datoLocale = locales[locale].dato;
-      graphql(`
+      await graphql(`
             {
               allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${datoLocale}" } }) {
                 edges {
                   node {
                     slug
                     locale
-                    image {
-                      url
-                    }
                   }
                 }
               }
@@ -69,26 +67,20 @@ exports.createPages = ({ graphql, actions }) => {
         if (result.errors) {
           reject(result.errors);
         }
+        const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
-          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
           const path = `${prefix}/${node.slug}`;
-          console.log(path);
-          if (node.image.length > 0) {
-            createPage({
-              path,
-              component: productTemplate,
-              context: {
-                pathSlug: node.slug,
-                locale
-              }
-            });
-          }
-          console.log('done products', datoLocale);
+          createPage({
+            path,
+            component: productTemplate,
+            context: {
+              pathSlug: node.slug,
+              locale
+            }
+          });
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {
-          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
           const path = `${prefix}/${node.slug}`;
-          console.log(path);
           createPage({
             path,
             component: pageTemplate,
@@ -99,9 +91,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.allDatoCmsCollection.edges.forEach(({ node }) => {
-          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
           const path = `${prefix}/${node.slug}`;
-          console.log(path);
           createPage({
             path,
             component: collectionTemplate,
@@ -112,9 +102,7 @@ exports.createPages = ({ graphql, actions }) => {
           });
         });
         result.data.allDatoCmsMenu.edges.forEach(({ node }) => {
-          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
           const path = `${prefix}${node.slug}`;
-          console.log(path);
           createPage({
             path,
             component: eshopTemplate,
@@ -128,7 +116,6 @@ exports.createPages = ({ graphql, actions }) => {
         [result.data.datoCmsContactText].forEach(template => {
           const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
           const path = `${prefix}/${template.slug}`;
-          console.log(path);
           createPage({
             path,
             component: contactTemplate,

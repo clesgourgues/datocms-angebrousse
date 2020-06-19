@@ -5,7 +5,7 @@ import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
 import EshopMenu from '@components/EshopMenu';
 
-const Menu = ({ menu, selected, setSelected, isHome }) => {
+const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
   const [visibleUser, setVisibleUser] = useState(false);
   const [visibleEshop, setVisibleEshop] = useState(false);
@@ -29,7 +29,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
       key={item.node.name}
     >
       {item.node.name}
-      {visibleEshop && <EshopMenu setSelected={setSelected} />}
+      {visibleEshop && <EshopMenu setSelected={setSelected} locale={locale} />}
     </li>
   );
   return (

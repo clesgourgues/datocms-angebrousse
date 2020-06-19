@@ -1,5 +1,4 @@
 import React from 'react';
-import Img from 'gatsby-image';
 import { FaInstagram } from 'react-icons/fa';
 import { useInstagramFeed } from '@hooks/useInstagramFeed';
 

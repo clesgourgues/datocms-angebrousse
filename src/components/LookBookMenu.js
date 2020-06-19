@@ -6,7 +6,7 @@ export default ({ setSelected }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsCollection(filter: { published: { eq: true }, locale: { eq: "fr" } }) {
+        allDatoCmsCollection(filter: { published: { eq: true } }) {
           edges {
             node {
               slug

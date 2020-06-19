@@ -8,7 +8,17 @@ import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
 import ToggleLocale from '@components/ToggleLocale';
 
-const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setCollection }) => {
+const Header = ({
+  logos,
+  menu,
+  isHome,
+  open,
+  setOpen,
+  user,
+  collection,
+  setCollection,
+  locale
+}) => {
   const [selected, setSelected] = useState(null);
   return (
     <header className='Header'>
@@ -42,6 +52,7 @@ const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setColle
             user={user}
             collection={collection}
             setCollection={setCollection}
+            locale={locale}
           />
         </div>
       </div>

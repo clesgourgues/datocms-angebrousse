@@ -11,7 +11,7 @@ export default ({ children, pageContext }) => (
   <StaticQuery
     query={graphql`
       query {
-        allDatoCmsSiteParameter(sort: { order: ASC, fields: slider___title }) {
+        parameters: allDatoCmsSiteParameter(sort: { order: ASC, fields: slider___title }) {
           edges {
             node {
               titleColor {
@@ -35,7 +35,21 @@ export default ({ children, pageContext }) => (
             }
           }
         }
-        allDatoCmsMenu(sort: { fields: position, order: ASC }, filter: { locale: { eq: "fr" } }) {
+        frMenu: allDatoCmsMenu(
+          sort: { fields: position, order: ASC }
+          filter: { locale: { eq: "fr" } }
+        ) {
+          edges {
+            node {
+              name
+              slug
+            }
+          }
+        }
+        enMenu: allDatoCmsMenu(
+          sort: { fields: position, order: ASC }
+          filter: { locale: { eq: "en" } }
+        ) {
           edges {
             node {
               name
@@ -47,15 +61,15 @@ export default ({ children, pageContext }) => (
     `}
     render={data => {
       return (
-        <AppProvider titleColor={data.allDatoCmsSiteParameter.edges[0].node.titleColor.hex}>
+        <AppProvider titleColor={data.parameters.edges[0].node.titleColor.hex}>
           <AppContext.Consumer>
             {() =>
               pageContext.layout === 'homepage' ? (
                 <>
-                  <Seo />
+                  <Seo locale={pageContext.locale} />
                   <Homepage
-                    images={data.allDatoCmsSiteParameter.edges[0].node}
-                    menu={data.allDatoCmsMenu.edges}
+                    images={data.parameters.edges[0].node}
+                    menu={pageContext.locale === 'fr' ? data.frMenu.edges : data.enMenu.edges}
                   >
                     {children}
                   </Homepage>
@@ -64,8 +78,9 @@ export default ({ children, pageContext }) => (
                 <>
                   <Seo />
                   <Layout
-                    logos={data.allDatoCmsSiteParameter.edges[0].node}
-                    menu={data.allDatoCmsMenu.edges}
+                    logos={data.parameters.edges[0].node}
+                    menu={pageContext.locale === 'fr' ? data.frMenu.edges : data.enMenu.edges}
+                    locale={pageContext.locale}
                   >
                     {children}
                   </Layout>

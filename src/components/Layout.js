@@ -4,16 +4,21 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Encart from '@components/Encart';
 
-export default ({ children, logos, menu }) => (
+export default ({ children, logos, menu, locale }) => (
   <StaticQuery
     query={graphql`
       query {
-        datoCmsTextesFooter(locale: { eq: "fr" }) {
+        frFooter: datoCmsTextesFooter(locale: { eq: "fr" }) {
           instagramText
           newsletterButtonText
           newsletterText
         }
-        allDatoCmsBottomMenu(
+        enFooter: datoCmsTextesFooter(locale: { eq: "en" }) {
+          instagramText
+          newsletterButtonText
+          newsletterText
+        }
+        frBottom: allDatoCmsBottomMenu(
           sort: { fields: position, order: ASC }
           filter: { locale: { eq: "fr" } }
         ) {
@@ -24,7 +29,22 @@ export default ({ children, logos, menu }) => (
             }
           }
         }
-        datoCmsEncartInfo(locale: { eq: "fr" }) {
+        enBottom: allDatoCmsBottomMenu(
+          sort: { fields: position, order: ASC }
+          filter: { locale: { eq: "en" } }
+        ) {
+          edges {
+            node {
+              slug
+              name
+            }
+          }
+        }
+        frEncart: datoCmsEncartInfo(locale: { eq: "fr" }) {
+          info
+          publi
+        }
+        enEncart: datoCmsEncartInfo(locale: { eq: "fr" }) {
           info
           publi
         }
@@ -45,13 +65,13 @@ export default ({ children, logos, menu }) => (
     `}
     render={data => {
       const [open, setOpen] = useState(false);
-      const bottomMenu = data.allDatoCmsBottomMenu.edges;
-      const encart = data.datoCmsEncartInfo;
-      const text = data.datoCmsTextesFooter;
+      const bottomMenu = locale === 'fr' ? data.frBottom.edges : data.enBottom.edges;
+      const encart = locale === 'fr' ? data.frEncart : data.enEncart;
+      const text = locale === 'fr' ? data.frFooter : data.enFooter;
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
-          <Header logos={logos} menu={menu} open={open} setOpen={setOpen} />
+          <Header logos={logos} menu={menu} open={open} setOpen={setOpen} locale={locale} />
           <main className='Content'>{children}</main>
           <Footer menu={bottomMenu} text={text} />
         </div>
