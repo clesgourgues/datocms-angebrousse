@@ -7,7 +7,7 @@ import Seo from '@components/Seo';
 import AppContext, { AppProvider } from '@context/AppContext';
 import '@style/index.scss';
 
-export default ({ children, pageContext }) => (
+export default ({ children, pageContext, location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -61,7 +61,10 @@ export default ({ children, pageContext }) => (
     `}
     render={data => {
       return (
-        <AppProvider titleColor={data.parameters.edges[0].node.titleColor.hex}>
+        <AppProvider
+          titleColor={data.parameters.edges[0].node.titleColor.hex}
+          locale={pageContext.locale}
+        >
           <AppContext.Consumer>
             {() =>
               pageContext.layout === 'homepage' ? (
@@ -70,6 +73,7 @@ export default ({ children, pageContext }) => (
                   <Homepage
                     images={data.parameters.edges[0].node}
                     menu={pageContext.locale === 'fr' ? data.frMenu.edges : data.enMenu.edges}
+                    location={location}
                   >
                     {children}
                   </Homepage>
@@ -81,6 +85,7 @@ export default ({ children, pageContext }) => (
                     logos={data.parameters.edges[0].node}
                     menu={pageContext.locale === 'fr' ? data.frMenu.edges : data.enMenu.edges}
                     locale={pageContext.locale}
+                    location={location}
                   >
                     {children}
                   </Layout>

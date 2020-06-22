@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import LocalizedLink from '@components/LocalizedLink';
 
 import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
@@ -41,13 +41,15 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
           ) : item.node.slug === '/eshop' ? (
             renderEshop(item)
           ) : (
-            <li
+            <LocalizedLink
+              to={item.node.slug}
+              locale={locale}
               className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
               onClick={() => setSelected(item.node.name)}
               key={item.node.name}
             >
-              <Link to={item.node.slug}>{item.node.name}</Link>
-            </li>
+              {item.node.name}
+            </LocalizedLink>
           )
         )}
         <li

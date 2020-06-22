@@ -4,7 +4,7 @@ import { graphql } from 'gatsby';
 import Catalogue from '@components/Catalogue';
 import AppContext from '@context/AppContext';
 
-export default ({ data }) => (
+export default ({ data, pageContext }) => (
   <AppContext.Consumer>
     {({ selectedCollection }) => {
       const products =
@@ -26,6 +26,7 @@ export default ({ data }) => (
           titleColor={data.parameters.titleColor.hex}
           image={image}
           selectedCollection={selectedCollection}
+          locale={pageContext.locale}
         />
       );
     }}

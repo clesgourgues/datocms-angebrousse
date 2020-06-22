@@ -1,25 +1,28 @@
 import React from 'react';
-import AppContext from '@context/AppContext';
 import locales from '@constants/locales';
+import LocalizedLink from '@components/LocalizedLink';
+import { getTo } from '@helpers/location';
 
-const ToggleLocale = () => (
-  <AppContext.Consumer>
-    {({ locale, toggleLocale }) => (
-      <div className='Locales'>
-        {Object.keys(locales).map((loc, index) => (
-          <span
+const ToggleLocale = ({ location }) => {
+  console.log('location', location);
+  const locale = location.pathname.startsWith('/en') ? 'en' : 'fr';
+  return (
+    <div className='Locales'>
+      {Object.keys(locales).map((loc, index) => {
+        console.log('loc', loc);
+        console.log('locale', locale);
+        return (
+          <LocalizedLink
             key={`locales-${index}`}
-            onClick={toggleLocale}
-            className={`Locales__Locale ${
-              locales[loc].short === locale.short ? 'Locales__Locale-selected' : ''
-            }`}
+            to={getTo(loc, location.pathname)}
+            className={`Locales__Locale ${loc === locale ? 'Locales__Locale-selected' : ''}`}
           >
             {locales[loc].name}
-          </span>
-        ))}
-      </div>
-    )}
-  </AppContext.Consumer>
-);
+          </LocalizedLink>
+        );
+      })}
+    </div>
+  );
+};
 
 export default ToggleLocale;

@@ -4,27 +4,36 @@ const locales = require('./src/constants/locales');
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
-  Object.keys(locales).forEach(locale => {
-    createPage({
-      path: `/${locales[locale].path}`,
-      component: path.resolve('src/templates/index.js'),
-      context: { locale, layout: 'homepage' }
-    });
-  });
-
   const productTemplate = path.resolve('src/templates/product.js');
   const pageTemplate = path.resolve('src/templates/page.js');
   const collectionTemplate = path.resolve('src/templates/lookbooks.js');
   const contactTemplate = path.resolve('src/templates/contact.js');
   const eshopTemplate = path.resolve('src/templates/eshop.js');
   const successTemplate = path.resolve('src/templates/success.js');
+  const indexTemplate = path.resolve('src/templates/index.js');
+
+  Object.values(locales).forEach(locale => {
+    createPage({
+      path: locale === locales.fr ? '/' : `/${locale}`,
+      component: indexTemplate,
+      context: { locale, layout: 'homepage' }
+    });
+  });
+
+  Object.values(locales).forEach(locale => {
+    createPage({
+      path: locale === locales.fr ? '/success' : `/${locale}/success`,
+      component: successTemplate,
+      context: { locale }
+    });
+  });
 
   await Promise.all(
-    Object.keys(locales).map(async locale => {
-      const datoLocale = locales[locale].dato;
+    Object.values(locales).map(async locale => {
+      const localeToFetch = locale;
       await graphql(`
             {
-              allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${datoLocale}" } }) {
+              allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${localeToFetch}" } }) {
                 edges {
                   node {
                     slug
@@ -32,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-              allDatoCmsPage(filter: { locale: { eq: "${datoLocale}" } }) {
+              allDatoCmsPage(filter: { locale: { eq: "${localeToFetch}" } }) {
                 edges {
                   node {
                     slug
@@ -40,21 +49,16 @@ exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-              allDatoCmsCollection {
-                edges {
-                  node {
-                    slug
-                    name
-                    locale
-                  }
-                }
+              datoCmsCollection(published: { eq: true }) {
+                slug
+                name
               }
-              datoCmsContactText(locale: { eq: "${datoLocale}" }) {
+              datoCmsContactText(locale: { eq: "${localeToFetch}" }) {
                 slug
                 title
                 locale
               }
-              allDatoCmsMenu(filter: { locale: { eq: "${datoLocale}" }, name: { eq: "e-shop" } }) {
+              allDatoCmsMenu(filter: { locale: { eq: "${localeToFetch}" }, name: { eq: "e-shop" } }) {
                 edges {
                   node {
                     slug
@@ -67,9 +71,8 @@ exports.createPages = async ({ graphql, actions }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
-          const path = `${prefix}/${node.slug}`;
+          const path = locale === locales.fr ? `/${node.slug}` : `/${locale}/${node.slug}`;
           createPage({
             path,
             component: productTemplate,
@@ -80,7 +83,7 @@ exports.createPages = async ({ graphql, actions }) => {
           });
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {
-          const path = `${prefix}/${node.slug}`;
+          const path = locale === locales.fr ? `/${node.slug}` : `/${locale}/${node.slug}`;
           createPage({
             path,
             component: pageTemplate,
@@ -90,19 +93,20 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           });
         });
-        result.data.allDatoCmsCollection.edges.forEach(({ node }) => {
-          const path = `${prefix}/${node.slug}`;
+        [result.data.datoCmsCollection].forEach(template => {
+          console.log('node from collection', template);
+          const path = locale === locales.fr ? `/${template.slug}` : `/${locale}/${template.slug}`;
           createPage({
             path,
             component: collectionTemplate,
             context: {
-              collection: node.name,
+              collection: template.name,
               locale
             }
           });
         });
         result.data.allDatoCmsMenu.edges.forEach(({ node }) => {
-          const path = `${prefix}${node.slug}`;
+          const path = locale === locales.fr ? `${node.slug}` : `/${locale}${node.slug}`;
           createPage({
             path,
             component: eshopTemplate,
@@ -114,8 +118,8 @@ exports.createPages = async ({ graphql, actions }) => {
         });
 
         [result.data.datoCmsContactText].forEach(template => {
-          const prefix = datoLocale === 'fr' ? '' : `/${datoLocale}`;
-          const path = `${prefix}/${template.slug}`;
+          const path = locale === locales.fr ? `/${template.slug}` : `/${locale}/${template.slug}`;
+          console.log('path', path);
           createPage({
             path,
             component: contactTemplate,

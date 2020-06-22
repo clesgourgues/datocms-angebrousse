@@ -2,6 +2,7 @@ import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
 import Animate from '@components/Animate';
 import AppContext from '@context/AppContext';
+import LocalizedLink from '@components/LocalizedLink';
 
 export default ({ setSelected, locale }) => (
   <StaticQuery
@@ -46,7 +47,9 @@ export default ({ setSelected, locale }) => (
                       updateSelectedCollection(null);
                     }}
                   >
-                    <Link to='/eshop'>tout voir</Link>
+                    <LocalizedLink to='/eshop' locale={locale}>
+                      tout voir
+                    </LocalizedLink>
                   </li>
                 )}
                 {collection.map(item => (
@@ -57,7 +60,9 @@ export default ({ setSelected, locale }) => (
                       updateSelectedCollection(item.node.name);
                     }}
                   >
-                    <Link to='/eshop'>{item.node.name}</Link>
+                    <LocalizedLink to='/eshop' locale={locale}>
+                      {item.node.name}
+                    </LocalizedLink>
                   </li>
                 ))}
               </ul>

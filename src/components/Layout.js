@@ -4,7 +4,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Encart from '@components/Encart';
 
-export default ({ children, logos, menu, locale }) => (
+export default ({ children, logos, menu, locale, location }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -48,19 +48,6 @@ export default ({ children, logos, menu, locale }) => (
           info
           publi
         }
-        allDatoCmsCollection(sort: { fields: position, order: ASC }) {
-          edges {
-            node {
-              slug
-              name
-              image {
-                fluid {
-                  ...GatsbyDatoCmsFluid
-                }
-              }
-            }
-          }
-        }
       }
     `}
     render={data => {
@@ -71,7 +58,14 @@ export default ({ children, logos, menu, locale }) => (
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
-          <Header logos={logos} menu={menu} open={open} setOpen={setOpen} locale={locale} />
+          <Header
+            logos={logos}
+            menu={menu}
+            open={open}
+            setOpen={setOpen}
+            locale={locale}
+            location={location}
+          />
           <main className='Content'>{children}</main>
           <Footer menu={bottomMenu} text={text} />
         </div>

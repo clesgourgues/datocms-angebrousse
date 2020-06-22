@@ -6,8 +6,7 @@ const defaultState = {
   user: null,
   cart: null,
   error: null,
-  selectedCollection: null,
-  locale: locales.fr
+  selectedCollection: null
 };
 
 const AppContext = React.createContext(defaultState);
@@ -17,14 +16,13 @@ class AppProvider extends Component {
     cart: null,
     user: null,
     error: null,
-    selectedCollection: null,
-    locale: locales.fr
+    selectedCollection: null
   };
 
   componentDidMount() {
     const userLocale = this.getNavigatorLanguage();
-    const locale = userLocale === 'fr' || userLocale === 'fr-FR' ? locales.fr : locales.en;
-    this.setState({ locale });
+    // show modal ?
+    //const locale = userLocale === 'fr' || userLocale === 'fr-FR' ? locales.fr : locales.en;
     document.addEventListener('snipcart.ready', this.snipcartReady);
   }
 
@@ -38,8 +36,9 @@ class AppProvider extends Component {
       : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'fr';
 
   snipcartReady = async () => {
-    window.Snipcart.setLang(this.state.locale.short);
-    if (this.state.locale === locales.fr) {
+    window.Snipcart.setLang(this.props.locale);
+    console.log('locale in snipcart ready', this.props.locale);
+    if (this.props.locale === locales.fr) {
       await this.loadLangJs();
     }
     window.Snipcart.execute('config', 'show_continue_shopping', true);
@@ -109,23 +108,13 @@ class AppProvider extends Component {
     this.setState({ selectedCollection });
   };
 
-  toggleLocale = async () => {
-    const newLocale = this.state.locale === locales.fr ? locales.en : locales.fr;
-    window.Snipcart.setLang(newLocale.short);
-    if (newLocale === locales.fr) {
-      await this.loadLangJs();
-    }
-    this.setState({ locale: newLocale });
-  };
-
   render() {
     return (
       <AppContext.Provider
         value={{
           ...this.state,
           cancelError: this.cancelError,
-          updateSelectedCollection: this.updateSelectedCollection,
-          toggleLocale: this.toggleLocale
+          updateSelectedCollection: this.updateSelectedCollection
         }}
       >
         {this.props.children}

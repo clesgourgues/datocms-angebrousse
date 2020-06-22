@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Img from 'gatsby-image';
-import { Link } from 'gatsby';
 
 import Menu from '@components/Menu';
 import BurgerButton from '@components/BurgerButton';
 import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
 import ToggleLocale from '@components/ToggleLocale';
+import LocalizedLink from '@components/LocalizedLink';
 
 const Header = ({
   logos,
@@ -17,7 +17,8 @@ const Header = ({
   user,
   collection,
   setCollection,
-  locale
+  locale,
+  location
 }) => {
   const [selected, setSelected] = useState(null);
   return (
@@ -28,11 +29,11 @@ const Header = ({
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
             <MenuBurger menu={menu} open={open} setOpen={setOpen} />
             <div className='Header__topbar__logo'>
-              <Link to='/'>
+              <LocalizedLink to='/' locale={locale}>
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
-              </Link>
+              </LocalizedLink>
             </div>
-            <ToggleLocale />
+            <ToggleLocale locale={locale} location={location} />
             {!isHome && (
               <div className='Snipcart__container'>
                 <SnipCart />
@@ -40,9 +41,9 @@ const Header = ({
             )}
           </div>
           <div className={`Header__logo ${isHome ? 'Header__logo__home' : ''}`}>
-            <Link to='/'>
+            <LocalizedLink to='/' locale={locale}>
               <Img sizes={logos.logo.sizes} alt='Logo' />
-            </Link>
+            </LocalizedLink>
           </div>
           <Menu
             menu={menu}

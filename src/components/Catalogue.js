@@ -8,7 +8,7 @@ import EmptyCatalogue from '@components/EmptyCatalogue';
 import { getFilters, isSelectedProduct, getColorFilters } from '@helpers/filters';
 import Animate from '@components/Animate';
 
-const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
+const Catalogue = ({ products, titleColor, image, selectedCollection, locale }) => {
   const category = getFilters(products, 'category');
   const color = getColorFilters(products);
 
@@ -55,7 +55,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
               <EmptyCatalogue />
             ) : (
               productsToShow.map(({ node: product }) => (
-                <CatalogueProduct product={product} key={product.id} />
+                <CatalogueProduct product={product} key={product.id} locale={locale} />
               ))
             )}
           </div>
