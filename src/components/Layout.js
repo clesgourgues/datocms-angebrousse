@@ -44,7 +44,7 @@ export default ({ children, logos, menu, locale, location }) => (
           info
           publi
         }
-        enEncart: datoCmsEncartInfo(locale: { eq: "fr" }) {
+        enEncart: datoCmsEncartInfo(locale: { eq: "en" }) {
           info
           publi
         }

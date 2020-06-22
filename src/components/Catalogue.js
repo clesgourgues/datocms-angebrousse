@@ -27,6 +27,9 @@ const Catalogue = ({ products, titleColor, image, selectedCollection, locale }) 
     ({ node: product }) => product.image.length && isSelectedProduct(product, selected)
   );
 
+  const title =
+    locale === 'fr' ? `Collection ${selectedCollection}` : `${selectedCollection} Collection`;
+
   return (
     <Animate>
       <div className='Catalogue'>
@@ -39,7 +42,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection, locale }) 
         </Helmet>
         <div className='Wrap'>
           <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-            {!selectedCollection ? 'E-shop' : `Collection ${selectedCollection}`}
+            {!selectedCollection ? 'E-shop' : title}
           </h1>
           <div>
             <Img fluid={image.fluid} loading='lazy' className='Catalogue__photo' />

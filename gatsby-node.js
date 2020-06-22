@@ -30,10 +30,9 @@ exports.createPages = async ({ graphql, actions }) => {
 
   await Promise.all(
     Object.values(locales).map(async locale => {
-      const localeToFetch = locale;
       await graphql(`
             {
-              allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${localeToFetch}" } }) {
+              allDatoCmsProduct(filter: { published: { eq: true }, locale: { eq: "${locale}" } }) {
                 edges {
                   node {
                     slug
@@ -41,7 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-              allDatoCmsPage(filter: { locale: { eq: "${localeToFetch}" } }) {
+              allDatoCmsPage(filter: { locale: { eq: "${locale}" } }) {
                 edges {
                   node {
                     slug
@@ -49,16 +48,20 @@ exports.createPages = async ({ graphql, actions }) => {
                   }
                 }
               }
-              datoCmsCollection(published: { eq: true }) {
-                slug
-                name
+              allDatoCmsCollection(filter: { published: { eq: true }, locale: { eq: "fr" } }) {
+                  edges {
+                    node {
+                      slug
+                      name
+                  }
+                }
               }
-              datoCmsContactText(locale: { eq: "${localeToFetch}" }) {
+              datoCmsContactText(locale: { eq: "${locale}" }) {
                 slug
                 title
                 locale
               }
-              allDatoCmsMenu(filter: { locale: { eq: "${localeToFetch}" }, name: { eq: "e-shop" } }) {
+              allDatoCmsMenu(filter: { locale: { eq: "${locale}" }, name: { eq: "e-shop" } }) {
                 edges {
                   node {
                     slug
@@ -93,14 +96,13 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           });
         });
-        [result.data.datoCmsCollection].forEach(template => {
-          console.log('node from collection', template);
-          const path = locale === locales.fr ? `/${template.slug}` : `/${locale}/${template.slug}`;
+        result.data.datoCmsCollection.forEach(({ node }) => {
+          const path = locale === locales.fr ? `/${node.slug}` : `/${locale}/${node.slug}`;
           createPage({
             path,
             component: collectionTemplate,
             context: {
-              collection: template.name,
+              collection: node.name,
               locale
             }
           });

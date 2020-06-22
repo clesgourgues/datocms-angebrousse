@@ -36,8 +36,8 @@ class AppProvider extends Component {
       : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'fr';
 
   snipcartReady = async () => {
-    window.Snipcart.setLang(this.props.locale);
-    console.log('locale in snipcart ready', this.props.locale);
+    const locale = this.props.locale === 'fr' ? 'fr-FR' : 'en';
+    window.Snipcart.setLang(locale);
     if (this.props.locale === locales.fr) {
       await this.loadLangJs();
     }

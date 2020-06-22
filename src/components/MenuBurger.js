@@ -1,11 +1,11 @@
 import React from 'react';
-import { Link } from 'gatsby';
 
 import LookBookMenu from '@components/LookBookMenu';
 import EshopMenu from '@components/EshopMenu';
 import AppContext from '@context/AppContext';
+import LocalizedLink from '@components/LocalizedLink';
 
-const MenuBurger = ({ menu, open, setOpen }) => (
+const MenuBurger = ({ menu, open, setOpen, locale }) => (
   <AppContext.Consumer>
     {({ user }) => (
       <div className={`Menu__burger ${open ? 'Menu__burger__open' : ''}`}>
@@ -32,7 +32,9 @@ const MenuBurger = ({ menu, open, setOpen }) => (
                 </li>
               ) : (
                 <li className={`Menu__burger__item`} onClick={() => setOpen()} key={item.node.name}>
-                  <Link to={item.node.slug}>{item.node.name}</Link>
+                  <LocalizedLink to={item.node.slug} locale={locale}>
+                    {item.node.name}
+                  </LocalizedLink>
                 </li>
               )
             )}

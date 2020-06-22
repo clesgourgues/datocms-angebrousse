@@ -3,11 +3,16 @@ import { graphql } from 'gatsby';
 
 import Product from '@components/Product';
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
   const text = data.datoCmsProductText;
   return (
-    <Product product={product} text={text} titleColor={data.datoCmsSiteParameter.titleColor.hex} />
+    <Product
+      product={product}
+      text={text}
+      titleColor={data.datoCmsSiteParameter.titleColor.hex}
+      locale={pageContext.locale}
+    />
   );
 };
 

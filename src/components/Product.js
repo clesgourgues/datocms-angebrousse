@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
 
 import ProductInfo from '@components/ProductInfo';
@@ -10,8 +9,9 @@ import Counter from '@components/Counter';
 import { createMarkup } from '@helpers/content';
 import { getProductOptions } from '@helpers/sizes';
 import AppContext from '@context/AppContext';
+import LocalizedLink from '@components/LocalizedLink';
 
-const Product = ({ product, text, titleColor }) => {
+const Product = ({ product, text, titleColor, locale }) => {
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
@@ -41,7 +41,7 @@ const Product = ({ product, text, titleColor }) => {
               Collection {product.collection[0].name}
             </h1>
             <div className='Product__back'>
-              <Link to='/eshop'>{`< ${text.backText}`}</Link>
+              <LocalizedLink to='/eshop' locale={locale}>{`< ${text.backText}`}</LocalizedLink>
             </div>
 
             <div className='Product__details'>

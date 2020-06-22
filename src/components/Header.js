@@ -27,7 +27,7 @@ const Header = ({
         <div className='Header__body'>
           <div className={`Header__topbar ${isHome ? 'Header__topbar__home' : ''}`}>
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
-            <MenuBurger menu={menu} open={open} setOpen={setOpen} />
+            <MenuBurger menu={menu} open={open} setOpen={setOpen} locale={locale} />
             <div className='Header__topbar__logo'>
               <LocalizedLink to='/' locale={locale}>
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
