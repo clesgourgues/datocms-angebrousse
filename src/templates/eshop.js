@@ -6,7 +6,7 @@ import AppContext from '@context/AppContext';
 
 export default ({ data, pageContext }) => (
   <AppContext.Consumer>
-    {({ selectedCollection }) => {
+    {({ selectedCollection, selectedFilters, updateSelectedFilters }) => {
       const products =
         selectedCollection === null
           ? data.products.edges
@@ -26,7 +26,9 @@ export default ({ data, pageContext }) => (
           titleColor={data.parameters.titleColor.hex}
           image={image}
           selectedCollection={selectedCollection}
+          selectedFilters={selectedFilters}
           locale={pageContext.locale}
+          updateSelectedFilters={updateSelectedFilters}
         />
       );
     }}

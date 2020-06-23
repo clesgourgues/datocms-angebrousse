@@ -1,0 +1,16 @@
+{
+  "account": "mon compte",
+  "infos": "mes infos",
+  "orders": "mes commandes",
+  "disconnect": "me déconnecter",
+  "cart": "panier",
+  "all_products": "tous les bijoux",
+  "all_metals": "toutes les matières",
+  "collection": "collection",
+  "error_message": "Merci de sélectionner une taille !",
+  "quantity": "quantité",
+  "images_slide_1": "Faites défiler les images ou",
+  "images_slide_2": "appuyez longtemps pour zoomer",
+  "eshop_all": "tout voir",
+  "404": "Cette page n'existe pas..."
+}

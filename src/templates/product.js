@@ -70,7 +70,7 @@ export const query = graphql`
         }
       }
     }
-    datoCmsProductText(locale: { eq: "fr" }) {
+    datoCmsProductText(locale: { eq: $locale }) {
       backText
       buyButtonText
       linkedProductsText

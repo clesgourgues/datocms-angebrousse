@@ -19,6 +19,10 @@ const Product = ({ product, text, titleColor, locale }) => {
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState(null);
+  const title =
+    locale === 'fr'
+      ? `Collection ${product.collection[0].name}`
+      : `${product.collection[0].name} Collection `;
 
   return (
     <AppContext.Consumer>
@@ -38,7 +42,7 @@ const Product = ({ product, text, titleColor, locale }) => {
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-              Collection {product.collection[0].name}
+              {title}
             </h1>
             <div className='Product__back'>
               <LocalizedLink to='/eshop' locale={locale}>{`< ${text.backText}`}</LocalizedLink>

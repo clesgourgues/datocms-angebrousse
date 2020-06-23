@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import Img from 'gatsby-image';
 
@@ -8,23 +8,27 @@ import EmptyCatalogue from '@components/EmptyCatalogue';
 import { getFilters, isSelectedProduct, getColorFilters } from '@helpers/filters';
 import Animate from '@components/Animate';
 
-const Catalogue = ({ products, titleColor, image, selectedCollection, locale }) => {
+const Catalogue = ({
+  products,
+  titleColor,
+  image,
+  selectedCollection,
+  selectedFilters,
+  updateSelectedFilters,
+  locale
+}) => {
   const category = getFilters(products, 'category');
   const color = getColorFilters(products);
 
-  let [selected, setSelected] = useState({
-    category,
-    color
-  });
-
   const onClick = (item, itemKey) => {
-    const newSelected = { ...selected };
+    const newSelected = { ...selectedFilters };
     newSelected[itemKey] = item;
-    setSelected(newSelected);
+    console.log('new selected', newSelected);
+    updateSelectedFilters(newSelected);
   };
 
-  let productsToShow = products.filter(
-    ({ node: product }) => product.image.length && isSelectedProduct(product, selected)
+  const productsToShow = products.filter(({ node: product }) =>
+    !selectedFilters ? product : isSelectedProduct(product, selectedFilters)
   );
 
   const title =
@@ -50,7 +54,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection, locale }) 
           <Filters
             categoryFilters={category}
             colorFilters={color}
-            selected={selected}
+            selected={selectedFilters}
             onClick={onClick}
           />
           <div className='Catalogue__products'>

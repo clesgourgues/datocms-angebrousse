@@ -41,15 +41,18 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
           ) : item.node.slug === '/eshop' ? (
             renderEshop(item)
           ) : (
-            <LocalizedLink
-              to={item.node.slug}
-              locale={locale}
-              className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
-              onClick={() => setSelected(item.node.name)}
+            <li
               key={item.node.name}
+              className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
             >
-              {item.node.name}
-            </LocalizedLink>
+              <LocalizedLink
+                to={item.node.slug}
+                locale={locale}
+                onClick={() => setSelected(item.node.name)}
+              >
+                {item.node.name}
+              </LocalizedLink>
+            </li>
           )
         )}
         <li

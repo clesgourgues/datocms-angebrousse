@@ -7,7 +7,7 @@ const DEFAULT_LOCALE = locales.fr;
 const LocalizedLink = ({ locale, children, to, className }) => {
   const localePrefix = !locale || locale === DEFAULT_LOCALE ? '' : `/${locale}`;
   return (
-    <Link className={className} to={`${localePrefix}/${to}`}>
+    <Link className={className} to={`${localePrefix}${to}`}>
       {children}
     </Link>
   );

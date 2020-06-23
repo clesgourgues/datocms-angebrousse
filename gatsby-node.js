@@ -96,7 +96,7 @@ exports.createPages = async ({ graphql, actions }) => {
             }
           });
         });
-        result.data.datoCmsCollection.forEach(({ node }) => {
+        result.data.allDatoCmsCollection.edges.forEach(({ node }) => {
           const path = locale === locales.fr ? `/${node.slug}` : `/${locale}/${node.slug}`;
           createPage({
             path,
@@ -121,7 +121,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
         [result.data.datoCmsContactText].forEach(template => {
           const path = locale === locales.fr ? `/${template.slug}` : `/${locale}/${template.slug}`;
-          console.log('path', path);
           createPage({
             path,
             component: contactTemplate,

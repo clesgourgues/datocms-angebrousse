@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Animate from '@components/Animate';
 import AppContext from '@context/AppContext';
 import LocalizedLink from '@components/LocalizedLink';
@@ -34,10 +34,10 @@ export default ({ setSelected, locale }) => (
       const collection = locale === 'fr' ? data.frCollection.edges : data.enCollection.edges;
       return (
         <AppContext.Consumer>
-          {({ updateSelectedCollection }) => (
+          {({ updateSelectedCollection, updateSelectedFilters }) => (
             <Animate up={true}>
               <ul className='Menu__lookbook Menu__secondary'>
-                {collection > 1 && (
+                {collection.length > 1 && (
                   <li
                     className='Menu__lookbook__item'
                     onClick={() => {
@@ -45,6 +45,7 @@ export default ({ setSelected, locale }) => (
                         setSelected('e-shop');
                       }
                       updateSelectedCollection(null);
+                      updateSelectedFilters(null);
                     }}
                   >
                     <LocalizedLink to='/eshop' locale={locale}>
@@ -58,6 +59,7 @@ export default ({ setSelected, locale }) => (
                     key={item.node.name}
                     onClick={() => {
                       updateSelectedCollection(item.node.name);
+                      updateSelectedFilters(null);
                     }}
                   >
                     <LocalizedLink to='/eshop' locale={locale}>

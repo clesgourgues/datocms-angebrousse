@@ -6,7 +6,8 @@ const defaultState = {
   user: null,
   cart: null,
   error: null,
-  selectedCollection: null
+  selectedCollection: null,
+  selectedFilters: ["Boucles d'oreilles", 'Bagues', 'Bracelets', 'Colliers']
 };
 
 const AppContext = React.createContext(defaultState);
@@ -16,7 +17,8 @@ class AppProvider extends Component {
     cart: null,
     user: null,
     error: null,
-    selectedCollection: null
+    selectedCollection: null,
+    selectedFilters: null
   };
 
   componentDidMount() {
@@ -108,13 +110,18 @@ class AppProvider extends Component {
     this.setState({ selectedCollection });
   };
 
+  updateSelectedFilters = selectedFilters => {
+    this.setState({ selectedFilters });
+  };
+
   render() {
     return (
       <AppContext.Provider
         value={{
           ...this.state,
           cancelError: this.cancelError,
-          updateSelectedCollection: this.updateSelectedCollection
+          updateSelectedCollection: this.updateSelectedCollection,
+          updateSelectedFilters: this.updateSelectedFilters
         }}
       >
         {this.props.children}
