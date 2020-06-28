@@ -1,10 +1,10 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { useIntl, Link } from 'gatsby-plugin-intl';
 import Animate from '@components/Animate';
 import AppContext from '@context/AppContext';
-import LocalizedLink from '@components/LocalizedLink';
 
-export default ({ setSelected, locale }) => (
+export default ({ setSelected }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -31,7 +31,8 @@ export default ({ setSelected, locale }) => (
       }
     `}
     render={data => {
-      const collection = locale === 'fr' ? data.frCollection.edges : data.enCollection.edges;
+      const intl = useIntl();
+      const collection = intl.locale === 'fr' ? data.frCollection.edges : data.enCollection.edges;
       return (
         <AppContext.Consumer>
           {({ updateSelectedCollection, updateSelectedFilters }) => (
@@ -48,9 +49,7 @@ export default ({ setSelected, locale }) => (
                       updateSelectedFilters(null);
                     }}
                   >
-                    <LocalizedLink to='/eshop' locale={locale}>
-                      tout voir
-                    </LocalizedLink>
+                    <Link to='/eshop'>{intl.formatMessage({ id: 'eshop_all' })}</Link>
                   </li>
                 )}
                 {collection.map(item => (
@@ -62,9 +61,7 @@ export default ({ setSelected, locale }) => (
                       updateSelectedFilters(null);
                     }}
                   >
-                    <LocalizedLink to='/eshop' locale={locale}>
-                      {item.node.name}
-                    </LocalizedLink>
+                    <Link to='/eshop'>{item.node.name}</Link>
                   </li>
                 ))}
               </ul>

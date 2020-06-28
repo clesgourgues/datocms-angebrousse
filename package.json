@@ -12,6 +12,7 @@
     "gatsby-plugin-alias-imports": "^1.0.5",
     "gatsby-plugin-cookiehub": "^1.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-intl": "^0.3.3",
     "gatsby-plugin-layout": "^1.1.10",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-postcss": "^2.1.12",

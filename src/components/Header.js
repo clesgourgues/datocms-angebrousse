@@ -1,25 +1,14 @@
 import React, { useState } from 'react';
 import Img from 'gatsby-image';
+import { Link } from 'gatsby-plugin-intl';
 
 import Menu from '@components/Menu';
 import BurgerButton from '@components/BurgerButton';
 import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
 import ToggleLocale from '@components/ToggleLocale';
-import LocalizedLink from '@components/LocalizedLink';
 
-const Header = ({
-  logos,
-  menu,
-  isHome,
-  open,
-  setOpen,
-  user,
-  collection,
-  setCollection,
-  locale,
-  location
-}) => {
+const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setCollection }) => {
   const [selected, setSelected] = useState(null);
   return (
     <header className='Header'>
@@ -27,13 +16,13 @@ const Header = ({
         <div className='Header__body'>
           <div className={`Header__topbar ${isHome ? 'Header__topbar__home' : ''}`}>
             <BurgerButton open={open} setOpen={setOpen} isHome={isHome} />
-            <MenuBurger menu={menu} open={open} setOpen={setOpen} locale={locale} />
+            <MenuBurger menu={menu} open={open} setOpen={setOpen} />
             <div className='Header__topbar__logo'>
-              <LocalizedLink to='/' locale={locale}>
+              <Link to='/'>
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
-              </LocalizedLink>
+              </Link>
             </div>
-            <ToggleLocale locale={locale} location={location} />
+            <ToggleLocale />
             {!isHome && (
               <div className='Snipcart__container'>
                 <SnipCart />
@@ -41,9 +30,9 @@ const Header = ({
             )}
           </div>
           <div className={`Header__logo ${isHome ? 'Header__logo__home' : ''}`}>
-            <LocalizedLink to='/' locale={locale}>
+            <Link to='/'>
               <Img sizes={logos.logo.sizes} alt='Logo' />
-            </LocalizedLink>
+            </Link>
           </div>
           <Menu
             menu={menu}
@@ -53,7 +42,6 @@ const Header = ({
             user={user}
             collection={collection}
             setCollection={setCollection}
-            locale={locale}
           />
         </div>
       </div>

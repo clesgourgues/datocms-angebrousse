@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import LocalizedLink from '@components/LocalizedLink';
+import { useIntl, Link } from 'gatsby-plugin-intl';
 
 import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
 import EshopMenu from '@components/EshopMenu';
 
-const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
+const Menu = ({ menu, selected, setSelected, isHome }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
   const [visibleUser, setVisibleUser] = useState(false);
   const [visibleEshop, setVisibleEshop] = useState(false);
+  const intl = useIntl();
   const renderLookBook = item => (
     <li
       className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
@@ -29,7 +30,7 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
       key={item.node.name}
     >
       {item.node.name}
-      {visibleEshop && <EshopMenu setSelected={setSelected} locale={locale} />}
+      {visibleEshop && <EshopMenu setSelected={setSelected} />}
     </li>
   );
   return (
@@ -45,13 +46,9 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
               key={item.node.name}
               className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
             >
-              <LocalizedLink
-                to={item.node.slug}
-                locale={locale}
-                onClick={() => setSelected(item.node.name)}
-              >
+              <Link to={item.node.slug} onClick={() => setSelected(item.node.name)}>
                 {item.node.name}
-              </LocalizedLink>
+              </Link>
             </li>
           )
         )}
@@ -60,7 +57,7 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
           onMouseEnter={() => setVisibleUser(true)}
           onMouseLeave={() => setVisibleUser(false)}
         >
-          mon compte
+          {intl.formatMessage({ id: 'account' })}
           {visibleUser && <UserMenu />}
         </li>
         <li
@@ -69,7 +66,7 @@ const Menu = ({ menu, selected, setSelected, isHome, locale }) => {
           }`}
         >
           <a href='#' className='snipcart-checkout'>
-            panier
+            {intl.formatMessage({ id: 'cart' })}
           </a>
         </li>
       </ul>

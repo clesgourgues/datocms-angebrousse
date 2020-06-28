@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { withPrefix } from 'gatsby';
-import locales from '@constants/locales';
 
 const defaultState = {
   user: null,
   cart: null,
   error: null,
   selectedCollection: null,
-  selectedFilters: ["Boucles d'oreilles", 'Bagues', 'Bracelets', 'Colliers']
+  selectedFilters: null
 };
 
 const AppContext = React.createContext(defaultState);
@@ -22,27 +21,22 @@ class AppProvider extends Component {
   };
 
   componentDidMount() {
-    const userLocale = this.getNavigatorLanguage();
-    // show modal ?
-    //const locale = userLocale === 'fr' || userLocale === 'fr-FR' ? locales.fr : locales.en;
     document.addEventListener('snipcart.ready', this.snipcartReady);
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log('component updated', prevProps);
+    if (prevProps.locale !== this.props.locale) {
+      this.setLang();
+    }
   }
 
   componentWillUnmount() {
     document.removeEventListener('snipcart.ready', this.snipcartReady);
   }
 
-  getNavigatorLanguage = () =>
-    navigator.languages && navigator.languages.length
-      ? navigator.languages[0]
-      : navigator.userLanguage || navigator.language || navigator.browserLanguage || 'fr';
-
-  snipcartReady = async () => {
-    const locale = this.props.locale === 'fr' ? 'fr-FR' : 'en';
-    window.Snipcart.setLang(locale);
-    if (this.props.locale === locales.fr) {
-      await this.loadLangJs();
-    }
+  snipcartReady = () => {
+    this.setLang();
     window.Snipcart.execute('config', 'show_continue_shopping', true);
     window.Snipcart.api.configure('split_firstname_and_lastname', true);
     const title = document.querySelector('#snipcart-title');
@@ -62,6 +56,14 @@ class AppProvider extends Component {
     await this.addElem('script', {
       src: withPrefix('fr-FR.js')
     });
+
+  setLang = async () => {
+    const locale = this.props.locale === 'fr' ? 'fr-FR' : 'en';
+    window.Snipcart.setLang(locale);
+    if (this.props.locale === 'fr') {
+      await this.loadLangJs();
+    }
+  };
 
   addElem = (tag, attrs) => {
     return new Promise((resolve, reject) => {

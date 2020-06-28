@@ -1,12 +1,12 @@
 import React from 'react';
+import { useIntl } from 'gatsby-plugin-intl';
 import { isSelectedFilter } from '@helpers/filters';
-import 'react-dropdown/style.css';
 
 const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
-  console.log('selected', selected);
+  const intl = useIntl();
   const isAllCategorySelected =
     !selected || (selected && selected.category && selected.category.length > 1);
-  const isAllFabricsSelected =
+  const isAllColorsSelected =
     !selected || (selected && selected.color && selected.color.length > 1);
   return (
     <div className='Wrapper'>
@@ -15,7 +15,7 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
           onClick={() => onClick(categoryFilters, 'category')}
           className={`Filter ${isAllCategorySelected && 'Filter__selected'}`}
         >
-          tous les bijoux
+          {intl.formatMessage({ id: 'all_products' })}
         </span>
         {categoryFilters.map(category => {
           return (
@@ -38,9 +38,9 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
         <div className='Filters'>
           <span
             onClick={() => onClick(colorFilters, 'color')}
-            className={`Filter ${isAllFabricsSelected && 'Filter__selected'}`}
+            className={`Filter ${isAllColorsSelected && 'Filter__selected'}`}
           >
-            toutes les matières
+            {intl.formatMessage({ id: 'all_metals' })}
           </span>
           {colorFilters.map(color => (
             <div key={color}>

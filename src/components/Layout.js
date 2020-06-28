@@ -4,7 +4,7 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import Encart from '@components/Encart';
 
-export default ({ children, logos, menu, locale, location }) => (
+export default ({ children, logos, menu, locale }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -58,14 +58,7 @@ export default ({ children, logos, menu, locale, location }) => (
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
-          <Header
-            logos={logos}
-            menu={menu}
-            open={open}
-            setOpen={setOpen}
-            locale={locale}
-            location={location}
-          />
+          <Header logos={logos} menu={menu} open={open} setOpen={setOpen} />
           <main className='Content'>{children}</main>
           <Footer menu={bottomMenu} text={text} />
         </div>

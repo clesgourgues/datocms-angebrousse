@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import ReactImageMagnify from 'react-image-magnify';
+import { useIntl } from 'gatsby-plugin-intl';
 
 const ImageSlider = ({ images, alt }) => {
   const [selected, setSelected] = useState(0);
+  const intl = useIntl();
   return images.length === 1 ? (
     <>
       <div className='Product__image'>
@@ -26,7 +28,7 @@ const ImageSlider = ({ images, alt }) => {
         />
       </div>
       <div className='Slider__mobile'>
-        <span>Appuyez longtemps pour zoomer</span>
+        <span>{intl.formatMessage({ id: 'images_slide_2' })}</span>
       </div>
     </>
   ) : (
@@ -67,8 +69,8 @@ const ImageSlider = ({ images, alt }) => {
         ))}
       </div>
       <div className='Slider__mobile'>
-        <span>Faites défiler les images ou </span>
-        <span>appuyez longtemps pour zoomer</span>
+        <span>{intl.formatMessage({ id: 'images_slide_1' })} </span>
+        <span>{intl.formatMessage({ id: 'images_slide_2' })}</span>
       </div>
     </div>
   );

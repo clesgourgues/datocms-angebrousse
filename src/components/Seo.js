@@ -23,7 +23,7 @@ export default ({ locale }) => (
             }
           }
         }
-        enSite: datoCmsSite(locale: { eq: "fr" }) {
+        enSite: datoCmsSite(locale: { eq: "en" }) {
           faviconMetaTags {
             tags
           }
@@ -48,7 +48,7 @@ export default ({ locale }) => (
           defaultTitle={site.globalSeo.siteName}
           titleTemplate={`${site.globalSeo.siteName} | %s `}
         >
-          <html lang='fr-FR' />
+          <html lang={locale === 'fr' ? 'fr-FR' : 'en'} />
           <meta
             name='google-site-verification'
             content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'

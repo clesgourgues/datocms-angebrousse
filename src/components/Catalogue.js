@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Img from 'gatsby-image';
 
@@ -23,7 +23,6 @@ const Catalogue = ({
   const onClick = (item, itemKey) => {
     const newSelected = { ...selectedFilters };
     newSelected[itemKey] = item;
-    console.log('new selected', newSelected);
     updateSelectedFilters(newSelected);
   };
 
@@ -62,7 +61,7 @@ const Catalogue = ({
               <EmptyCatalogue />
             ) : (
               productsToShow.map(({ node: product }) => (
-                <CatalogueProduct product={product} key={product.id} locale={locale} />
+                <CatalogueProduct product={product} key={product.id} />
               ))
             )}
           </div>

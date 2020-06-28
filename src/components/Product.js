@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useIntl, Link } from 'gatsby-plugin-intl';
 
 import ProductInfo from '@components/ProductInfo';
 import ImageSlider from '@components/ImageSlider';
@@ -9,12 +10,12 @@ import Counter from '@components/Counter';
 import { createMarkup } from '@helpers/content';
 import { getProductOptions } from '@helpers/sizes';
 import AppContext from '@context/AppContext';
-import LocalizedLink from '@components/LocalizedLink';
 
 const Product = ({ product, text, titleColor, locale }) => {
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
+  const intl = useIntl();
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const [quantity, setQuantity] = useState(1);
@@ -45,7 +46,7 @@ const Product = ({ product, text, titleColor, locale }) => {
               {title}
             </h1>
             <div className='Product__back'>
-              <LocalizedLink to='/eshop' locale={locale}>{`< ${text.backText}`}</LocalizedLink>
+              <Link to='/eshop' locale={locale}>{`< ${text.backText}`}</Link>
             </div>
 
             <div className='Product__details'>
@@ -79,7 +80,10 @@ const Product = ({ product, text, titleColor, locale }) => {
                 )}
                 <div className='Product__sizeerror__container'>
                   {!product.outOfStock && error && product.size && (
-                    <span className='Product__sizeerror'>Merci de sélectionner une taille !</span>
+                    <span className='Product__sizeerror'>
+                      {' '}
+                      {intl.formatMessage({ id: 'error_message' })}
+                    </span>
                   )}
                 </div>
                 {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}

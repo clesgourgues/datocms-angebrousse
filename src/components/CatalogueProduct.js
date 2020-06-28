@@ -1,11 +1,11 @@
 import React from 'react';
 import Img from 'gatsby-image';
-import LocalizedLink from '@components/LocalizedLink';
 import Animate from '@components/Animate';
+import { Link } from 'gatsby-plugin-intl';
 
-const CatalogueProduct = ({ product, locale }) => {
+const CatalogueProduct = ({ product }) => {
   return (
-    <LocalizedLink to={`/${product.slug}`} className='Catalogue__item' locale={locale}>
+    <Link to={`/${product.slug}`} className='Catalogue__item'>
       <Animate quick={true}>
         <div className='Catalogue__image'>
           <Img
@@ -28,7 +28,7 @@ const CatalogueProduct = ({ product, locale }) => {
           )}
         </div>
       </Animate>
-    </LocalizedLink>
+    </Link>
   );
 };
 
