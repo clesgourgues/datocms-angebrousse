@@ -78,7 +78,7 @@ export default ({ children, pageContext }) => {
                 </>
               ) : (
                 <>
-                  <Seo />
+                  <Seo locale={locale} />
                   <Layout
                     logos={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}

@@ -14,3 +14,15 @@
 .Locales__Locale-selected {
   text-decoration: underline;
 }
+
+.homepage {
+  color: white;
+}
+
+.Locales_container {
+  align-self: flex-end;
+  padding: 20px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}

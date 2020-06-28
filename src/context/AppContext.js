@@ -25,7 +25,6 @@ class AppProvider extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log('component updated', prevProps);
     if (prevProps.locale !== this.props.locale) {
       this.setLang();
     }

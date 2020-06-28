@@ -3,12 +3,14 @@ const path = require('path');
 exports.onCreatePage = ({ page, actions }) => {
   const { createPage, deletePage } = actions;
   deletePage(page);
+  const layout =
+    page.path === '/en/' || page.path === '/fr/' || page.path === '/' ? 'homepage' : '';
   createPage({
     ...page,
     context: {
       ...page.context,
       locale: page.context.intl.language,
-      layout: path === '/' ? 'homepage' : ''
+      layout
     }
   });
 };
@@ -28,7 +30,6 @@ exports.createPages = ({ graphql, actions }) => {
               edges {
                 node {
                   slug
-                  id
                 }
               }
             }
@@ -55,22 +56,16 @@ exports.createPages = ({ graphql, actions }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        const slugs = [];
         result.data.allDatoCmsProduct.edges.forEach(({ node }) => {
           const path = node.slug;
-          const id = node.id;
-          slugs.push({ path, id });
-          console.log('slugs', slugs);
-          if (node.image.length > 0) {
-            createPage({
-              path,
-              component: productTemplate,
-              context: {
-                pathSlug: path,
-                slugs
-              }
-            });
-          }
+          createPage({
+            path,
+            component: productTemplate,
+            context: {
+              pathSlug: path
+            }
+          });
+
           resolve();
         });
         result.data.allDatoCmsPage.edges.forEach(({ node }) => {

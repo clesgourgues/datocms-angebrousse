@@ -29,6 +29,11 @@ const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setColle
               </div>
             )}
           </div>
+          {isHome && (
+            <div className='Locales_container'>
+              <ToggleLocale isHome={isHome} />
+            </div>
+          )}
           <div className={`Header__logo ${isHome ? 'Header__logo__home' : ''}`}>
             <Link to='/'>
               <Img sizes={logos.logo.sizes} alt='Logo' />
