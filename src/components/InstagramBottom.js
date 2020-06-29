@@ -27,7 +27,11 @@ const InstagramBottom = ({ title }) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={publi.src} alt='Instagram picture' className='Instagram__bottom__image' />
+              <img
+                src={publi.src}
+                alt='Instagram Angele Brousse'
+                className='Instagram__bottom__image'
+              />
             </a>
           );
         })}

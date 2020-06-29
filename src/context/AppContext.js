@@ -51,17 +51,15 @@ class AppProvider extends Component {
     window.Snipcart.subscribe('item.adding', this.updateError);
   };
 
-  loadLangJs = async () =>
+  loadLangJs = async locale =>
     await this.addElem('script', {
-      src: withPrefix('fr-FR.js')
+      src: withPrefix(`${locale}.js`)
     });
 
   setLang = async () => {
     const locale = this.props.locale === 'fr' ? 'fr-FR' : 'en';
     window.Snipcart.setLang(locale);
-    if (this.props.locale === 'fr') {
-      await this.loadLangJs();
-    }
+    await this.loadLangJs(this.props.locale);
   };
 
   addElem = (tag, attrs) => {

@@ -50,8 +50,7 @@ module.exports = {
           '@helpers': 'src/helpers',
           '@context': 'src/context',
           '@assets': 'src/assets',
-          '@hooks': 'src/hooks',
-          '@constants': 'src/constants'
+          '@hooks': 'src/hooks'
         },
         extensions: ['js']
       }
