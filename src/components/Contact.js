@@ -35,7 +35,7 @@ const Contact = ({ text, user, titleColor }) => (
               {text.mail.map((item, index) => (
                 <div key={`item-${index}`}>
                   <div className='Contact__paraph__title'>{item.title}</div>
-                  <div>{item.content}</div>
+                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
                 </div>
               ))}
             </div>
@@ -51,7 +51,10 @@ const Contact = ({ text, user, titleColor }) => (
         {text.address && text.address[0] && (
           <>
             <div className='Subtitle'>{text.address[0].title}</div>
-            <div className='Contact__paraph'>{text.address[0].content}</div>
+            <div
+              className='Contact__paraph'
+              dangerouslySetInnerHTML={{ __html: text.address[0].content }}
+            />
           </>
         )}
       </div>

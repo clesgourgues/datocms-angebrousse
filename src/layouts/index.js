@@ -1,11 +1,13 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { IntlProvider } from 'react-intl';
+import CookieConsent from 'react-cookie-consent';
 
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
 import Seo from '@components/Seo';
 import { AppProvider } from '@context/AppContext';
+import Cookies from '@components/Cookies';
 import '@style/index.scss';
 
 export default ({ children, pageContext }) => {
@@ -74,6 +76,7 @@ export default ({ children, pageContext }) => {
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}
                   >
                     {children}
+                    <Cookies locale={locale} />
                   </Homepage>
                 </>
               ) : (
@@ -85,6 +88,7 @@ export default ({ children, pageContext }) => {
                     locale={locale}
                   >
                     {children}
+                    <Cookies locale={locale} />
                   </Layout>
                 </>
               )}
