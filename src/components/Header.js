@@ -22,12 +22,14 @@ const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setColle
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
               </Link>
             </div>
-            <ToggleLocale />
-            {!isHome && (
-              <div className='Snipcart__container'>
-                <SnipCart />
-              </div>
-            )}
+            <div className='Header__topbar__action'>
+              {!isHome && (
+                <div className='Snipcart__container'>
+                  <SnipCart />
+                </div>
+              )}
+              <ToggleLocale />
+            </div>
           </div>
           {isHome && (
             <div className='Locales_container'>

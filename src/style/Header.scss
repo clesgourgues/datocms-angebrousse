@@ -42,20 +42,32 @@
   padding: $spacing-small $spacing-medium;
   justify-content: space-between;
   background-color: white;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .Header__topbar__home {
   display: none;
   @media screen and (max-width: 767px) {
     display: flex;
+    align-items: center;
   }
 }
 
 .Header__topbar__logo {
   width: 150px;
   z-index: 6;
+  flex: 1;
   @media screen and (min-width: 768px) {
     display: none;
+  }
+}
+
+.Header__topbar__action {
+  display: flex;
+  margin-left: auto;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
   }
 }

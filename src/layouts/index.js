@@ -1,7 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { IntlProvider } from 'react-intl';
-import CookieConsent from 'react-cookie-consent';
 
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';

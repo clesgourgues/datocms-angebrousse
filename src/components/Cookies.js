@@ -22,12 +22,14 @@ const Cookies = ({ locale }) => {
       buttonStyle={{
         background: 'black',
         color: 'white',
-        padding: '10px'
+        padding: '10px',
+        textTransform: 'uppercase'
       }}
       declineButtonStyle={{
         background: 'black',
         color: 'white',
-        padding: '10px'
+        padding: '10px',
+        textTransform: 'uppercase'
       }}
     >
       {text}

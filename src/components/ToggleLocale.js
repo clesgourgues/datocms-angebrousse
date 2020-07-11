@@ -5,21 +5,39 @@ const ToggleLocale = ({ isHome }) => {
   return (
     <div className='Locales'>
       <IntlContextConsumer>
-        {({ languages, language: currentLocale }) =>
-          languages.map(language => {
-            return (
+        {({ languages, language: currentLocale }) => {
+          const otherLocale = currentLocale === languages[0] ? languages[1] : languages[0];
+          return (
+            <>
               <span
-                key={language}
+                key={languages[0]}
                 className={`Locales__Locale ${
-                  language === currentLocale ? 'Locales__Locale-selected' : ''
+                  languages[0] === currentLocale ? 'Locales__Locale-selected' : ''
                 } ${isHome ? 'homepage' : ''}`}
-                onClick={() => changeLocale(language)}
               >
-                {language}
+                {languages[0]}
               </span>
-            );
-          })
-        }
+              <input
+                checked={currentLocale === languages[1]}
+                type='checkbox'
+                id='toggle_checkbox'
+                onChange={() => {
+                  changeLocale(otherLocale);
+                }}
+                className={`${isHome ? 'homepage' : ''}`}
+              />
+              <label for='toggle_checkbox' className={`${isHome ? 'homepage' : ''}`}></label>
+              <span
+                key={languages[1]}
+                className={`Locales__Locale ${
+                  languages[1] === currentLocale ? 'Locales__Locale-selected' : ''
+                } ${isHome ? 'homepage' : ''}`}
+              >
+                {languages[1]}
+              </span>
+            </>
+          );
+        }}
       </IntlContextConsumer>
     </div>
   );
