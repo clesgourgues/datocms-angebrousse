@@ -65,7 +65,7 @@ export default ({ children, pageContext }) => {
       `}
       render={data => {
         return (
-          <AppProvider titleColor={data.parameters.edges[0].node.titleColor.hex} locale={locale}>
+          <AppProvider locale={locale}>
             <IntlProvider locale={locale} messages={intl.messages}>
               {layout === 'homepage' ? (
                 <>

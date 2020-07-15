@@ -4,7 +4,7 @@
   width: 40px;
   height: 40px;
   cursor: pointer;
-  background: transparent url("../assets/cart.svg") no-repeat right;
+  background: transparent url('../assets/cart.svg') no-repeat right;
   &:hover {
     text-decoration: none;
   }
@@ -90,7 +90,7 @@ div.snip-layout.snip-active {
     height: 2rem;
     &:before {
       width: 2rem;
-      content: "";
+      content: '';
       position: absolute;
       display: block;
       margin: auto;
@@ -105,7 +105,7 @@ div.snip-layout.snip-active {
     }
     &:after {
       width: 2rem;
-      content: "";
+      content: '';
       position: absolute;
       display: block;
       margin: auto;
@@ -117,18 +117,6 @@ div.snip-layout.snip-active {
       border-top: 1px solid black;
       transform: rotate(-45deg);
       transform-origin: center;
-    }
-  }
-
-  .snip-product__remove {
-    @media screen and (min-width: 768px) {
-      margin-top: -12px !important;
-      &:before {
-        content: "Supprimer" !important;
-        font-size: 12px !important;
-        margin-top: -3px !important;
-        font-family: "Karla", sans-serif !important;
-      }
     }
   }
 
@@ -160,8 +148,8 @@ div.snip-layout.snip-active {
     padding: 20px;
     left: 1em;
     &:before {
-      content: "";
-      background: url("../assets/logo.png") no-repeat center;
+      content: '';
+      background: url('../assets/logo.png') no-repeat center;
       background-size: 150px;
       width: 140px;
       height: 100px;

@@ -26,7 +26,10 @@ const ToggleLocale = ({ isHome }) => {
                 }}
                 className={`${isHome ? 'homepage' : ''}`}
               />
-              <label for='toggle_checkbox' className={`${isHome ? 'homepage' : ''}`}></label>
+              <label
+                htmlFor='toggle_checkbox'
+                className={`Locales__Locale-label ${isHome ? 'homepage' : ''}`}
+              ></label>
               <span
                 key={languages[1]}
                 className={`Locales__Locale ${

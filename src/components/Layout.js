@@ -12,11 +12,13 @@ export default ({ children, logos, menu, locale }) => (
           instagramText
           newsletterButtonText
           newsletterText
+          copyrightText
         }
         enFooter: datoCmsTextesFooter(locale: { eq: "en" }) {
           instagramText
           newsletterButtonText
           newsletterText
+          copyrightText
         }
         frBottom: allDatoCmsBottomMenu(
           sort: { fields: position, order: ASC }

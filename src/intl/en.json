@@ -6,12 +6,12 @@
   "disconnect": "disconnect",
   "cart": "cart",
   "all_products": "all jewels",
-  "all_metals": "all gold",
+  "all_metals": "all gold colors",
   "collection": "collection",
   "error_message": "Please select a size !",
   "quantity": "quantity",
   "images_slide_1": "Slides images or",
   "images_slide_2": "long press to zoom in",
-  "eshop_all": "All",
+  "eshop_all": "All collections",
   "404": "This page doesn't exist..."
 }

@@ -175,7 +175,7 @@ window.Snipcart.execute('registerLocale', 'en', {
 
   payment_status: 'Payment status',
 
-  create_an_account: 'Create a login',
+  create_an_account: 'Create an account',
 
   why_create_account:
     'For a faster checkout on your next order, just enter a password to create a login.',
@@ -207,7 +207,7 @@ window.Snipcart.execute('registerLocale', 'en', {
 
   errors_email_must_be_valid: 'The email must be valid',
 
-  errors_email_does_not_match_any_existing_user: 'No user with this email exists',
+  errors_email_does_not_match_any_existing_user: 'No user exists with this email',
 
   errors_email_does_not_match_reset_password_request:
     'User email does not match any existing reset password request.',

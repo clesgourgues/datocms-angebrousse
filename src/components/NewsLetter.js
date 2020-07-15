@@ -10,9 +10,10 @@ const NewsLetter = ({ user, title, isHome }) => {
   useEffect(() => {
     const userEmail = user ? user.email : '';
     setEmail(userEmail);
-  });
+  }, []);
 
   const handleChange = event => {
+    console.log('event', event.target.value);
     setEmail(event.target.value);
   };
 
@@ -34,7 +35,7 @@ const NewsLetter = ({ user, title, isHome }) => {
         <form name='Newsletter' onSubmit={handleSubmit} className='Newsletter__form'>
           <input type='hidden' name='form-name' value='Newsletter' />
           <input
-            className={`Newsletter__form__input ${isHome && 'Newsletter__form__input__home'}`}
+            className={`Newsletter__form__input ${isHome ? 'Newsletter__form__input__home' : ''}`}
             name='email'
             placeholder='email'
             required
