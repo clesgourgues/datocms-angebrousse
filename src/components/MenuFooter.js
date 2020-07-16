@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { useIntl } from 'gatsby-plugin-intl';
 
 import NewsLetter from '@components/NewsLetter';
 import AppContext from '@context/AppContext';
@@ -14,6 +15,7 @@ const getMenu = menu =>
   });
 
 const MenuFooter = ({ menu, title, buttonText }) => {
+  const intl = useIntl();
   const newMenu = [
     ...getMenu(menu),
     <li className='Menu__footer__item' key='baguier'>
@@ -22,7 +24,7 @@ const MenuFooter = ({ menu, title, buttonText }) => {
         target='_blank'
         rel='noopener noreferrer'
       >
-        baguier
+        {intl.formatMessage({ id: 'ring' })}
       </a>
     </li>
   ];

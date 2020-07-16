@@ -24,11 +24,12 @@
   span {
     margin: 0 $spacing-x-small;
     font-size: $font-size-medium-small;
+    text-transform: uppercase;
   }
 }
 
 .Footer__border {
-  content: "";
+  content: '';
   height: 1px;
   width: 600px;
   background-color: darken($color-golden, 5%);

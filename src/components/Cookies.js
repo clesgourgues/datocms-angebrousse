@@ -4,17 +4,13 @@ import CookieConsent from 'react-cookie-consent';
 const Cookies = ({ locale }) => {
   const text =
     locale === 'en'
-      ? 'By pursuing your navigation, you are accepting the use of cookies.'
-      : "En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies.";
-  const subText =
-    locale === 'en'
-      ? ' Those informations allow us to insure you the best experience'
-      : ' Ces informations nous permettent de vous assurer la meilleure expérience.';
+      ? 'By pursuing your navigation, you are accepting the use of cookies. Those informations allow us to insure you the best experience.'
+      : "En poursuivant votre navigation sur ce site, vous acceptez l'utilisation de cookies. Ces informations nous permettent de vous assurer la meilleure expérience.";
+
   return (
     <CookieConsent
       location='bottom'
       enableDeclineButton
-      debug={true}
       flipButtons
       buttonText={locale === 'en' ? 'Accept' : 'Accepter'}
       declineButtonText={locale === 'en' ? 'Decline' : 'Refuser'}
@@ -39,7 +35,6 @@ const Cookies = ({ locale }) => {
       }}
     >
       {text}
-      <span style={{ fontSize: '12px' }}>{subText}</span>
     </CookieConsent>
   );
 };

@@ -116,9 +116,9 @@ window.Snipcart.execute('registerLocale', 'en', {
 
   cart_empty_text: 'The cart is now empty. Select some products to buy before checking out.',
 
-  new_account_form_create_new_account: 'Create a login',
+  new_account_form_create_new_account: 'Create an account',
 
-  new_account_form_create_new_account_action: 'Create a login',
+  new_account_form_create_new_account_action: 'Create an account',
 
   login_form_having_an_account: 'Sign in',
 
@@ -178,7 +178,7 @@ window.Snipcart.execute('registerLocale', 'en', {
   create_an_account: 'Create an account',
 
   why_create_account:
-    'For a faster checkout on your next order, just enter a password to create a login.',
+    'For a faster checkout on your next order, just enter a password to create an account.',
 
   reset_password: 'Reset password',
 

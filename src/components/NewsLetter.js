@@ -13,7 +13,6 @@ const NewsLetter = ({ user, title, isHome }) => {
   }, []);
 
   const handleChange = event => {
-    console.log('event', event.target.value);
     setEmail(event.target.value);
   };
 
