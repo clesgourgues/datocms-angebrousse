@@ -18,7 +18,7 @@
   border-top: none;
   border-right: none;
   border-left: none;
-  font-family: "Karla", sans-serif;
+  font-family: 'Karla', sans-serif;
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -55,7 +55,7 @@ p.Accordion__title {
 
 /* Style the accordion content text */
 .Accordion__text {
-  color: $color-light;
+  color: $color-dark;
   font-size: $font-size-medium;
   padding: 16px;
 }
