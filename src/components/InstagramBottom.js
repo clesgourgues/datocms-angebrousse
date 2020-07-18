@@ -1,13 +1,8 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { FaInstagram } from 'react-icons/fa';
-import { useInstagramFeed } from '@hooks/useInstagramFeed';
 
-const InstagramBottom = ({ title }) => {
-  const publications = useInstagramFeed({
-    userId: '7906146319',
-    photoCount: 6
-  });
+const InstagramBottom = ({ publications, buttonText, title }) => {
   return (
     <div className='Instagram__bottom'>
       <a
@@ -19,7 +14,7 @@ const InstagramBottom = ({ title }) => {
         <FaInstagram size={20} /> <span>{title}</span>
       </a>
       <div className='Instagram__bottom__items'>
-        {publications.map(publi => {
+        {publications.map(({ node: publi }) => {
           return (
             <a
               className='Instagram__bottom__item'
@@ -28,7 +23,12 @@ const InstagramBottom = ({ title }) => {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img src={publi.src} alt='Instagram picture' className='Instagram__bottom__image' />
+              <div className='Instagram__bottom__image'>
+                <Img
+                  sizes={{ ...publi.localFile.childImageSharp.fluid, aspectRatio: 1 }}
+                  alt='Instagram picture'
+                />
+              </div>
             </a>
           );
         })}

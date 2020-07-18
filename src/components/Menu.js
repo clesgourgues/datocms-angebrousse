@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { useIntl, Link } from 'gatsby-plugin-intl';
 
 import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
@@ -9,6 +9,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
   const [visibleUser, setVisibleUser] = useState(false);
   const [visibleEshop, setVisibleEshop] = useState(false);
+  const intl = useIntl();
   const renderLookBook = item => (
     <li
       className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
@@ -42,11 +43,12 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
             renderEshop(item)
           ) : (
             <li
-              className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
-              onClick={() => setSelected(item.node.name)}
               key={item.node.name}
+              className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
             >
-              <Link to={item.node.slug}>{item.node.name}</Link>
+              <Link to={item.node.slug} onClick={() => setSelected(item.node.name)}>
+                {item.node.name}
+              </Link>
             </li>
           )
         )}
@@ -55,7 +57,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
           onMouseEnter={() => setVisibleUser(true)}
           onMouseLeave={() => setVisibleUser(false)}
         >
-          mon compte
+          {intl.formatMessage({ id: 'account' })}
           {visibleUser && <UserMenu />}
         </li>
         <li
@@ -64,7 +66,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
           }`}
         >
           <a href='#' className='snipcart-checkout'>
-            panier
+            {intl.formatMessage({ id: 'cart' })}
           </a>
         </li>
       </ul>

@@ -15,8 +15,15 @@ export const getColorFilters = products => {
   return filters;
 };
 
-export const isSelectedProduct = (product, selected) =>
-  selected.category.includes(product.category[0].name) && selected.color.includes(product.color);
+export const isSelectedProduct = (product, selected) => {
+  if (selected.color && selected.category) {
+    return (
+      selected.category.includes(product.category[0].name) && selected.color.includes(product.color)
+    );
+  } else if (!selected.color && selected.category) {
+    return selected.category.includes(product.category[0].name);
+  } else return selected.color.includes(product.color);
+};
 
 export const isSelectedFilter = (filter, selected) =>
   selected.length === 1 && selected[0] === filter;

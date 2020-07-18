@@ -12,7 +12,9 @@ export default ({ data }) => (
 
 export const query = graphql`
   query($collection: String!) {
-    allDatoCmsLookBook(filter: { collection: { name: { eq: $collection } } }) {
+    allDatoCmsLookBook(
+      filter: { collection: { name: { eq: $collection } }, locale: { eq: "fr" } }
+    ) {
       edges {
         node {
           collection {

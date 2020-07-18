@@ -1,12 +1,16 @@
 import React from 'react';
 import Animate from '@components/Animate';
+import { useIntl } from 'gatsby-plugin-intl';
 
-const EmptyCatalogue = () => (
-  <div className='Empty'>
-    <Animate quick={true}>
-      <h3>Aucun produit correspondant</h3>
-    </Animate>
-  </div>
-);
+const EmptyCatalogue = () => {
+  const intl = useIntl();
+  return (
+    <div className='Empty'>
+      <Animate quick={true}>
+        <h3> {intl.formatMessage({ id: 'no_product' })}</h3>
+      </Animate>
+    </div>
+  );
+};
 
 export default EmptyCatalogue;

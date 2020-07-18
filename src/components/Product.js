@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
 import { Helmet } from 'react-helmet';
+import { useIntl, Link } from 'gatsby-plugin-intl';
 
 import ProductInfo from '@components/ProductInfo';
 import ImageSlider from '@components/ImageSlider';
@@ -9,39 +9,44 @@ import CatalogueProduct from '@components/CatalogueProduct';
 import Counter from '@components/Counter';
 import { createMarkup } from '@helpers/content';
 import { getProductOptions } from '@helpers/sizes';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
-const Product = ({ product, text, titleColor }) => {
+const Product = ({ product, text, titleColor, locale }) => {
   const renderOutOfStockProducts = (
     <span className='Product__outofstock'>{text.outOfStockText}</span>
   );
+  const intl = useIntl();
 
   const productCaracteristics = createMarkup(product.productCaracteristics);
   const [quantity, setQuantity] = useState(1);
   const [size, setSize] = useState(null);
+  const title =
+    locale === 'fr'
+      ? `Collection ${product.collection[0].name}`
+      : `${product.collection[0].name} Collection `;
 
   return (
-    <SnipContext.Consumer>
+    <AppContext.Consumer>
       {({ error, cancelError }) => (
         <div className='Product'>
           <Helmet>
             <title>{product.name}</title>
             <meta name='description' content={product.description} />
-            <meta name='url' content={`https://angelebrousse.com/${product.slug}`} />
+            <meta name='url' content={`https://angelebrousse.com/${locale}/${product.slug}`} />
             <meta property='image' content={product.image[0].url}></meta>
-            <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
+            <link rel='canonical' href={`https://angelebrousse.com/${locale}/${product.slug}`} />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
-            <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
+            <link rel='canonical' href={`https://angelebrousse.com/${locale}/${product.slug}`} />
             <meta property='og:image' content={`${product.image[0].sizes.src}&h=300&w=300`}></meta>
-            <meta name='og:url' content={`https://angelebrousse.com/${product.slug}`} />
+            <meta name='og:url' content={`https://angelebrousse.com/${locale}/${product.slug}`} />
           </Helmet>
           <div className='Wrap'>
             <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-              Collection {product.collection[0].name}
+              {title}
             </h1>
             <div className='Product__back'>
-              <Link to='/eshop'>{`< ${text.backText}`}</Link>
+              <Link to='/eshop' locale={locale}>{`< ${text.backText}`}</Link>
             </div>
 
             <div className='Product__details'>
@@ -75,7 +80,10 @@ const Product = ({ product, text, titleColor }) => {
                 )}
                 <div className='Product__sizeerror__container'>
                   {!product.outOfStock && error && product.size && (
-                    <span className='Product__sizeerror'>Merci de sélectionner une taille !</span>
+                    <span className='Product__sizeerror'>
+                      {' '}
+                      {intl.formatMessage({ id: 'error_message' })}
+                    </span>
                   )}
                 </div>
                 {!product.outOfStock && <Counter quantity={quantity} setQuantity={setQuantity} />}
@@ -141,7 +149,7 @@ const Product = ({ product, text, titleColor }) => {
           </div>
         </div>
       )}
-    </SnipContext.Consumer>
+    </AppContext.Consumer>
   );
 };
 

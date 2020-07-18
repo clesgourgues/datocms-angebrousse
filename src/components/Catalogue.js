@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import Img from 'gatsby-image';
 
@@ -8,24 +8,30 @@ import EmptyCatalogue from '@components/EmptyCatalogue';
 import { getFilters, isSelectedProduct, getColorFilters } from '@helpers/filters';
 import Animate from '@components/Animate';
 
-const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
+const Catalogue = ({
+  products,
+  titleColor,
+  image,
+  selectedCollection,
+  selectedFilters,
+  updateSelectedFilters,
+  locale
+}) => {
   const category = getFilters(products, 'category');
   const color = getColorFilters(products);
 
-  let [selected, setSelected] = useState({
-    category,
-    color
-  });
-
   const onClick = (item, itemKey) => {
-    const newSelected = { ...selected };
+    const newSelected = { ...selectedFilters };
     newSelected[itemKey] = item;
-    setSelected(newSelected);
+    updateSelectedFilters(newSelected);
   };
 
-  let productsToShow = products.filter(
-    ({ node: product }) => product.image.length && isSelectedProduct(product, selected)
+  const productsToShow = products.filter(({ node: product }) =>
+    !selectedFilters ? product : isSelectedProduct(product, selectedFilters)
   );
+
+  const title =
+    locale === 'fr' ? `Collection ${selectedCollection}` : `${selectedCollection} Collection`;
 
   return (
     <Animate>
@@ -39,7 +45,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
         </Helmet>
         <div className='Wrap'>
           <h1 className='Title' style={{ backgroundColor: `${titleColor}` }}>
-            {!selectedCollection ? 'E-shop' : `Collection ${selectedCollection}`}
+            {!selectedCollection ? 'E-shop' : title}
           </h1>
           <div>
             <Img fluid={image.fluid} loading='lazy' className='Catalogue__photo' />
@@ -47,7 +53,7 @@ const Catalogue = ({ products, titleColor, image, selectedCollection }) => {
           <Filters
             categoryFilters={category}
             colorFilters={color}
-            selected={selected}
+            selected={selectedFilters}
             onClick={onClick}
           />
           <div className='Catalogue__products'>

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import Img from 'gatsby-image';
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-plugin-intl';
 
 import Menu from '@components/Menu';
 import BurgerButton from '@components/BurgerButton';
 import MenuBurger from '@components/MenuBurger';
 import SnipCart from '@components/SnipCart';
+import ToggleLocale from '@components/ToggleLocale';
 
 const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setCollection }) => {
   const [selected, setSelected] = useState(null);
@@ -21,12 +22,20 @@ const Header = ({ logos, menu, isHome, open, setOpen, user, collection, setColle
                 <Img sizes={logos.logoMenuBurger.sizes} alt='Logo' />
               </Link>
             </div>
-            {!isHome && (
-              <div className='Snipcart__container'>
-                <SnipCart />
-              </div>
-            )}
+            <div className='Header__topbar__action'>
+              {!isHome && (
+                <div className='Snipcart__container'>
+                  <SnipCart />
+                </div>
+              )}
+              <ToggleLocale />
+            </div>
           </div>
+          {isHome && (
+            <div className='Locales_container'>
+              <ToggleLocale isHome={isHome} />
+            </div>
+          )}
           <div className={`Header__logo ${isHome ? 'Header__logo__home' : ''}`}>
             <Link to='/'>
               <Img sizes={logos.logo.sizes} alt='Logo' />

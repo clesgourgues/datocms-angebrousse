@@ -6,34 +6,38 @@ const defaultState = {
   cart: null,
   error: null,
   selectedCollection: null,
-  locale: 'fr'
+  selectedFilters: null
 };
 
-const SnipContext = React.createContext(defaultState);
+const AppContext = React.createContext(defaultState);
 
-class SnipProvider extends Component {
+class AppProvider extends Component {
   state = {
     cart: null,
     user: null,
     error: null,
     selectedCollection: null,
-    locale: 'fr'
+    selectedFilters: null
   };
 
   componentDidMount() {
     document.addEventListener('snipcart.ready', this.snipcartReady);
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.locale !== this.props.locale) {
+      this.setLang();
+    }
+  }
+
   componentWillUnmount() {
     document.removeEventListener('snipcart.ready', this.snipcartReady);
   }
 
-  snipcartReady = async () => {
-    await this.loadLangJs();
+  snipcartReady = () => {
+    this.setLang();
     window.Snipcart.execute('config', 'show_continue_shopping', true);
     window.Snipcart.api.configure('split_firstname_and_lastname', true);
-    const title = document.querySelector('#snipcart-title');
-    title.setAttribute('style', `background-color: ${this.props.titleColor}`);
     this.setState({
       user: window.Snipcart.api.user.current(),
       cart: window.Snipcart.api.cart.get()
@@ -45,10 +49,16 @@ class SnipProvider extends Component {
     window.Snipcart.subscribe('item.adding', this.updateError);
   };
 
-  loadLangJs = async () =>
+  loadLangJs = async locale =>
     await this.addElem('script', {
-      src: withPrefix('fr-FR.js')
+      src: withPrefix(`${locale}.js`)
     });
+
+  setLang = async () => {
+    const locale = this.props.locale === 'fr' ? 'fr-FR' : 'en';
+    window.Snipcart.setLang(locale);
+    await this.loadLangJs(locale);
+  };
 
   addElem = (tag, attrs) => {
     return new Promise((resolve, reject) => {
@@ -97,20 +107,25 @@ class SnipProvider extends Component {
     this.setState({ selectedCollection });
   };
 
+  updateSelectedFilters = selectedFilters => {
+    this.setState({ selectedFilters });
+  };
+
   render() {
     return (
-      <SnipContext.Provider
+      <AppContext.Provider
         value={{
           ...this.state,
           cancelError: this.cancelError,
-          updateSelectedCollection: this.updateSelectedCollection
+          updateSelectedCollection: this.updateSelectedCollection,
+          updateSelectedFilters: this.updateSelectedFilters
         }}
       >
         {this.props.children}
-      </SnipContext.Provider>
+      </AppContext.Provider>
     );
   }
 }
 
-export default SnipContext;
-export { SnipProvider };
+export default AppContext;
+export { AppProvider };

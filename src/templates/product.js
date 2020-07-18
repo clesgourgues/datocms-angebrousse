@@ -3,17 +3,22 @@ import { graphql } from 'gatsby';
 
 import Product from '@components/Product';
 
-export default ({ data }) => {
+export default ({ data, pageContext }) => {
   const product = data.allDatoCmsProduct.edges[0].node;
   const text = data.datoCmsProductText;
   return (
-    <Product product={product} text={text} titleColor={data.datoCmsSiteParameter.titleColor.hex} />
+    <Product
+      product={product}
+      text={text}
+      titleColor={data.datoCmsSiteParameter.titleColor.hex}
+      locale={pageContext.locale}
+    />
   );
 };
 
 export const query = graphql`
-  query($pathSlug: String!) {
-    allDatoCmsProduct(filter: { slug: { eq: $pathSlug }, locale: { eq: "fr" } }) {
+  query($pathSlug: String!, $locale: String!) {
+    allDatoCmsProduct(filter: { slug: { eq: $pathSlug }, locale: { eq: $locale } }) {
       edges {
         node {
           slug
@@ -65,7 +70,7 @@ export const query = graphql`
         }
       }
     }
-    datoCmsProductText(locale: { eq: "fr" }) {
+    datoCmsProductText(locale: { eq: $locale }) {
       backText
       buyButtonText
       linkedProductsText

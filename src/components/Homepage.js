@@ -2,11 +2,19 @@ import React, { useState } from 'react';
 import BackgroundSlider from '@components/BackgroundSlider';
 import Header from '@components/Header';
 
-const Homepage = ({ children, images, menu, user }) => {
+const Homepage = ({ children, images, menu, user, locale }) => {
   const [open, setOpen] = useState(false);
   return (
     <div className='Container Container__home'>
-      <Header logos={images} menu={menu} isHome={true} open={open} setOpen={setOpen} user={user} />
+      <Header
+        logos={images}
+        menu={menu}
+        isHome={true}
+        open={open}
+        setOpen={setOpen}
+        user={user}
+        locale={locale}
+      />
       <BackgroundSlider
         images={images.slider}
         initDelay={2} // delay before the first transition (if left at 0, the first image will be skipped initially)

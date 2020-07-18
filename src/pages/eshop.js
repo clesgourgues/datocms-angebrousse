@@ -1,90 +1,90 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import Catalogue from '@components/Catalogue';
-import SnipContext from '@context/SnipContext';
+import AppContext from '@context/AppContext';
 
-export default () => (
-  <SnipContext.Consumer>
-    {({ selectedCollection }) => (
-      <StaticQuery
-        query={graphql`
-          query CatalogueQuery {
-            products: allDatoCmsProduct(
-              filter: { published: { eq: true }, locale: { eq: "fr" } }
-              sort: { fields: position, order: ASC }
-            ) {
-              edges {
-                node {
-                  id
-                  name
-                  price
-                  promoPrice
-                  slug
-                  color
-                  category {
-                    name
-                  }
-                  collection {
-                    name
-                  }
-                  image {
-                    url
-                    sizes(maxWidth: 800, imgixParams: { fm: "jpg" }) {
-                      ...GatsbyDatoCmsSizes
-                    }
-                  }
-                }
-              }
-            }
-            parameters: datoCmsSiteParameter {
-              titleColor {
-                hex
-              }
-              eshopImage {
-                fluid {
-                  ...GatsbyDatoCmsFluid
-                }
-              }
-            }
-            image: allDatoCmsCollection {
-              edges {
-                node {
-                  name
-                  image {
-                    fluid {
-                      ...GatsbyDatoCmsFluid
-                    }
-                  }
-                }
-              }
+export default ({ data, pageContext }) => (
+  <AppContext.Consumer>
+    {({ selectedCollection, selectedFilters, updateSelectedFilters }) => {
+      const products =
+        selectedCollection === null
+          ? data.products.edges
+          : data.products.edges.filter(
+              ({ node: product }) => product['collection'][0]['name'] === selectedCollection
+            );
+      const selectedImageNode = data.image.edges.find(
+        ({ node: image }) => image['name'] === selectedCollection
+      );
+      const image =
+        selectedCollection === null || !selectedImageNode['node']['image']
+          ? data.parameters.eshopImage
+          : selectedImageNode['node']['image'];
+      return (
+        <Catalogue
+          products={products}
+          titleColor={data.parameters.titleColor.hex}
+          image={image}
+          selectedCollection={selectedCollection}
+          selectedFilters={selectedFilters}
+          locale={pageContext.locale}
+          updateSelectedFilters={updateSelectedFilters}
+        />
+      );
+    }}
+  </AppContext.Consumer>
+);
+
+export const query = graphql`
+  query($locale: String!) {
+    products: allDatoCmsProduct(
+      filter: { published: { eq: true }, locale: { eq: $locale } }
+      sort: { fields: position, order: ASC }
+    ) {
+      edges {
+        node {
+          id
+          name
+          price
+          promoPrice
+          slug
+          color
+          category {
+            name
+          }
+          collection {
+            name
+          }
+          image {
+            url
+            sizes(maxWidth: 800, imgixParams: { fm: "jpg" }) {
+              ...GatsbyDatoCmsSizes
             }
           }
-        `}
-        render={data => {
-          const products =
-            selectedCollection === null
-              ? data.products.edges
-              : data.products.edges.filter(
-                  ({ node: product }) => product['collection'][0]['name'] === selectedCollection
-                );
-          const selectedImageNode = data.image.edges.find(
-            ({ node: image }) => image['name'] === selectedCollection
-          );
-          const image =
-            selectedCollection === null || !selectedImageNode['node']['image']
-              ? data.parameters.eshopImage
-              : selectedImageNode['node']['image'];
-          return (
-            <Catalogue
-              products={products}
-              titleColor={data.parameters.titleColor.hex}
-              image={image}
-              selectedCollection={selectedCollection}
-            />
-          );
-        }}
-      />
-    )}
-  </SnipContext.Consumer>
-);
+        }
+      }
+    }
+    parameters: datoCmsSiteParameter {
+      titleColor {
+        hex
+      }
+      eshopImage {
+        fluid {
+          ...GatsbyDatoCmsFluid
+        }
+      }
+    }
+    image: allDatoCmsCollection {
+      edges {
+        node {
+          name
+          image {
+            fluid {
+              ...GatsbyDatoCmsFluid
+            }
+          }
+        }
+      }
+    }
+  }
+`;

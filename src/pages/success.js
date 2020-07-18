@@ -1,19 +1,14 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
 
 import SuccessForm from '@components/SuccessForm';
 
-export default () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        datoCmsContactText(locale: { eq: "fr" }) {
-          successText
-        }
-      }
-    `}
-    render={data => {
-      return <SuccessForm text={data.datoCmsContactText.successText} />;
-    }}
-  />
-);
+export default ({ data }) => <SuccessForm text={data.datoCmsContactText.successText} />;
+
+export const query = graphql`
+  query($locale: String!) {
+    datoCmsContactText(locale: { eq: $locale }) {
+      successText
+    }
+  }
+`;
