@@ -113,7 +113,19 @@ module.exports = {
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
               changefreq: `weekly`,
-              priority: 0.7
+              priority: 0.7,
+              links: [
+                { lang: 'fr', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
+                { lang: 'fr-fr', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
+                { lang: 'fr-be', url: `${site.siteMetadata.siteUrl}fr${edge.node.path}` },
+                { lang: 'fr-ca', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
+                { lang: 'fr-ch', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
+                { lang: 'en', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
+                { lang: 'en-gb', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
+                { lang: 'en-us', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
+                { lang: 'en-ca', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
+                { lang: 'x-default', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` }
+              ]
             };
           })
       }

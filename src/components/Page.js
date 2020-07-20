@@ -16,6 +16,43 @@ const Page = ({ page, titleColor }) => {
         <Helmet>
           <title>{page.title}</title>
           <link rel='canonical' href={`https://angelebrousse.com/${page.slug}`} />
+          <link rel='alternate' href={`https://angelebrousse.com/fr/${page.slug}`} hreflang='fr' />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/fr/${page.slug}`}
+            hreflang='fr-fr'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/fr/${page.slug}`}
+            hreflang='fr-be'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/fr/${page.slug}`}
+            hreflang='fr-ca'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/fr/${page.slug}`}
+            hreflang='fr-ch'
+          />
+          <link rel='alternate' href={`https://angelebrousse.com/en/${page.slug}`} hreflang='en' />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/en/${page.slug}`}
+            hreflang='en-gb'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/en/${page.slug}`}
+            hreflang='en-us'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/en/${page.slug}`}
+            hreflang='en-ca'
+          />
           <meta name='url' content={`https://angelebrousse.com/${page.slug}`} />
           {page.illustration && <meta property='image' content={page.illustration.fluid.src} />}
           <meta property='og:title' content={`Angèle Brousse Joaillerie | ${page.title}`} />

@@ -34,7 +34,52 @@ const Product = ({ product, text, titleColor, locale }) => {
             <meta name='description' content={product.description} />
             <meta name='url' content={`https://angelebrousse.com/${locale}/${product.slug}`} />
             <meta property='image' content={product.image[0].url}></meta>
-            <link rel='canonical' href={`https://angelebrousse.com/${locale}/${product.slug}`} />
+            <link rel='canonical' href={`https://angelebrousse.com/${product.slug}`} />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='fr'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='fr-fr'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='fr-be'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='fr-ca'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='fr-ch'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/en/${product.slug}`}
+              hreflang='en'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/en/${product.slug}`}
+              hreflang='en-gb'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/en/${product.slug}`}
+              hreflang='en-us'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/en/${product.slug}`}
+              hreflang='en-ca'
+            />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
             <link rel='canonical' href={`https://angelebrousse.com/${locale}/${product.slug}`} />

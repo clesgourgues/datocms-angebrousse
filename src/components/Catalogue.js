@@ -40,6 +40,15 @@ const Catalogue = ({
           <title>E-shop</title>
           <meta property='og:title' content='Angèle Brousse Joaillerie | E-shop' />
           <link rel='canonical' href='https://angelebrousse.com/eshop' />
+          <link rel='alternate' href='https://www.angelebrousse.com/fr/eshop' hreflang='fr' />
+          <link rel='alternate' href='https://www.angelebrousse.com/fr/eshop' hreflang='fr-fr' />
+          <link rel='alternate' href='https://www.angelebrousse.com/fr/eshop' hreflang='fr-be' />
+          <link rel='alternate' href='https://www.angelebrousse.com/fr/eshop' hreflang='fr-ca' />
+          <link rel='alternate' href='https://www.angelebrousse.com/fr/eshop' hreflang='fr-ch' />
+          <link rel='alternate' href='https://www.angelebrousse.com/en/eshop' hreflang='en' />
+          <link rel='alternate' href='https://www.angelebrousse.com/en/eshop' hreflang='en-gb' />
+          <link rel='alternate' href='https://www.angelebrousse.com/en/eshop' hreflang='en-us' />
+          <link rel='alternate' href='https://www.angelebrousse.com/en/eshop' hreflang='en-ca' />
           <meta name='url' content='https://angelebrousse.com/eshop' />
           <meta name='og:url' content='https://angelebrousse.com/eshop' />
         </Helmet>

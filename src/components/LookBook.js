@@ -15,10 +15,54 @@ const LookBook = ({ lookbooks, titleColor }) => (
                 rel='canonical'
                 href={`https://angelebrousse.com/${collection.node.collection.slug}`}
               />
-
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='fr'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='fr-fr'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='fr-be'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='fr-ca'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='fr-ch'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
+                hreflang='en'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
+                hreflang='en-gb'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
+                hreflang='en-us'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
+                hreflang='en-ca'
+              />
               <meta
                 name='description'
-                content={`LookBook de la collection ${collection.node.collection.name} par Angèle Brousse Joaillerie`}
+                content={`Angèle Brousse Joaillerie | LookBook Collection ${collection.node.collection.name}`}
               />
               <meta
                 name='url'
@@ -31,7 +75,7 @@ const LookBook = ({ lookbooks, titleColor }) => (
               />
               <meta
                 property='og:description'
-                content={`LookBook de la collection ${collection.node.collection.name} par Angèle Brousse Joaillerie`}
+                content={`Angèle Brousse Joaillerie | LookBook Collection ${collection.node.collection.name} `}
               />
               <meta property='og:image' content={collection.node.photos[0].photo.fluid.src} />
               <meta
