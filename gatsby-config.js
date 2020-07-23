@@ -5,7 +5,7 @@ require('dotenv').config({
 module.exports = {
   siteMetadata: {
     siteName: 'Angèle Brousse',
-    siteUrl: 'https://www.angelebrousse.com'
+    siteUrl: 'https://angelebrousse.com'
   },
   plugins: [
     'gatsby-plugin-sass',

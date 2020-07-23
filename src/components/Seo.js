@@ -64,15 +64,15 @@ export default ({ locale }) => (
           <meta property='og:description' content={site.globalSeo.fallbackSeo.description} />
           <meta property='og:image' content={site.globalSeo.fallbackSeo.image.url} />
           <link rel='canonical' href='https://angelebrousse.com' />
-          <link rel='alternate' href='https://www.angelebrousse.com/fr' hreflang='fr' />
-          <link rel='alternate' href='https://www.angelebrousse.com/fr' hreflang='fr-fr' />
-          <link rel='alternate' href='https://www.angelebrousse.com/fr' hreflang='fr-be' />
-          <link rel='alternate' href='https://www.angelebrousse.com/fr' hreflang='fr-ca' />
-          <link rel='alternate' href='https://www.angelebrousse.com/fr' hreflang='fr-ch' />
-          <link rel='alternate' href='https://www.angelebrousse.com/en' hreflang='en' />
-          <link rel='alternate' href='https://www.angelebrousse.com/en' hreflang='en-gb' />
-          <link rel='alternate' href='https://www.angelebrousse.com/en' hreflang='en-us' />
-          <link rel='alternate' href='https://www.angelebrousse.com/en' hreflang='en-ca' />
+          <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr' />
+          <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr-fr' />
+          <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr-be' />
+          <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr-ca' />
+          <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr-ch' />
+          <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en' />
+          <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en-gb' />
+          <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en-us' />
+          <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en-ca' />
           {site.faviconMetaTags.tags
             .filter(tag => tag.tagName === 'link')
             .map((tag, index) => (
