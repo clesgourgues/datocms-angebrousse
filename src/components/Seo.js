@@ -48,7 +48,7 @@ export default ({ locale }) => (
           defaultTitle={site.globalSeo.siteName}
           titleTemplate={`${site.globalSeo.siteName} | %s `}
         >
-          <html lang={locale === 'fr' ? 'fr-FR' : 'en'} />
+          <html lang={locale} />
           <meta
             name='google-site-verification'
             content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'
@@ -60,7 +60,7 @@ export default ({ locale }) => (
           <meta property='og:type' content='website' />
           <meta property='og:title' content={site.globalSeo.siteName} />
           <meta property='og:site_name' content={site.globalSeo.siteName} />
-          <meta property='og:locale' content={locale === 'fr' ? 'fr-FR' : 'en'} />
+          <meta property='og:locale' content={locale} />
           <meta property='og:description' content={site.globalSeo.fallbackSeo.description} />
           <meta property='og:image' content={site.globalSeo.fallbackSeo.image.url} />
           <link rel='canonical' href='https://angelebrousse.com' />
