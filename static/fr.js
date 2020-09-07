@@ -1,4 +1,4 @@
-window.Snipcart.execute('registerLocale', 'fr', {
+window.Snipcart.execute('registerLocale', 'fr-FR', {
   yes: 'Oui',
   no: 'Non',
   print: 'Imprimer',

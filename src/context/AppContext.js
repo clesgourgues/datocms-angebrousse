@@ -55,7 +55,8 @@ class AppProvider extends Component {
     });
 
   setLang = async () => {
-    window.Snipcart.setLang(this.props.locale);
+    console.log(this.props.locale);
+    window.Snipcart.setLang(this.props.locale === 'fr' ? 'fr-FR' : this.props.locale);
     await this.loadLangJs(this.props.locale);
   };
 
