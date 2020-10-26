@@ -32,12 +32,17 @@ const Contact = ({ text, user, titleColor }) => (
           <div className='Contact__mail'>
             <div className='Subtitle'>{text.mailText}</div>
             <div className='Contact__paraph'>
-              {text.mail.map((item, index) => (
-                <div key={`item-${index}`}>
-                  <div className='Contact__paraph__title'>{item.title}</div>
-                  <div dangerouslySetInnerHTML={{ __html: item.content }} />
-                </div>
-              ))}
+              {text.mail.map((item, index) => {
+                return (
+                  <div key={`item-${index}`}>
+                    <div className='Contact__paraph__title'>{item.title}</div>
+                    <div
+                      className='Contact__paraph__title__p'
+                      dangerouslySetInnerHTML={{ __html: item.content }}
+                    />
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
