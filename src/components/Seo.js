@@ -51,7 +51,7 @@ export default ({ locale }) => (
           <html lang={locale} />
           <meta
             name='google-site-verification'
-            content='95xT3i7gkIOHKFPgFfxTWCvS8_q75YX25Nma3KhO0h0'
+            content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'
           />
           <meta name='description' content={site.globalSeo.fallbackSeo.description} />
           <meta property='type' content='website' />
