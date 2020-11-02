@@ -124,7 +124,7 @@ module.exports = {
                 { lang: 'en-gb', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
                 { lang: 'en-us', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
                 { lang: 'en-ca', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
-                { lang: 'x-default', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` }
+                { lang: 'x-default', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` }
               ]
             };
           })
