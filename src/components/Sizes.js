@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { sizes } from '@helpers/sizes';
+import { allSizes } from '@helpers/sizes';
 
 const Sizes = ({ text, availableSizes, selected, setSize, cancelError }) => (
   <div>
     <div className='Product__size'>{text}</div>
     <div className='Product__size'>
-      {sizes.map(size => (
+      {allSizes.map(size => (
         <span
           className={`Product__size__item ${
             availableSizes.includes(size) ? 'Product__size__available' : ''

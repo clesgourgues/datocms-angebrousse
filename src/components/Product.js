@@ -43,22 +43,22 @@ const Product = ({ product, text, titleColor, locale }) => {
             <link
               rel='alternate'
               href={`https://angelebrousse.com/fr/${product.slug}`}
-              hreflang='fr-fr'
+              hreflang='fr-FR'
             />
             <link
               rel='alternate'
               href={`https://angelebrousse.com/fr/${product.slug}`}
-              hreflang='fr-be'
+              hreflang='fr-BE'
             />
             <link
               rel='alternate'
               href={`https://angelebrousse.com/fr/${product.slug}`}
-              hreflang='fr-ca'
+              hreflang='fr-CA'
             />
             <link
               rel='alternate'
               href={`https://angelebrousse.com/fr/${product.slug}`}
-              hreflang='fr-ch'
+              hreflang='fr-CH'
             />
             <link
               rel='alternate'
@@ -68,17 +68,22 @@ const Product = ({ product, text, titleColor, locale }) => {
             <link
               rel='alternate'
               href={`https://angelebrousse.com/en/${product.slug}`}
-              hreflang='en-gb'
+              hreflang='en-GB'
             />
             <link
               rel='alternate'
               href={`https://angelebrousse.com/en/${product.slug}`}
-              hreflang='en-us'
+              hreflang='en-US'
             />
             <link
               rel='alternate'
               href={`https://angelebrousse.com/en/${product.slug}`}
-              hreflang='en-ca'
+              hreflang='en-CA'
+            />
+            <link
+              rel='alternate'
+              href={`https://angelebrousse.com/fr/${product.slug}`}
+              hreflang='x-default'
             />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />

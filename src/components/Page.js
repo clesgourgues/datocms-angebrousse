@@ -20,38 +20,43 @@ const Page = ({ page, titleColor }) => {
           <link
             rel='alternate'
             href={`https://angelebrousse.com/fr/${page.slug}`}
-            hreflang='fr-fr'
+            hreflang='fr-FR'
           />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/fr/${page.slug}`}
-            hreflang='fr-be'
+            hreflang='fr-BE'
           />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/fr/${page.slug}`}
-            hreflang='fr-ca'
+            hreflang='fr-CA'
           />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/fr/${page.slug}`}
-            hreflang='fr-ch'
+            hreflang='fr-CH'
           />
           <link rel='alternate' href={`https://angelebrousse.com/en/${page.slug}`} hreflang='en' />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/en/${page.slug}`}
-            hreflang='en-gb'
+            hreflang='en-GB'
           />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/en/${page.slug}`}
-            hreflang='en-us'
+            hreflang='en-US'
           />
           <link
             rel='alternate'
             href={`https://angelebrousse.com/en/${page.slug}`}
-            hreflang='en-ca'
+            hreflang='en-CA'
+          />
+          <link
+            rel='alternate'
+            href={`https://angelebrousse.com/fr/${page.slug}`}
+            hreflang='x-default'
           />
           <meta name='url' content={`https://angelebrousse.com/${page.slug}`} />
           {page.illustration && <meta property='image' content={page.illustration.fluid.src} />}

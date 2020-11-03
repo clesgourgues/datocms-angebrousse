@@ -110,21 +110,32 @@ module.exports = {
       }`,
         serialize: ({ site, allSitePage }) =>
           allSitePage.edges.map(edge => {
+            const frUrl = edge.node.path.startsWith('/fr')
+              ? edge.node.path
+              : !edge.node.path.startsWith('/en')
+              ? `/fr${edge.node.path}`
+              : edge.node.path.replace('/en', '/fr');
+            const enUrl = edge.node.path.startsWith('/en')
+              ? edge.node.path
+              : !edge.node.path.startsWith('/fr')
+              ? `/en${edge.node.path}`
+              : edge.node.path.replace('/fr', '/en');
+
             return {
               url: site.siteMetadata.siteUrl + edge.node.path,
               changefreq: `weekly`,
               priority: 0.7,
               links: [
-                { lang: 'fr', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
-                { lang: 'fr-fr', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
-                { lang: 'fr-be', url: `${site.siteMetadata.siteUrl}fr${edge.node.path}` },
-                { lang: 'fr-ca', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
-                { lang: 'fr-ch', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` },
-                { lang: 'en', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
-                { lang: 'en-gb', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
-                { lang: 'en-us', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
-                { lang: 'en-ca', url: `${site.siteMetadata.siteUrl}/en${edge.node.path}` },
-                { lang: 'x-default', url: `${site.siteMetadata.siteUrl}/fr${edge.node.path}` }
+                { lang: 'fr', url: site.siteMetadata.siteUrl + frUrl },
+                { lang: 'fr-FR', url: site.siteMetadata.siteUrl + frUrl },
+                { lang: 'fr-BE', url: site.siteMetadata.siteUrl + frUrl },
+                { lang: 'fr-CA', url: site.siteMetadata.siteUrl + frUrl },
+                { lang: 'fr-CH', url: site.siteMetadata.siteUrl + frUrl },
+                { lang: 'en', url: site.siteMetadata.siteUrl + enUrl },
+                { lang: 'en-GB', url: site.siteMetadata.siteUrl + enUrl },
+                { lang: 'en-US', url: site.siteMetadata.siteUrl + enUrl },
+                { lang: 'en-CA', url: site.siteMetadata.siteUrl + enUrl },
+                { lang: 'x-default', url: site.siteMetadata.siteUrl + frUrl }
               ]
             };
           })

@@ -23,22 +23,22 @@ const LookBook = ({ lookbooks, titleColor }) => (
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
-                hreflang='fr-fr'
+                hreflang='fr-FR'
               />
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
-                hreflang='fr-be'
+                hreflang='fr-BE'
               />
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
-                hreflang='fr-ca'
+                hreflang='fr-CA'
               />
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
-                hreflang='fr-ch'
+                hreflang='fr-CH'
               />
               <link
                 rel='alternate'
@@ -48,17 +48,22 @@ const LookBook = ({ lookbooks, titleColor }) => (
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
-                hreflang='en-gb'
+                hreflang='en-GB'
               />
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
-                hreflang='en-us'
+                hreflang='en-US'
               />
               <link
                 rel='alternate'
                 href={`https://angelebrousse.com/en/${collection.node.collection.slug}`}
-                hreflang='en-ca'
+                hreflang='en-CA'
+              />
+              <link
+                rel='alternate'
+                href={`https://angelebrousse.com/fr/${collection.node.collection.slug}`}
+                hreflang='x-default'
               />
               <meta
                 name='description'

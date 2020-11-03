@@ -41,14 +41,15 @@ const Catalogue = ({
           <meta property='og:title' content='Angèle Brousse Joaillerie | E-shop' />
           <link rel='canonical' href='https://angelebrousse.com/eshop' />
           <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr' />
-          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-fr' />
-          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-be' />
-          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-ca' />
-          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-ch' />
+          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-FR' />
+          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-BE' />
+          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-CA' />
+          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='fr-CH' />
           <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en' />
-          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-gb' />
-          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-us' />
-          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-ca' />
+          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-GB' />
+          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-US' />
+          <link rel='alternate' href='https://angelebrousse.com/en/eshop' hreflang='en-CA' />
+          <link rel='alternate' href='https://angelebrousse.com/fr/eshop' hreflang='x-default' />
           <meta name='url' content='https://angelebrousse.com/eshop' />
           <meta name='og:url' content='https://angelebrousse.com/eshop' />
         </Helmet>
