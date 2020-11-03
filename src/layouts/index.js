@@ -32,10 +32,6 @@ export default ({ children, pageContext }) => {
                   }
                 }
                 slider {
-                  focalPoint {
-                    x
-                    y
-                  }
                   fluid(maxWidth: 2500, imgixParams: { fm: "jpg", crop: "focalpoint", w: "2400" }) {
                     ...GatsbyDatoCmsFluid_noBase64
                   }
