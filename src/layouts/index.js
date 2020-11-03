@@ -32,7 +32,11 @@ export default ({ children, pageContext }) => {
                   }
                 }
                 slider {
-                  fluid(maxWidth: 2500) {
+                  focalPoint {
+                    x
+                    y
+                  }
+                  fluid(maxWidth: 2500, imgixParams: { fm: "jpg", crop: "focalpoint", w: "2400" }) {
                     ...GatsbyDatoCmsFluid_noBase64
                   }
                 }
@@ -80,7 +84,6 @@ export default ({ children, pageContext }) => {
                 </>
               ) : (
                 <>
-                  <Seo locale={locale} />
                   <Layout
                     logos={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}
