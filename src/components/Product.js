@@ -87,7 +87,6 @@ const Product = ({ product, text, titleColor, locale }) => {
             />
             <meta property='og:title' content={product.name} />
             <meta property='og:description' content={product.description} />
-            <link rel='canonical' href={`https://angelebrousse.com/${locale}/${product.slug}`} />
             <meta property='og:image' content={`${product.image[0].sizes.src}&h=300&w=300`}></meta>
             <meta name='og:url' content={`https://angelebrousse.com/${locale}/${product.slug}`} />
           </Helmet>
