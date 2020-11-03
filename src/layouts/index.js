@@ -73,7 +73,7 @@ export default ({ children, pageContext }) => {
             <IntlProvider locale={locale} messages={intl.messages}>
               {layout === 'homepage' ? (
                 <>
-                  <Seo locale={locale} />
+                  <Seo locale={locale} homepage={true} />
                   <Homepage
                     images={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}
@@ -84,6 +84,7 @@ export default ({ children, pageContext }) => {
                 </>
               ) : (
                 <>
+                  <Seo locale={locale} homepage={false} />
                   <Layout
                     logos={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}
