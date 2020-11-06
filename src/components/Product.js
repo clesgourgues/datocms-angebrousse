@@ -152,6 +152,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                     data-item-custom1-required='true'
                     data-item-quantity={quantity}
                     data-item-has-taxes-included='true'
+                    data-item-categories={`${product.collection[0].name},${product.category[0].name}`}
                     // data-item-stackable={!product.category[0].name === "Bagues"}
                   >
                     {text.buyButtonText}
@@ -169,6 +170,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                     }`}
                     data-item-quantity={quantity}
                     data-item-has-taxes-included='true'
+                    data-item-categories={`${product.collection[0].name},${product.category[0].name}`}
                     // data-item-stackable={!product.category[0].name === "Bagues"}
                   >
                     {text.buyButtonText}
