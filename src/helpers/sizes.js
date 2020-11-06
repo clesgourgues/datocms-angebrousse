@@ -11,7 +11,8 @@ export const allSizes = [
   '57',
   '58',
   '59',
-  '60'
+  '60',
+  '61'
 ];
 
 export const getProductOptions = (sizes, size) => {
