@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IntlContextConsumer, changeLocale } from 'gatsby-plugin-intl';
+import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context';
 
 const ToggleLocale = ({ isHome }) => {
+  const { changeLanguage } = useContext(SnipcartContext);
+
   return (
     <div className='Locales'>
       <IntlContextConsumer>
@@ -23,6 +26,7 @@ const ToggleLocale = ({ isHome }) => {
                 id='toggle_checkbox'
                 onChange={() => {
                   changeLocale(otherLocale);
+                  changeLanguage(otherLocale);
                 }}
                 className={`${isHome ? 'homepage' : ''}`}
               />

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { allSizes } from '@helpers/sizes';
 
-const Sizes = ({ text, availableSizes, selected, setSize, cancelError }) => (
+const Sizes = ({ text, availableSizes, selected, setSize }) => (
   <div>
     <div className='Product__size'>{text}</div>
     <div className='Product__size'>
@@ -12,14 +12,7 @@ const Sizes = ({ text, availableSizes, selected, setSize, cancelError }) => (
             availableSizes.includes(size) ? 'Product__size__available' : ''
           } ${selected === size ? 'Product__size__selected' : ''}`}
           key={size}
-          onClick={
-            availableSizes.includes(size)
-              ? () => {
-                  setSize(size);
-                  cancelError();
-                }
-              : null
-          }
+          onClick={availableSizes.includes(size) ? () => setSize(size) : null}
         >
           {size}
         </span>

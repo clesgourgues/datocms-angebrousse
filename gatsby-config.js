@@ -83,6 +83,84 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-snipcart-advanced`,
+      options: {
+        version: '3.0.15',
+        publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
+        defaultLang: 'fr',
+        currency: 'eur',
+        openCartOnAdd: false,
+        locales: {
+          fr: {
+            actions: {
+              continue_shopping: 'Poursuivre les achats',
+              checkout: 'Procéder au paiement'
+            },
+            header: {
+              title_cart_summary: 'Votre panier'
+            },
+            discounts: {
+              title: 'Code Promo'
+            },
+            address_form: {
+              address1: 'Adresse',
+              email: 'Email'
+            },
+            signin_form: {
+              email: 'Email'
+            },
+            register_form: {
+              email: 'Email'
+            },
+            errors: {
+              email: 'Veuillez spécifier une adresse mail valide',
+              customer_exists: 'Cet email est déjà utilisé.',
+              invalid_credentials: 'Email ou mot de passe invalide',
+              payment_failed: {
+                title: 'Impossible de finaliser votre paiement.',
+                description:
+                  'Veuillez vérifier vos informations de carte de crédit, ou réessayer plus tard.'
+              },
+              domain_crawling: {
+                title: "Votre commande n'a pas pu être finalisée.",
+                description:
+                  "Vous n'avez pas été débité. Veuillez contacter Angèle Brousse pour plus de détails."
+              },
+              quantity_out_of_stock:
+                "Il semble que ce produit n’est plus en stock. Il peut s'agir d'un problème de configuration. En continuant, cet article sera retiré de votre panier."
+            },
+            payment: {
+              form: {
+                continue_to_payment: 'Paiement',
+                place_order: 'Confirmer la commande'
+              }
+            },
+            confirmation: {
+              thank_you_for_your_order:
+                'Merci pour votre commande ! Votre facture vous a été envoyée par email.'
+            }
+          },
+          en: {
+            actions: {
+              forgot_password_email_sent_message:
+                'An email has been sent to you with the instructions to reset your password. Please consult it andfollow the steps.'
+            }
+          }
+        },
+        innerHTML: `
+           <billing section="bottom">
+            <fieldset class="snipcart-form__set">
+              <div class="snipcart-form__field">
+                <snipcart-label class="snipcart__font--tiny" for="phone">
+                Téléphone
+                </snipcart-label>
+              <snipcart-input name="phone" required maxLength="14" ></snipcart-input>
+              </div>
+            </fieldset>
+            </billing>`
+      }
+    },
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,

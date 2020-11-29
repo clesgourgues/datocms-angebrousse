@@ -15,5 +15,10 @@
   "eshop_all": "tout voir",
   "ring": "baguier",
   "no_product": "Aucun produit correspondant",
-  "404": "Cette page n'existe pas..."
+  "404": "Cette page n'existe pas...",
+  "toast_product": "L'article a bien été ajouté à votre panier",
+  "toast_product_ring": "L'article a bien été ajouté à votre panier. Merci de vérifier la taille de votre bague avant de valider la commande !",
+  "toast_connect": "Nous sommes ravis de vous revoir !",
+  "toast_disconnect": "Vous êtes maintenant deconnecté",
+  "toast_error": "Le paiement n'a pu avoir lieu"
 }

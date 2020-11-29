@@ -4,6 +4,7 @@ import { IntlProvider } from 'react-intl';
 
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
+import Toast from '@components/Toast';
 import Seo from '@components/Seo';
 import { AppProvider } from '@context/AppContext';
 import Cookies from '@components/Cookies';
@@ -74,6 +75,7 @@ export default ({ children, pageContext }) => {
               {layout === 'homepage' ? (
                 <>
                   <Seo locale={locale} homepage={true} />
+                  <Toast />
                   <Homepage
                     images={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}
@@ -85,6 +87,7 @@ export default ({ children, pageContext }) => {
               ) : (
                 <>
                   <Seo locale={locale} homepage={false} />
+                  <Toast />
                   <Layout
                     logos={data.parameters.edges[0].node}
                     menu={locale === 'en' ? data.enMenu.edges : data.frMenu.edges}

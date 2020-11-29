@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context';
 
-import { getItemsQuantity } from '@helpers/cart';
-import AppContext from '@context/AppContext';
+const SnipCart = () => {
+  const {
+    state: { cartQuantity }
+  } = useContext(SnipcartContext);
 
-const SnipCart = () => (
-  <AppContext.Consumer>
-    {({ cart }) => {
-      const quantity = cart ? getItemsQuantity(cart) : null;
-      return (
-        <div className='Snipcart snipcart-checkout'>
-          {cart && quantity > 0 && <div className='Snipcart__quantity'>{quantity}</div>}
-        </div>
-      );
-    }}
-  </AppContext.Consumer>
-);
+  return (
+    <div className='Snipcart snipcart-checkout'>
+      {<div className='Snipcart__quantity'>{cartQuantity}</div>}
+    </div>
+  );
+};
 
 export default SnipCart;

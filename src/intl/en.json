@@ -15,5 +15,10 @@
   "eshop_all": "All collections",
   "ring": "ring size",
   "no_product": "No matching product",
-  "404": "This page doesn't exist..."
+  "404": "This page doesn't exist...",
+  "toast_product": "The item was has been added to your cart",
+  "toast_product_ring": "The item was has been added to your cart. Please check the size of your ring before submitting your order !",
+  "toast_connect": "We are pleased to see you back !",
+  "toast_disconnect": "You are now disconnected",
+  "toast_error": "Payment failed, please try again later"
 }
