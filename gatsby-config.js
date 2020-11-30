@@ -142,8 +142,12 @@ module.exports = {
           },
           en: {
             actions: {
+              continue_shopping: 'Continue shopping',
               forgot_password_email_sent_message:
                 'An email has been sent to you with the instructions to reset your password. Please consult it andfollow the steps.'
+            },
+            header: {
+              title_cart_summary: 'Your cart'
             }
           }
         },

@@ -18,7 +18,6 @@ export default function HTML(props) {
         <noscript key='noscript' id='gatsby-noscript'>
           This app works best with JavaScript enabled.
         </noscript>
-        {/*         <div hidden id="snipcart" data-api-key={process.env.GATSBY_SNIPCART_API_KEY}></div> */}
         <div key={`body`} id='___gatsby' dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
       </body>
