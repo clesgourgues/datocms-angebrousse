@@ -104,12 +104,14 @@ form.Contact__form {
 }
 
 .Contact__form__button {
+  font-family: $font-title;
+  letter-spacing: 0.15em;
+  font-size: $font-size-big;
   text-align: center;
   text-transform: uppercase;
   padding: $spacing-small $spacing-medium;
   margin: $spacing-medium 0;
   position: relative;
-  font-weight: bold;
   width: 200px;
   background-color: black;
   color: white;

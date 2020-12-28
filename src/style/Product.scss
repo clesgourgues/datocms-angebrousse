@@ -111,6 +111,9 @@
 }
 
 .Product__button {
+  font-family: $font-title;
+  letter-spacing: 0.15em;
+  font-size: $font-size-big;
   text-align: center;
   text-transform: uppercase;
   padding: $spacing-small $spacing-medium;

@@ -8,7 +8,7 @@ const SnipCart = () => {
 
   return (
     <div className='Snipcart snipcart-checkout'>
-      {<div className='Snipcart__quantity'>{cartQuantity}</div>}
+      <div className='Snipcart__quantity'>{cartQuantity}</div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { IntlProvider } from 'react-intl';
 
@@ -8,10 +8,23 @@ import Toast from '@components/Toast';
 import Seo from '@components/Seo';
 import { AppProvider } from '@context/AppContext';
 import Cookies from '@components/Cookies';
+import { locales } from '../intl/locales';
 import '@style/index.scss';
 
 export default ({ children, pageContext }) => {
   const { locale, layout, intl } = pageContext;
+  useEffect(() => {
+    const setLanguage = async () => {
+      const { Snipcart } = window;
+      if (!Snipcart) return;
+      try {
+        await Snipcart.api.session.setLanguage(locale, locales[locale]);
+      } catch (error) {
+        console.warn('error while connecting to snipcart', error);
+      }
+    };
+    setLanguage();
+  }, [locale]);
   return (
     <StaticQuery
       query={graphql`

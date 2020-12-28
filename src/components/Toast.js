@@ -14,16 +14,6 @@ const Toast = () => {
     toast(message);
   };
 
-  const connectNotify = user => {
-    const message = intl.formatMessage({ id: 'toast_connect' });
-    toast(message);
-  };
-
-  const disconnectNotify = () => {
-    const message = intl.formatMessage({ id: 'toast_disconnect' });
-    toast(message);
-  };
-
   const paymentErrorNotify = () => {
     const message = intl.formatMessage({ id: 'toast_error' });
     toast(message);
@@ -33,8 +23,6 @@ const Toast = () => {
     const { Snipcart } = window;
     if (!Snipcart) return;
     Snipcart.events.on('item.adding', addItemNotify);
-    Snipcart.events.on('customer.signedin', connectNotify);
-    Snipcart.events.on('customer.signedout', disconnectNotify);
     Snipcart.events.on('payment.failed', paymentErrorNotify);
   }, []);
 

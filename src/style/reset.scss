@@ -124,7 +124,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 
@@ -141,10 +141,10 @@ body {
 }
 
 textarea,
-input[type="text"],
-input[type="button"],
-input[type="submit"],
-input[type="email"] {
+input[type='text'],
+input[type='button'],
+input[type='submit'],
+input[type='email'] {
   -webkit-appearance: none;
   border-radius: 0;
 }

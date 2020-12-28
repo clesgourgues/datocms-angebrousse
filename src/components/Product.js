@@ -22,6 +22,7 @@ const Product = ({ product, text, titleColor, locale }) => {
     locale === 'fr'
       ? `Collection ${product.collection[0].name}`
       : `${product.collection[0].name} Collection `;
+  const sizeText = locale === 'fr' ? 'Taille' : 'Size';
 
   return (
     <div className='Product'>
@@ -126,7 +127,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                 className={`Product__button snipcart-add-item ${
                   product.outOfStock ? 'Product__button__disabled' : ''
                 }`}
-                data-item-custom1-name='Taille'
+                data-item-custom1-name={sizeText}
                 data-item-custom1-options={getProductOptions(product.size, size)}
                 data-item-custom1-required='true'
                 data-item-quantity={quantity}
@@ -149,7 +150,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                 }`}
                 data-item-quantity={quantity}
                 data-item-has-taxes-included='true'
-                data-item-categories={`${product.collection[0].name},${product.category[0].name}`}
+                data-item-categories={`${product.collection[0].name}|${product.category[0].name}`}
                 // data-item-stackable={!product.category[0].name === "Bagues"}
               >
                 {text.buyButtonText}
