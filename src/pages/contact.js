@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 import Contact from '../components/Contact';
 import AppContext from '../context/AppContext';
 
-export default ({ data }) => (
-  <AppContext.Consumer>
-    {({ user }) => (
-      <Contact
-        text={data.datoCmsContactText}
-        user={user}
-        titleColor={data.datoCmsSiteParameter.titleColor.hex}
-      />
-    )}
-  </AppContext.Consumer>
-);
+export default ({ data }) => {
+  const { user } = useContext(AppContext);
+  return (
+    <Contact
+      text={data.datoCmsContactText}
+      user={user}
+      titleColor={data.datoCmsSiteParameter.titleColor.hex}
+    />
+  );
+};
 
 export const query = graphql`
   query($locale: String!) {
