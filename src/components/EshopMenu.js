@@ -32,7 +32,7 @@ export default ({ setSelected }) => (
     `}
     render={data => {
       const intl = useIntl();
-      const collection = intl.locale === 'fr' ? data.frCollection.edges : data.enCollection.edges;
+      const collection = data[`${intl.locale}Collection`].edges;
       const { updateSelectedFilters, updateSelectedCollection } = useContext(AppContext);
       return (
         <Animate up={true}>

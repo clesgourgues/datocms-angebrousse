@@ -61,9 +61,9 @@ export default ({ children, logos, menu, locale }) => (
     `}
     render={data => {
       const [open, setOpen] = useState(false);
-      const bottomMenu = locale === 'fr' ? data.frBottom.edges : data.enBottom.edges;
-      const encart = locale === 'fr' ? data.frEncart : data.enEncart;
-      const text = locale === 'fr' ? data.frFooter : data.enFooter;
+      const bottomMenu = data[`${locale}Bottom`].edges;
+      const encart = data[`${locale}Encart`];
+      const text = data[`${locale}Footer`];
       return (
         <div className={`Container ${open && 'Container__open'}`}>
           {encart.publi && <Encart encart={encart} />}
