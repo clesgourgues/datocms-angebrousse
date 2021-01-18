@@ -1,24 +1,14 @@
 import React, { useContext } from 'react';
 import { useIntl } from 'gatsby-plugin-intl';
-import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context';
+import AppContext from '../context/AppContext';
 
 import Animate from '@components/Animate';
 
 const UserMenu = () => {
   const intl = useIntl();
-  const { state } = useContext(SnipcartContext);
-  const { userStatus } = state;
-  const disconnect = async () => {
-    const { Snipcart } = window;
-    if (!Snipcart) return;
-    try {
-      await Snipcart.api.customer.signout();
-    } catch (error) {
-      console.warn('error while connecting to snipcart', error);
-    }
-  };
+  const { disconnect, customerStatus } = useContext(AppContext);
   const items =
-    userStatus !== 'SignedOut'
+    customerStatus !== 'SignedOut'
       ? [
           { name: intl.formatMessage({ id: 'orders' }), className: 'snipcart-customer-signin' },
           {

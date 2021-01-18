@@ -1,23 +1,14 @@
 import React, { useContext } from 'react';
 import { useIntl, Link } from 'gatsby-plugin-intl';
-import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context';
 
 import LookBookMenu from '@components/LookBookMenu';
 import EshopMenu from '@components/EshopMenu';
+import AppContext from '../context/AppContext';
 
 const MenuBurger = ({ menu, open, setOpen }) => {
   const intl = useIntl();
-  const { state } = useContext(SnipcartContext);
-  const { userStatus } = state;
-  const disconnect = async () => {
-    const { Snipcart } = window;
-    if (!Snipcart) return;
-    try {
-      await Snipcart.api.customer.signout();
-    } catch (error) {
-      console.warn('error while connecting to snipcart', error);
-    }
-  };
+  const { disconnect, customerStatus } = useContext(AppContext);
+
   return (
     <div className={`Menu__burger ${open ? 'Menu__burger__open' : ''}`}>
       <nav className='Menu__burger__nav'>
@@ -47,7 +38,7 @@ const MenuBurger = ({ menu, open, setOpen }) => {
               </li>
             )
           )}
-          {userStatus !== 'SignedOut' ? (
+          {customerStatus !== 'SignedOut' ? (
             <>
               <li className={`Menu__burger__item`}>
                 <a href='#' className='snipcart-customer-signin'>

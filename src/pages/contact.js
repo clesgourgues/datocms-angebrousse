@@ -4,11 +4,11 @@ import Contact from '../components/Contact';
 import AppContext from '../context/AppContext';
 
 export default ({ data }) => {
-  const { user } = useContext(AppContext);
+  const { customerEmail } = useContext(AppContext);
   return (
     <Contact
       text={data.datoCmsContactText}
-      user={user}
+      user={customerEmail}
       titleColor={data.datoCmsSiteParameter.titleColor.hex}
     />
   );

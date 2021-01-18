@@ -1,19 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { useIntl, Link } from 'gatsby-plugin-intl';
-import { SnipcartContext } from 'gatsby-plugin-snipcart-advanced/context';
 
 import LookBookMenu from '@components/LookBookMenu';
 import UserMenu from '@components/UserMenu';
 import EshopMenu from '@components/EshopMenu';
+import AppContext from '../context/AppContext';
 
 const Menu = ({ menu, selected, setSelected, isHome }) => {
   const [visibleLookBook, setVisibleLookBook] = useState(false);
   const [visibleUser, setVisibleUser] = useState(false);
   const [visibleEshop, setVisibleEshop] = useState(false);
   const intl = useIntl();
-  const {
-    state: { cartQuantity }
-  } = useContext(SnipcartContext);
+  const { cartCount } = useContext(AppContext);
   const renderLookBook = item => (
     <li
       className={`Menu__item__menu ${selected === item.node.name ? 'Menu__selected' : ''}`}
@@ -72,7 +70,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
           <a href='#' className='snipcart-checkout'>
             {intl.formatMessage({ id: 'cart' })}
           </a>
-          <div className='Snipcart__quantity__menu'>{` (${cartQuantity})`}</div>
+          <div className='Snipcart__quantity__menu'>{` (${cartCount})`}</div>
         </li>
       </ul>
     </nav>

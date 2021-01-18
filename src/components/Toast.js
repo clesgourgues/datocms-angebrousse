@@ -26,7 +26,7 @@ const Toast = () => {
     Snipcart.events.on('payment.failed', paymentErrorNotify);
   }, []);
 
-  return <ToastContainer position='bottom-right' hideProgressBar={true} autoClose={false} />;
+  return <ToastContainer position='bottom-right' hideProgressBar={true} autoClose={3000} />;
 };
 
 export default Toast;

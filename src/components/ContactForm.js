@@ -17,7 +17,7 @@ const ContactForm = ({ text, user }) => {
         name='email'
         placeholder={text.emailPlaceholderText}
         type='email'
-        defaultValue={user ? user.email : ''}
+        defaultValue={user ? user : ''}
         required
         maxLength='50'
       />

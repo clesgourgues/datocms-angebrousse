@@ -83,27 +83,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-snipcart-advanced`,
-      options: {
-        version: '3.0.15',
-        publicApiKey: process.env.GATSBY_SNIPCART_API_KEY,
-        defaultLang: 'fr',
-        currency: 'eur',
-        openCartOnAdd: false,
-        innerHTML: `
-           <billing section="bottom">
-            <fieldset class="snipcart-form__set">
-              <div class="snipcart-form__field">
-                <snipcart-label class="snipcart__font--tiny" for="phone">
-                Téléphone
-                </snipcart-label>
-              <snipcart-input name="phone" required maxLength="14" ></snipcart-input>
-              </div>
-            </fieldset>
-            </billing>`
-      }
-    },
-    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         output: `/sitemap.xml`,
