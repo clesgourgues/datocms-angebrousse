@@ -14,7 +14,6 @@ const defaultState = {
 const AppContext = React.createContext(defaultState);
 
 const AppProvider = ({ children, locale }) => {
-  const { Snipcart } = window;
   const [selectedCollection, setSelectedCollection] = useState(defaultState.selectedCollection);
   const [selectedFilters, setSelectedFilters] = useState(defaultState.selectedFilters);
   const [customerStatus, setCustomerStatus] = useState(defaultState.customerStatus);
@@ -22,6 +21,7 @@ const AppProvider = ({ children, locale }) => {
   const [customerEmail, setCustomerEmail] = useState(defaultState.customerEmail);
 
   const initSnipcart = async () => {
+    const { Snipcart } = window;
     await Snipcart.ready;
     const {
       customer: { status, email },
@@ -35,6 +35,7 @@ const AppProvider = ({ children, locale }) => {
   };
 
   const addSnipcartEvents = () => {
+    const { Snipcart } = window;
     Snipcart.events.on('item.added', () => {
       setCartCount(cartCount + 1);
     });
@@ -57,6 +58,7 @@ const AppProvider = ({ children, locale }) => {
   }, [initSnipcart, addSnipcartEvents]);
 
   const setLanguage = async () => {
+    const { Snipcart } = window;
     if (!Snipcart) return;
     try {
       await Snipcart.api.session.setLanguage(locale, locales[locale]);
@@ -70,6 +72,7 @@ const AppProvider = ({ children, locale }) => {
   }, [locale]);
 
   const disconnect = async () => {
+    const { Snipcart } = window;
     if (!Snipcart) return;
     try {
       await Snipcart.api.customer.signout();
