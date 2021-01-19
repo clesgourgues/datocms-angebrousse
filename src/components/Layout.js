@@ -50,18 +50,10 @@ export default ({ children, logos, menu, locale }) => (
           info
           publi
         }
-        instagram: allInstaNode(limit: 6, sort: { fields: timestamp, order: DESC }) {
-          edges {
-            node {
-              id
-              preview
-              localFile {
-                childImageSharp {
-                  fluid(maxHeight: 300) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
+        instagram: datoCmsInstagram {
+          photo {
+            fluid(maxWidth: 500) {
+              ...GatsbyDatoCmsFluid
             }
           }
         }
@@ -77,7 +69,7 @@ export default ({ children, logos, menu, locale }) => (
           {encart.publi && <Encart encart={encart} />}
           <Header logos={logos} menu={menu} open={open} setOpen={setOpen} />
           <main className='Content'>{children}</main>
-          <Footer menu={bottomMenu} text={text} instagram={data.instagram.edges} />
+          <Footer menu={bottomMenu} text={text} instagram={data.instagram.photo} />
         </div>
       );
     }}
