@@ -142,7 +142,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                     data-item-price={product.promoPrice ? product.promoPrice : product.price}
                     data-item-image={product.image[0].url}
                     data-item-name={product.name}
-                    data-item-url={`https://www.angelebrousse.com/${product.slug}`}
+                    data-item-url={`https://angelebrousse.com/${product.slug}`}
                     data-item-description={product.description}
                     className={`Product__button snipcart-add-item ${
                       product.outOfStock || error ? 'Product__button__disabled' : ''
@@ -163,7 +163,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                     data-item-price={product.promoPrice ? product.promoPrice : product.price}
                     data-item-image={product.image[0].url}
                     data-item-name={product.name}
-                    data-item-url={`https://www.angelebrousse.com/${product.slug}`}
+                    data-item-url={`https://angelebrousse.com/${product.slug}`}
                     data-item-description={product.description}
                     className={`Product__button snipcart-add-item ${
                       product.outOfStock || error ? 'Product__button__disabled' : ''
