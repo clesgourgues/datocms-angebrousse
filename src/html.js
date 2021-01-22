@@ -16,7 +16,7 @@ export default function HTML(props) {
         <link rel='preconnect' href='https://cdn.snipcart.com' />
         <link
           rel='stylesheet'
-          href='https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.css'
+          href='https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.css'
         />
       </head>
       <body {...props.bodyAttributes}>
@@ -26,7 +26,7 @@ export default function HTML(props) {
         </noscript>
         <div key={`body`} id='___gatsby' dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
-        <script async src='https://cdn.snipcart.com/themes/v3.0.27/default/snipcart.js'></script>
+        <script async src='https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.js'></script>
         <div
           hidden
           id='snipcart'
