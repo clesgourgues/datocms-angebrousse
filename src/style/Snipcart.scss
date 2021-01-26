@@ -55,7 +55,8 @@
 .snipcart__font--large,
 .snipcart__font--xlarge,
 .snipcart__font--black,
-.snipcart__font--subtitle, .snipcart__actions--link {
+.snipcart__font--subtitle,
+.snipcart__actions--link {
   background-color: white !important;
   font-family: $font-text !important;
 }
@@ -64,11 +65,17 @@
   font-size: $font-size-medium !important;
 }
 
-.snipcart-change-password__title, .snipcart-edit-customer-address__title,.snipcart-edit-customer-address__title, .snipcart-signin, .snipcart-cart__content, .snipcart-order__details   {
+.snipcart-change-password__title,
+.snipcart-edit-customer-address__title,
+.snipcart-edit-customer-address__title,
+.snipcart-signin,
+.snipcart-cart__content,
+.snipcart-order__details {
   margin-top: 30px !important;
 }
-.snipcart-layout__content, .snipcart-dashboard__containter {
-  margin-top: 100px !important;
+.snipcart-layout__content,
+.snipcart-dashboard__containter {
+  margin-top: 130px !important;
   font-family: $font-text !important;
 }
 
@@ -86,20 +93,22 @@
   margin-top: 20px !important;
 }
 
-.snipcart-signin, .snipcart-register  {
+.snipcart-signin,
+.snipcart-register {
   margin-top: 60px !important;
 }
 
- .snipcart-cart-summary__content  {
-      margin-top: 90px !important;
- }
+.snipcart-cart-summary__content {
+  margin-top: 90px !important;
+}
 
 .snipcart-signin__title {
   text-align: center !important;
 }
 
-.snipcart-item-line, .snipcart-form {
-box-shadow: none !important;
+.snipcart-item-line,
+.snipcart-form {
+  box-shadow: none !important;
 }
 
 .snipcart-cart__secondary-header {
@@ -153,8 +162,8 @@ box-shadow: none !important;
   fill: black !important;
 }
 
-.snipcart-cart-header{
-     &:after {
+.snipcart-cart-header {
+  &:after {
     content: '';
     background: url('../assets/logo.png') no-repeat center;
     background-size: 226px;
@@ -165,24 +174,25 @@ box-shadow: none !important;
     top: 50px;
     left: 0;
     padding: 10px 0;
-  } 
+  }
 }
 
 .snipcart-cart-header__title {
   font-family: $font-title !important;
-  letter-spacing: 0.15em  !important;
+  letter-spacing: 0.15em !important;
   font-weight: inherit !important;
   text-transform: uppercase;
   color: $color-dark;
-  display: none !important;
+  font-size: $font-size-big;
+  font-weight: bold !important;
+  position: absolute;
+  top: 200px;
+  left: 100px;
 }
 
-.snipcart-dashboard__order, .snipcart-order__box {
+.snipcart-dashboard__order,
+.snipcart-order__box {
   border-bottom: 1px solid $color-ultra-light !important;
-}
-
-.snipcart-order__invoice-number {
-  padding-bottom: 20px !important;
 }
 
 .snipcart-dashboard__order-header-title:first-child {
@@ -217,6 +227,10 @@ box-shadow: none !important;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   cursor: pointer;
+}
+
+.snipcart-cart-header__close-button {
+  flex: none !important;
 }
 
 .snipcart-cart-header__close-button svg {
@@ -263,22 +277,21 @@ box-shadow: none !important;
 }
 
 .snipcart-orders__title {
-align-self: flex-start  !important;
-border-bottom: none !important;
-margin-bottom: 0 !important;
+  align-self: flex-start !important;
+  border-bottom: none !important;
+  margin-bottom: 0 !important;
 }
 
 .snipcart-dashboard__content {
   margin-left: 16px;
   margin-right: 16px;
-  padding: 32px 16px  !important;
+  padding: 32px 16px !important;
 }
 
 .snipcart-dashboard__customer-details {
-    @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     width: 560px !important;
-    }
-
+  }
 }
 
 .snipcart-error-message--input {
@@ -290,6 +303,60 @@ margin-bottom: 0 !important;
   padding-top: 0 !important;
 }
 
+.snipcart-form__field {
+  margin: 12px 0 !important;
+}
+
+.snipcart-order__header {
+  flex-direction: column-reverse !important;
+  :nth-child(4) div {
+    letter-spacing: 0.15em;
+    font-family: $font-title !important;
+    color: white;
+    background-color: black;
+    padding: 5px !important;
+    text-transform: uppercase;
+  }
+}
+
+.snipcart-order__invoice-number {
+  padding-bottom: 20px !important;
+  display: flex;
+  align-items: center;
+}
+
 .snipcart-order__invoice-number--highlight {
-  color: $color-light !important;
+  background-color: black !important;
+  color: white !important;
+  margin-left: 5px;
+  font-weight: normal !important;
+  padding: 5px !important;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: $font-title !important;
+}
+
+.snipcart-order__header-item {
+  margin: 5px 0 !important;
+  display: flex;
+  align-items: baseline;
+  div,
+  a {
+    margin-right: 10px;
+  }
+  div:first-child {
+    font-weight: bold !important;
+  }
+}
+
+.snipcart-order__link {
+  text-align: left;
+}
+
+.snipcart-dashboard__order.snipcart__box {
+  padding: 16px !important;
+}
+
+.snipcart-dashboard__customer-details {
+  margin-bottom: 0 !important;
 }

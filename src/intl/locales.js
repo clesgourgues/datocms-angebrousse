@@ -20,7 +20,7 @@ export const locales = {
     },
     signin_form: {
       email: 'Email',
-      dont_have_an_account: 'Pas de compte ? Inscrivez vous ici.',
+      dont_have_an_account: 'Pas de compte ? Inscrivez-vous ici.',
       close_form: '< Retour',
       forgot_your_password: 'Mot de passe oublié ?'
     },
@@ -92,7 +92,8 @@ export const locales = {
       title: 'Informations du compte'
     },
     customer_dashboard: {
-      orders: 'Commandes'
+      orders: 'Commandes',
+      view_invoice: 'Détails'
     }
   },
   en: {
@@ -113,6 +114,9 @@ export const locales = {
     },
     confirmation: {
       thank_you_for_your_order: 'Your invoice has been sent by email.'
+    },
+    customer_dashboard: {
+      view_invoice: 'Details'
     }
   }
 };

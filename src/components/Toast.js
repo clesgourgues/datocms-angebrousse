@@ -24,7 +24,7 @@ const Toast = () => {
     if (!Snipcart) return;
     Snipcart.events.on('item.adding', addItemNotify);
     Snipcart.events.on('payment.failed', paymentErrorNotify);
-  }, []);
+  }, [intl.locale]);
 
   return <ToastContainer position='bottom-right' hideProgressBar={true} autoClose={3000} />;
 };

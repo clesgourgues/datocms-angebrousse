@@ -45,6 +45,18 @@ export default function HTML(props) {
               </fieldset>
             </div>
           </billing>
+          <shipping-address section='bottom'>
+            <div className='root'>
+              <fieldset className='snipcart-form__set'>
+                <div className='snipcart-form__field'>
+                  <snipcart-label className='snipcart__font--tiny' for='phone'>
+                    Téléphone
+                  </snipcart-label>
+                  <snipcart-input name='phone' required maxLength='14'></snipcart-input>
+                </div>
+              </fieldset>
+            </div>
+          </shipping-address>
         </div>
       </body>
     </html>
