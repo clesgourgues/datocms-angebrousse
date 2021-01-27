@@ -1,130 +1,112 @@
-import React, { Component } from 'react';
-import { withPrefix } from 'gatsby';
+import React, { useState, useEffect } from 'react';
+import { locales } from '../intl/locales';
 
 const defaultState = {
-  user: null,
-  cart: null,
-  error: null,
   selectedCollection: null,
-  selectedFilters: null
+  selectedFilters: null,
+  customerStatus: 'SignedOut',
+  customerEmail: null,
+  cartCount: 0,
+  disconnect: null,
+  ready: false
 };
 
 const AppContext = React.createContext(defaultState);
 
-class AppProvider extends Component {
-  state = {
-    cart: null,
-    user: null,
-    error: null,
-    selectedCollection: null,
-    selectedFilters: null
-  };
+const AppProvider = ({ children, locale }) => {
+  const [selectedCollection, setSelectedCollection] = useState(defaultState.selectedCollection);
+  const [selectedFilters, setSelectedFilters] = useState(defaultState.selectedFilters);
+  const [customerStatus, setCustomerStatus] = useState(defaultState.customerStatus);
+  const [cartCount, setCartCount] = useState(defaultState.cartCount);
+  const [customerEmail, setCustomerEmail] = useState(defaultState.customerEmail);
 
-  componentDidMount() {
-    document.addEventListener('snipcart.ready', this.snipcartReady);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.locale !== this.props.locale) {
-      this.setLang();
-    }
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('snipcart.ready', this.snipcartReady);
-  }
-
-  snipcartReady = () => {
-    this.setLang();
-    window.Snipcart.execute('config', 'show_continue_shopping', true);
-    window.Snipcart.api.configure('split_firstname_and_lastname', true);
-    this.setState({
-      user: window.Snipcart.api.user.current(),
-      cart: window.Snipcart.api.cart.get()
-    });
-    window.Snipcart.subscribe('item.added', this.updateCart);
-    window.Snipcart.subscribe('item.removed', this.updateCart);
-    window.Snipcart.subscribe('user.loggedout', this.updateAll);
-    window.Snipcart.subscribe('authentication.success', this.updateAll);
-    window.Snipcart.subscribe('item.adding', this.updateError);
-  };
-
-  loadLangJs = async locale =>
-    await this.addElem('script', {
-      src: withPrefix(`${locale}.js`)
-    });
-
-  setLang = async () => {
-    window.Snipcart.setLang(this.props.locale);
-    await this.loadLangJs(this.props.locale);
-  };
-
-  addElem = (tag, attrs) => {
-    return new Promise((resolve, reject) => {
-      var el = document.createElement(tag);
-      el.onload = resolve;
-      el.onerror = reject;
-
-      var keys = Object.keys(attrs);
-
-      for (var i = 0; i < keys.length; i++) {
-        var key = keys[i];
-        el.setAttribute(key, attrs[key]);
+  const initSnipcart = async () => {
+    const { Snipcart } = window;
+    await Snipcart.ready;
+    const {
+      customer: { status, email },
+      cart: {
+        items: { count }
       }
+    } = Snipcart.store.getState();
+    setCustomerStatus(status);
+    setCustomerEmail(email);
+    setCartCount(count);
+  };
 
-      document.head.appendChild(el);
+  const addSnipcartEvents = () => {
+    const { Snipcart } = window;
+    Snipcart.events.on('item.added', () => {
+      setCartCount(cartCount + 1);
+    });
+    Snipcart.events.on('item.removed', () => {
+      setCartCount(cartCount - 1);
+    });
+    Snipcart.events.on('customer.signedin', customer => {
+      setCustomerEmail(customer.email);
+      setCustomerStatus('SignedIn');
+    });
+    Snipcart.events.on('customer.signedout', customer => {
+      setCustomerEmail();
+      setCustomerStatus('SignedOut');
     });
   };
 
-  updateAll = () => {
-    this.updateCart();
-    this.updateUser();
-  };
+  useEffect(() => {
+    initSnipcart();
+    addSnipcartEvents();
+  }, [initSnipcart, addSnipcartEvents]);
 
-  updateCart = () => {
-    this.setState({ cart: window.Snipcart.api.cart.get() });
-  };
-
-  updateUser = () => {
-    this.setState({ user: window.Snipcart.api.user.current() });
-  };
-
-  updateError = (ev, item) => {
-    if (item.customFields.length > 0) {
-      if (item.customFields[0].value === '') {
-        ev.preventDefault();
-        this.setState({ error: true });
-      } else {
-        this.setState({ error: false });
-      }
+  const setLanguage = async () => {
+    const { Snipcart } = window;
+    if (!Snipcart) return;
+    try {
+      await Snipcart.api.session.setLanguage(locale, locales[locale]);
+    } catch (error) {
+      console.warn('error while connecting to snipcart', error);
     }
   };
 
-  cancelError = () => this.setState({ error: false });
+  useEffect(() => {
+    setLanguage();
+  }, [locale]);
 
-  updateSelectedCollection = selectedCollection => {
-    this.setState({ selectedCollection });
+  const disconnect = async () => {
+    const { Snipcart } = window;
+    if (!Snipcart) return;
+    try {
+      await Snipcart.api.customer.signout();
+    } catch (error) {
+      console.warn('error while connecting to snipcart', error);
+    }
   };
 
-  updateSelectedFilters = selectedFilters => {
-    this.setState({ selectedFilters });
+  const updateSelectedCollection = selectedCollection => {
+    setSelectedCollection(selectedCollection);
   };
 
-  render() {
-    return (
-      <AppContext.Provider
-        value={{
-          ...this.state,
-          cancelError: this.cancelError,
-          updateSelectedCollection: this.updateSelectedCollection,
-          updateSelectedFilters: this.updateSelectedFilters
-        }}
-      >
-        {this.props.children}
-      </AppContext.Provider>
-    );
-  }
-}
+  const updateSelectedFilters = selectedFilters => {
+    setSelectedFilters(selectedFilters);
+  };
+
+  return (
+    <AppContext.Provider
+      value={{
+        selectedCollection,
+        selectedFilters,
+        updateSelectedCollection,
+        updateSelectedFilters,
+        customerStatus,
+        cartCount,
+        disconnect,
+        customerEmail,
+        setLanguage
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
 
 export default AppContext;
 export { AppProvider };

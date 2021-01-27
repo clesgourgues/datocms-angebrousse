@@ -4,6 +4,7 @@ import { IntlProvider } from 'react-intl';
 
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
+import Toast from '@components/Toast';
 import Seo from '@components/Seo';
 import { AppProvider } from '@context/AppContext';
 import Cookies from '@components/Cookies';
@@ -71,6 +72,7 @@ export default ({ children, pageContext }) => {
         return (
           <AppProvider locale={locale}>
             <IntlProvider locale={locale} messages={intl.messages}>
+              <Toast />
               {layout === 'homepage' ? (
                 <>
                   <Seo locale={locale} homepage={true} />

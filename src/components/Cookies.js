@@ -24,14 +24,18 @@ const Cookies = ({ locale }) => {
         color: 'white',
         padding: '10px',
         border: '1px solid white',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontFamily: 'Oswald',
+        letterSpacing: '0.15em'
       }}
       declineButtonStyle={{
         background: 'black',
         color: 'white',
         padding: '10px',
         border: '1px solid white',
-        textTransform: 'uppercase'
+        textTransform: 'uppercase',
+        fontFamily: 'Oswald',
+        letterSpacing: '0.15em'
       }}
     >
       {text}

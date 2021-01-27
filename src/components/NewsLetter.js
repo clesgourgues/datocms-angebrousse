@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import addToMailchimp from 'gatsby-plugin-mailchimp';
 import { FaRegEnvelope } from 'react-icons/fa';
 import { createMarkup } from '@helpers/content';
+import AppContext from '../context/AppContext';
 
-const NewsLetter = ({ user, title, isHome }) => {
-  let [email, setEmail] = useState('');
+const NewsLetter = ({ title, isHome }) => {
+  const { customerEmail } = useContext(AppContext);
+  let [email, setEmail] = useState(customerEmail ? customerEmail : '');
   let [result, setResult] = useState(null);
-
-  useEffect(() => {
-    const userEmail = user ? user.email : '';
-    setEmail(userEmail);
-  }, []);
 
   const handleChange = event => {
     setEmail(event.target.value);

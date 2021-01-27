@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet';
 import Animate from '@components/Animate';
 
 const LookBook = ({ lookbooks, titleColor }) => (
-  <Animate>
+  <Animate quick={true}>
     <div className='Lookbook'>
       <div className='Wrap'>
         {lookbooks.map(collection => (
@@ -95,11 +95,7 @@ const LookBook = ({ lookbooks, titleColor }) => (
               {collection.node.photos.map((photo, index) => (
                 <div className='Lookbook__photo' key={`lookbook-${index}`}>
                   <h5 className='Lookbook__photo__legend'>{photo.legende}</h5>
-                  <Img
-                    fluid={photo.photo.fluid}
-                    loading='lazy'
-                    alt={collection.node.collection.name}
-                  />
+                  <Img fluid={photo.photo.fluid} alt={collection.node.collection.name} />
                 </div>
               ))}
             </div>

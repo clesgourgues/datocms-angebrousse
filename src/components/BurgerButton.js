@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const BurgerButton = ({ open, setOpen }) => {
   return (
-    <button className={`Burger ${open ? "Burger__open" : ""}`} onClick={() => setOpen(!open)}>
+    <button className={`Burger ${open ? 'Burger__open' : ''}`} onClick={() => setOpen(!open)}>
       <div />
       <div />
       <div />

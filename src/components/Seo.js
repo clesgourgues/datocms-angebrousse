@@ -42,12 +42,13 @@ export default ({ locale, homepage }) => (
       }
     `}
     render={data => {
-      const site = locale === 'fr' ? data.frSite : data.enSite;
+      const site = data[`${locale}Site`];
+      const {
+        globalSeo: { siteName, fallbackSeo },
+        faviconMetaTags
+      } = site;
       return homepage ? (
-        <Helmet
-          defaultTitle={site.globalSeo.siteName}
-          titleTemplate={`${site.globalSeo.siteName} | %s `}
-        >
+        <Helmet defaultTitle={siteName} titleTemplate={`${siteName} | %s `}>
           <html lang={locale} />
           <meta property='type' content='website' />
           <meta name='robots' content='index,follow' />
@@ -56,13 +57,13 @@ export default ({ locale, homepage }) => (
             name='google-site-verification'
             content='_TIE8Lho2Yb1g91y11vZVPSzPwFc9mirkq3GGci9zy8'
           />
-          <meta name='description' content={site.globalSeo.fallbackSeo.description} />
+          <meta name='description' content={fallbackSeo.description} />
           <meta name='url' content='https://angelebrousse.com' />
           <meta property='og:type' content='website' />
-          <meta property='og:title' content={site.globalSeo.siteName} />
-          <meta property='og:site_name' content={site.globalSeo.siteName} />
-          <meta property='og:description' content={site.globalSeo.fallbackSeo.description} />
-          <meta property='og:image' content={site.globalSeo.fallbackSeo.image.url} />
+          <meta property='og:title' content={siteName} />
+          <meta property='og:site_name' content={siteName} />
+          <meta property='og:description' content={fallbackSeo.description} />
+          <meta property='og:image' content={fallbackSeo.image.url} />
           <link rel='canonical' href='https://angelebrousse.com' />
           <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr' />
           <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='fr-FR' />
@@ -74,7 +75,7 @@ export default ({ locale, homepage }) => (
           <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en-US' />
           <link rel='alternate' href='https://angelebrousse.com/en' hreflang='en-CA' />
           <link rel='alternate' href='https://angelebrousse.com/fr' hreflang='x-default' />
-          {site.faviconMetaTags.tags
+          {faviconMetaTags.tags
             .filter(tag => tag.tagName === 'link')
             .map((tag, index) => (
               <link
@@ -86,17 +87,14 @@ export default ({ locale, homepage }) => (
             ))}
         </Helmet>
       ) : (
-        <Helmet
-          defaultTitle={site.globalSeo.siteName}
-          titleTemplate={`${site.globalSeo.siteName} | %s `}
-        >
+        <Helmet defaultTitle={siteName} titleTemplate={`${siteName} | %s `}>
           <html lang={locale} />
           <meta property='type' content='website' />
           <meta name='robots' content='index,follow' />
           <meta property='og:locale' content={locale} />
           <meta property='og:type' content='website' />
-          <meta property='og:site_name' content={site.globalSeo.siteName} />
-          {site.faviconMetaTags.tags
+          <meta property='og:site_name' content={siteName} />
+          {faviconMetaTags.tags
             .filter(tag => tag.tagName === 'link')
             .map((tag, index) => (
               <link

@@ -1,39 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { graphql } from 'gatsby';
 
 import Catalogue from '@components/Catalogue';
 import AppContext from '@context/AppContext';
 
-export default ({ data, pageContext }) => (
-  <AppContext.Consumer>
-    {({ selectedCollection, selectedFilters, updateSelectedFilters }) => {
-      const products =
-        selectedCollection === null
-          ? data.products.edges
-          : data.products.edges.filter(
-              ({ node: product }) => product['collection'][0]['name'] === selectedCollection
-            );
-      const selectedImageNode = data.image.edges.find(
-        ({ node: image }) => image['name'] === selectedCollection
-      );
-      const image =
-        selectedCollection === null || !selectedImageNode['node']['image']
-          ? data.parameters.eshopImage
-          : selectedImageNode['node']['image'];
-      return (
-        <Catalogue
-          products={products}
-          titleColor={data.parameters.titleColor.hex}
-          image={image}
-          selectedCollection={selectedCollection}
-          selectedFilters={selectedFilters}
-          locale={pageContext.locale}
-          updateSelectedFilters={updateSelectedFilters}
-        />
-      );
-    }}
-  </AppContext.Consumer>
-);
+export default ({ data, pageContext }) => {
+  const { selectedCollection, selectedFilters, updateSelectedFilters } = useContext(AppContext);
+  const products =
+    selectedCollection === null
+      ? data.products.edges
+      : data.products.edges.filter(
+          ({ node: product }) => product['collection'][0]['name'] === selectedCollection
+        );
+  const selectedImageNode = data.image.edges.find(
+    ({ node: image }) => image['name'] === selectedCollection
+  );
+  const image =
+    selectedCollection === null || !selectedImageNode['node']['image']
+      ? data.parameters.eshopImage
+      : selectedImageNode['node']['image'];
+  return (
+    <Catalogue
+      products={products}
+      titleColor={data.parameters.titleColor.hex}
+      image={image}
+      selectedCollection={selectedCollection}
+      selectedFilters={selectedFilters}
+      locale={pageContext.locale}
+      updateSelectedFilters={updateSelectedFilters}
+    />
+  );
+};
 
 export const query = graphql`
   query($locale: String!) {
