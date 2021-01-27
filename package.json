@@ -27,7 +27,7 @@
     "gatsby-source-filesystem": "^2.1.22",
     "gatsby-source-instagram": "^0.8.0",
     "gatsby-transformer-sharp": "^2.2.14",
-    "gsap": "^2.1.3",
+    "gsap": "^3.6.0",
     "intersection-observer": "^0.7.0",
     "node-sass": "^4.12.0",
     "postcss-preset-env": "^6.7.0",
