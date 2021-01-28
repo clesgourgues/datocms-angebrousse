@@ -1,13 +1,14 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { IntlProvider } from 'react-intl';
+import { ToastContainer } from 'react-toastify';
 
 import Layout from '@components/Layout';
 import Homepage from '@components/Homepage';
-import Toast from '@components/Toast';
 import Seo from '@components/Seo';
 import { AppProvider } from '@context/AppContext';
 import Cookies from '@components/Cookies';
+import Toast from '@components/Toast';
 import '@style/index.scss';
 
 export default ({ children, pageContext }) => {
@@ -73,6 +74,14 @@ export default ({ children, pageContext }) => {
           <AppProvider locale={locale}>
             <IntlProvider locale={locale} messages={intl.messages}>
               <Toast />
+              <ToastContainer
+                position='bottom-right'
+                hideProgressBar={true}
+                autoClose={3000}
+                limit={1}
+                newestOnTop={true}
+                containerId='add'
+              />
               {layout === 'homepage' ? (
                 <>
                   <Seo locale={locale} homepage={true} />

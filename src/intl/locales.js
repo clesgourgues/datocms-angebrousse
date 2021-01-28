@@ -103,7 +103,7 @@ export const locales = {
         'An email has been sent to you with the instructions to reset your password. Please consult it andfollow the steps.'
     },
     header: {
-      title_cart_summary: 'Your cart'
+      title_cart_summary: 'Cart'
     },
     signin_form: {
       close_form: '< Back'

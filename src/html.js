@@ -33,18 +33,50 @@ export default function HTML(props) {
           data-api-key={process.env.GATSBY_SNIPCART_API_KEY}
           data-config-add-product-behavior='none'
         >
+          <billing section='top'>
+            <div className='root'>
+              <fieldset className='snipcart-form__set'>
+                <div className='snipcart-form__field'>
+                  <snipcart-label className='snipcart__font--tiny' for='firstName'>
+                    Prénom/Firstname
+                  </snipcart-label>
+                  <snipcart-input name='firstName' required maxLength='20'></snipcart-input>
+                </div>
+              </fieldset>
+            </div>
+          </billing>
           <billing section='bottom'>
             <div className='root'>
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
                   <snipcart-label className='snipcart__font--tiny' for='phone'>
-                    Téléphone
+                    Téléphone/Phone
                   </snipcart-label>
                   <snipcart-input name='phone' required maxLength='14'></snipcart-input>
                 </div>
               </fieldset>
             </div>
           </billing>
+          <address-fields section='top'>
+            <div className='root'>
+              <fieldset className='snipcart-form__set'>
+                <div className='snipcart-form__field'>
+                  <snipcart-label className='snipcart__font--tiny' for='firstName'>
+                    Prénom/Firstname
+                  </snipcart-label>
+                  <snipcart-input name='firstName' required maxLength='20'></snipcart-input>
+                </div>
+              </fieldset>
+              <fieldset className='snipcart-form__set'>
+                <div className='snipcart-form__field'>
+                  <snipcart-label className='snipcart__font--tiny' for='phone'>
+                    Téléphone/Phone
+                  </snipcart-label>
+                  <snipcart-input name='phone' required maxLength='14'></snipcart-input>
+                </div>
+              </fieldset>
+            </div>
+          </address-fields>
           <shipping-address section='bottom'>
             <div className='root'>
               <fieldset className='snipcart-form__set'>

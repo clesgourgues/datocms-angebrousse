@@ -1,11 +1,26 @@
-import React, { useEffect } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useEffect, useCallback, useRef } from 'react';
+import { toast } from 'react-toastify';
 import { useIntl } from 'gatsby-plugin-intl';
 
 import 'react-toastify/dist/ReactToastify.css';
 
 const Toast = () => {
   const intl = useIntl();
+  const unsuscribeAdd = useRef();
+  const unsuscribeError = useRef();
+  const suscribeTosnipcart = useCallback(() => {
+    const { Snipcart } = window;
+    if (!Snipcart) return;
+    if (unsuscribeAdd.current) {
+      unsuscribeAdd.current();
+    }
+    if (unsuscribeError.current) {
+      unsuscribeError.current();
+    }
+    unsuscribeAdd.current = Snipcart.events.on('item.adding', addItemNotify);
+    unsuscribeError.current = Snipcart.events.on('payment.failed', paymentErrorNotify);
+  }, [intl.locale]);
+
   const addItemNotify = item => {
     const message =
       item.customFields.length > 0
@@ -16,17 +31,15 @@ const Toast = () => {
 
   const paymentErrorNotify = () => {
     const message = intl.formatMessage({ id: 'toast_error' });
+    toast.clearWaitingQueue();
     toast(message);
   };
 
   useEffect(() => {
-    const { Snipcart } = window;
-    if (!Snipcart) return;
-    Snipcart.events.on('item.adding', addItemNotify);
-    Snipcart.events.on('payment.failed', paymentErrorNotify);
-  }, [intl.locale]);
+    suscribeTosnipcart();
+  }, [suscribeTosnipcart]);
 
-  return <ToastContainer position='bottom-right' hideProgressBar={true} autoClose={3000} />;
+  return <></>;
 };
 
 export default Toast;

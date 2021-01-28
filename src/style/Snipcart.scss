@@ -65,6 +65,10 @@
   font-size: $font-size-medium !important;
 }
 
+.snipcart__font--tiny {
+    font-size: $font-size-small !important;
+}
+
 .snipcart-change-password__title,
 .snipcart-edit-customer-address__title,
 .snipcart-edit-customer-address__title,
@@ -75,7 +79,7 @@
 }
 .snipcart-layout__content,
 .snipcart-dashboard__containter {
-  margin-top: 130px !important;
+  margin-top: 180px !important;
   font-family: $font-text !important;
 }
 
@@ -89,26 +93,17 @@
   font-weight: bold !important;
 }
 
-.snipcart-cart__content {
-  margin-top: 20px !important;
-}
-
 .snipcart-signin,
 .snipcart-register {
   margin-top: 60px !important;
 }
 
 .snipcart-cart-summary__content {
-  margin-top: 90px !important;
+  margin-top: 150px !important;
 }
 
 .snipcart-signin__title {
   text-align: center !important;
-}
-
-.snipcart-item-line,
-.snipcart-form {
-  box-shadow: none !important;
 }
 
 .snipcart-cart__secondary-header {
@@ -168,10 +163,10 @@
     background: url('../assets/logo.png') no-repeat center;
     background-size: 226px;
     background-color: white;
-    height: 100px;
+    height: 160px;
     width: 100%;
     position: absolute;
-    top: 50px;
+    top: 53px;
     left: 0;
     padding: 10px 0;
   }
@@ -187,12 +182,16 @@
   font-weight: bold !important;
   position: absolute;
   top: 200px;
-  left: 100px;
+  left: 0;
+      width: 100%;
+    text-align: left;
+    background-color: white !important;
+    z-index: 50;
 }
 
 .snipcart-dashboard__order,
 .snipcart-order__box {
-  border-bottom: 1px solid $color-ultra-light !important;
+  box-shadow: 0 8px 24px rgb(231, 235, 237);
 }
 
 .snipcart-dashboard__order-header-title:first-child {
@@ -215,6 +214,14 @@
   text-transform: uppercase;
   line-height: 1.2rem;
   text-align: center;
+    margin-right: 30px !important;
+}
+
+.snipcart-item-line {
+    margin: 0 30px !important;
+    @media screen and (max-width: 768px) {
+    margin: 0 10px !important;
+  }
 }
 
 .snipcart-order__details div.snipcart-order__details {
@@ -263,10 +270,6 @@
   border: none !important;
 }
 
-.snipcart-item-line__title {
-  margin-right: 30px !important;
-}
-
 .snipcart-item-line__media--small {
   height: 75px !important;
 }
@@ -278,14 +281,16 @@
 
 .snipcart-orders__title {
   align-self: flex-start !important;
-  border-bottom: none !important;
-  margin-bottom: 0 !important;
+  box-shadow: none !important;
 }
 
 .snipcart-dashboard__content {
   margin-left: 16px;
   margin-right: 16px;
   padding: 32px 16px !important;
+      @media screen and (max-width: 768px) {
+    padding: 16px 0 !important;
+  }
 }
 
 .snipcart-dashboard__customer-details {
