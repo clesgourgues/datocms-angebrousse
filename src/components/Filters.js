@@ -14,6 +14,7 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
         <span
           onClick={() => onClick(categoryFilters, 'category')}
           className={`Filter ${isAllCategorySelected && 'Filter__selected'}`}
+          role='button'
         >
           {intl.formatMessage({ id: 'all_products' })}
         </span>
@@ -23,6 +24,7 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
               <span className='Filter__separator'>/</span>
               <span
                 onClick={() => onClick([category], 'category')}
+                role='button'
                 className={`Filter ${selected &&
                   selected.category &&
                   isSelectedFilter(category, selected.category) &&
@@ -38,6 +40,7 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
         <div className='Filters'>
           <span
             onClick={() => onClick(colorFilters, 'color')}
+            role='button'
             className={`Filter ${isAllColorsSelected && 'Filter__selected'}`}
           >
             {intl.formatMessage({ id: 'all_metals' })}
@@ -47,6 +50,7 @@ const Filters = ({ categoryFilters, colorFilters, selected, onClick }) => {
               <span className='Filter__separator'>/</span>
               <span
                 onClick={() => onClick([color], 'color')}
+                role='button'
                 className={`Filter ${selected &&
                   selected.color &&
                   isSelectedFilter(color, selected.color) &&

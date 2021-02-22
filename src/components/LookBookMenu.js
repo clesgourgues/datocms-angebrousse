@@ -25,6 +25,7 @@ export default ({ setSelected }) => (
               className='Menu__lookbook__item'
               key={item.node.name}
               onClick={() => (setSelected ? setSelected('look book') : {})}
+              role='button'
             >
               <Link to={`/${item.node.slug}`}>
                 {item.node.name} {item.node.year}

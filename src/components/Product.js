@@ -119,7 +119,7 @@ const Product = ({ product, text, titleColor, locale }) => {
             {product.size ? (
               <button
                 data-item-id={product.ref}
-                data-item-price={product.promoPrice ? product.promoPrice : product.price}
+                data-item-price={product.price}
                 data-item-image={product.image[0].url}
                 data-item-name={product.name}
                 data-item-url={`https://angelebrousse.com/${product.slug}`}
@@ -133,6 +133,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                 data-item-quantity={quantity}
                 data-item-has-taxes-included='true'
                 data-item-categories={`${product.collection[0].name}|${product.category[0].name}`}
+                data-item-price-discounted={product.promoPrice ? product.promoPrice : product.price}
                 // data-item-stackable={!product.category[0].name === "Bagues"}
               >
                 {text.buyButtonText}
@@ -140,7 +141,7 @@ const Product = ({ product, text, titleColor, locale }) => {
             ) : (
               <button
                 data-item-id={product.ref}
-                data-item-price={product.promoPrice ? product.promoPrice : product.price}
+                data-item-price={product.price}
                 data-item-image={product.image[0].url}
                 data-item-name={product.name}
                 data-item-url={`https://angelebrousse.com/${product.slug}`}
@@ -151,6 +152,7 @@ const Product = ({ product, text, titleColor, locale }) => {
                 data-item-quantity={quantity}
                 data-item-has-taxes-included='true'
                 data-item-categories={`${product.collection[0].name}|${product.category[0].name}`}
+                data-item-price-discounted={product.promoPrice ? product.promoPrice : product.price}
                 // data-item-stackable={!product.category[0].name === "Bagues"}
               >
                 {text.buyButtonText}

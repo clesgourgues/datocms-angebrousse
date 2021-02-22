@@ -18,6 +18,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
       onMouseEnter={() => setVisibleLookBook(true)}
       onMouseLeave={() => setVisibleLookBook(false)}
       key={item.node.name}
+      role='menuitem'
     >
       {item.node.name}
       {visibleLookBook && <LookBookMenu setSelected={setSelected} />}
@@ -30,6 +31,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
       onMouseEnter={() => setVisibleEshop(true)}
       onMouseLeave={() => setVisibleEshop(false)}
       key={item.node.name}
+      role='menuitem'
     >
       {item.node.name}
       {visibleEshop && <EshopMenu setSelected={setSelected} />}
@@ -48,7 +50,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
               key={item.node.name}
               className={`Menu__item ${selected === item.node.name ? 'Menu__selected' : ''}`}
             >
-              <Link to={item.node.slug} onClick={() => setSelected(item.node.name)}>
+              <Link to={item.node.slug} onClick={() => setSelected(item.node.name)} role='menuitem'>
                 {item.node.name}
               </Link>
             </li>
@@ -58,6 +60,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
           className={`Menu__item__menu ${selected === 'mon compte' ? 'Menu__selected' : ''}`}
           onMouseEnter={() => setVisibleUser(true)}
           onMouseLeave={() => setVisibleUser(false)}
+          role='menuitem'
         >
           {intl.formatMessage({ id: 'account' })}
           {visibleUser && <UserMenu />}
@@ -67,7 +70,7 @@ const Menu = ({ menu, selected, setSelected, isHome }) => {
             selected === 'panier' ? 'Menu__selected' : ''
           }`}
         >
-          <a href='#' className='snipcart-checkout'>
+          <a href='#' className='snipcart-checkout' role='menuitem'>
             {intl.formatMessage({ id: 'cart' })}
           </a>
           <div className='Snipcart__quantity__menu'>{` (${cartCount})`}</div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { locales } from '../intl/locales';
 
 const defaultState = {
@@ -20,7 +20,7 @@ const AppProvider = ({ children, locale }) => {
   const [cartCount, setCartCount] = useState(defaultState.cartCount);
   const [customerEmail, setCustomerEmail] = useState(defaultState.customerEmail);
 
-  const initSnipcart = async () => {
+  const initSnipcart = useCallback(async () => {
     const { Snipcart } = window;
     await Snipcart.ready;
     const {
@@ -32,9 +32,9 @@ const AppProvider = ({ children, locale }) => {
     setCustomerStatus(status);
     setCustomerEmail(email);
     setCartCount(count);
-  };
+  }, [setCustomerStatus, setCustomerEmail, setCartCount]);
 
-  const addSnipcartEvents = () => {
+  const addSnipcartEvents = useCallback(() => {
     const { Snipcart } = window;
     Snipcart.events.on('item.added', () => {
       setCartCount(cartCount + 1);
@@ -50,7 +50,7 @@ const AppProvider = ({ children, locale }) => {
       setCustomerEmail();
       setCustomerStatus('SignedOut');
     });
-  };
+  }, [cartCount, setCartCount, setCustomerEmail, setCustomerStatus]);
 
   useEffect(() => {
     initSnipcart();

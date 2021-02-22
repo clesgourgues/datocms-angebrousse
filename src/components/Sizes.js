@@ -13,6 +13,7 @@ const Sizes = ({ text, availableSizes, selected, setSize }) => (
           } ${selected === size ? 'Product__size__selected' : ''}`}
           key={size}
           onClick={availableSizes.includes(size) ? () => setSize(size) : null}
+          role='button'
         >
           {size}
         </span>

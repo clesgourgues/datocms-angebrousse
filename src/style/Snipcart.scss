@@ -79,7 +79,7 @@
 }
 .snipcart-layout__content,
 .snipcart-dashboard__containter {
-  margin-top: 180px !important;
+  margin-top: 200px !important;
   font-family: $font-text !important;
 }
 
@@ -99,7 +99,10 @@
 }
 
 .snipcart-cart-summary__content {
-  margin-top: 150px !important;
+      @media screen and (max-width: 768px) {
+      margin-top: 150px !important;
+  }
+
 }
 
 .snipcart-signin__title {
@@ -178,15 +181,14 @@
   font-weight: inherit !important;
   text-transform: uppercase;
   color: $color-dark;
-  font-size: $font-size-big;
+  font-size: $font-size-title;
   font-weight: bold !important;
   position: absolute;
-  top: 200px;
+  top: 250px;
   left: 0;
-      width: 100%;
     text-align: left;
     background-color: white !important;
-    z-index: 50;
+    z-index: 0;
 }
 
 .snipcart-dashboard__order,
@@ -364,4 +366,8 @@
 
 .snipcart-dashboard__customer-details {
   margin-bottom: 0 !important;
+}
+
+label.snipcart-form__label {
+  font-size: $font-size-small !important;
 }

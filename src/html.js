@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withPrefix } from 'gatsby';
 
 export default function HTML(props) {
+  console.log('props', props.htmlAttributes);
   return (
     <html {...props.htmlAttributes}>
       <head>
@@ -16,7 +17,7 @@ export default function HTML(props) {
         <link rel='preconnect' href='https://cdn.snipcart.com' />
         <link
           rel='stylesheet'
-          href='https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.css'
+          href='https://cdn.snipcart.com/themes/v3.0.29/default/snipcart.css'
         />
       </head>
       <body {...props.bodyAttributes}>
@@ -26,19 +27,19 @@ export default function HTML(props) {
         </noscript>
         <div key={`body`} id='___gatsby' dangerouslySetInnerHTML={{ __html: props.body }} />
         {props.postBodyComponents}
-        <script async src='https://cdn.snipcart.com/themes/v3.0.28/default/snipcart.js'></script>
+        <script async src='https://cdn.snipcart.com/themes/v3.0.29/default/snipcart.js'></script>
         <div
           hidden
           id='snipcart'
           data-api-key={process.env.GATSBY_SNIPCART_API_KEY}
           data-config-add-product-behavior='none'
         >
-          <billing section='top'>
+          {/*           <billing section='top'>
             <div className='root'>
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
                   <snipcart-label className='snipcart__font--tiny' for='firstName'>
-                    Prénom/Firstname
+                    Prénom
                   </snipcart-label>
                   <snipcart-input name='firstName' required maxLength='20'></snipcart-input>
                 </div>
@@ -50,19 +51,19 @@ export default function HTML(props) {
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
                   <snipcart-label className='snipcart__font--tiny' for='phone'>
-                    Téléphone/Phone
+                    Téléphone
                   </snipcart-label>
                   <snipcart-input name='phone' required maxLength='14'></snipcart-input>
                 </div>
               </fieldset>
             </div>
-          </billing>
+          </billing> */}
           <address-fields section='top'>
             <div className='root'>
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
                   <snipcart-label className='snipcart__font--tiny' for='firstName'>
-                    Prénom/Firstname
+                    Prénom
                   </snipcart-label>
                   <snipcart-input name='firstName' required maxLength='20'></snipcart-input>
                 </div>
@@ -70,14 +71,14 @@ export default function HTML(props) {
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
                   <snipcart-label className='snipcart__font--tiny' for='phone'>
-                    Téléphone/Phone
+                    Téléphone
                   </snipcart-label>
                   <snipcart-input name='phone' required maxLength='14'></snipcart-input>
                 </div>
               </fieldset>
             </div>
           </address-fields>
-          <shipping-address section='bottom'>
+          {/*           <shipping-address section='bottom'>
             <div className='root'>
               <fieldset className='snipcart-form__set'>
                 <div className='snipcart-form__field'>
@@ -88,7 +89,7 @@ export default function HTML(props) {
                 </div>
               </fieldset>
             </div>
-          </shipping-address>
+          </shipping-address> */}
         </div>
       </body>
     </html>

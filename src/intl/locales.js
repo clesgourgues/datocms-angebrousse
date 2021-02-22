@@ -16,7 +16,11 @@ export const locales = {
     },
     address_form: {
       address1: 'Adresse',
-      email: 'Email'
+      email: 'Email',
+      name: 'Nom',
+      firsName: 'Prénom',
+      phone: 'Téléphone',
+      province: 'Complément'
     },
     signin_form: {
       email: 'Email',
@@ -117,6 +121,11 @@ export const locales = {
     },
     customer_dashboard: {
       view_invoice: 'Details'
+    },
+    address_form: {
+      name: 'Name',
+      surname: 'Surname',
+      phone: 'Phone'
     }
   }
 };

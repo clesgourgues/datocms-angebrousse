@@ -19,6 +19,7 @@ const MenuBurger = ({ menu, open, setOpen }) => {
                 className='Menu__burger__item__menu'
                 key={item.node.name}
                 onClick={() => setOpen()}
+                role='menuitem'
               >
                 {item.node.name}
                 <LookBookMenu />
@@ -28,12 +29,18 @@ const MenuBurger = ({ menu, open, setOpen }) => {
                 className='Menu__burger__item__menu'
                 key={item.node.name}
                 onClick={() => setOpen()}
+                role='menuitem'
               >
                 {item.node.name}
                 <EshopMenu />
               </li>
             ) : (
-              <li className={`Menu__burger__item`} onClick={() => setOpen()} key={item.node.name}>
+              <li
+                className={`Menu__burger__item`}
+                onClick={() => setOpen()}
+                key={item.node.name}
+                role='menuitem'
+              >
                 <Link to={item.node.slug}>{item.node.name}</Link>
               </li>
             )
@@ -41,17 +48,19 @@ const MenuBurger = ({ menu, open, setOpen }) => {
           {customerStatus !== 'SignedOut' ? (
             <>
               <li className={`Menu__burger__item`}>
-                <a href='#' className='snipcart-customer-signin'>
+                <a href='#' className='snipcart-customer-signin' role='menuitem'>
                   {intl.formatMessage({ id: 'orders' })}
                 </a>
               </li>
               <li className={`Menu__burger__item`} onClick={() => disconnect()}>
-                <a href='#'>{intl.formatMessage({ id: 'disconnect' })}</a>
+                <a href='#' role='menuitem'>
+                  {intl.formatMessage({ id: 'disconnect' })}
+                </a>
               </li>
             </>
           ) : (
             <li className={`Menu__burger__item`}>
-              <a href='#' className='snipcart-customer-signin'>
+              <a href='#' className='snipcart-customer-signin' role='menuitem'>
                 {intl.formatMessage({ id: 'connect' })}
               </a>
             </li>
